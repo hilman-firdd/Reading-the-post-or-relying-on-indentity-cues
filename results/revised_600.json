@@ -1,0 +1,364 @@
+{
+ "item_file": "items_llm600.jsonl",
+ "systems": {
+  "word-LR": {
+   "verdict_accuracy_EV1": 0.7633,
+   "n_orig": 600,
+   "accuracy_per_class": {
+    "hatespeech": [
+     0.89,
+     200
+    ],
+    "offensive": [
+     0.64,
+     200
+    ],
+    "normal": [
+     0.76,
+     200
+    ]
+   },
+   "verdict_only_MR_pass": {
+    "E1": [
+     0.5088,
+     397,
+     [
+      0.4598,
+      0.5577
+     ]
+    ],
+    "E2": [
+     0.715,
+     200,
+     [
+      0.6488,
+      0.7731
+     ]
+    ],
+    "R1": [
+     0.0,
+     600,
+     [
+      0.0,
+      0.0064
+     ]
+    ],
+    "R2": [
+     0.67,
+     600,
+     [
+      0.6314,
+      0.7064
+     ]
+    ],
+    "R3": [
+     0.2367,
+     600,
+     [
+      0.2044,
+      0.2723
+     ]
+    ],
+    "I1": [
+     0.8209,
+     134,
+     [
+      0.7473,
+      0.8766
+     ]
+    ],
+    "I2": [
+     0.9283,
+     600,
+     [
+      0.9049,
+      0.9464
+     ]
+    ],
+    "E1_lenient": [
+     0.5088,
+     397,
+     [
+      0.4598,
+      0.5577
+     ]
+    ],
+    "I3": {
+     "status": "not evaluated in pilot (paraphrase requires an LLM; no text generated for the LR baseline)",
+     "created": 600
+    }
+   },
+   "policy_axis_split": {
+    "R2_narrow": {
+     "label_changed": [
+      0.36,
+      200
+     ],
+     "label_unchanged": [
+      0.825,
+      400
+     ]
+    },
+    "R3_negate": {
+     "label_changed": [
+      0.2367,
+      600
+     ],
+     "label_unchanged": null
+    },
+    "R3_confound_note": "R3 flips every reference label, so for a fixed-verdict (policy-blind) model R3 pass rate equals P(fixed verdict == flipped label), i.e. the complement of a label-balanced accuracy, not policy sensitivity."
+   },
+   "citation_quality": {
+    "has_citation_channel": true,
+    "support_rate_on_violating": [
+     0.2614,
+     306
+    ],
+    "token_f1_on_violating": 0.4172
+   },
+   "identity_swap": {
+    "n_posts": 134,
+    "flip_I1": [
+     0.1791,
+     24
+    ],
+    "flip_I2": [
+     0.0746,
+     10
+    ],
+    "mcnemar_discordant": {
+     "only_I1_flips_b": 20,
+     "only_I2_flips_c": 6,
+     "exact_p": 0.00936
+    },
+    "paired_diff_I1_minus_I2": 0.1045,
+    "paired_diff_CI95": [
+     0.0299,
+     0.1791
+    ],
+    "flip_direction_I1": {
+     "violating->not_violating": 13,
+     "not_violating->violating": 11
+    }
+   },
+   "dual_axis_crosstab": {
+    "evidence_and_policy": 0,
+    "evidence_only": 345,
+    "policy_only": 0,
+    "neither": 252,
+    "n": 597
+   },
+   "reconciliation": {
+    "created": {
+     "ORIG": 600,
+     "E1": 397,
+     "R1": 600,
+     "R2": 600,
+     "R3": 600,
+     "I1": 134,
+     "I2": 600,
+     "I3": 600,
+     "E2": 200
+    },
+    "with_text": {
+     "ORIG": 600,
+     "E1": 397,
+     "R1": 600,
+     "R2": 600,
+     "R3": 600,
+     "I1": 134,
+     "I2": 600,
+     "E2": 200
+    },
+    "scored": {
+     "ORIG": 600,
+     "E1": 397,
+     "R1": 600,
+     "R2": 600,
+     "R3": 600,
+     "I1": 134,
+     "I2": 600,
+     "E2": 200
+    }
+   }
+  },
+  "char-LR": {
+   "verdict_accuracy_EV1": 0.7433,
+   "n_orig": 600,
+   "accuracy_per_class": {
+    "hatespeech": [
+     0.905,
+     200
+    ],
+    "offensive": [
+     0.595,
+     200
+    ],
+    "normal": [
+     0.73,
+     200
+    ]
+   },
+   "verdict_only_MR_pass": {
+    "E1": [
+     0.6977,
+     397,
+     [
+      0.6508,
+      0.7408
+     ]
+    ],
+    "E2": [
+     0.815,
+     200,
+     [
+      0.7554,
+      0.8627
+     ]
+    ],
+    "R1": [
+     0.0,
+     600,
+     [
+      0.0,
+      0.0064
+     ]
+    ],
+    "R2": [
+     0.68,
+     600,
+     [
+      0.6416,
+      0.7161
+     ]
+    ],
+    "R3": [
+     0.2567,
+     600,
+     [
+      0.2233,
+      0.2931
+     ]
+    ],
+    "I1": [
+     0.8507,
+     134,
+     [
+      0.7807,
+      0.9013
+     ]
+    ],
+    "I2": [
+     0.9383,
+     600,
+     [
+      0.9162,
+      0.9549
+     ]
+    ],
+    "E1_lenient": [
+     0.6977,
+     397,
+     [
+      0.6508,
+      0.7408
+     ]
+    ],
+    "I3": {
+     "status": "not evaluated in pilot (paraphrase requires an LLM; no text generated for the LR baseline)",
+     "created": 600
+    }
+   },
+   "policy_axis_split": {
+    "R2_narrow": {
+     "label_changed": [
+      0.405,
+      200
+     ],
+     "label_unchanged": [
+      0.8175,
+      400
+     ]
+    },
+    "R3_negate": {
+     "label_changed": [
+      0.2567,
+      600
+     ],
+     "label_unchanged": null
+    },
+    "R3_confound_note": "R3 flips every reference label, so for a fixed-verdict (policy-blind) model R3 pass rate equals P(fixed verdict == flipped label), i.e. the complement of a label-balanced accuracy, not policy sensitivity."
+   },
+   "citation_quality": {
+    "has_citation_channel": false,
+    "support_rate_on_violating": null,
+    "token_f1_on_violating": null
+   },
+   "identity_swap": {
+    "n_posts": 134,
+    "flip_I1": [
+     0.1493,
+     20
+    ],
+    "flip_I2": [
+     0.0522,
+     7
+    ],
+    "mcnemar_discordant": {
+     "only_I1_flips_b": 19,
+     "only_I2_flips_c": 6,
+     "exact_p": 0.0146
+    },
+    "paired_diff_I1_minus_I2": 0.097,
+    "paired_diff_CI95": [
+     0.0224,
+     0.1716
+    ],
+    "flip_direction_I1": {
+     "violating->not_violating": 19,
+     "not_violating->violating": 1
+    }
+   },
+   "dual_axis_crosstab": {
+    "evidence_and_policy": 0,
+    "evidence_only": 440,
+    "policy_only": 0,
+    "neither": 157,
+    "n": 597
+   },
+   "reconciliation": {
+    "created": {
+     "ORIG": 600,
+     "E1": 397,
+     "R1": 600,
+     "R2": 600,
+     "R3": 600,
+     "I1": 134,
+     "I2": 600,
+     "I3": 600,
+     "E2": 200
+    },
+    "with_text": {
+     "ORIG": 600,
+     "E1": 397,
+     "R1": 600,
+     "R2": 600,
+     "R3": 600,
+     "I1": 134,
+     "I2": 600,
+     "E2": 200
+    },
+    "scored": {
+     "ORIG": 600,
+     "E1": 397,
+     "R1": 600,
+     "R2": 600,
+     "R3": 600,
+     "I1": 134,
+     "I2": 600,
+     "E2": 200
+    }
+   }
+  }
+ }
+}

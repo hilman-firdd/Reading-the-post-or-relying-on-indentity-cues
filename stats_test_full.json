@@ -1,0 +1,63 @@
+{
+ "split": "test",
+ "posts": {
+  "hatespeech": 587,
+  "offensive": 519,
+  "normal": 782
+ },
+ "items": 13617,
+ "by_mr": {
+  "ORIG": 1888,
+  "E1": 1098,
+  "R1": 1888,
+  "R2": 1888,
+  "R3": 1888,
+  "I1": 409,
+  "I2": 1888,
+  "I3": 1888,
+  "E2": 782
+ },
+ "I1_swaps_top": [
+  [
+   "jews->hindus",
+   63
+  ],
+  [
+   "muslim->christian",
+   49
+  ],
+  [
+   "white->black",
+   40
+  ],
+  [
+   "women->men",
+   37
+  ],
+  [
+   "immigrants->citizens",
+   36
+  ],
+  [
+   "gay->straight",
+   28
+  ],
+  [
+   "black->white",
+   25
+  ],
+  [
+   "jew->hindu",
+   23
+  ],
+  [
+   "blacks->whites",
+   23
+  ],
+  [
+   "muslims->christians",
+   21
+  ]
+ ],
+ "E1_mean_tokens_erased": 3.22
+}

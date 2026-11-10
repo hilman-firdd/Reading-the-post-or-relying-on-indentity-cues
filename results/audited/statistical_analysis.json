@@ -1,0 +1,3931 @@
+{
+ "units_of_analysis": {
+  "per_MR_metrics": "post (one item per post per MR, verified); Wilson 95% CI",
+  "ALL_rows": "post-cluster bootstrap (posts resampled, B=2000)",
+  "paired_tests": "post-paired exact McNemar; risk difference with post bootstrap CI (B=5000); conditional OR with exact CI",
+  "kappa": "validation items, post-cluster bootstrap CI"
+ },
+ "seed": 42,
+ "behaviour_E_R": {
+  "qwen2.5:7b|direct": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "violating->not_violating": 174,
+     "not_violating->not_violating": 77,
+     "violating->violating": 115,
+     "violating->insufficient": 28,
+     "not_violating->violating": 1,
+     "insufficient->not_violating": 1,
+     "not_violating->insufficient": 1
+    },
+    "n_orig_violating_and_E1_answered": 317,
+    "retained_violating_after_removal": [
+     0.3628,
+     115,
+     317,
+     [
+      0.3118,
+      0.4171
+     ]
+    ],
+    "moved_to_not_violating": 0.5489,
+    "moved_to_insufficient": 0.0883,
+    "E1_violating_with_quotes": 116,
+    "quotes_cite_removed_words": [
+     0.0,
+     0
+    ],
+    "quotes_nonverbatim": [
+     0.0172,
+     2
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->violating": 92,
+     "violating->violating": 91,
+     "not_violating->not_violating": 15,
+     "insufficient->not_violating": 1,
+     "violating->not_violating": 1
+    },
+    "n_orig_not_violating_and_E2_answered": 108,
+    "turned_violating_after_insertion": [
+     0.8519,
+     92,
+     108,
+     [
+      0.7728,
+      0.9067
+     ]
+    ],
+    "E2_violating_with_quotes": 183,
+    "quotes_cite_injected_words": [
+     0.9727,
+     178
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 600,
+    "abstained_among_answered": [
+     0.3217,
+     193,
+     [
+      0.2855,
+      0.3601
+     ]
+    ],
+    "refused": 0,
+    "pass_overall_nonanswer_wrong": 0.3217,
+    "note": ""
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 59,
+     "pass_among_answered": [
+      0.3559,
+      21,
+      [
+       0.246,
+       0.4834
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.26,
+      50
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 8,
+      "violating->violating": 37,
+      "violating->not_violating": 13,
+      "not_violating->violating": 1
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 141,
+     "pass_among_answered": [
+      0.7234,
+      102,
+      [
+       0.6444,
+       0.7906
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.5568,
+      88
+     ],
+     "transition_orig_to_R2": {
+      "violating->not_violating": 49,
+      "not_violating->not_violating": 53,
+      "violating->violating": 39
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.79,
+      158,
+      [
+       0.7284,
+       0.8407
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.1319,
+      182
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 158,
+      "not_violating->not_violating": 17,
+      "violating->not_violating": 24,
+      "insufficient->insufficient": 1
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.72,
+      144,
+      [
+       0.6541,
+       0.7776
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.4022,
+      92
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 107,
+      "violating->violating": 55,
+      "violating->not_violating": 37,
+      "insufficient->insufficient": 1
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 600,
+    "verdict_changed_vs_orig": [
+     0.1133,
+     68,
+     [
+      0.0904,
+      0.1412
+     ]
+    ],
+    "pass_among_answered": 0.2683,
+    "passes_without_changing_verdict": 132,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  },
+  "qwen2.5:7b|evidence": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "violating->not_violating": 129,
+     "not_violating->not_violating": 42,
+     "violating->violating": 119,
+     "violating->insufficient": 86,
+     "not_violating->insufficient": 14,
+     "violating->UNP": 2,
+     "UNP->insufficient": 2,
+     "insufficient->insufficient": 2,
+     "insufficient->not_violating": 1
+    },
+    "n_orig_violating_and_E1_answered": 334,
+    "retained_violating_after_removal": [
+     0.3563,
+     119,
+     334,
+     [
+      0.3068,
+      0.409
+     ]
+    ],
+    "moved_to_not_violating": 0.3862,
+    "moved_to_insufficient": 0.2575,
+    "E1_violating_with_quotes": 119,
+    "quotes_cite_removed_words": [
+     0.0,
+     0
+    ],
+    "quotes_nonverbatim": [
+     0.0084,
+     1
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->violating": 93,
+     "violating->violating": 91,
+     "not_violating->not_violating": 7,
+     "insufficient->violating": 6,
+     "not_violating->insufficient": 1,
+     "violating->not_violating": 1,
+     "insufficient->not_violating": 1
+    },
+    "n_orig_not_violating_and_E2_answered": 108,
+    "turned_violating_after_insertion": [
+     0.9167,
+     99,
+     108,
+     [
+      0.8492,
+      0.9555
+     ]
+    ],
+    "E2_violating_with_quotes": 190,
+    "quotes_cite_injected_words": [
+     0.9842,
+     187
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 598,
+    "abstained_among_answered": [
+     0.2926,
+     175,
+     [
+      0.2576,
+      0.3303
+     ]
+    ],
+    "refused": 0,
+    "pass_overall_nonanswer_wrong": 0.2917,
+    "note": ""
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 57,
+     "pass_among_answered": [
+      0.2281,
+      13,
+      [
+       0.1384,
+       0.3521
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.2,
+      55
+     ],
+     "transition_orig_to_R2": {
+      "violating->not_violating": 11,
+      "violating->violating": 43,
+      "UNP->UNP": 1,
+      "violating->insufficient": 1,
+      "not_violating->not_violating": 2,
+      "violating->UNP": 1
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 140,
+     "pass_among_answered": [
+      0.6143,
+      86,
+      [
+       0.5316,
+       0.6908
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.5,
+      96
+     ],
+     "transition_orig_to_R2": {
+      "violating->not_violating": 48,
+      "not_violating->not_violating": 38,
+      "violating->violating": 47,
+      "not_violating->insufficient": 4,
+      "insufficient->insufficient": 2,
+      "violating->UNP": 1,
+      "violating->insufficient": 1
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.865,
+      173,
+      [
+       0.8107,
+       0.9055
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0753,
+      186
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 172,
+      "not_violating->not_violating": 12,
+      "violating->not_violating": 14,
+      "UNP->violating": 1,
+      "insufficient->insufficient": 1
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.59,
+      118,
+      [
+       0.5208,
+       0.6558
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.2826,
+      92
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 92,
+      "violating->violating": 65,
+      "not_violating->insufficient": 7,
+      "not_violating->violating": 2,
+      "insufficient->insufficient": 7,
+      "violating->not_violating": 26,
+      "violating->insufficient": 1
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 598,
+    "verdict_changed_vs_orig": [
+     0.1137,
+     68,
+     [
+      0.0907,
+      0.1417
+     ]
+    ],
+    "pass_among_answered": 0.2793,
+    "passes_without_changing_verdict": 125,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  },
+  "llama3.1:8b|direct": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "REF->not_violating": 120,
+     "violating->not_violating": 47,
+     "REF->REF": 73,
+     "violating->violating": 36,
+     "REF->violating": 92,
+     "REF->insufficient": 5,
+     "violating->REF": 4,
+     "not_violating->not_violating": 17,
+     "violating->insufficient": 2,
+     "not_violating->violating": 1
+    },
+    "n_orig_violating_and_E1_answered": 85,
+    "retained_violating_after_removal": [
+     0.4235,
+     36,
+     85,
+     [
+      0.324,
+      0.5296
+     ]
+    ],
+    "moved_to_not_violating": 0.5529,
+    "moved_to_insufficient": 0.0235,
+    "E1_violating_with_quotes": 129,
+    "quotes_cite_removed_words": [
+     0.0,
+     0
+    ],
+    "quotes_nonverbatim": [
+     0.0,
+     0
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->REF": 52,
+     "violating->violating": 7,
+     "REF->REF": 60,
+     "violating->REF": 64,
+     "not_violating->violating": 10,
+     "not_violating->not_violating": 5,
+     "REF->violating": 2
+    },
+    "n_orig_not_violating_and_E2_answered": 15,
+    "turned_violating_after_insertion": [
+     0.6667,
+     10,
+     15,
+     [
+      0.4171,
+      0.8482
+     ]
+    ],
+    "E2_violating_with_quotes": 19,
+    "quotes_cite_injected_words": [
+     0.7895,
+     15
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 203,
+    "abstained_among_answered": [
+     0.0493,
+     10,
+     [
+      0.027,
+      0.0883
+     ]
+    ],
+    "refused": 397,
+    "pass_overall_nonanswer_wrong": 0.0167,
+    "note": ""
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 15,
+     "pass_among_answered": [
+      0.6,
+      9,
+      [
+       0.3575,
+       0.8018
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.5714,
+      14
+     ],
+     "transition_orig_to_R2": {
+      "violating->not_violating": 8,
+      "REF->REF": 41,
+      "violating->violating": 6,
+      "violating->REF": 3,
+      "not_violating->not_violating": 1
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 74,
+     "pass_among_answered": [
+      0.6892,
+      51,
+      [
+       0.5766,
+       0.7831
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.6327,
+      49
+     ],
+     "transition_orig_to_R2": {
+      "REF->REF": 64,
+      "violating->violating": 18,
+      "not_violating->not_violating": 17,
+      "violating->not_violating": 31,
+      "REF->not_violating": 3,
+      "REF->violating": 5,
+      "violating->REF": 3
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 18,
+     "pass_among_answered": [
+      0.7778,
+      14,
+      [
+       0.5478,
+       0.91
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.25,
+      16
+     ],
+     "transition_orig_to_R2": {
+      "REF->REF": 177,
+      "violating->not_violating": 4,
+      "violating->violating": 12,
+      "violating->REF": 5,
+      "REF->violating": 2
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 136,
+     "pass_among_answered": [
+      0.7574,
+      103,
+      [
+       0.6789,
+       0.8217
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.5455,
+      66
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 66,
+      "violating->violating": 30,
+      "REF->REF": 59,
+      "violating->not_violating": 36,
+      "not_violating->violating": 1,
+      "violating->REF": 5,
+      "REF->not_violating": 1,
+      "REF->violating": 2
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 166,
+    "verdict_changed_vs_orig": [
+     0.1265,
+     21,
+     [
+      0.0843,
+      0.1857
+     ]
+    ],
+    "pass_among_answered": 0.3675,
+    "passes_without_changing_verdict": 48,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  },
+  "llama3.1:8b|evidence": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "REF->not_violating": 118,
+     "REF->REF": 219,
+     "REF->violating": 38,
+     "REF->insufficient": 2,
+     "violating->not_violating": 6,
+     "not_violating->not_violating": 6,
+     "violating->REF": 2,
+     "violating->violating": 5,
+     "not_violating->REF": 1
+    },
+    "n_orig_violating_and_E1_answered": 11,
+    "retained_violating_after_removal": [
+     0.4545,
+     5,
+     11,
+     [
+      0.2127,
+      0.7199
+     ]
+    ],
+    "moved_to_not_violating": 0.5455,
+    "moved_to_insufficient": 0.0,
+    "E1_violating_with_quotes": 43,
+    "quotes_cite_removed_words": [
+     0.0,
+     0
+    ],
+    "quotes_nonverbatim": [
+     0.0,
+     0
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->REF": 34,
+     "violating->REF": 20,
+     "REF->REF": 143,
+     "REF->violating": 1,
+     "violating->violating": 1,
+     "not_violating->not_violating": 1
+    },
+    "n_orig_not_violating_and_E2_answered": 1,
+    "turned_violating_after_insertion": [
+     0.0,
+     0,
+     1,
+     [
+      0,
+      0.7935
+     ]
+    ],
+    "E2_violating_with_quotes": 2,
+    "quotes_cite_injected_words": [
+     1.0,
+     2
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 62,
+    "abstained_among_answered": [
+     0.4677,
+     29,
+     [
+      0.3491,
+      0.5902
+     ]
+    ],
+    "refused": 538,
+    "pass_overall_nonanswer_wrong": 0.0483,
+    "note": ""
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 8,
+     "pass_among_answered": [
+      0.5,
+      4,
+      [
+       0.2152,
+       0.7848
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.3333,
+      3
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 2,
+      "REF->REF": 51,
+      "REF->not_violating": 3,
+      "REF->violating": 2,
+      "violating->not_violating": 1
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 37,
+     "pass_among_answered": [
+      0.7297,
+      27,
+      [
+       0.5702,
+       0.846
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.625,
+      8
+     ],
+     "transition_orig_to_R2": {
+      "REF->REF": 104,
+      "REF->violating": 7,
+      "not_violating->not_violating": 7,
+      "violating->not_violating": 5,
+      "REF->not_violating": 15,
+      "violating->violating": 3
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 5,
+     "pass_among_answered": [
+      0.8,
+      4,
+      [
+       0.3755,
+       0.9638
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.5,
+      2
+     ],
+     "transition_orig_to_R2": {
+      "REF->REF": 195,
+      "REF->violating": 3,
+      "violating->violating": 1,
+      "violating->not_violating": 1
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 97,
+     "pass_among_answered": [
+      0.7423,
+      72,
+      [
+       0.6472,
+       0.8189
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.4286,
+      21
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 35,
+      "violating->violating": 12,
+      "REF->REF": 103,
+      "REF->not_violating": 28,
+      "REF->violating": 13,
+      "violating->not_violating": 9
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 45,
+    "verdict_changed_vs_orig": [
+     0.1333,
+     6,
+     [
+      0.0626,
+      0.2618
+     ]
+    ],
+    "pass_among_answered": 0.2889,
+    "passes_without_changing_verdict": 8,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  },
+  "gemma2:9b|direct": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "violating->insufficient": 114,
+     "violating->not_violating": 80,
+     "violating->violating": 190,
+     "not_violating->insufficient": 1,
+     "not_violating->not_violating": 11,
+     "insufficient->not_violating": 1
+    },
+    "n_orig_violating_and_E1_answered": 384,
+    "retained_violating_after_removal": [
+     0.4948,
+     190,
+     384,
+     [
+      0.4451,
+      0.5446
+     ]
+    ],
+    "moved_to_not_violating": 0.2083,
+    "moved_to_insufficient": 0.2969,
+    "E1_violating_with_quotes": 190,
+    "quotes_cite_removed_words": [
+     0.0,
+     0
+    ],
+    "quotes_nonverbatim": [
+     0.0105,
+     2
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->violating": 56,
+     "violating->violating": 133,
+     "insufficient->violating": 11
+    },
+    "n_orig_not_violating_and_E2_answered": 67,
+    "turned_violating_after_insertion": [
+     1.0,
+     67,
+     67,
+     [
+      0.9458,
+      1.0
+     ]
+    ],
+    "E2_violating_with_quotes": 200,
+    "quotes_cite_injected_words": [
+     0.98,
+     196
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 599,
+    "abstained_among_answered": [
+     0.2053,
+     123,
+     [
+      0.1749,
+      0.2395
+     ]
+    ],
+    "refused": 0,
+    "pass_overall_nonanswer_wrong": 0.205,
+    "note": ""
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 59,
+     "pass_among_answered": [
+      0.0847,
+      5,
+      [
+       0.0367,
+       0.1835
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0526,
+      57
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 53,
+      "not_violating->not_violating": 2,
+      "violating->not_violating": 3,
+      "violating->insufficient": 1
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 141,
+     "pass_among_answered": [
+      0.2128,
+      30,
+      [
+       0.1533,
+       0.2875
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.1538,
+      130
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 105,
+      "violating->insufficient": 5,
+      "violating->not_violating": 20,
+      "not_violating->not_violating": 10,
+      "insufficient->insufficient": 1
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      1.0,
+      200,
+      [
+       0.9812,
+       1
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      200
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 200
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.33,
+      66,
+      [
+       0.2686,
+       0.3978
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.1128,
+      133
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 51,
+      "violating->violating": 111,
+      "insufficient->insufficient": 11,
+      "not_violating->insufficient": 5,
+      "violating->not_violating": 15,
+      "violating->insufficient": 7
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 599,
+    "verdict_changed_vs_orig": [
+     0.0534,
+     32,
+     [
+      0.0381,
+      0.0744
+     ]
+    ],
+    "pass_among_answered": 0.2454,
+    "passes_without_changing_verdict": 137,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  },
+  "gemma2:9b|evidence": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "violating->insufficient": 173,
+     "violating->violating": 176,
+     "violating->not_violating": 37,
+     "insufficient->insufficient": 7,
+     "insufficient->not_violating": 2,
+     "not_violating->insufficient": 2
+    },
+    "n_orig_violating_and_E1_answered": 386,
+    "retained_violating_after_removal": [
+     0.456,
+     176,
+     386,
+     [
+      0.4069,
+      0.5058
+     ]
+    ],
+    "moved_to_not_violating": 0.0959,
+    "moved_to_insufficient": 0.4482,
+    "E1_violating_with_quotes": 176,
+    "quotes_cite_removed_words": [
+     0.0,
+     0
+    ],
+    "quotes_nonverbatim": [
+     0.0114,
+     2
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->violating": 26,
+     "violating->violating": 146,
+     "insufficient->violating": 28
+    },
+    "n_orig_not_violating_and_E2_answered": 54,
+    "turned_violating_after_insertion": [
+     1.0,
+     54,
+     54,
+     [
+      0.9336,
+      1
+     ]
+    ],
+    "E2_violating_with_quotes": 200,
+    "quotes_cite_injected_words": [
+     0.995,
+     199
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 600,
+    "abstained_among_answered": [
+     0.345,
+     207,
+     [
+      0.3081,
+      0.3839
+     ]
+    ],
+    "refused": 0,
+    "pass_overall_nonanswer_wrong": 0.345,
+    "note": ""
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 59,
+     "pass_among_answered": [
+      0.0,
+      0,
+      [
+       0,
+       0.0611
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      59
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 55,
+      "violating->insufficient": 4
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 141,
+     "pass_among_answered": [
+      0.0638,
+      9,
+      [
+       0.0339,
+       0.1169
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0462,
+      130
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 111,
+      "insufficient->insufficient": 7,
+      "violating->insufficient": 13,
+      "violating->not_violating": 6,
+      "insufficient->not_violating": 2,
+      "not_violating->insufficient": 1,
+      "not_violating->not_violating": 1
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      1.0,
+      200,
+      [
+       0.9812,
+       1
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      200
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 200
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.1,
+      20,
+      [
+       0.0657,
+       0.1494
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0342,
+      146
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->insufficient": 10,
+      "violating->violating": 120,
+      "violating->insufficient": 21,
+      "insufficient->insufficient": 28,
+      "not_violating->not_violating": 15,
+      "violating->not_violating": 5,
+      "not_violating->violating": 1
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 600,
+    "verdict_changed_vs_orig": [
+     0.0483,
+     29,
+     [
+      0.0339,
+      0.0686
+     ]
+    ],
+    "pass_among_answered": 0.2317,
+    "passes_without_changing_verdict": 133,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  },
+  "word-LR": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "violating->not_violating": 116,
+     "violating->violating": 187,
+     "not_violating->not_violating": 86,
+     "not_violating->violating": 8
+    },
+    "n_orig_violating_and_E1_answered": 303,
+    "retained_violating_after_removal": [
+     0.6172,
+     187,
+     303,
+     [
+      0.5613,
+      0.6701
+     ]
+    ],
+    "moved_to_not_violating": 0.3828,
+    "moved_to_insufficient": 0.0,
+    "E1_violating_with_quotes": 195,
+    "quotes_cite_removed_words": [
+     0.0,
+     0
+    ],
+    "quotes_nonverbatim": [
+     0.0,
+     0
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->violating": 95,
+     "violating->violating": 48,
+     "not_violating->not_violating": 57
+    },
+    "n_orig_not_violating_and_E2_answered": 152,
+    "turned_violating_after_insertion": [
+     0.625,
+     95,
+     152,
+     [
+      0.5458,
+      0.698
+     ]
+    ],
+    "E2_violating_with_quotes": 143,
+    "quotes_cite_injected_words": [
+     0.979,
+     140
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 600,
+    "abstained_among_answered": [
+     0.0,
+     0,
+     [
+      0,
+      0.0064
+     ]
+    ],
+    "refused": 0,
+    "pass_overall_nonanswer_wrong": 0.0,
+    "note": "LR baselines cannot abstain by construction"
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 59,
+     "pass_among_answered": [
+      0.322,
+      19,
+      [
+       0.2169,
+       0.449
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      40
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 19,
+      "violating->violating": 40
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 141,
+     "pass_among_answered": [
+      0.3759,
+      53,
+      [
+       0.3002,
+       0.4581
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      88
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 88,
+      "not_violating->not_violating": 53
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.89,
+      178,
+      [
+       0.8391,
+       0.9262
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      178
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 178,
+      "not_violating->not_violating": 22
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.76,
+      152,
+      [
+       0.6963,
+       0.8139
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      48
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 152,
+      "violating->violating": 48
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 600,
+    "verdict_changed_vs_orig": [
+     0.0,
+     0,
+     [
+      0,
+      0.0064
+     ]
+    ],
+    "pass_among_answered": 0.2367,
+    "passes_without_changing_verdict": 142,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  },
+  "char-LR": {
+   "E1": {
+    "transition_orig_to_E1": {
+     "violating->violating": 119,
+     "violating->not_violating": 179,
+     "not_violating->not_violating": 98,
+     "not_violating->violating": 1
+    },
+    "n_orig_violating_and_E1_answered": 298,
+    "retained_violating_after_removal": [
+     0.3993,
+     119,
+     298,
+     [
+      0.3453,
+      0.4559
+     ]
+    ],
+    "moved_to_not_violating": 0.6007,
+    "moved_to_insufficient": 0.0,
+    "E1_violating_with_quotes": 0,
+    "quotes_cite_removed_words": [
+     null,
+     0
+    ],
+    "quotes_nonverbatim": [
+     null,
+     0
+    ]
+   },
+   "E2": {
+    "transition_orig_to_E2": {
+     "not_violating->violating": 110,
+     "violating->violating": 53,
+     "not_violating->not_violating": 36,
+     "violating->not_violating": 1
+    },
+    "n_orig_not_violating_and_E2_answered": 146,
+    "turned_violating_after_insertion": [
+     0.7534,
+     110,
+     146,
+     [
+      0.6776,
+      0.8162
+     ]
+    ],
+    "E2_violating_with_quotes": 0,
+    "quotes_cite_injected_words": [
+     null,
+     0
+    ]
+   },
+   "R1": {
+    "n": 600,
+    "n_answered": 600,
+    "abstained_among_answered": [
+     0.0,
+     0,
+     [
+      0,
+      0.0064
+     ]
+    ],
+    "refused": 0,
+    "pass_overall_nonanswer_wrong": 0.0,
+    "note": "LR baselines cannot abstain by construction"
+   },
+   "R2": {
+    "offensive_ambiguous": {
+     "n": 59,
+     "n_answered": 59,
+     "pass_among_answered": [
+      0.3559,
+      21,
+      [
+       0.246,
+       0.4834
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      38
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 21,
+      "violating->violating": 38
+     }
+    },
+    "offensive_control": {
+     "n": 141,
+     "n_answered": 141,
+     "pass_among_answered": [
+      0.4255,
+      60,
+      [
+       0.347,
+       0.5081
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      81
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 81,
+      "not_violating->not_violating": 60
+     }
+    },
+    "hatespeech": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.905,
+      181,
+      [
+       0.8564,
+       0.9383
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      181
+     ],
+     "transition_orig_to_R2": {
+      "violating->violating": 181,
+      "not_violating->not_violating": 19
+     }
+    },
+    "normal": {
+     "n": 200,
+     "n_answered": 200,
+     "pass_among_answered": [
+      0.73,
+      146,
+      [
+       0.6646,
+       0.7868
+      ]
+     ],
+     "orig_violating_switched_to_not_violating": [
+      0.0,
+      54
+     ],
+     "transition_orig_to_R2": {
+      "not_violating->not_violating": 146,
+      "violating->violating": 54
+     }
+    }
+   },
+   "R3": {
+    "n_pairs_answered": 600,
+    "verdict_changed_vs_orig": [
+     0.0,
+     0,
+     [
+      0,
+      0.0064
+     ]
+    ],
+    "pass_among_answered": 0.2567,
+    "passes_without_changing_verdict": 154,
+    "note": "a pass without a verdict change means the ORIG verdict was wrong; R3 pass is not policy sensitivity on its own"
+   }
+  }
+ },
+ "I1_vs_I2": {
+  "family_F_I": "8 tests: one McNemar (flip under I1 vs flip under I2, paired on post) per system; Holm",
+  "flip_definition": "verdict differs from the same system's ORIG verdict; only posts where ORIG, I1 and I2 are all answered",
+  "main": {
+   "qwen2.5:7b|direct": {
+    "n_pairs": 134,
+    "rate_x": 0.1194,
+    "rate_y": 0.0896,
+    "b_only_x": 10,
+    "c_only_y": 6,
+    "risk_difference": 0.0299,
+    "rd_ci95_post_bootstrap": [
+     -0.0299,
+     0.0896
+    ],
+    "conditional_odds_ratio_b_over_c": 1.667,
+    "or_ci95_exact": [
+     0.549,
+     5.58
+    ],
+    "mcnemar_exact_p": 0.4545,
+    "coverage_complete_triples": [
+     1.0,
+     134,
+     134
+    ],
+    "incomplete_triples_with_refusal": 0,
+    "transition_orig_to_I1": {
+     "violating->violating": 88,
+     "not_violating->not_violating": 30,
+     "violating->not_violating": 13,
+     "not_violating->violating": 3
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 93,
+     "not_violating->not_violating": 29,
+     "violating->not_violating": 8,
+     "not_violating->violating": 4
+    },
+    "I1_flip_direction": {
+     "violating->not_violating": 13,
+     "not_violating->violating": 3
+    },
+    "I1_flips_toward_oracle": 4,
+    "I1_flips_away_from_oracle": 12,
+    "I1_acc_vs_oracle": 0.6642,
+    "I2_acc_vs_oracle": 0.6642,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 13,
+      "flips": 1
+     },
+     "invalid": {
+      "n": 14,
+      "flips": 3
+     }
+    },
+    "holm_p_family_F_I": 0.909
+   },
+   "qwen2.5:7b|evidence": {
+    "n_pairs": 133,
+    "rate_x": 0.1504,
+    "rate_y": 0.0977,
+    "b_only_x": 17,
+    "c_only_y": 10,
+    "risk_difference": 0.0526,
+    "rd_ci95_post_bootstrap": [
+     -0.0226,
+     0.1278
+    ],
+    "conditional_odds_ratio_b_over_c": 1.7,
+    "or_ci95_exact": [
+     0.735,
+     4.154
+    ],
+    "mcnemar_exact_p": 0.2478,
+    "coverage_complete_triples": [
+     0.9925,
+     133,
+     134
+    ],
+    "incomplete_triples_with_refusal": 0,
+    "transition_orig_to_I1": {
+     "violating->violating": 87,
+     "not_violating->not_violating": 25,
+     "violating->not_violating": 18,
+     "violating->insufficient": 1,
+     "insufficient->insufficient": 1,
+     "not_violating->violating": 1
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 97,
+     "violating->not_violating": 9,
+     "not_violating->not_violating": 22,
+     "insufficient->insufficient": 1,
+     "not_violating->violating": 4
+    },
+    "I1_flip_direction": {
+     "violating->not_violating": 18,
+     "violating->insufficient": 1,
+     "not_violating->violating": 1
+    },
+    "I1_flips_toward_oracle": 2,
+    "I1_flips_away_from_oracle": 17,
+    "I1_acc_vs_oracle": 0.6316,
+    "I2_acc_vs_oracle": 0.7068,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 12,
+      "flips": 1
+     },
+     "invalid": {
+      "n": 14,
+      "flips": 2
+     }
+    },
+    "holm_p_family_F_I": 0.7434
+   },
+   "llama3.1:8b|direct": {
+    "n_pairs": 41,
+    "rate_x": 0.1951,
+    "rate_y": 0.0488,
+    "b_only_x": 7,
+    "c_only_y": 1,
+    "risk_difference": 0.1463,
+    "rd_ci95_post_bootstrap": [
+     0.0244,
+     0.2683
+    ],
+    "conditional_odds_ratio_b_over_c": 7.0,
+    "or_ci95_exact": [
+     0.899,
+     315.483
+    ],
+    "mcnemar_exact_p": 0.07031,
+    "coverage_complete_triples": [
+     0.306,
+     41,
+     134
+    ],
+    "incomplete_triples_with_refusal": 93,
+    "transition_orig_to_I1": {
+     "violating->violating": 23,
+     "not_violating->not_violating": 10,
+     "violating->not_violating": 7,
+     "not_violating->violating": 1
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 29,
+     "not_violating->violating": 1,
+     "not_violating->not_violating": 10,
+     "violating->not_violating": 1
+    },
+    "I1_flip_direction": {
+     "violating->not_violating": 7,
+     "not_violating->violating": 1
+    },
+    "I1_flips_toward_oracle": 2,
+    "I1_flips_away_from_oracle": 6,
+    "I1_acc_vs_oracle": 0.6585,
+    "I2_acc_vs_oracle": 0.7561,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 3,
+      "flips": 1
+     },
+     "invalid": {
+      "n": 4,
+      "flips": 0
+     }
+    },
+    "holm_p_family_F_I": 0.28124
+   },
+   "llama3.1:8b|evidence": {
+    "n_pairs": 6,
+    "rate_x": 0.1667,
+    "rate_y": 0.1667,
+    "b_only_x": 0,
+    "c_only_y": 0,
+    "risk_difference": 0.0,
+    "rd_ci95_post_bootstrap": [
+     0.0,
+     0.0
+    ],
+    "conditional_odds_ratio_b_over_c": null,
+    "or_ci95_exact": [
+     null,
+     null
+    ],
+    "mcnemar_exact_p": 1.0,
+    "coverage_complete_triples": [
+     0.0448,
+     6,
+     134
+    ],
+    "incomplete_triples_with_refusal": 128,
+    "transition_orig_to_I1": {
+     "violating->violating": 1,
+     "violating->not_violating": 1,
+     "not_violating->not_violating": 4
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 1,
+     "violating->not_violating": 1,
+     "not_violating->not_violating": 4
+    },
+    "I1_flip_direction": {
+     "violating->not_violating": 1
+    },
+    "I1_flips_toward_oracle": 0,
+    "I1_flips_away_from_oracle": 1,
+    "I1_acc_vs_oracle": 0.5,
+    "I2_acc_vs_oracle": 0.5,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 2,
+      "flips": 0
+     },
+     "invalid": {
+      "n": 0,
+      "flips": 0
+     }
+    },
+    "holm_p_family_F_I": 1.0
+   },
+   "gemma2:9b|direct": {
+    "n_pairs": 134,
+    "rate_x": 0.1343,
+    "rate_y": 0.0224,
+    "b_only_x": 16,
+    "c_only_y": 1,
+    "risk_difference": 0.1119,
+    "rd_ci95_post_bootstrap": [
+     0.0597,
+     0.1716
+    ],
+    "conditional_odds_ratio_b_over_c": 16.0,
+    "or_ci95_exact": [
+     2.486,
+     670.964
+    ],
+    "mcnemar_exact_p": 0.0002747,
+    "coverage_complete_triples": [
+     1.0,
+     134,
+     134
+    ],
+    "incomplete_triples_with_refusal": 0,
+    "transition_orig_to_I1": {
+     "violating->violating": 109,
+     "violating->insufficient": 4,
+     "not_violating->not_violating": 7,
+     "violating->not_violating": 12,
+     "not_violating->insufficient": 2
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 123,
+     "not_violating->violating": 1,
+     "not_violating->not_violating": 8,
+     "violating->not_violating": 2
+    },
+    "I1_flip_direction": {
+     "violating->insufficient": 4,
+     "violating->not_violating": 12,
+     "not_violating->insufficient": 2
+    },
+    "I1_flips_toward_oracle": 3,
+    "I1_flips_away_from_oracle": 14,
+    "I1_acc_vs_oracle": 0.7463,
+    "I2_acc_vs_oracle": 0.8358,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 13,
+      "flips": 2
+     },
+     "invalid": {
+      "n": 14,
+      "flips": 1
+     }
+    },
+    "holm_p_family_F_I": 0.002198
+   },
+   "gemma2:9b|evidence": {
+    "n_pairs": 134,
+    "rate_x": 0.1119,
+    "rate_y": 0.0299,
+    "b_only_x": 14,
+    "c_only_y": 3,
+    "risk_difference": 0.0821,
+    "rd_ci95_post_bootstrap": [
+     0.0299,
+     0.1418
+    ],
+    "conditional_odds_ratio_b_over_c": 4.667,
+    "or_ci95_exact": [
+     1.302,
+     25.326
+    ],
+    "mcnemar_exact_p": 0.01273,
+    "coverage_complete_triples": [
+     1.0,
+     134,
+     134
+    ],
+    "incomplete_triples_with_refusal": 0,
+    "transition_orig_to_I1": {
+     "violating->violating": 110,
+     "insufficient->insufficient": 6,
+     "violating->not_violating": 3,
+     "violating->insufficient": 11,
+     "not_violating->not_violating": 3,
+     "insufficient->not_violating": 1
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 123,
+     "insufficient->insufficient": 5,
+     "insufficient->violating": 2,
+     "not_violating->not_violating": 2,
+     "violating->insufficient": 1,
+     "not_violating->insufficient": 1
+    },
+    "I1_flip_direction": {
+     "violating->not_violating": 3,
+     "violating->insufficient": 11,
+     "insufficient->not_violating": 1
+    },
+    "I1_flips_toward_oracle": 1,
+    "I1_flips_away_from_oracle": 11,
+    "I1_acc_vs_oracle": 0.7239,
+    "I2_acc_vs_oracle": 0.8134,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 13,
+      "flips": 1
+     },
+     "invalid": {
+      "n": 14,
+      "flips": 0
+     }
+    },
+    "holm_p_family_F_I": 0.07638
+   },
+   "word-LR": {
+    "n_pairs": 134,
+    "rate_x": 0.1791,
+    "rate_y": 0.0746,
+    "b_only_x": 20,
+    "c_only_y": 6,
+    "risk_difference": 0.1045,
+    "rd_ci95_post_bootstrap": [
+     0.0299,
+     0.1791
+    ],
+    "conditional_odds_ratio_b_over_c": 3.333,
+    "or_ci95_exact": [
+     1.291,
+     10.143
+    ],
+    "mcnemar_exact_p": 0.009355,
+    "coverage_complete_triples": [
+     1.0,
+     134,
+     134
+    ],
+    "incomplete_triples_with_refusal": 0,
+    "transition_orig_to_I1": {
+     "violating->violating": 57,
+     "not_violating->not_violating": 53,
+     "violating->not_violating": 13,
+     "not_violating->violating": 11
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 70,
+     "not_violating->not_violating": 54,
+     "not_violating->violating": 10
+    },
+    "I1_flip_direction": {
+     "violating->not_violating": 13,
+     "not_violating->violating": 11
+    },
+    "I1_flips_toward_oracle": 10,
+    "I1_flips_away_from_oracle": 14,
+    "I1_acc_vs_oracle": 0.5672,
+    "I2_acc_vs_oracle": 0.6119,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 13,
+      "flips": 4
+     },
+     "invalid": {
+      "n": 14,
+      "flips": 2
+     }
+    },
+    "holm_p_family_F_I": 0.065485
+   },
+   "char-LR": {
+    "n_pairs": 134,
+    "rate_x": 0.1493,
+    "rate_y": 0.0522,
+    "b_only_x": 19,
+    "c_only_y": 6,
+    "risk_difference": 0.097,
+    "rd_ci95_post_bootstrap": [
+     0.0299,
+     0.1716
+    ],
+    "conditional_odds_ratio_b_over_c": 3.167,
+    "or_ci95_exact": [
+     1.216,
+     9.688
+    ],
+    "mcnemar_exact_p": 0.01463,
+    "coverage_complete_triples": [
+     1.0,
+     134,
+     134
+    ],
+    "incomplete_triples_with_refusal": 0,
+    "transition_orig_to_I1": {
+     "violating->violating": 50,
+     "not_violating->not_violating": 64,
+     "violating->not_violating": 19,
+     "not_violating->violating": 1
+    },
+    "transition_orig_to_I2": {
+     "violating->violating": 69,
+     "not_violating->not_violating": 58,
+     "not_violating->violating": 7
+    },
+    "I1_flip_direction": {
+     "violating->not_violating": 19,
+     "not_violating->violating": 1
+    },
+    "I1_flips_toward_oracle": 5,
+    "I1_flips_away_from_oracle": 15,
+    "I1_acc_vs_oracle": 0.5149,
+    "I2_acc_vs_oracle": 0.6269,
+    "human_validated_I1_descriptive": {
+     "valid": {
+      "n": 13,
+      "flips": 2
+     },
+     "invalid": {
+      "n": 14,
+      "flips": 1
+     }
+    },
+    "holm_p_family_F_I": 0.07638
+   }
+  },
+  "sensitivity_without_human_invalid_I1_items": {
+   "qwen2.5:7b|direct": {
+    "n_pairs": 120,
+    "rate_x": 0.1083,
+    "rate_y": 0.0917,
+    "b_only_x": 8,
+    "c_only_y": 6,
+    "risk_difference": 0.0167,
+    "rd_ci95_post_bootstrap": [
+     -0.0417,
+     0.0833
+    ],
+    "conditional_odds_ratio_b_over_c": 1.333,
+    "or_ci95_exact": [
+     0.406,
+     4.662
+    ],
+    "mcnemar_exact_p": 0.7905,
+    "posts": 120,
+    "holm_p_family_F_I": 1.0
+   },
+   "qwen2.5:7b|evidence": {
+    "n_pairs": 119,
+    "rate_x": 0.1513,
+    "rate_y": 0.1008,
+    "b_only_x": 15,
+    "c_only_y": 9,
+    "risk_difference": 0.0504,
+    "rd_ci95_post_bootstrap": [
+     -0.0252,
+     0.1345
+    ],
+    "conditional_odds_ratio_b_over_c": 1.667,
+    "or_ci95_exact": [
+     0.683,
+     4.319
+    ],
+    "mcnemar_exact_p": 0.3075,
+    "posts": 120,
+    "holm_p_family_F_I": 0.9225
+   },
+   "llama3.1:8b|direct": {
+    "n_pairs": 37,
+    "rate_x": 0.2162,
+    "rate_y": 0.0541,
+    "b_only_x": 7,
+    "c_only_y": 1,
+    "risk_difference": 0.1622,
+    "rd_ci95_post_bootstrap": [
+     0.027,
+     0.2973
+    ],
+    "conditional_odds_ratio_b_over_c": 7.0,
+    "or_ci95_exact": [
+     0.899,
+     315.483
+    ],
+    "mcnemar_exact_p": 0.07031,
+    "posts": 120,
+    "holm_p_family_F_I": 0.28124
+   },
+   "llama3.1:8b|evidence": {
+    "n_pairs": 6,
+    "rate_x": 0.1667,
+    "rate_y": 0.1667,
+    "b_only_x": 0,
+    "c_only_y": 0,
+    "risk_difference": 0.0,
+    "rd_ci95_post_bootstrap": [
+     0.0,
+     0.0
+    ],
+    "conditional_odds_ratio_b_over_c": null,
+    "or_ci95_exact": [
+     null,
+     null
+    ],
+    "mcnemar_exact_p": 1.0,
+    "posts": 120,
+    "holm_p_family_F_I": 1.0
+   },
+   "gemma2:9b|direct": {
+    "n_pairs": 120,
+    "rate_x": 0.1417,
+    "rate_y": 0.025,
+    "b_only_x": 15,
+    "c_only_y": 1,
+    "risk_difference": 0.1167,
+    "rd_ci95_post_bootstrap": [
+     0.0583,
+     0.1833
+    ],
+    "conditional_odds_ratio_b_over_c": 15.0,
+    "or_ci95_exact": [
+     2.308,
+     631.466
+    ],
+    "mcnemar_exact_p": 0.0005188,
+    "posts": 120,
+    "holm_p_family_F_I": 0.00415
+   },
+   "gemma2:9b|evidence": {
+    "n_pairs": 120,
+    "rate_x": 0.125,
+    "rate_y": 0.0333,
+    "b_only_x": 14,
+    "c_only_y": 3,
+    "risk_difference": 0.0917,
+    "rd_ci95_post_bootstrap": [
+     0.0333,
+     0.1583
+    ],
+    "conditional_odds_ratio_b_over_c": 4.667,
+    "or_ci95_exact": [
+     1.302,
+     25.326
+    ],
+    "mcnemar_exact_p": 0.01273,
+    "posts": 120,
+    "holm_p_family_F_I": 0.07434
+   },
+   "word-LR": {
+    "n_pairs": 120,
+    "rate_x": 0.1833,
+    "rate_y": 0.075,
+    "b_only_x": 18,
+    "c_only_y": 5,
+    "risk_difference": 0.1083,
+    "rd_ci95_post_bootstrap": [
+     0.0333,
+     0.1833
+    ],
+    "conditional_odds_ratio_b_over_c": 3.6,
+    "or_ci95_exact": [
+     1.288,
+     12.404
+    ],
+    "mcnemar_exact_p": 0.01062,
+    "posts": 120,
+    "holm_p_family_F_I": 0.07434
+   },
+   "char-LR": {
+    "n_pairs": 120,
+    "rate_x": 0.1583,
+    "rate_y": 0.05,
+    "b_only_x": 18,
+    "c_only_y": 5,
+    "risk_difference": 0.1083,
+    "rd_ci95_post_bootstrap": [
+     0.0333,
+     0.1833
+    ],
+    "conditional_odds_ratio_b_over_c": 3.6,
+    "or_ci95_exact": [
+     1.288,
+     12.404
+    ],
+    "mcnemar_exact_p": 0.01062,
+    "posts": 120,
+    "holm_p_family_F_I": 0.07434
+   }
+  }
+ },
+ "I3": {
+  "construction": "paraphrased by gemma2:9b (also evaluated); equivalence judged by qwen2.5:7b (also evaluated), two directions",
+  "items_created": 600,
+  "items_with_text": 502,
+  "items_without_text": 98,
+  "lost_by_label": {
+   "hatespeech": 59,
+   "offensive": 22,
+   "normal": 17
+  },
+  "kept_by_label": {
+   "hatespeech": 141,
+   "offensive": 178,
+   "normal": 183
+  },
+  "loss_vs_label_chi2": {
+   "chi2": 38.515,
+   "df": 2,
+   "p": 4.33e-09
+  },
+  "by_system": {
+   "qwen2.5:7b|direct": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 500,
+     "flip_rate": 0.202,
+     "flips": 101,
+     "ci95": [
+      0.1691,
+      0.2394
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 332,
+     "flip_rate": 0.1867,
+     "flips": 62,
+     "ci95": [
+      0.1485,
+      0.2322
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 168,
+     "flip_rate": 0.2321,
+     "flips": 39,
+     "ci95": [
+      0.1747,
+      0.3015
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 73,
+     "flip_rate": 0.1918,
+     "flips": 14,
+     "ci95": [
+      0.1178,
+      0.2966
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 26,
+     "flip_rate": 0.2692,
+     "flips": 7,
+     "ci95": [
+      0.137,
+      0.4608
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 1,
+     "flip_rate": 0.0,
+     "flips": 0,
+     "ci95": [
+      0,
+      0.7935
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 500,
+     "rate_x": 0.202,
+     "rate_y": 0.096,
+     "b_only_x": 83,
+     "c_only_y": 30,
+     "risk_difference": 0.106,
+     "rd_ci95_post_bootstrap": [
+      0.066,
+      0.148
+     ],
+     "conditional_odds_ratio_b_over_c": 2.767,
+     "or_ci95_exact": [
+      1.802,
+      4.352
+     ],
+     "mcnemar_exact_p": 6.307e-07
+    }
+   },
+   "qwen2.5:7b|evidence": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 496,
+     "flip_rate": 0.2278,
+     "flips": 113,
+     "ci95": [
+      0.1931,
+      0.2667
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 331,
+     "flip_rate": 0.2296,
+     "flips": 76,
+     "ci95": [
+      0.1876,
+      0.2779
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 165,
+     "flip_rate": 0.2242,
+     "flips": 37,
+     "ci95": [
+      0.1673,
+      0.2937
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 71,
+     "flip_rate": 0.2676,
+     "flips": 19,
+     "ci95": [
+      0.1785,
+      0.3805
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 26,
+     "flip_rate": 0.4615,
+     "flips": 12,
+     "ci95": [
+      0.2876,
+      0.6454
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 1,
+     "flip_rate": 1.0,
+     "flips": 1,
+     "ci95": [
+      0.2065,
+      1
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 496,
+     "rate_x": 0.2278,
+     "rate_y": 0.1089,
+     "b_only_x": 92,
+     "c_only_y": 33,
+     "risk_difference": 0.119,
+     "rd_ci95_post_bootstrap": [
+      0.0746,
+      0.1633
+     ],
+     "conditional_odds_ratio_b_over_c": 2.788,
+     "or_ci95_exact": [
+      1.855,
+      4.285
+     ],
+     "mcnemar_exact_p": 1.256e-07
+    }
+   },
+   "llama3.1:8b|direct": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 206,
+     "flip_rate": 0.3204,
+     "flips": 66,
+     "ci95": [
+      0.2605,
+      0.3869
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 152,
+     "flip_rate": 0.3026,
+     "flips": 46,
+     "ci95": [
+      0.2352,
+      0.3798
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 54,
+     "flip_rate": 0.3704,
+     "flips": 20,
+     "ci95": [
+      0.2542,
+      0.5037
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 26,
+     "flip_rate": 0.3462,
+     "flips": 9,
+     "ci95": [
+      0.1941,
+      0.5378
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 13,
+     "flip_rate": 0.4615,
+     "flips": 6,
+     "ci95": [
+      0.2321,
+      0.7086
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 1,
+     "flip_rate": 1.0,
+     "flips": 1,
+     "ci95": [
+      0.2065,
+      1
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 192,
+     "rate_x": 0.3385,
+     "rate_y": 0.125,
+     "b_only_x": 50,
+     "c_only_y": 9,
+     "risk_difference": 0.2135,
+     "rd_ci95_post_bootstrap": [
+      0.1406,
+      0.2865
+     ],
+     "conditional_odds_ratio_b_over_c": 5.556,
+     "or_ci95_exact": [
+      2.705,
+      12.85
+     ],
+     "mcnemar_exact_p": 5.265e-08
+    }
+   },
+   "llama3.1:8b|evidence": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 54,
+     "flip_rate": 0.1852,
+     "flips": 10,
+     "ci95": [
+      0.1038,
+      0.3084
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 49,
+     "flip_rate": 0.1633,
+     "flips": 8,
+     "ci95": [
+      0.0851,
+      0.2904
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 5,
+     "flip_rate": 0.4,
+     "flips": 2,
+     "ci95": [
+      0.1176,
+      0.7693
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 7,
+     "flip_rate": 0.1429,
+     "flips": 1,
+     "ci95": [
+      0.0257,
+      0.5131
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 4,
+     "flip_rate": 0.5,
+     "flips": 2,
+     "ci95": [
+      0.15,
+      0.85
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 0,
+     "flip_rate": null,
+     "flips": 0,
+     "ci95": [
+      null,
+      null
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 43,
+     "rate_x": 0.2093,
+     "rate_y": 0.1628,
+     "b_only_x": 5,
+     "c_only_y": 3,
+     "risk_difference": 0.0465,
+     "rd_ci95_post_bootstrap": [
+      -0.0698,
+      0.1628
+     ],
+     "conditional_odds_ratio_b_over_c": 1.667,
+     "or_ci95_exact": [
+      0.324,
+      10.732
+     ],
+     "mcnemar_exact_p": 0.7266
+    }
+   },
+   "gemma2:9b|direct": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 502,
+     "flip_rate": 0.1813,
+     "flips": 91,
+     "ci95": [
+      0.15,
+      0.2174
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 333,
+     "flip_rate": 0.1832,
+     "flips": 61,
+     "ci95": [
+      0.1453,
+      0.2283
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 169,
+     "flip_rate": 0.1775,
+     "flips": 30,
+     "ci95": [
+      0.1273,
+      0.2421
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 73,
+     "flip_rate": 0.1918,
+     "flips": 14,
+     "ci95": [
+      0.1178,
+      0.2966
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 26,
+     "flip_rate": 0.2692,
+     "flips": 7,
+     "ci95": [
+      0.137,
+      0.4608
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 1,
+     "flip_rate": 1.0,
+     "flips": 1,
+     "ci95": [
+      0.2065,
+      1
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 502,
+     "rate_x": 0.1813,
+     "rate_y": 0.0558,
+     "b_only_x": 72,
+     "c_only_y": 9,
+     "risk_difference": 0.1255,
+     "rd_ci95_post_bootstrap": [
+      0.0916,
+      0.1594
+     ],
+     "conditional_odds_ratio_b_over_c": 8.0,
+     "or_ci95_exact": [
+      3.988,
+      18.2
+     ],
+     "mcnemar_exact_p": 2.456e-13
+    }
+   },
+   "gemma2:9b|evidence": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 502,
+     "flip_rate": 0.1713,
+     "flips": 86,
+     "ci95": [
+      0.1409,
+      0.2067
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 333,
+     "flip_rate": 0.1862,
+     "flips": 62,
+     "ci95": [
+      0.148,
+      0.2315
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 169,
+     "flip_rate": 0.142,
+     "flips": 24,
+     "ci95": [
+      0.0973,
+      0.2026
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 73,
+     "flip_rate": 0.1644,
+     "flips": 12,
+     "ci95": [
+      0.0966,
+      0.2657
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 26,
+     "flip_rate": 0.1538,
+     "flips": 4,
+     "ci95": [
+      0.0615,
+      0.3353
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 1,
+     "flip_rate": 1.0,
+     "flips": 1,
+     "ci95": [
+      0.2065,
+      1
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 502,
+     "rate_x": 0.1713,
+     "rate_y": 0.0319,
+     "b_only_x": 77,
+     "c_only_y": 7,
+     "risk_difference": 0.1394,
+     "rd_ci95_post_bootstrap": [
+      0.1056,
+      0.1733
+     ],
+     "conditional_odds_ratio_b_over_c": 11.0,
+     "or_ci95_exact": [
+      5.091,
+      28.272
+     ],
+     "mcnemar_exact_p": 5.138e-16
+    }
+   },
+   "word-LR": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 502,
+     "flip_rate": 0.3147,
+     "flips": 158,
+     "ci95": [
+      0.2757,
+      0.3566
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 333,
+     "flip_rate": 0.3213,
+     "flips": 107,
+     "ci95": [
+      0.2734,
+      0.3733
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 169,
+     "flip_rate": 0.3018,
+     "flips": 51,
+     "ci95": [
+      0.2376,
+      0.3748
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 73,
+     "flip_rate": 0.3288,
+     "flips": 24,
+     "ci95": [
+      0.2319,
+      0.4427
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 26,
+     "flip_rate": 0.4615,
+     "flips": 12,
+     "ci95": [
+      0.2876,
+      0.6454
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 1,
+     "flip_rate": 0.0,
+     "flips": 0,
+     "ci95": [
+      0,
+      0.7935
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 502,
+     "rate_x": 0.3147,
+     "rate_y": 0.0777,
+     "b_only_x": 139,
+     "c_only_y": 20,
+     "risk_difference": 0.2371,
+     "rd_ci95_post_bootstrap": [
+      0.1912,
+      0.2829
+     ],
+     "conditional_odds_ratio_b_over_c": 6.95,
+     "or_ci95_exact": [
+      4.332,
+      11.73
+     ],
+     "mcnemar_exact_p": 4.016e-23
+    }
+   },
+   "char-LR": {
+    "all_with_text": {
+     "n_items": 502,
+     "n_pairs_answered": 502,
+     "flip_rate": 0.3227,
+     "flips": 162,
+     "ci95": [
+      0.2833,
+      0.3648
+     ]
+    },
+    "judge_equivalent": {
+     "n_items": 333,
+     "n_pairs_answered": 333,
+     "flip_rate": 0.3153,
+     "flips": 105,
+     "ci95": [
+      0.2678,
+      0.3671
+     ]
+    },
+    "judge_not_equivalent": {
+     "n_items": 169,
+     "n_pairs_answered": 169,
+     "flip_rate": 0.3373,
+     "flips": 57,
+     "ci95": [
+      0.2703,
+      0.4115
+     ]
+    },
+    "human_valid": {
+     "n_items": 73,
+     "n_pairs_answered": 73,
+     "flip_rate": 0.3562,
+     "flips": 26,
+     "ci95": [
+      0.256,
+      0.4707
+     ]
+    },
+    "human_invalid": {
+     "n_items": 26,
+     "n_pairs_answered": 26,
+     "flip_rate": 0.3846,
+     "flips": 10,
+     "ci95": [
+      0.2243,
+      0.5747
+     ]
+    },
+    "human_pending": {
+     "n_items": 1,
+     "n_pairs_answered": 1,
+     "flip_rate": 0.0,
+     "flips": 0,
+     "ci95": [
+      0,
+      0.7935
+     ]
+    },
+    "I3_vs_I2_paired_descriptive": {
+     "n_pairs": 502,
+     "rate_x": 0.3227,
+     "rate_y": 0.0677,
+     "b_only_x": 146,
+     "c_only_y": 18,
+     "risk_difference": 0.255,
+     "rd_ci95_post_bootstrap": [
+      0.2092,
+      0.2988
+     ],
+     "conditional_odds_ratio_b_over_c": 8.111,
+     "or_ci95_exact": [
+      4.956,
+      14.069
+     ],
+     "mcnemar_exact_p": 4.254e-26
+    }
+   }
+  },
+  "circularity_check": "compare gemma2 (author of the paraphrases) and qwen2.5 (the judge) with the other systems on judge_equivalent vs judge_not_equivalent and human_valid vs human_invalid; descriptive only"
+ },
+ "direct_vs_evidence_ORIG": {
+  "family_F_P": "3 tests per variant (one per model), x = evidence correct, y = direct correct; Holm",
+  "results": {
+   "qwen2.5:7b": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.7333,
+     "rate_y": 0.7117,
+     "b_only_x": 41,
+     "c_only_y": 28,
+     "risk_difference": 0.0217,
+     "rd_ci95_post_bootstrap": [
+      -0.005,
+      0.0483
+     ],
+     "conditional_odds_ratio_b_over_c": 1.464,
+     "or_ci95_exact": [
+      0.884,
+      2.459
+     ],
+     "mcnemar_exact_p": 0.148,
+     "holm_p_family_F_P": 0.148
+    },
+    "posts_answered_in_both": {
+     "n_pairs": 598,
+     "rate_x": 0.7358,
+     "rate_y": 0.7107,
+     "b_only_x": 41,
+     "c_only_y": 26,
+     "risk_difference": 0.0251,
+     "rd_ci95_post_bootstrap": [
+      -0.0017,
+      0.0518
+     ],
+     "conditional_odds_ratio_b_over_c": 1.577,
+     "or_ci95_exact": [
+      0.942,
+      2.685
+     ],
+     "mcnemar_exact_p": 0.08644,
+     "holm_p_family_F_P": 0.08644
+    }
+   },
+   "llama3.1:8b": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.08,
+     "rate_y": 0.2617,
+     "b_only_x": 3,
+     "c_only_y": 112,
+     "risk_difference": -0.1817,
+     "rd_ci95_post_bootstrap": [
+      -0.2133,
+      -0.15
+     ],
+     "conditional_odds_ratio_b_over_c": 0.027,
+     "or_ci95_exact": [
+      0.005,
+      0.08
+     ],
+     "mcnemar_exact_p": 1.221e-29,
+     "holm_p_family_F_P": 0.0
+    },
+    "posts_answered_in_both": {
+     "n_pairs": 76,
+     "rate_x": 0.6316,
+     "rate_y": 0.75,
+     "b_only_x": 3,
+     "c_only_y": 12,
+     "risk_difference": -0.1184,
+     "rd_ci95_post_bootstrap": [
+      -0.2105,
+      -0.0263
+     ],
+     "conditional_odds_ratio_b_over_c": 0.25,
+     "or_ci95_exact": [
+      0.045,
+      0.926
+     ],
+     "mcnemar_exact_p": 0.03516,
+     "holm_p_family_F_P": 0.07032
+    }
+   },
+   "gemma2:9b": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.6917,
+     "rate_y": 0.7383,
+     "b_only_x": 7,
+     "c_only_y": 35,
+     "risk_difference": -0.0467,
+     "rd_ci95_post_bootstrap": [
+      -0.0683,
+      -0.0267
+     ],
+     "conditional_odds_ratio_b_over_c": 0.2,
+     "or_ci95_exact": [
+      0.075,
+      0.457
+     ],
+     "mcnemar_exact_p": 1.51e-05,
+     "holm_p_family_F_P": 3e-05
+    },
+    "posts_answered_in_both": {
+     "n_pairs": 600,
+     "rate_x": 0.6917,
+     "rate_y": 0.7383,
+     "b_only_x": 7,
+     "c_only_y": 35,
+     "risk_difference": -0.0467,
+     "rd_ci95_post_bootstrap": [
+      -0.0683,
+      -0.0267
+     ],
+     "conditional_odds_ratio_b_over_c": 0.2,
+     "or_ci95_exact": [
+      0.075,
+      0.457
+     ],
+     "mcnemar_exact_p": 1.51e-05,
+     "holm_p_family_F_P": 4.5e-05
+    }
+   }
+  }
+ },
+ "llm_vs_wordLR_ORIG": {
+  "family_F_B": "6 tests per variant (each LLM condition vs word-LR), x = LLM correct, y = word-LR correct; Holm",
+  "results": {
+   "qwen2.5:7b|direct": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.7117,
+     "rate_y": 0.7633,
+     "b_only_x": 84,
+     "c_only_y": 115,
+     "risk_difference": -0.0517,
+     "rd_ci95_post_bootstrap": [
+      -0.0983,
+      -0.005
+     ],
+     "conditional_odds_ratio_b_over_c": 0.73,
+     "or_ci95_exact": [
+      0.545,
+      0.976
+     ],
+     "mcnemar_exact_p": 0.03319,
+     "holm_p_family_F_B": 0.09957
+    },
+    "posts_answered_by_llm": {
+     "n_pairs": 600,
+     "rate_x": 0.7117,
+     "rate_y": 0.7633,
+     "b_only_x": 84,
+     "c_only_y": 115,
+     "risk_difference": -0.0517,
+     "rd_ci95_post_bootstrap": [
+      -0.0983,
+      -0.005
+     ],
+     "conditional_odds_ratio_b_over_c": 0.73,
+     "or_ci95_exact": [
+      0.545,
+      0.976
+     ],
+     "mcnemar_exact_p": 0.03319,
+     "holm_p_family_F_B": 0.13276
+    }
+   },
+   "qwen2.5:7b|evidence": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.7333,
+     "rate_y": 0.7633,
+     "b_only_x": 89,
+     "c_only_y": 107,
+     "risk_difference": -0.03,
+     "rd_ci95_post_bootstrap": [
+      -0.0767,
+      0.015
+     ],
+     "conditional_odds_ratio_b_over_c": 0.832,
+     "or_ci95_exact": [
+      0.621,
+      1.112
+     ],
+     "mcnemar_exact_p": 0.2245,
+     "holm_p_family_F_B": 0.449
+    },
+    "posts_answered_by_llm": {
+     "n_pairs": 598,
+     "rate_x": 0.7358,
+     "rate_y": 0.7642,
+     "b_only_x": 89,
+     "c_only_y": 106,
+     "risk_difference": -0.0284,
+     "rd_ci95_post_bootstrap": [
+      -0.0753,
+      0.0184
+     ],
+     "conditional_odds_ratio_b_over_c": 0.84,
+     "or_ci95_exact": [
+      0.626,
+      1.124
+     ],
+     "mcnemar_exact_p": 0.2518,
+     "holm_p_family_F_B": 0.7509
+    }
+   },
+   "llama3.1:8b|direct": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.2617,
+     "rate_y": 0.7633,
+     "b_only_x": 48,
+     "c_only_y": 349,
+     "risk_difference": -0.5017,
+     "rd_ci95_post_bootstrap": [
+      -0.5517,
+      -0.4517
+     ],
+     "conditional_odds_ratio_b_over_c": 0.138,
+     "or_ci95_exact": [
+      0.1,
+      0.186
+     ],
+     "mcnemar_exact_p": 1.65e-57,
+     "holm_p_family_F_B": 0.0
+    },
+    "posts_answered_by_llm": {
+     "n_pairs": 246,
+     "rate_x": 0.6382,
+     "rate_y": 0.6911,
+     "b_only_x": 48,
+     "c_only_y": 61,
+     "risk_difference": -0.0528,
+     "rd_ci95_post_bootstrap": [
+      -0.1341,
+      0.0285
+     ],
+     "conditional_odds_ratio_b_over_c": 0.787,
+     "or_ci95_exact": [
+      0.528,
+      1.168
+     ],
+     "mcnemar_exact_p": 0.2503,
+     "holm_p_family_F_B": 0.7509
+    }
+   },
+   "llama3.1:8b|evidence": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.08,
+     "rate_y": 0.7633,
+     "b_only_x": 7,
+     "c_only_y": 417,
+     "risk_difference": -0.6833,
+     "rd_ci95_post_bootstrap": [
+      -0.7217,
+      -0.6433
+     ],
+     "conditional_odds_ratio_b_over_c": 0.017,
+     "or_ci95_exact": [
+      0.007,
+      0.035
+     ],
+     "mcnemar_exact_p": 2.183e-113,
+     "holm_p_family_F_B": 0.0
+    },
+    "posts_answered_by_llm": {
+     "n_pairs": 76,
+     "rate_x": 0.6316,
+     "rate_y": 0.8158,
+     "b_only_x": 7,
+     "c_only_y": 21,
+     "risk_difference": -0.1842,
+     "rd_ci95_post_bootstrap": [
+      -0.3158,
+      -0.0526
+     ],
+     "conditional_odds_ratio_b_over_c": 0.333,
+     "or_ci95_exact": [
+      0.12,
+      0.814
+     ],
+     "mcnemar_exact_p": 0.01254,
+     "holm_p_family_F_B": 0.0627
+    }
+   },
+   "gemma2:9b|direct": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.7383,
+     "rate_y": 0.7633,
+     "b_only_x": 94,
+     "c_only_y": 109,
+     "risk_difference": -0.025,
+     "rd_ci95_post_bootstrap": [
+      -0.0717,
+      0.02
+     ],
+     "conditional_odds_ratio_b_over_c": 0.862,
+     "or_ci95_exact": [
+      0.647,
+      1.147
+     ],
+     "mcnemar_exact_p": 0.3258,
+     "holm_p_family_F_B": 0.449
+    },
+    "posts_answered_by_llm": {
+     "n_pairs": 600,
+     "rate_x": 0.7383,
+     "rate_y": 0.7633,
+     "b_only_x": 94,
+     "c_only_y": 109,
+     "risk_difference": -0.025,
+     "rd_ci95_post_bootstrap": [
+      -0.0717,
+      0.02
+     ],
+     "conditional_odds_ratio_b_over_c": 0.862,
+     "or_ci95_exact": [
+      0.647,
+      1.147
+     ],
+     "mcnemar_exact_p": 0.3258,
+     "holm_p_family_F_B": 0.7509
+    }
+   },
+   "gemma2:9b|evidence": {
+    "all_posts_nonanswer_wrong": {
+     "n_pairs": 600,
+     "rate_x": 0.6917,
+     "rate_y": 0.7633,
+     "b_only_x": 87,
+     "c_only_y": 130,
+     "risk_difference": -0.0717,
+     "rd_ci95_post_bootstrap": [
+      -0.12,
+      -0.025
+     ],
+     "conditional_odds_ratio_b_over_c": 0.669,
+     "or_ci95_exact": [
+      0.504,
+      0.885
+     ],
+     "mcnemar_exact_p": 0.004249,
+     "holm_p_family_F_B": 0.016996
+    },
+    "posts_answered_by_llm": {
+     "n_pairs": 600,
+     "rate_x": 0.6917,
+     "rate_y": 0.7633,
+     "b_only_x": 87,
+     "c_only_y": 130,
+     "risk_difference": -0.0717,
+     "rd_ci95_post_bootstrap": [
+      -0.12,
+      -0.025
+     ],
+     "conditional_odds_ratio_b_over_c": 0.669,
+     "or_ci95_exact": [
+      0.504,
+      0.885
+     ],
+     "mcnemar_exact_p": 0.004249,
+     "holm_p_family_F_B": 0.025494
+    }
+   }
+  }
+ },
+ "human_validation": {
+  "raters": 2,
+  "rater_identity_background": "not documented",
+  "procedure": "Ya/Tidak dropdown per item in human_validation.xlsx (hitl_sheet.py); a third 'Keputusan' column settles disagreements",
+  "independence": "not enforced: both raters' sheets are in the same workbook; whether raters saw each other's answers is not documented",
+  "adjudicator": "not documented",
+  "agreement": {
+   "ALL": {
+    "n": 333,
+    "pct_agree": 0.9219,
+    "cohen_kappa": 0.823,
+    "kappa_ci95_post_bootstrap": [
+     0.753,
+     0.886
+    ],
+    "disagreements": 26,
+    "adjudicated": 25,
+    "pending": 1
+   },
+   "E1": {
+    "n": 79,
+    "pct_agree": 0.9114,
+    "cohen_kappa": 0.735,
+    "kappa_ci95_post_bootstrap": [
+     0.524,
+     0.894
+    ],
+    "disagreements": 7,
+    "adjudicated": 7,
+    "pending": 0
+   },
+   "E2": {
+    "n": 40,
+    "pct_agree": 0.95,
+    "cohen_kappa": 0.828,
+    "kappa_ci95_post_bootstrap": [
+     0.538,
+     1.0
+    ],
+    "disagreements": 2,
+    "adjudicated": 2,
+    "pending": 0
+   },
+   "R2": {
+    "n": 87,
+    "pct_agree": 0.8736,
+    "cohen_kappa": 0.749,
+    "kappa_ci95_post_bootstrap": [
+     0.6,
+     0.884
+    ],
+    "disagreements": 11,
+    "adjudicated": 11,
+    "pending": 0
+   },
+   "I1": {
+    "n": 27,
+    "pct_agree": 1.0,
+    "cohen_kappa": 1.0,
+    "kappa_ci95_post_bootstrap": [
+     1.0,
+     1.0
+    ],
+    "disagreements": 0,
+    "adjudicated": 0,
+    "pending": 0
+   },
+   "I3": {
+    "n": 100,
+    "pct_agree": 0.94,
+    "cohen_kappa": 0.848,
+    "kappa_ci95_post_bootstrap": [
+     0.718,
+     0.951
+    ],
+    "disagreements": 6,
+    "adjudicated": 5,
+    "pending": 1
+   }
+  },
+  "pending_items": [
+   "34250a0a4de0"
+  ]
+ },
+ "oracle_validity": [
+  {
+   "row_type": "oracle_validity",
+   "mr": "E1",
+   "stratum": "all",
+   "population_N": 397,
+   "sampled_n": 79,
+   "design": "simple random 20% (seed 42)",
+   "n_valid": 66,
+   "n_invalid": 13,
+   "n_pending": 0,
+   "validity": 0.8354,
+   "validity_ci95": [
+    0.7385,
+    0.9012
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "E2",
+   "stratum": "all",
+   "population_N": 200,
+   "sampled_n": 40,
+   "design": "simple random 20% (seed 42)",
+   "n_valid": 34,
+   "n_invalid": 6,
+   "n_pending": 0,
+   "validity": 0.85,
+   "validity_ci95": [
+    0.7093,
+    0.9294
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "I1",
+   "stratum": "all",
+   "population_N": 134,
+   "sampled_n": 27,
+   "design": "simple random 20% (seed 42)",
+   "n_valid": 13,
+   "n_invalid": 14,
+   "n_pending": 0,
+   "validity": 0.4815,
+   "validity_ci95": [
+    0.3074,
+    0.6601
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "I3",
+   "stratum": "all",
+   "population_N": 502,
+   "sampled_n": 100,
+   "design": "simple random 20% (seed 42)",
+   "n_valid": 73,
+   "n_invalid": 26,
+   "n_pending": 1,
+   "validity": 0.7374,
+   "validity_ci95": [
+    0.643,
+    0.814
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "I3",
+   "stratum": "all (pending counted valid)",
+   "population_N": 502,
+   "sampled_n": 100,
+   "design": "sensitivity for pending adjudication",
+   "n_valid": 74,
+   "n_invalid": 26,
+   "n_pending": 0,
+   "validity": 0.74,
+   "validity_ci95": [
+    0.6463,
+    0.816
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "I3",
+   "stratum": "all (pending counted invalid)",
+   "population_N": 502,
+   "sampled_n": 100,
+   "design": "sensitivity for pending adjudication",
+   "n_valid": 73,
+   "n_invalid": 27,
+   "n_pending": 0,
+   "validity": 0.73,
+   "validity_ci95": [
+    0.6357,
+    0.8073
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R2",
+   "stratum": "offensive_ambiguous",
+   "population_N": 59,
+   "sampled_n": 59,
+   "design": "census (all items)",
+   "n_valid": 19,
+   "n_invalid": 40,
+   "n_pending": 0,
+   "validity": 0.322,
+   "validity_ci95": [
+    0.2169,
+    0.449
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R2",
+   "stratum": "offensive_control",
+   "population_N": 141,
+   "sampled_n": 28,
+   "design": "simple random 20% of stratum",
+   "n_valid": 20,
+   "n_invalid": 8,
+   "n_pending": 0,
+   "validity": 0.7143,
+   "validity_ci95": [
+    0.5294,
+    0.8475
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R2",
+   "stratum": "hatespeech",
+   "population_N": 200,
+   "sampled_n": 0,
+   "design": "NOT VALIDATED",
+   "n_valid": 0,
+   "n_invalid": 0,
+   "n_pending": 0,
+   "validity": null,
+   "validity_ci95": [
+    null,
+    null
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R2",
+   "stratum": "normal",
+   "population_N": 200,
+   "sampled_n": 0,
+   "design": "NOT VALIDATED",
+   "n_valid": 0,
+   "n_invalid": 0,
+   "n_pending": 0,
+   "validity": null,
+   "validity_ci95": [
+    null,
+    null
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R2",
+   "stratum": "offensive (stratum-weighted)",
+   "population_N": 200,
+   "sampled_n": 87,
+   "design": "census + 20% sample, weights N_h/N, FPC on control",
+   "n_valid": 39,
+   "n_invalid": 48,
+   "n_pending": 0,
+   "validity": 0.5986,
+   "validity_ci95": [
+    0.493,
+    0.7042
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R2",
+   "stratum": "all R2 (600)",
+   "population_N": 600,
+   "sampled_n": 87,
+   "design": "hatespeech and normal strata (400 items) never validated",
+   "validity": "not identifiable",
+   "note": "the unweighted 44.8% in validation.json mixes a census of ambiguous cases with a small control sample and does not describe R2"
+  }
+ ],
+ "pending_item_sensitivity": {
+  "qwen2.5:7b|direct": {
+   "excluded": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.8082
+   },
+   "valid": {
+    "n_pairs": 74,
+    "invariance_rate_on_human_valid_I3": 0.8108
+   },
+   "invalid": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.8082
+   }
+  },
+  "qwen2.5:7b|evidence": {
+   "excluded": {
+    "n_pairs": 71,
+    "invariance_rate_on_human_valid_I3": 0.7324
+   },
+   "valid": {
+    "n_pairs": 72,
+    "invariance_rate_on_human_valid_I3": 0.7222
+   },
+   "invalid": {
+    "n_pairs": 71,
+    "invariance_rate_on_human_valid_I3": 0.7324
+   }
+  },
+  "llama3.1:8b|direct": {
+   "excluded": {
+    "n_pairs": 26,
+    "invariance_rate_on_human_valid_I3": 0.6538
+   },
+   "valid": {
+    "n_pairs": 27,
+    "invariance_rate_on_human_valid_I3": 0.6296
+   },
+   "invalid": {
+    "n_pairs": 26,
+    "invariance_rate_on_human_valid_I3": 0.6538
+   }
+  },
+  "llama3.1:8b|evidence": {
+   "excluded": {
+    "n_pairs": 7,
+    "invariance_rate_on_human_valid_I3": 0.8571
+   },
+   "valid": {
+    "n_pairs": 7,
+    "invariance_rate_on_human_valid_I3": 0.8571
+   },
+   "invalid": {
+    "n_pairs": 7,
+    "invariance_rate_on_human_valid_I3": 0.8571
+   }
+  },
+  "gemma2:9b|direct": {
+   "excluded": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.8082
+   },
+   "valid": {
+    "n_pairs": 74,
+    "invariance_rate_on_human_valid_I3": 0.7973
+   },
+   "invalid": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.8082
+   }
+  },
+  "gemma2:9b|evidence": {
+   "excluded": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.8356
+   },
+   "valid": {
+    "n_pairs": 74,
+    "invariance_rate_on_human_valid_I3": 0.8243
+   },
+   "invalid": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.8356
+   }
+  },
+  "word-LR": {
+   "excluded": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.6712
+   },
+   "valid": {
+    "n_pairs": 74,
+    "invariance_rate_on_human_valid_I3": 0.6757
+   },
+   "invalid": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.6712
+   }
+  },
+  "char-LR": {
+   "excluded": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.6438
+   },
+   "valid": {
+    "n_pairs": 74,
+    "invariance_rate_on_human_valid_I3": 0.6486
+   },
+   "invalid": {
+    "n_pairs": 73,
+    "invariance_rate_on_human_valid_I3": 0.6438
+   }
+  },
+  "items": [
+   "34250a0a4de0"
+  ]
+ },
+ "E1_residual_identity_terms": {
+  "definition": "E1 items: flagged = verdict 'violating'; identity term = any build_items.GROUP_TERMS token left in the E1 text; answered items only (refusals and unparseable excluded)",
+  "human_validity_by_identity_term": {
+   "table_rows_identity_yes_no_cols_invalid_valid": [
+    [
+     4,
+     13
+    ],
+    [
+     9,
+     53
+    ]
+   ],
+   "invalid_share_with_identity": 0.2353,
+   "invalid_share_without_identity": 0.1452,
+   "fisher_p": 0.461
+  },
+  "by_system": {
+   "qwen2.5:7b|direct": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.4886,
+      43,
+      88,
+      [
+       0.3869,
+       0.5913
+      ]
+     ],
+     "flagged_without_identity": [
+      0.2362,
+      73,
+      309,
+      [
+       0.1923,
+       0.2867
+      ]
+     ],
+     "odds_ratio": 3.089,
+     "fisher_p": 9.33e-06,
+     "holm_p_family_F_R": 3.7e-05
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.4762,
+      40,
+      84,
+      [
+       0.3728,
+       0.5817
+      ]
+     ],
+     "flagged_without_identity": [
+      0.23,
+      69,
+      300,
+      [
+       0.186,
+       0.2809
+      ]
+     ],
+     "odds_ratio": 3.043,
+     "fisher_p": 1.919e-05,
+     "holm_p_family_F_R": 7.7e-05
+    }
+   },
+   "qwen2.5:7b|evidence": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.5909,
+      52,
+      88,
+      [
+       0.4865,
+       0.6877
+      ]
+     ],
+     "flagged_without_identity": [
+      0.2182,
+      67,
+      307,
+      [
+       0.1757,
+       0.2678
+      ]
+     ],
+     "odds_ratio": 5.174,
+     "fisher_p": 1.344e-10,
+     "holm_p_family_F_R": 0.0
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.5714,
+      48,
+      84,
+      [
+       0.4648,
+       0.6718
+      ]
+     ],
+     "flagged_without_identity": [
+      0.2081,
+      62,
+      298,
+      [
+       0.1658,
+       0.2577
+      ]
+     ],
+     "odds_ratio": 5.075,
+     "fisher_p": 5.203e-10,
+     "holm_p_family_F_R": 0.0
+    }
+   },
+   "llama3.1:8b|direct": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.717,
+      38,
+      53,
+      [
+       0.5843,
+       0.8203
+      ]
+     ],
+     "flagged_without_identity": [
+      0.3408,
+      91,
+      267,
+      [
+       0.2866,
+       0.3996
+      ]
+     ],
+     "odds_ratio": 4.9,
+     "fisher_p": 5.136e-07,
+     "holm_p_family_F_R": 3e-06
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.7115,
+      37,
+      52,
+      [
+       0.5773,
+       0.8167
+      ]
+     ],
+     "flagged_without_identity": [
+      0.3321,
+      87,
+      262,
+      [
+       0.2778,
+       0.3912
+      ]
+     ],
+     "odds_ratio": 4.962,
+     "fisher_p": 6.859e-07,
+     "holm_p_family_F_R": 3e-06
+    }
+   },
+   "llama3.1:8b|evidence": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.5,
+      8,
+      16,
+      [
+       0.28,
+       0.72
+      ]
+     ],
+     "flagged_without_identity": [
+      0.2201,
+      35,
+      159,
+      [
+       0.1627,
+       0.2907
+      ]
+     ],
+     "odds_ratio": 3.543,
+     "fisher_p": 0.02772,
+     "holm_p_family_F_R": 0.083154
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.5,
+      8,
+      16,
+      [
+       0.28,
+       0.72
+      ]
+     ],
+     "flagged_without_identity": [
+      0.2051,
+      32,
+      156,
+      [
+       0.1492,
+       0.2752
+      ]
+     ],
+     "odds_ratio": 3.875,
+     "fisher_p": 0.01319,
+     "holm_p_family_F_R": 0.039583
+    }
+   },
+   "gemma2:9b|direct": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.8409,
+      74,
+      88,
+      [
+       0.7505,
+       0.9028
+      ]
+     ],
+     "flagged_without_identity": [
+      0.3754,
+      116,
+      309,
+      [
+       0.3233,
+       0.4306
+      ]
+     ],
+     "odds_ratio": 8.794,
+     "fisher_p": 2.805e-15,
+     "holm_p_family_F_R": 0.0
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.8333,
+      70,
+      84,
+      [
+       0.7395,
+       0.898
+      ]
+     ],
+     "flagged_without_identity": [
+      0.3633,
+      109,
+      300,
+      [
+       0.311,
+       0.4192
+      ]
+     ],
+     "odds_ratio": 8.761,
+     "fisher_p": 1.01e-14,
+     "holm_p_family_F_R": 0.0
+    }
+   },
+   "gemma2:9b|evidence": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.7273,
+      64,
+      88,
+      [
+       0.6262,
+       0.8093
+      ]
+     ],
+     "flagged_without_identity": [
+      0.3625,
+      112,
+      309,
+      [
+       0.3109,
+       0.4174
+      ]
+     ],
+     "odds_ratio": 4.69,
+     "fisher_p": 1.29e-09,
+     "holm_p_family_F_R": 0.0
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.7143,
+      60,
+      84,
+      [
+       0.61,
+       0.7999
+      ]
+     ],
+     "flagged_without_identity": [
+      0.35,
+      105,
+      300,
+      [
+       0.2982,
+       0.4056
+      ]
+     ],
+     "odds_ratio": 4.643,
+     "fisher_p": 4.384e-09,
+     "holm_p_family_F_R": 0.0
+    }
+   },
+   "word-LR": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.5227,
+      46,
+      88,
+      [
+       0.4196,
+       0.6239
+      ]
+     ],
+     "flagged_without_identity": [
+      0.4822,
+      149,
+      309,
+      [
+       0.427,
+       0.5378
+      ]
+     ],
+     "odds_ratio": 1.176,
+     "fisher_p": 0.5464,
+     "holm_p_family_F_R": 1.0
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.5238,
+      44,
+      84,
+      [
+       0.4183,
+       0.6272
+      ]
+     ],
+     "flagged_without_identity": [
+      0.48,
+      144,
+      300,
+      [
+       0.4241,
+       0.5364
+      ]
+     ],
+     "odds_ratio": 1.192,
+     "fisher_p": 0.5373,
+     "holm_p_family_F_R": 1.0
+    }
+   },
+   "char-LR": {
+    "all_answered": {
+     "flagged_with_identity": [
+      0.3295,
+      29,
+      88,
+      [
+       0.2403,
+       0.4331
+      ]
+     ],
+     "flagged_without_identity": [
+      0.2945,
+      91,
+      309,
+      [
+       0.2464,
+       0.3476
+      ]
+     ],
+     "odds_ratio": 1.178,
+     "fisher_p": 0.5988,
+     "holm_p_family_F_R": 1.0
+    },
+    "excluding_human_invalid": {
+     "flagged_with_identity": [
+      0.3333,
+      28,
+      84,
+      [
+       0.2418,
+       0.4395
+      ]
+     ],
+     "flagged_without_identity": [
+      0.2967,
+      89,
+      300,
+      [
+       0.2478,
+       0.3507
+      ]
+     ],
+     "odds_ratio": 1.185,
+     "fisher_p": 0.5064,
+     "holm_p_family_F_R": 1.0
+    }
+   }
+  },
+  "family_F_R": "8 Fisher tests (one per system) per variant; Holm"
+ },
+ "model_metadata": [
+  {
+   "system": "qwen2.5:7b|direct",
+   "model": "qwen2.5:7b",
+   "prompt": "direct",
+   "file": "runs/qwen2.5_7b_direct.jsonl",
+   "sha1": "ca085a167b818b3107ed276135429a05d9ff666e"
+  },
+  {
+   "system": "qwen2.5:7b|evidence",
+   "model": "qwen2.5:7b",
+   "prompt": "evidence",
+   "file": "runs/qwen2.5_7b_evidence.jsonl",
+   "sha1": "20221e96b0449d6def43203e4c57302cb48fc159"
+  },
+  {
+   "system": "llama3.1:8b|direct",
+   "model": "llama3.1:8b",
+   "prompt": "direct",
+   "file": "runs/llama3.1_8b_direct.jsonl",
+   "sha1": "b369ed15c975417b9a196124386270482a7db834"
+  },
+  {
+   "system": "llama3.1:8b|evidence",
+   "model": "llama3.1:8b",
+   "prompt": "evidence",
+   "file": "runs/llama3.1_8b_evidence.jsonl",
+   "sha1": "21d986d4801301a478b3ff145aee7fbc51800e86"
+  },
+  {
+   "system": "gemma2:9b|direct",
+   "model": "gemma2:9b",
+   "prompt": "direct",
+   "file": "runs/gemma2_9b_direct.jsonl",
+   "sha1": "1b538d8de2c951285e73f0ecad0ff246997e3f86"
+  },
+  {
+   "system": "gemma2:9b|evidence",
+   "model": "gemma2:9b",
+   "prompt": "evidence",
+   "file": "runs/gemma2_9b_evidence.jsonl",
+   "sha1": "1840d0a9275f8130f185bcf93194512fe50ca9a1"
+  },
+  {
+   "system": "word-LR",
+   "model": "word-LR",
+   "prompt": "-",
+   "file": "runs/llm600_word-LR.jsonl",
+   "sha1": "ee6bc0eff60e303828cdad625d0e06d63e392282"
+  },
+  {
+   "system": "char-LR",
+   "model": "char-LR",
+   "prompt": "-",
+   "file": "runs/llm600_char-LR.jsonl",
+   "sha1": "98ae1b7b7aa7cd3a951a26093348919200bdb7db"
+  }
+ ]
+}

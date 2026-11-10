@@ -1,0 +1,221 @@
+{
+ "qwen2.5:7b|direct": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.4886,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.2362,
+   309
+  ],
+  "fisher_odds_ratio": 3.089,
+  "fisher_p": 9.33e-06,
+  "share_of_cited_tokens_that_are_identity_terms": 0.0,
+  "top_identity_tokens_cited": [],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.1194,
+   "flip_I2": 0.0896,
+   "only_I1_flips": 10,
+   "only_I2_flips": 6,
+   "mcnemar_p": 0.454
+  }
+ },
+ "qwen2.5:7b|evidence": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.5909,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.2168,
+   309
+  ],
+  "fisher_odds_ratio": 5.217,
+  "fisher_p": 1.27e-10,
+  "share_of_cited_tokens_that_are_identity_terms": 0.0,
+  "top_identity_tokens_cited": [],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.1567,
+   "flip_I2": 0.097,
+   "only_I1_flips": 18,
+   "only_I2_flips": 10,
+   "mcnemar_p": 0.185
+  }
+ },
+ "llama3.1:8b|direct": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.4318,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.2945,
+   309
+  ],
+  "fisher_odds_ratio": 1.821,
+  "fisher_p": 0.0199,
+  "share_of_cited_tokens_that_are_identity_terms": 0.0072,
+  "top_identity_tokens_cited": [
+   [
+    "jew",
+    1
+   ]
+  ],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.2015,
+   "flip_I2": 0.1269,
+   "only_I1_flips": 21,
+   "only_I2_flips": 11,
+   "mcnemar_p": 0.11
+  }
+ },
+ "llama3.1:8b|evidence": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.0909,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.1133,
+   309
+  ],
+  "fisher_odds_ratio": 0.783,
+  "fisher_p": 0.698,
+  "share_of_cited_tokens_that_are_identity_terms": 0.0,
+  "top_identity_tokens_cited": [],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.1045,
+   "flip_I2": 0.097,
+   "only_I1_flips": 11,
+   "only_I2_flips": 10,
+   "mcnemar_p": 1.0
+  }
+ },
+ "gemma2:9b|direct": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.8409,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.3754,
+   309
+  ],
+  "fisher_odds_ratio": 8.794,
+  "fisher_p": 2.8e-15,
+  "share_of_cited_tokens_that_are_identity_terms": 0.0,
+  "top_identity_tokens_cited": [],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.1343,
+   "flip_I2": 0.0224,
+   "only_I1_flips": 16,
+   "only_I2_flips": 1,
+   "mcnemar_p": 0.000275
+  }
+ },
+ "gemma2:9b|evidence": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.7273,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.3625,
+   309
+  ],
+  "fisher_odds_ratio": 4.69,
+  "fisher_p": 1.29e-09,
+  "share_of_cited_tokens_that_are_identity_terms": 0.0108,
+  "top_identity_tokens_cited": [
+   [
+    "jews",
+    2
+   ],
+   [
+    "muslim",
+    1
+   ]
+  ],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.1119,
+   "flip_I2": 0.0299,
+   "only_I1_flips": 14,
+   "only_I2_flips": 3,
+   "mcnemar_p": 0.0127
+  }
+ },
+ "word-LR": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.5227,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.4822,
+   309
+  ],
+  "fisher_odds_ratio": 1.176,
+  "fisher_p": 0.546,
+  "share_of_cited_tokens_that_are_identity_terms": 0.029,
+  "top_identity_tokens_cited": [
+   [
+    "jews",
+    8
+   ],
+   [
+    "jew",
+    5
+   ],
+   [
+    "whites",
+    3
+   ],
+   [
+    "blacks",
+    3
+   ],
+   [
+    "men",
+    2
+   ]
+  ],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.1791,
+   "flip_I2": 0.0746,
+   "only_I1_flips": 20,
+   "only_I2_flips": 6,
+   "mcnemar_p": 0.00936
+  }
+ },
+ "char-LR": {
+  "E1_items": 397,
+  "still_flagged_with_identity_term": [
+   0.3295,
+   88
+  ],
+  "still_flagged_without_identity_term": [
+   0.2945,
+   309
+  ],
+  "fisher_odds_ratio": 1.178,
+  "fisher_p": 0.599,
+  "share_of_cited_tokens_that_are_identity_terms": null,
+  "top_identity_tokens_cited": [],
+  "I1_vs_I2_paired": {
+   "n_posts": 134,
+   "flip_I1": 0.1493,
+   "flip_I2": 0.0522,
+   "only_I1_flips": 19,
+   "only_I2_flips": 6,
+   "mcnemar_p": 0.0146
+  }
+ }
+}

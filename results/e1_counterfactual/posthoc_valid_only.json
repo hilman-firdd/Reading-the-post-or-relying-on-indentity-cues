@@ -1,0 +1,121 @@
+{
+ "qwen2.5:7b|direct": {
+  "transitions_PLC_to_NEU": {
+   "ABSTENTION->not_violating": 3,
+   "not_violating->not_violating": 44,
+   "not_violating->violating": 1,
+   "violating->ABSTENTION": 1,
+   "violating->not_violating": 20,
+   "violating->violating": 19
+  },
+  "valid_only": {
+   "n_pairs": 84,
+   "rate_x": 0.4643,
+   "rate_y": 0.2381,
+   "b_only_x": 20,
+   "c_only_y": 1,
+   "risk_difference": 0.2262,
+   "rd_ci95_post_bootstrap": [
+    0.131,
+    0.3214
+   ],
+   "conditional_odds_ratio_b_over_c": 20.0,
+   "or_ci95_exact": [
+    3.199,
+    828.956
+   ],
+   "mcnemar_exact_p": 2.098e-05,
+   "holm_p_posthoc_4": 8.4e-05
+  }
+ },
+ "qwen2.5:7b|evidence": {
+  "transitions_PLC_to_NEU": {
+   "ABSTENTION->ABSTENTION": 5,
+   "not_violating->ABSTENTION": 7,
+   "not_violating->not_violating": 26,
+   "not_violating->violating": 5,
+   "violating->ABSTENTION": 3,
+   "violating->not_violating": 17,
+   "violating->violating": 25
+  },
+  "valid_only": {
+   "n_pairs": 73,
+   "rate_x": 0.5753,
+   "rate_y": 0.411,
+   "b_only_x": 17,
+   "c_only_y": 5,
+   "risk_difference": 0.1644,
+   "rd_ci95_post_bootstrap": [
+    0.0411,
+    0.2877
+   ],
+   "conditional_odds_ratio_b_over_c": 3.4,
+   "or_ci95_exact": [
+    1.204,
+    11.787
+   ],
+   "mcnemar_exact_p": 0.0169,
+   "holm_p_posthoc_4": 0.0338
+  }
+ },
+ "gemma2:9b|direct": {
+  "transitions_PLC_to_NEU": {
+   "ABSTENTION->ABSTENTION": 6,
+   "ABSTENTION->not_violating": 2,
+   "ABSTENTION->violating": 3,
+   "not_violating->not_violating": 3,
+   "violating->ABSTENTION": 13,
+   "violating->not_violating": 12,
+   "violating->violating": 49
+  },
+  "valid_only": {
+   "n_pairs": 64,
+   "rate_x": 0.9531,
+   "rate_y": 0.7656,
+   "b_only_x": 12,
+   "c_only_y": 0,
+   "risk_difference": 0.1875,
+   "rd_ci95_post_bootstrap": [
+    0.0938,
+    0.2812
+   ],
+   "conditional_odds_ratio_b_over_c": null,
+   "or_ci95_exact": [
+    2.779,
+    null
+   ],
+   "mcnemar_exact_p": 0.0004883,
+   "holm_p_posthoc_4": 0.001465
+  }
+ },
+ "gemma2:9b|evidence": {
+  "transitions_PLC_to_NEU": {
+   "ABSTENTION->ABSTENTION": 16,
+   "ABSTENTION->not_violating": 1,
+   "ABSTENTION->violating": 2,
+   "not_violating->ABSTENTION": 1,
+   "violating->ABSTENTION": 17,
+   "violating->not_violating": 1,
+   "violating->violating": 50
+  },
+  "valid_only": {
+   "n_pairs": 51,
+   "rate_x": 1.0,
+   "rate_y": 0.9804,
+   "b_only_x": 1,
+   "c_only_y": 0,
+   "risk_difference": 0.0196,
+   "rd_ci95_post_bootstrap": [
+    0.0,
+    0.0588
+   ],
+   "conditional_odds_ratio_b_over_c": null,
+   "or_ci95_exact": [
+    0.026,
+    null
+   ],
+   "mcnemar_exact_p": 1.0,
+   "holm_p_posthoc_4": 1.0
+  }
+ }
+}

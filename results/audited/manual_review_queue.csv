@@ -1,0 +1,62 @@
+system,item_id,category,reason,recovered_verdict,stored_verdict,raw_excerpt
+qwen2.5:7b|direct,29f1884cc4a1,UNPARSEABLE,malformed json,violating,insufficient,"```json
+{""verdict"": ""violating"", ""quotes"": [""So you're just a lying, stupid idiot, huh?"", ""What dumb label should I slap on you? Maybe just ""peasants""?""], ""confidence"": 0.95}
+```"
+qwen2.5:7b|direct,0f47c4973a13,UNPARSEABLE,malformed json,violating,insufficient,"```json
+{""verdict"": ""violating"", ""quotes"": [""We ought to sort them by race and maybe even religion – like, ""Pakis"" and ""Muzzies"".""""], ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,c0da5b191486,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""fuck every muzzie and the religion of piss""], ""veracity"": ""violating"", ""confidence"": 0.95}
+```"
+qwen2.5:7b|evidence,5da67ea1fa6b,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""rat faced faggot kike""], ""veracity"": ""violating"", ""confidence"": 0.95}
+```"
+qwen2.5:7b|evidence,56f335b9bae6,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""british princess criminal trash family 🤣""], ""ver verdict"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,c4cee25e07a9,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""the shooters must be muslim""], ""verolict"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,3b5026dd5c8e,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""the shooters must be muslim""], ""ver verdict"": ""insufficient"", ""confidence"": 0.5}
+```"
+qwen2.5:7b|evidence,e13dcddf26df,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""the shooters must be muslim""], ""verolict"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,3592a57426d9,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""the shooters must be muslim""], ""vervitc"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,ac5236f8fca4,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""the shooters must be muslim""], ""verolict"": ""violating"", ""confidence"": 0.8}
+```"
+qwen2.5:7b|evidence,8bec22f65e8b,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""Those terrorists are definitely Muslim.""], ""ver verdict"": ""violating"", ""confidence"": 0.8}
+```"
+qwen2.5:7b|evidence,29f1884cc4a1,UNPARSEABLE,malformed json,violating,insufficient,"```json
+{""quotes"": [""So you're just a lying, stupid idiot, huh?"", ""What even is a kike anyway?"", ""What dumb label should I slap on you? Maybe just ""peasants""?""], ""verdict"": ""violating"", ""confidence"": 0.95}
+```"
+qwen2.5:7b|evidence,df99fdae5782,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""fucking slant retard""], ""veracity"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,568f94322ad1,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""fucking gook idiot""], ""verbal"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,b1d6f96aeab8,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""get the honky cat""], ""ver verdict"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,0f47c4973a13,UNPARSEABLE,malformed json,violating,insufficient,"```json
+{""quotes"": [""We ought to sort them by race and maybe even religion – like, ""Pakis"" and ""Muzzies"".""], ""verdict"": ""violating"", ""confidence"": 0.9}
+```"
+qwen2.5:7b|evidence,be0dae0038c8,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""so the nazis at <user> hate free speech""], ""vervit"": ""not_violating"", ""confidence"": 0.8}
+```"
+qwen2.5:7b|evidence,cfebe17dddf8,UNPARSEABLE,json without usable verdict (missing),,insufficient,"```json
+{""quotes"": [""the idiot the slow one""], ""verificat"": ""not_violating"", ""confidence"": 0.8}
+```"
+llama3.1:8b|direct,7b171e8473a1,ABSTENTION,"free-text abstention, no json",,insufficient,I cannot determine whether the post violates the content policy. Is there something else I can help you with?
+llama3.1:8b|direct,65ce19a471b3,ABSTENTION,"free-text abstention, no json",,insufficient,I cannot determine whether the post violates the content policy. Is there something else I can help you with?
+llama3.1:8b|direct,f5391456c67e,ABSTENTION,"free-text abstention, no json",,insufficient,I cannot determine whether the post violates the content policy as no policy text is provided.
+gemma2:9b|direct,8fc232679fc2,UNPARSEABLE,truncated json,violating,insufficient,"```json
+{""verdict"": ""violating"", ""quotes"": [""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", "
+gemma2:9b|direct,83b4dcd0ae06,UNPARSEABLE,truncated json,violating,insufficient,"```json
+{""verdict"": ""violating"", ""quotes"": [""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", ""kike nigga"", "

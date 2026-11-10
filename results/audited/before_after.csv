@@ -1,0 +1,34 @@
+id,finding,system,metric,initial,audited,change,reason
+F1,llama3.1 accuracy,llama3.1:8b|direct,ORIG accuracy (refusal counted wrong) -> conditional accuracy on valid verdicts,0.2617,0.6382,0.3765,refusals are not wrong answers; report coverage + conditional accuracy together
+F1,llama3.1 coverage,llama3.1:8b|direct,ORIG valid-verdict coverage,,0.41,,new metric
+F2,llama3.1 R1 pass,llama3.1:8b|direct,"R1 pass (refusal stored as insufficient) -> R1 pass, refusal never passes",0.6783,0.0167,-0.6616,refusal had been counted as the correct abstention
+F3,llama3.1 I1 invariance,llama3.1:8b|direct,I1 pass (refusal==refusal counted invariant) -> flip rate on answered pairs,0.7985,0.1739,-0.6246,invariance only defined when both verdicts exist
+F3,llama3.1 I2 invariance,llama3.1:8b|direct,I2 pass (refusal==refusal counted invariant) -> flip rate on answered pairs,0.8533,0.1378,-0.7155,invariance only defined when both verdicts exist
+F1,llama3.1 accuracy,llama3.1:8b|evidence,ORIG accuracy (refusal counted wrong) -> conditional accuracy on valid verdicts,0.08,0.6316,0.5516,refusals are not wrong answers; report coverage + conditional accuracy together
+F1,llama3.1 coverage,llama3.1:8b|evidence,ORIG valid-verdict coverage,,0.1267,,new metric
+F2,llama3.1 R1 pass,llama3.1:8b|evidence,"R1 pass (refusal stored as insufficient) -> R1 pass, refusal never passes",0.945,0.0483,-0.8967,refusal had been counted as the correct abstention
+F3,llama3.1 I1 invariance,llama3.1:8b|evidence,I1 pass (refusal==refusal counted invariant) -> flip rate on answered pairs,0.8955,0.0909,-0.8046,invariance only defined when both verdicts exist
+F3,llama3.1 I2 invariance,llama3.1:8b|evidence,I2 pass (refusal==refusal counted invariant) -> flip rate on answered pairs,0.9083,0.1148,-0.7935,invariance only defined when both verdicts exist
+F4,I1 vs I2 significance,qwen2.5:7b|direct,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,0.454,0.909,0.455,family of 8 simultaneous tests
+F4,I1 vs I2 significance,qwen2.5:7b|evidence,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,0.185,0.7434,0.5584,family of 8 simultaneous tests
+F4,I1 vs I2 significance,llama3.1:8b|direct,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,0.11,0.28124,0.1712,family of 8 simultaneous tests
+F4,I1 vs I2 significance,llama3.1:8b|evidence,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,1.0,1.0,0.0,family of 8 simultaneous tests
+F4,I1 vs I2 significance,gemma2:9b|direct,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,0.000275,0.002198,0.0019,family of 8 simultaneous tests
+F4,I1 vs I2 significance,gemma2:9b|evidence,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,0.0127,0.07638,0.0637,family of 8 simultaneous tests
+F4,I1 vs I2 significance,word-LR,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,0.00936,0.065485,0.0561,family of 8 simultaneous tests
+F4,I1 vs I2 significance,char-LR,McNemar p (uncorrected) -> Holm-adjusted over 8 systems,0.0146,0.07638,0.0618,family of 8 simultaneous tests
+F5,abstention count,qwen2.5:7b|direct,items stored as insufficient -> ABSTENTION,232,230,-2,unparseable answers and null verdicts had been folded into insufficient
+F5,abstention count,qwen2.5:7b|evidence,items stored as insufficient -> ABSTENTION,359,343,-16,unparseable answers and null verdicts had been folded into insufficient
+F5,abstention count,gemma2:9b|direct,items stored as insufficient -> ABSTENTION,342,340,-2,unparseable answers and null verdicts had been folded into insufficient
+F5,abstention count,gemma2:9b|evidence,items stored as insufficient -> ABSTENTION,673,673,0,unparseable answers and null verdicts had been folded into insufficient
+F6,llama3.1 refusals,llama3.1:8b|direct,refusals (first regex) -> audited classifier,2383,2380,-3,3 'I cannot determine ...' answers are abstentions
+F7,R2 oracle validity,-,unweighted validity -> stratum-weighted (offensive only),0.4483,0.5986,0.1503,ambiguous cases were a census; hatespeech/normal strata not validated
+F8,I1 item validity,-,validity (n=27),0.4815,0.4815,0.0,"same value; now with Wilson CI [0.3074, 0.6601]"
+F9,E1 pass under corrected oracle,qwen2.5:7b|direct,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.6348,0.5823,-0.0525,16.5% of sampled E1 items still contain an attack
+F9,E1 pass under corrected oracle,qwen2.5:7b|evidence,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.4354,0.519,0.0836,16.5% of sampled E1 items still contain an attack
+F9,E1 pass under corrected oracle,llama3.1:8b|direct,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.575,0.5763,0.0013,16.5% of sampled E1 items still contain an attack
+F9,E1 pass under corrected oracle,llama3.1:8b|evidence,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.7429,0.8485,0.1056,16.5% of sampled E1 items still contain an attack
+F9,E1 pass under corrected oracle,gemma2:9b|direct,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.2317,0.4051,0.1734,16.5% of sampled E1 items still contain an attack
+F9,E1 pass under corrected oracle,gemma2:9b|evidence,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.0982,0.2658,0.1676,16.5% of sampled E1 items still contain an attack
+F9,E1 pass under corrected oracle,word-LR,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.5088,0.5063,-0.0025,16.5% of sampled E1 items still contain an attack
+F9,E1 pass under corrected oracle,char-LR,"E1 pass (original oracle, answered) -> validated subset, corrected oracle",0.6977,0.5696,-0.1281,16.5% of sampled E1 items still contain an attack

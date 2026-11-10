@@ -1,0 +1,85 @@
+row_type,mr,stratum,population_N,sampled_n,design,n_valid,n_invalid,n_pending,validity,validity_ci95,note,system,metric,A_all_items_original_oracle,A_n,A_ci95,B_validated_original_oracle,B_n,C_validated_corrected_oracle,C_ci95,E_bounds_all_items_corrected,E_assumed_max_invalid_unvalidated,D_population_estimate_corrected,D_n_ambiguous,D_n_control,excluding_known_invalid,excluding_known_invalid_n
+oracle_validity,E1,all,397,79,simple random 20% (seed 42),66,13,0,0.8354,"[0.7385, 0.9012]",,,,,,,,,,,,,,,,,
+oracle_validity,E2,all,200,40,simple random 20% (seed 42),34,6,0,0.85,"[0.7093, 0.9294]",,,,,,,,,,,,,,,,,
+oracle_validity,I1,all,134,27,simple random 20% (seed 42),13,14,0,0.4815,"[0.3074, 0.6601]",,,,,,,,,,,,,,,,,
+oracle_validity,I3,all,502,100,simple random 20% (seed 42),73,26,1,0.7374,"[0.643, 0.814]",,,,,,,,,,,,,,,,,
+oracle_validity,I3,all (pending counted valid),502,100,sensitivity for pending adjudication,74,26,0,0.74,"[0.6463, 0.816]",,,,,,,,,,,,,,,,,
+oracle_validity,I3,all (pending counted invalid),502,100,sensitivity for pending adjudication,73,27,0,0.73,"[0.6357, 0.8073]",,,,,,,,,,,,,,,,,
+oracle_validity,R2,offensive_ambiguous,59,59,census (all items),19,40,0,0.322,"[0.2169, 0.449]",,,,,,,,,,,,,,,,,
+oracle_validity,R2,offensive_control,141,28,simple random 20% of stratum,20,8,0,0.7143,"[0.5294, 0.8475]",,,,,,,,,,,,,,,,,
+oracle_validity,R2,hatespeech,200,0,NOT VALIDATED,0,0,0,,"[null, null]",,,,,,,,,,,,,,,,,
+oracle_validity,R2,normal,200,0,NOT VALIDATED,0,0,0,,"[null, null]",,,,,,,,,,,,,,,,,
+oracle_validity,R2,offensive (stratum-weighted),200,87,"census + 20% sample, weights N_h/N, FPC on control",39,48,0,0.5986,"[0.493, 0.7042]",,,,,,,,,,,,,,,,,
+oracle_validity,R2,all R2 (600),600,87,hatespeech and normal strata (400 items) never validated,,,,not identifiable,,the unweighted 44.8% in validation.json mixes a census of ambiguous cases with a small control sample and does not describe R2,,,,,,,,,,,,,,,,
+model_sensitivity,E1,all,,,,,,,,,,qwen2.5:7b|direct,pass among answered (strict),0.6348,397,"[0.5863, 0.6806]",0.5696,79,0.5823,"[0.4722, 0.6847]","[0.4257, 0.8489]",84,,,,,
+model_sensitivity,E2,all,,,,,,,,,,qwen2.5:7b|direct,pass among answered (strict),0.915,200,"[0.8681, 0.9463]",0.95,40,0.8,"[0.6524, 0.895]","[0.65, 0.96]",47,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,qwen2.5:7b|direct,pass among answered (strict),0.3559,59,"[0.246, 0.4834]",0.3559,59,0.7288,"[0.604, 0.8256]","[0.7288, 0.7288]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,qwen2.5:7b|direct,pass among answered (strict),0.7234,141,"[0.6444, 0.7906]",0.75,28,0.75,"[0.5664, 0.8732]","[0.3404, 0.9504]",54,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,qwen2.5:7b|direct,pass among answered (strict),0.79,200,"[0.7284, 0.8407]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,qwen2.5:7b|direct,pass among answered (strict),0.72,200,"[0.6541, 0.7776]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,qwen2.5:7b|direct,pass among answered (strict),,,,,,,,,,0.7437,59,28,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,qwen2.5:7b|direct,invariance (no flip vs own ORIG) among answered pairs,0.8806,134,,,13,0.9231,,,,0.9231,,,0.8917,120
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,qwen2.5:7b|direct,invariance (no flip vs own ORIG) among answered pairs,0.798,500,,,73,0.8082,,,,0.8082,,,0.8017,474
+model_sensitivity,E1,all,,,,,,,,,,qwen2.5:7b|evidence,pass among answered (strict),0.4354,395,"[0.3874, 0.4847]",0.443,79,0.519,"[0.4105, 0.6257]","[0.2405, 0.6608]",83,,,,,
+model_sensitivity,E2,all,,,,,,,,,,qwen2.5:7b|evidence,pass among answered (strict),0.95,200,"[0.9104, 0.9726]",0.95,40,0.8,"[0.6524, 0.895]","[0.685, 0.955]",47,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,qwen2.5:7b|evidence,pass among answered (strict),0.2281,57,"[0.1384, 0.3521]",0.2281,57,0.7018,"[0.5734, 0.8047]","[0.7018, 0.7018]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,qwen2.5:7b|evidence,pass among answered (strict),0.6143,140,"[0.5316, 0.6908]",0.6071,28,0.75,"[0.5664, 0.8732]","[0.2643, 0.9]",53,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,qwen2.5:7b|evidence,pass among answered (strict),0.865,200,"[0.8107, 0.9055]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,qwen2.5:7b|evidence,pass among answered (strict),0.59,200,"[0.5208, 0.6558]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,qwen2.5:7b|evidence,pass among answered (strict),,,,,,,,,,0.7358,57,28,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,qwen2.5:7b|evidence,invariance (no flip vs own ORIG) among answered pairs,0.8496,133,,,12,0.9167,,,,0.9167,,,0.8487,119
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,qwen2.5:7b|evidence,invariance (no flip vs own ORIG) among answered pairs,0.7722,496,,,71,0.7324,,,,0.7324,,,0.7851,470
+model_sensitivity,E1,all,,,,,,,,,,llama3.1:8b|direct,pass among answered (strict),0.575,320,"[0.5203, 0.628]",0.5085,59,0.5763,"[0.4493, 0.6939]","[0.3719, 0.8031]",69,,,,,
+model_sensitivity,E2,all,,,,,,,,,,llama3.1:8b|direct,pass among answered (strict),0.7917,24,"[0.5953, 0.9076]",0.8,5,0.6,"[0.2307, 0.8824]","[0.5, 0.9167]",6,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,llama3.1:8b|direct,pass among answered (strict),0.6,15,"[0.3575, 0.8018]",0.6,15,0.7333,"[0.4805, 0.891]","[0.7333, 0.7333]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,llama3.1:8b|direct,pass among answered (strict),0.6892,74,"[0.5766, 0.7831]",0.7857,14,0.7143,"[0.4535, 0.8828]","[0.2838, 0.9459]",29,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,llama3.1:8b|direct,pass among answered (strict),0.7778,18,"[0.5478, 0.91]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,llama3.1:8b|direct,pass among answered (strict),0.7574,136,"[0.6789, 0.8217]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,llama3.1:8b|direct,pass among answered (strict),,,,,,,,,,0.7199,15,14,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,llama3.1:8b|direct,invariance (no flip vs own ORIG) among answered pairs,0.8261,46,,,3,0.6667,,,,0.6667,,,0.8049,41
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,llama3.1:8b|direct,invariance (no flip vs own ORIG) among answered pairs,0.6796,206,,,26,0.6538,,,,0.6538,,,0.6891,193
+model_sensitivity,E1,all,,,,,,,,,,llama3.1:8b|evidence,pass among answered (strict),0.7429,175,"[0.6734, 0.8019]",0.7576,33,0.8485,"[0.6908, 0.9335]","[0.5429, 0.9657]",38,,,,,
+model_sensitivity,E2,all,,,,,,,,,,llama3.1:8b|evidence,pass among answered (strict),0.6667,3,"[0.2077, 0.9385]",,0,,"[null, null]","[0.3333, 1.0]",1,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,llama3.1:8b|evidence,pass among answered (strict),0.5,8,"[0.2152, 0.7848]",0.5,8,0.625,"[0.3057, 0.8632]","[0.625, 0.625]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,llama3.1:8b|evidence,pass among answered (strict),0.7297,37,"[0.5702, 0.846]",0.7,10,0.6,"[0.3127, 0.8318]","[0.3514, 0.8919]",13,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,llama3.1:8b|evidence,pass among answered (strict),0.8,5,"[0.3755, 0.9638]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,llama3.1:8b|evidence,pass among answered (strict),0.7423,97,"[0.6472, 0.8189]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,llama3.1:8b|evidence,pass among answered (strict),,,,,,,,,,0.6074,8,10,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,llama3.1:8b|evidence,invariance (no flip vs own ORIG) among answered pairs,0.9091,11,,,2,1.0,,,,1.0,,,0.9,10
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,llama3.1:8b|evidence,invariance (no flip vs own ORIG) among answered pairs,0.8148,54,,,7,0.8571,,,,0.8571,,,0.84,50
+model_sensitivity,E1,all,,,,,,,,,,gemma2:9b|direct,pass among answered (strict),0.2317,397,"[0.1929, 0.2757]",0.2785,79,0.4051,"[0.3037, 0.5153]","[0.0806, 0.4685]",84,,,,,
+model_sensitivity,E2,all,,,,,,,,,,gemma2:9b|direct,pass among answered (strict),1.0,200,"[0.9812, 1]",1.0,40,0.85,"[0.7093, 0.9294]","[0.735, 0.97]",47,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,gemma2:9b|direct,pass among answered (strict),0.0847,59,"[0.0367, 0.1835]",0.0847,59,0.7627,"[0.6402, 0.8531]","[0.7627, 0.7627]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,gemma2:9b|direct,pass among answered (strict),0.2128,141,"[0.1533, 0.2875]",0.1429,28,0.4286,"[0.2651, 0.6093]","[0.0851, 0.6525]",54,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,gemma2:9b|direct,pass among answered (strict),1.0,200,"[0.9812, 1]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,gemma2:9b|direct,pass among answered (strict),0.33,200,"[0.2686, 0.3978]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,gemma2:9b|direct,pass among answered (strict),,,,,,,,,,0.5272,59,28,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,gemma2:9b|direct,invariance (no flip vs own ORIG) among answered pairs,0.8657,134,,,13,0.8462,,,,0.8462,,,0.8583,120
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,gemma2:9b|direct,invariance (no flip vs own ORIG) among answered pairs,0.8187,502,,,73,0.8082,,,,0.8082,,,0.8235,476
+model_sensitivity,E1,all,,,,,,,,,,gemma2:9b|evidence,pass among answered (strict),0.0982,397,"[0.0727, 0.1315]",0.1266,79,0.2658,"[0.1809, 0.3724]","[0.0529, 0.3375]",84,,,,,
+model_sensitivity,E2,all,,,,,,,,,,gemma2:9b|evidence,pass among answered (strict),1.0,200,"[0.9812, 1]",1.0,40,0.85,"[0.7093, 0.9294]","[0.735, 0.97]",47,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,gemma2:9b|evidence,pass among answered (strict),0.0,59,"[0, 0.0611]",0.0,59,0.678,"[0.551, 0.7831]","[0.678, 0.678]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,gemma2:9b|evidence,pass among answered (strict),0.0638,141,"[0.0339, 0.1169]",0.0,28,0.2857,"[0.1525, 0.4706]","[0.0567, 0.5035]",54,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,gemma2:9b|evidence,pass among answered (strict),1.0,200,"[0.9812, 1]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,gemma2:9b|evidence,pass among answered (strict),0.1,200,"[0.0657, 0.1494]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,gemma2:9b|evidence,pass among answered (strict),,,,,,,,,,0.4014,59,28,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,gemma2:9b|evidence,invariance (no flip vs own ORIG) among answered pairs,0.8881,134,,,13,0.9231,,,,0.9231,,,0.875,120
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,gemma2:9b|evidence,invariance (no flip vs own ORIG) among answered pairs,0.8287,502,,,73,0.8356,,,,0.8356,,,0.8277,476
+model_sensitivity,E1,all,,,,,,,,,,word-LR,pass among answered (strict),0.5088,397,"[0.4598, 0.5577]",0.4937,79,0.5063,"[0.3984, 0.6137]","[0.2997, 0.7229]",84,,,,,
+model_sensitivity,E2,all,,,,,,,,,,word-LR,pass among answered (strict),0.715,200,"[0.6488, 0.7731]",0.7,40,0.75,"[0.5981, 0.8581]","[0.49, 0.95]",47,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,word-LR,pass among answered (strict),0.322,59,"[0.2169, 0.449]",0.322,59,0.6271,"[0.4995, 0.7392]","[0.6271, 0.6271]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,word-LR,pass among answered (strict),0.3759,141,"[0.3002, 0.4581]",0.3929,28,0.3929,"[0.2357, 0.5759]","[0.078, 0.7589]",54,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,word-LR,pass among answered (strict),0.89,200,"[0.8391, 0.9262]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,word-LR,pass among answered (strict),0.76,200,"[0.6963, 0.8139]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,word-LR,pass among answered (strict),,,,,,,,,,0.462,59,28,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,word-LR,invariance (no flip vs own ORIG) among answered pairs,0.8209,134,,,13,0.6923,,,,0.6923,,,0.8167,120
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,word-LR,invariance (no flip vs own ORIG) among answered pairs,0.6853,502,,,73,0.6712,,,,0.6712,,,0.6933,476
+model_sensitivity,E1,all,,,,,,,,,,char-LR,pass among answered (strict),0.6977,397,"[0.6508, 0.7408]",0.6582,79,0.5696,"[0.4597, 0.6731]","[0.4685, 0.8917]",84,,,,,
+model_sensitivity,E2,all,,,,,,,,,,char-LR,pass among answered (strict),0.815,200,"[0.7554, 0.8627]",0.85,40,0.75,"[0.5981, 0.8581]","[0.56, 0.95]",47,,,,,
+model_sensitivity,R2,offensive_ambiguous,,,,,,,,,,char-LR,pass among answered (strict),0.3559,59,"[0.246, 0.4834]",0.3559,59,0.7288,"[0.604, 0.8256]","[0.7288, 0.7288]",0,,,,,
+model_sensitivity,R2,offensive_control,,,,,,,,,,char-LR,pass among answered (strict),0.4255,141,"[0.347, 0.5081]",0.5,28,0.5,"[0.3263, 0.6737]","[0.0993, 0.8085]",54,,,,,
+model_sensitivity,R2,hatespeech,,,,,,,,,oracle never validated: corrected value not identified,char-LR,pass among answered (strict),0.905,200,"[0.8564, 0.9383]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,normal,,,,,,,,,oracle never validated: corrected value not identified,char-LR,pass among answered (strict),0.73,200,"[0.6646, 0.7868]",,,,,"[0.0, 1.0]",,,,,,
+model_sensitivity,R2,offensive (stratum-weighted),,,,,,,,,weights use stratum sizes; answered-only items,char-LR,pass among answered (strict),,,,,,,,,,0.5675,59,28,,
+model_sensitivity,I1,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,char-LR,invariance (no flip vs own ORIG) among answered pairs,0.8507,134,,,13,0.8462,,,,0.8462,,,0.8417,120
+model_sensitivity,I3,all,,,,,,,,,corrected = only human-valid items (invalid items are not invariance tests); pending item excluded,char-LR,invariance (no flip vs own ORIG) among answered pairs,0.6773,502,,,73,0.6438,,,,0.6438,,,0.6807,476
