@@ -1,0 +1,5 @@
+manifest: runs_ablation/manifest_20261111_155657.json
+[2026-11-11 15:56:57] ablation qwen2.5:7b gemma2:9b abl_quote_first
+saved runs_ablation/qwen2.5_7b gemma2_9b_abl_quote_first.jsonl
+[2026-11-11 17:13:51] ablation qwen2.5:7b gemma2:9b abl_quote_only
+model / output path must not contain spaces: 'qwen2.5:7b gemma2:9b' 'runs_ablation/qwen2.5_7b gemma2_9b_abl_quote_only.jsonl' (one model per call)

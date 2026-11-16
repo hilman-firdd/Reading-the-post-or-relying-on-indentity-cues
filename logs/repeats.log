@@ -1,0 +1,11 @@
+[2026-11-11 16:19:00] mode=all reps=2 3 models=qwen2.5:7b llama3.1:8b gemma2:9b prompts=direct evidence
+manifest: runs_repeat/rep2/manifest_20261111_161900.json
+manifest: runs_repeat/rep3/manifest_20261111_161900.json
+[2026-11-11 16:19:01] qwen2.5:7b direct -> runs_repeat/rep2/e1cf/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 81/440 done, 359 to run -> runs_repeat/rep2/e1cf/qwen2.5_7b_direct.jsonl
+saved runs_repeat/rep2/e1cf/qwen2.5_7b_direct.jsonl
+[2026-11-11 16:32:38] qwen2.5:7b evidence -> runs_repeat/rep2/e1cf/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 0/440 done, 440 to run -> runs_repeat/rep2/e1cf/qwen2.5_7b_evidence.jsonl
+saved runs_repeat/rep2/e1cf/qwen2.5_7b_evidence.jsonl
+[2026-11-11 16:55:06] llama3.1:8b direct -> runs_repeat/rep2/e1cf/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 0/440 done, 440 to run -> runs_repeat/rep2/e1cf/llama3.1_8b_direct.jsonl

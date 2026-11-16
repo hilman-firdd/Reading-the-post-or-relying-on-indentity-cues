@@ -1,0 +1,39 @@
+manifest: runs_repeat/rep2/manifest_queue_20261112_024435.json
+manifest: runs_repeat/rep3/manifest_queue_20261112_024436.json
+manifest: runs_ablation/manifest_queue_20261112_024436.json
+[2026-11-12 02:44:36] QUEUE START (one model at a time)
+[2026-11-12 02:44:36] qwen2.5:7b abl_quote_first -> runs_ablation/qwen2.5_7b_abl_quote_first.jsonl
+qwen2.5:7b|abl_quote_first: 4233/4233 done, 0 to run -> runs_ablation/qwen2.5_7b_abl_quote_first.jsonl
+[2026-11-12 02:44:36] qwen2.5:7b abl_quote_only -> runs_ablation/qwen2.5_7b_abl_quote_only.jsonl
+qwen2.5:7b|abl_quote_only: 4233/4233 done, 0 to run -> runs_ablation/qwen2.5_7b_abl_quote_only.jsonl
+[2026-11-12 02:44:37] qwen2.5:7b direct -> runs_repeat/rep2/e1cf/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 440/440 done, 0 to run -> runs_repeat/rep2/e1cf/qwen2.5_7b_direct.jsonl
+[2026-11-12 02:44:37] qwen2.5:7b evidence -> runs_repeat/rep2/e1cf/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 440/440 done, 0 to run -> runs_repeat/rep2/e1cf/qwen2.5_7b_evidence.jsonl
+[2026-11-12 02:44:37] qwen2.5:7b direct -> runs_repeat/rep3/e1cf/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 440/440 done, 0 to run -> runs_repeat/rep3/e1cf/qwen2.5_7b_direct.jsonl
+[2026-11-12 02:44:37] qwen2.5:7b evidence -> runs_repeat/rep3/e1cf/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 440/440 done, 0 to run -> runs_repeat/rep3/e1cf/qwen2.5_7b_evidence.jsonl
+[2026-11-12 02:44:37] llama3.1:8b direct -> runs_repeat/rep2/e1cf/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 440/440 done, 0 to run -> runs_repeat/rep2/e1cf/llama3.1_8b_direct.jsonl
+[2026-11-12 02:44:37] llama3.1:8b evidence -> runs_repeat/rep2/e1cf/llama3.1_8b_evidence.jsonl
+llama3.1:8b|evidence: 440/440 done, 0 to run -> runs_repeat/rep2/e1cf/llama3.1_8b_evidence.jsonl
+[2026-11-12 02:44:37] llama3.1:8b direct -> runs_repeat/rep3/e1cf/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 440/440 done, 0 to run -> runs_repeat/rep3/e1cf/llama3.1_8b_direct.jsonl
+[2026-11-12 02:44:37] llama3.1:8b evidence -> runs_repeat/rep3/e1cf/llama3.1_8b_evidence.jsonl
+llama3.1:8b|evidence: 440/440 done, 0 to run -> runs_repeat/rep3/e1cf/llama3.1_8b_evidence.jsonl
+[2026-11-12 02:44:38] gemma2:9b direct -> runs_repeat/rep2/e1cf/gemma2_9b_direct.jsonl
+gemma2:9b|direct: 440/440 done, 0 to run -> runs_repeat/rep2/e1cf/gemma2_9b_direct.jsonl
+[2026-11-12 02:44:38] gemma2:9b evidence -> runs_repeat/rep2/e1cf/gemma2_9b_evidence.jsonl
+gemma2:9b|evidence: 440/440 done, 0 to run -> runs_repeat/rep2/e1cf/gemma2_9b_evidence.jsonl
+[2026-11-12 02:44:38] gemma2:9b direct -> runs_repeat/rep3/e1cf/gemma2_9b_direct.jsonl
+gemma2:9b|direct: 440/440 done, 0 to run -> runs_repeat/rep3/e1cf/gemma2_9b_direct.jsonl
+[2026-11-12 02:44:38] gemma2:9b evidence -> runs_repeat/rep3/e1cf/gemma2_9b_evidence.jsonl
+gemma2:9b|evidence: 440/440 done, 0 to run -> runs_repeat/rep3/e1cf/gemma2_9b_evidence.jsonl
+[2026-11-12 02:44:38] gemma2:9b abl_quote_first -> runs_ablation/gemma2_9b_abl_quote_first.jsonl
+gemma2:9b|abl_quote_first: 3094/4233 done, 1139 to run -> runs_ablation/gemma2_9b_abl_quote_first.jsonl
+saved runs_ablation/gemma2_9b_abl_quote_first.jsonl
+[2026-11-12 03:54:34] gemma2:9b abl_quote_only -> runs_ablation/gemma2_9b_abl_quote_only.jsonl
+gemma2:9b|abl_quote_only: 0/4233 done, 4233 to run -> runs_ablation/gemma2_9b_abl_quote_only.jsonl
+saved runs_ablation/gemma2_9b_abl_quote_only.jsonl
+[2026-11-12 07:17:30] QUEUE DONE

@@ -1,0 +1,9 @@
+manifest: runs_repeat/rep2 3/manifest_20261111_155647.json
+[2026-11-11 15:56:47] rep2 3 main qwen2.5:7b llama3.1:8b gemma2:9b direct evidence (0/4331 done)
+usage: run_llm.py run [-h] --items ITEMS [--base-url BASE_URL]
+                      [--api-key-env API_KEY_ENV] --model MODEL
+                      --prompt {direct,evidence,abl_quote_first,abl_quote_only}
+                      [--temperature TEMPERATURE] [--mrs MRS] --out OUT
+                      [--workers WORKERS] [--max-tokens MAX_TOKENS]
+                      [--verbose] [--log-errors]
+run_llm.py run: error: argument --prompt: invalid choice: 'direct evidence' (choose from 'direct', 'evidence', 'abl_quote_first', 'abl_quote_only')

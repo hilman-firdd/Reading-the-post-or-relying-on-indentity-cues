@@ -1,0 +1,52 @@
+#!/bin/zsh
+# run_repeats.sh — repeat the LLM runs with ONE uniform setting to measure run-to-run variation (reviewer R3).
+#
+# The original runs in runs/ (and results/e1_counterfactual/runs/) count as repetition 1. This script adds
+# repetitions 2 and 3 (change with REPS="2 3 4"). Nothing in runs/ or results/ is overwritten.
+#
+#   1) Start Ollama in ANOTHER terminal with exactly this setting and leave it running:
+#        OLLAMA_NUM_PARALLEL=6 OLLAMA_CONTEXT_LENGTH=1024 OLLAMA_KEEP_ALIVE=30m ollama serve
+#   2) In this terminal (the export lines make the manifest record the same setting):
+#        export OLLAMA_NUM_PARALLEL=6 OLLAMA_CONTEXT_LENGTH=1024
+#        nohup caffeinate -is ./run_repeats.sh cf   > logs/repeats_cf.log   2>&1 &    # E1-CF only   (~1-2 h)
+#        nohup caffeinate -is ./run_repeats.sh main > logs/repeats_main.log 2>&1 &    # 4,233 items x 6 conditions per rep (long)
+#      or ./run_repeats.sh all  (cf first, then main). Interrupted? Run the same command again: it resumes.
+#   3) python analysis_repeats.py      -> results/repeats/stability.md and stability.json
+#
+# Uniform setting for every call: 6 parallel slots, 1,024-token context, max 256 output tokens, temperature 0,
+# seed 42, one user message. Failed calls are written as GENERATION_ERROR records (--log-errors) instead of stopping.
+set -e
+cd "$(dirname "$0")"
+P=${PYTHON:-$HOME/.venvs/modkit/bin/python}
+MODE=${1:-all}
+# defaults are assigned to plain strings first, then split: ${=VAR:-"a b"} does NOT split the quoted default in zsh
+_r=${REPS:-2 3}; _m=${MODELS:-qwen2.5:7b llama3.1:8b gemma2:9b}; _p=${PROMPTS:-direct evidence}
+REPS=(${=_r}); MODELS=(${=_m}); PROMPTS_=(${=_p})
+mkdir -p runs_repeat logs
+log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"; }
+
+curl -sf http://localhost:11434/api/version >/dev/null || { echo "Ollama is not running (see step 1 at the top of this file)"; exit 1; }
+[ "$OLLAMA_NUM_PARALLEL" = "6" ] && [ "$OLLAMA_CONTEXT_LENGTH" = "1024" ] || \
+  echo "WARNING: export OLLAMA_NUM_PARALLEL=6 OLLAMA_CONTEXT_LENGTH=1024 in this shell too, so the manifest records the setting"
+
+one() {  # one(rep, kind, items, model, prompt)
+  local rep=$1 kind=$2 items=$3 m=$4 p=$5 out=runs_repeat/rep$1/$2/${4//:/_}_$5.jsonl
+  local n=$(grep -c . $items); local have=0; [ -f $out ] && have=$(grep -c . $out)
+  if [ "$have" -ge "$n" ]; then log "rep$rep $kind $m $p complete ($have)"; return; fi
+  log "rep$rep $kind $m $p ($have/$n done)"
+  $P run_llm.py run --items $items --model $m --prompt $p --workers 6 --max-tokens 256 --log-errors --out $out
+}
+
+for r in $REPS; do
+  mkdir -p runs_repeat/rep$r
+  $P env_manifest.py --out runs_repeat/rep$r/manifest_$(date +%Y%m%d_%H%M%S).json --note "repetition $r, mode $MODE"
+  if [ "$MODE" = "cf" ] || [ "$MODE" = "all" ]; then
+    for m in $MODELS; do for p in $PROMPTS_; do one $r e1cf results/e1_counterfactual/items_e1cf.jsonl $m $p; done; done
+  fi
+done
+if [ "$MODE" = "main" ] || [ "$MODE" = "all" ]; then
+  for r in $REPS; do
+    for m in $MODELS; do for p in $PROMPTS_; do one $r main items_llm600.jsonl $m $p; done; done
+  done
+fi
+log "REPEATS DONE ($MODE)"

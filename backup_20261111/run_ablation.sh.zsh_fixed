@@ -1,0 +1,36 @@
+#!/bin/zsh
+# run_ablation.sh — prompt ablation (reviewer R3): which part of the evidence prompt changes the verdicts?
+#
+# The two original prompts differ in three ways. The ablation adds them one at a time:
+#   direct
+#   abl_quote_first  = direct + A  (two steps: quote the relevant words first; quotes first in the JSON)
+#   abl_quote_only   = A + B       (decide ONLY from the quoted words and the policy)
+#   evidence         = A + B + C   (answer 'insufficient' when the quoted words do not settle the case)
+# run_llm.py checks nothing here; tests/test_prompt_ablation.py verifies that A+B+C reproduces the evidence prompt
+# exactly and that the steps differ only in the stated parts.
+#
+# Start Ollama exactly as for run_repeats.sh, then:
+#   export OLLAMA_NUM_PARALLEL=6 OLLAMA_CONTEXT_LENGTH=1024
+#   nohup caffeinate -is ./run_ablation.sh > logs/ablation.log 2>&1 &
+#   python analysis_systems.py ablation       -> results/ablation/summary.md
+#
+# Defaults: Qwen2.5 and Gemma 2 only (Llama 3.1 refuses most items, so its answers come from a self-selected subset),
+# all 4,233 items. Override with MODELS="..." or MRS="ORIG,E1,E2,R1,R2" (faster; keep the same MRS for every model).
+set -e
+cd "$(dirname "$0")"
+P=${PYTHON:-$HOME/.venvs/modkit/bin/python}
+_m=${MODELS:-qwen2.5:7b gemma2:9b}   # plain string first, then split (a quoted default is not split in zsh)
+MODELS=(${=_m})
+MRS_ARG=(); [ -n "$MRS" ] && MRS_ARG=(--mrs $MRS)
+mkdir -p runs_ablation logs
+log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"; }
+curl -sf http://localhost:11434/api/version >/dev/null || { echo "Ollama is not running"; exit 1; }
+$P env_manifest.py --out runs_ablation/manifest_$(date +%Y%m%d_%H%M%S).json --note "prompt ablation ${MRS:-all MRs}"
+for m in $MODELS; do
+  for p in abl_quote_first abl_quote_only; do
+    log "ablation $m $p"
+    $P run_llm.py run --items items_llm600.jsonl --model $m --prompt $p --workers 6 --max-tokens 256 --log-errors \
+       ${MRS_ARG[@]} --out runs_ablation/${m//:/_}_$p.jsonl
+  done
+done
+log "ABLATION DONE"

@@ -1,0 +1,1 @@
+model mistral:7b not pulled: ollama pull mistral:7b

@@ -1,0 +1,32 @@
+#!/bin/zsh
+# run_extra_models.sh — add models with the SAME items, prompts and uniform setting (reviewer R3).
+#
+#   MODELS="mistral:7b qwen2.5:14b" ./run_extra_models.sh          (MODELS is required; pick models that fit in memory)
+#   ollama pull <model> first. The manifest records the digest and quantisation of every installed model.
+#
+# Writes runs_extra/main/<model>_<prompt>.jsonl (4,233 items) and runs_extra/e1cf/<model>_<prompt>.jsonl (440 items).
+# Analysis:  python analysis_systems.py extra   -> results/extra_models/summary.md
+#            python analyze_e1_counterfactual.py --runs-dir runs_extra/e1cf --out-dir results/extra_models/e1cf \
+#                   --systems "mistral:7b|direct,mistral:7b|evidence"
+# The pre-specified E1-CF decision rule covers only the original four Qwen2.5/Gemma 2 conditions; results for added
+# models are reported descriptively (Holm over the added conditions).
+set -e
+cd "$(dirname "$0")"
+[ -n "$MODELS" ] || { echo 'set MODELS, e.g. MODELS="mistral:7b qwen2.5:14b" ./run_extra_models.sh'; exit 1; }
+P=${PYTHON:-$HOME/.venvs/modkit/bin/python}
+_p=${PROMPTS:-direct evidence}
+MODELS_=(${=MODELS}); PROMPTS_=(${=_p})
+mkdir -p runs_extra/main runs_extra/e1cf logs
+log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"; }
+curl -sf http://localhost:11434/api/version >/dev/null || { echo "Ollama is not running"; exit 1; }
+for m in $MODELS_; do ollama show $m >/dev/null 2>&1 || { echo "model $m not pulled: ollama pull $m"; exit 1; }; done
+$P env_manifest.py --out runs_extra/manifest_$(date +%Y%m%d_%H%M%S).json --note "extra models: $MODELS"
+for m in $MODELS_; do
+  for p in $PROMPTS_; do
+    log "e1cf $m $p"; $P run_llm.py run --items results/e1_counterfactual/items_e1cf.jsonl --model $m --prompt $p --workers 6 \
+        --max-tokens 256 --log-errors --out runs_extra/e1cf/${m//:/_}_$p.jsonl
+    log "main $m $p"; $P run_llm.py run --items items_llm600.jsonl --model $m --prompt $p --workers 6 \
+        --max-tokens 256 --log-errors --out runs_extra/main/${m//:/_}_$p.jsonl
+  done
+done
+log "EXTRA MODELS DONE"
