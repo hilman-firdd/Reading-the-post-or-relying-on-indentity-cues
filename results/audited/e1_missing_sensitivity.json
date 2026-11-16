@@ -1,0 +1,326 @@
+{
+ "n_E1": 397,
+ "definition": "answered = VALID_VERDICT or ABSTENTION; flagged = verdict 'violating'",
+ "by_system": {
+  "qwen2.5:7b|direct": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 88,
+    "abstention": 0,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 88,
+    "flagged_among_answered": 43
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 280,
+    "abstention": 29,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 309,
+    "flagged_among_answered": 73
+   },
+   "OR_answered": [
+    3.09,
+    9.33e-06
+   ],
+   "OR_nonanswer_as_flagged": [
+    3.09,
+    9.33e-06
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    3.09,
+    9.33e-06
+   ],
+   "OR_worst_case": [
+    3.09,
+    9.33e-06
+   ],
+   "OR_best_case": [
+    3.09,
+    9.33e-06
+   ]
+  },
+  "qwen2.5:7b|evidence": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 83,
+    "abstention": 5,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 88,
+    "flagged_among_answered": 52
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 208,
+    "abstention": 99,
+    "refusal": 0,
+    "other_nonanswer": 2,
+    "answered": 307,
+    "flagged_among_answered": 67
+   },
+   "OR_answered": [
+    5.17,
+    1.34e-10
+   ],
+   "OR_nonanswer_as_flagged": [
+    5.02,
+    2e-10
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    5.22,
+    1.27e-10
+   ],
+   "OR_worst_case": [
+    5.02,
+    2e-10
+   ],
+   "OR_best_case": [
+    5.22,
+    1.27e-10
+   ]
+  },
+  "llama3.1:8b|direct": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 53,
+    "abstention": 0,
+    "refusal": 35,
+    "other_nonanswer": 0,
+    "answered": 53,
+    "flagged_among_answered": 38
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 260,
+    "abstention": 7,
+    "refusal": 42,
+    "other_nonanswer": 0,
+    "answered": 267,
+    "flagged_among_answered": 91
+   },
+   "OR_answered": [
+    4.9,
+    5.14e-07
+   ],
+   "OR_nonanswer_as_flagged": [
+    6.44,
+    1.06e-11
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    1.82,
+    0.0199
+   ],
+   "OR_worst_case": [
+    1.01,
+    1.0
+   ],
+   "OR_best_case": [
+    11.66,
+    1.23e-19
+   ]
+  },
+  "llama3.1:8b|evidence": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 16,
+    "abstention": 0,
+    "refusal": 72,
+    "other_nonanswer": 0,
+    "answered": 16,
+    "flagged_among_answered": 8
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 157,
+    "abstention": 2,
+    "refusal": 150,
+    "other_nonanswer": 0,
+    "answered": 159,
+    "flagged_among_answered": 35
+   },
+   "OR_answered": [
+    3.54,
+    0.0277
+   ],
+   "OR_nonanswer_as_flagged": [
+    6.7,
+    7.4e-09
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    0.78,
+    0.698
+   ],
+   "OR_worst_case": [
+    0.07,
+    7.56e-19
+   ],
+   "OR_best_case": [
+    78.29,
+    4.62e-46
+   ]
+  },
+  "gemma2:9b|direct": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 81,
+    "abstention": 7,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 88,
+    "flagged_among_answered": 74
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 201,
+    "abstention": 108,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 309,
+    "flagged_among_answered": 116
+   },
+   "OR_answered": [
+    8.79,
+    2.8e-15
+   ],
+   "OR_nonanswer_as_flagged": [
+    8.79,
+    2.8e-15
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    8.79,
+    2.8e-15
+   ],
+   "OR_worst_case": [
+    8.79,
+    2.8e-15
+   ],
+   "OR_best_case": [
+    8.79,
+    2.8e-15
+   ]
+  },
+  "gemma2:9b|evidence": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 68,
+    "abstention": 20,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 88,
+    "flagged_among_answered": 64
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 147,
+    "abstention": 162,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 309,
+    "flagged_among_answered": 112
+   },
+   "OR_answered": [
+    4.69,
+    1.29e-09
+   ],
+   "OR_nonanswer_as_flagged": [
+    4.69,
+    1.29e-09
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    4.69,
+    1.29e-09
+   ],
+   "OR_worst_case": [
+    4.69,
+    1.29e-09
+   ],
+   "OR_best_case": [
+    4.69,
+    1.29e-09
+   ]
+  },
+  "word-LR": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 88,
+    "abstention": 0,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 88,
+    "flagged_among_answered": 46
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 309,
+    "abstention": 0,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 309,
+    "flagged_among_answered": 149
+   },
+   "OR_answered": [
+    1.18,
+    0.546
+   ],
+   "OR_nonanswer_as_flagged": [
+    1.18,
+    0.546
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    1.18,
+    0.546
+   ],
+   "OR_worst_case": [
+    1.18,
+    0.546
+   ],
+   "OR_best_case": [
+    1.18,
+    0.546
+   ]
+  },
+  "char-LR": {
+   "id": {
+    "n": 88,
+    "valid_verdict": 88,
+    "abstention": 0,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 88,
+    "flagged_among_answered": 29
+   },
+   "no": {
+    "n": 309,
+    "valid_verdict": 309,
+    "abstention": 0,
+    "refusal": 0,
+    "other_nonanswer": 0,
+    "answered": 309,
+    "flagged_among_answered": 91
+   },
+   "OR_answered": [
+    1.18,
+    0.599
+   ],
+   "OR_nonanswer_as_flagged": [
+    1.18,
+    0.599
+   ],
+   "OR_nonanswer_as_not_flagged": [
+    1.18,
+    0.599
+   ],
+   "OR_worst_case": [
+    1.18,
+    0.599
+   ],
+   "OR_best_case": [
+    1.18,
+    0.599
+   ]
+  }
+ }
+}

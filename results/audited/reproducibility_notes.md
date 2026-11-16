@@ -169,7 +169,7 @@ find . -flags +dataless
 
 ## 7. Open items
 
-- I3 item `34250a0a4de0` (sheet `Keputusan`, row 259) awaits adjudication. It is excluded from analyses needing a final label; its effect on I3 invariance is ≤ 1.1 pt (`statistical_analysis.json → pending_item_sensitivity`). Re-run `audit_metrics.py` after it is filled.
+- I3 item `34250a0a4de0` (sheet `Keputusan`, row 259) was adjudicated as Ya (valid) and is now included in every analysis (I3 oracle validity 74/100 = 0.740, Wilson 95% CI [0.646, 0.816]; before: 73/99 = 0.737). No pending items remain.
 - Rater identity, background, independence, and adjudicator: not documented.
 - HateXplain commit hash: not recorded.
 

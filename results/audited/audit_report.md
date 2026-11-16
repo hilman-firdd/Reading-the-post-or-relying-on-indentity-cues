@@ -224,17 +224,17 @@ Keluarga F_I terdiri dari 8 uji (satu per sistem), dengan McNemar eksak berpasan
 
 | Sistem | Flip semua (n) | Judge setara | Judge tidak setara | Valid menurut manusia | I3 − I2 berpasangan [CI95] |
 |---|---|---|---|---|---|
-| qwen2.5 direct | 20,2% (500) | 18,7% | 23,2% | 19,2% (73) | +10,6 [6,6; 14,8] |
-| qwen2.5 evidence | 22,8% (496) | 23,0% | 22,4% | 26,8% (71) | +11,9 [7,5; 16,3] |
-| llama3.1 direct | 32,0% (206) | 30,3% | 37,0% | 34,6% (26) | +21,4 [14,1; 28,7] |
-| gemma2 direct | 18,1% (502) | 18,3% | 17,8% | 19,2% (73) | +12,6 [9,2; 15,9] |
-| gemma2 evidence | 17,1% (502) | 18,6% | 14,2% | 16,4% (73) | +13,9 [10,6; 17,3] |
-| word-LR | 31,5% (502) | 32,1% | 30,2% | 32,9% (73) | +23,7 [19,1; 28,3] |
-| char-LR | 32,3% (502) | 31,5% | 33,7% | 35,6% (73) | +25,5 [20,9; 29,9] |
+| qwen2.5 direct | 20,2% (500) | 18,7% | 23,2% | 18,9% (74) | +10,6 [6,6; 14,8] |
+| qwen2.5 evidence | 22,8% (496) | 23,0% | 22,4% | 27,8% (72) | +11,9 [7,5; 16,3] |
+| llama3.1 direct | 32,0% (206) | 30,3% | 37,0% | 37,0% (27) | +21,4 [14,1; 28,7] |
+| gemma2 direct | 18,1% (502) | 18,3% | 17,8% | 20,3% (74) | +12,6 [9,2; 15,9] |
+| gemma2 evidence | 17,1% (502) | 18,6% | 14,2% | 17,6% (74) | +13,9 [10,6; 17,3] |
+| word-LR | 31,5% (502) | 32,1% | 30,2% | 32,4% (74) | +23,7 [19,1; 28,3] |
+| char-LR | 32,3% (502) | 31,5% | 33,7% | 35,1% (74) | +25,5 [20,9; 29,9] |
 
 - **Bias seleksi:** 98 item I3 tidak punya teks (59 hatespeech, 22 offensive, 17 normal; χ² = 38,5, df = 2, p = 4×10⁻⁹). Postingan yang paling ofensif kurang terwakili.
 - **Sirkularitas:** gemma2, pembuat parafrase, memiliki flip I3 terendah di antara sistem dengan coverage tinggi. Tetapi selisih I3 − I2-nya (+12,6 dan +13,9) serupa dengan qwen2.5 (+10,6 dan +11,9), sehingga tidak ada bukti jelas keuntungan "parafrase sendiri". qwen2.5, sang judge, tidak menunjukkan pola konsisten antara subset setara dan tidak setara. Pemeriksaan ini deskriptif dan tidak dapat menyingkirkan sirkularitas.
-- **Item pending (34250a0a4de0):** mengubah tingkat invariansi I3 pada subset yang valid menurut manusia ≤ 1,1 poin, apa pun keputusannya (`pending_item_sensitivity`). Untuk sementara item ini dikeluarkan dari semua analisis yang membutuhkan label final.
+- **Item I3 34250a0a4de0 (sebelumnya pending):** sudah diadjudikasi (Keputusan, baris 259 = Ya, valid) dan sekarang masuk semua analisis. Dampaknya pada invariansi I3 di subset valid menurut manusia ≤ 1,1 poin, sesuai `pending_item_sensitivity` sebelumnya. Tidak ada item pending yang tersisa.
 
 ---
 
@@ -247,7 +247,7 @@ Keluarga F_I terdiri dari 8 uji (satu per sistem), dengan McNemar eksak berpasan
 | Prosedur | Dropdown Ya/Tidak per item (`hitl_sheet.py`), kriteria tertulis di lembar `Petunjuk` |
 | Independensi | **not enforced / not documented**: kedua lembar ada di satu workbook |
 | Pemutus | **not documented** |
-| Kesepakatan | 333 item; 92,2% sepakat; Cohen's κ = 0,823 (CI95 cluster bootstrap [0,753; 0,886]); 26 tidak sepakat, 25 sudah diputuskan, 1 pending |
+| Kesepakatan | 333 item; 92,2% sepakat; Cohen's κ = 0,823 (CI95 cluster bootstrap [0,753; 0,886]); 26 tidak sepakat, 26 sudah diputuskan, 0 pending |
 | κ per MR | E1 0,735 [0,524; 0,894]; E2 0,828 [0,538; 1,0]; R2 0,749 [0,600; 0,884]; I1 1,0 (n = 27); I3 0,848 [0,718; 0,951] |
 
 | MR / strata | N populasi | n disampel | Desain | Validitas [CI95] |
@@ -255,7 +255,7 @@ Keluarga F_I terdiri dari 8 uji (satu per sistem), dengan McNemar eksak berpasan
 | E1 | 397 | 79 | acak 20% | 0,835 [0,739; 0,901] |
 | E2 | 200 | 40 | acak 20% | 0,850 [0,709; 0,929] |
 | I1 | 134 | 27 | acak 20% | 0,481 [0,307; 0,660] |
-| I3 | 502 | 100 (99 sudah diputuskan) | acak 20% | 0,737 [0,643; 0,814] (sensitivitas pending: 0,730–0,740) |
+| I3 | 502 | 100 (semua sudah diputuskan) | acak 20% | 0,740 [0,646; 0,816] (74/100) |
 | R2 offensive ambigu | 59 | 59 | sensus | 0,322 [0,217; 0,449] |
 | R2 offensive kontrol | 141 | 28 | acak 20% | 0,714 [0,529; 0,848] |
 | R2 offensive (tertimbang) | 200 | 87 | bobot N_h/N, dengan FPC | 0,599 [0,493; 0,704] |
