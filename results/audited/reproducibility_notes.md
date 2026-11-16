@@ -170,7 +170,7 @@ find . -flags +dataless
 ## 7. Open items
 
 - I3 item `34250a0a4de0` (sheet `Keputusan`, row 259) was adjudicated as Ya (valid) and is now included in every analysis (I3 oracle validity 74/100 = 0.740, Wilson 95% CI [0.646, 0.816]; before: 73/99 = 0.737). No pending items remain.
-- Rater identity, background, independence, and adjudicator: not documented.
+- Rater documentation (`dokumentasi_penilai.xlsx`, study team report): both raters are research colleagues or students who are not manuscript authors; they worked in one workbook without seeing each other's answers (not enforced by the workbook); the adjudicator is the first author, reported to have decided without seeing the raters' answers (to be confirmed: columns E-F of sheet `Keputusan` display both answers); preparation was the written instructions sheet only.
 - HateXplain commit hash: not recorded.
 
 ## 8. E1 counterfactual experiment (added 2026-11-10)

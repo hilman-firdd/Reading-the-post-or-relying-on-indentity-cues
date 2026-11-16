@@ -3078,10 +3078,12 @@
  },
  "human_validation": {
   "raters": 2,
-  "rater_identity_background": "not documented",
+  "rater_identity_background": "rater 1: Rekan peneliti atau mahasiswa (bukan penulis); rater 2: Rekan peneliti atau mahasiswa (bukan penulis)",
   "procedure": "Ya/Tidak dropdown per item in human_validation.xlsx (hitl_sheet.py); a third 'Keputusan' column settles disagreements",
-  "independence": "not enforced: both raters' sheets are in the same workbook; whether raters saw each other's answers is not documented",
-  "adjudicator": "not documented",
+  "independence": "Ya, satu berkas tetapi tidak saling melihat (study team report, dokumentasi_penilai.xlsx; not enforced by the workbook: both raters' sheets are in the same file)",
+  "adjudicator": "Penulis naskah (peneliti utama); saw both raters' answers: Tidak, memutuskan tanpa melihatnya",
+  "preparation": "Hanya petunjuk di lembar",
+  "documentation_source": "dokumentasi_penilai.xlsx (rater_doc_sheet.py), completed by the study team",
   "agreement": {
    "ALL": {
     "n": 333,

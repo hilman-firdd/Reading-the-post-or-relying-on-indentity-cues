@@ -243,10 +243,11 @@ Keluarga F_I terdiri dari 8 uji (satu per sistem), dengan McNemar eksak berpasan
 | Aspek | Status |
 |---|---|
 | Jumlah penilai | 2 (+ pemutus untuk ketidaksepakatan) |
-| Identitas dan latar belakang | **not documented** |
+| Identitas dan latar belakang | Penilai 1 dan 2: rekan peneliti atau mahasiswa, bukan penulis naskah (laporan tim studi, `dokumentasi_penilai.xlsx`). Identitas personal tidak dicatat |
 | Prosedur | Dropdown Ya/Tidak per item (`hitl_sheet.py`), kriteria tertulis di lembar `Petunjuk` |
-| Independensi | **not enforced / not documented**: kedua lembar ada di satu workbook |
-| Pemutus | **not documented** |
+| Independensi | Dilaporkan: satu berkas, tetapi penilai tidak saling melihat jawaban. Tidak ditegakkan oleh workbook (kedua lembar ada di satu berkas) |
+| Pemutus | Penulis naskah (peneliti utama). Dilaporkan memutuskan tanpa melihat jawaban kedua penilai, **perlu dikonfirmasi**: kolom E dan F lembar `Keputusan` menampilkan kedua jawaban |
+| Persiapan penilai | Hanya petunjuk di lembar `Petunjuk` |
 | Kesepakatan | 333 item; 92,2% sepakat; Cohen's κ = 0,823 (CI95 cluster bootstrap [0,753; 0,886]); 26 tidak sepakat, 26 sudah diputuskan, 0 pending |
 | κ per MR | E1 0,735 [0,524; 0,894]; E2 0,828 [0,538; 1,0]; R2 0,749 [0,600; 0,884]; I1 1,0 (n = 27); I3 0,848 [0,718; 0,951] |
 
@@ -326,7 +327,7 @@ Pernyataan untuk naskah: refusal adalah perilaku yang **teramati pada konfiguras
   - Strata R2 hatespeech dan normal tidak divalidasi.
   - Hanya 20% item yang divalidasi; item yang belum divalidasi tidak dianggap valid, tetapi dianalisis dengan oracle asli disertai batas sensitivitas.
 - **Konstruksi dataset (I3).** Pembuat parafrase dan judge adalah model yang dievaluasi; item yang hilang tidak acak.
-- **Validasi manusia.** Identitas, keahlian, dan independensi penilai tidak terdokumentasi.
+- **Validasi manusia.** Latar belakang, independensi, dan pemutus kini didokumentasikan (laporan tim studi), tetapi keahlian penilai tidak diukur, independensi tidak ditegakkan oleh workbook, dan klaim bahwa pemutus tidak melihat jawaban penilai perlu dikonfirmasi.
 - **Reproduksibilitas.** Metadata per record tidak lengkap. Commit HateXplain tidak tercatat (hanya SHA-1 `dataset.json`).
 
 ---

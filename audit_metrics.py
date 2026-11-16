@@ -125,6 +125,14 @@ def load():
 
 VALIDATION_SHEETS = [("human_validation_filled.xlsx", 1), ("human_validation_round2_filled.xlsx", 2)]
 
+def rater_documentation(path="dokumentasi_penilai.xlsx"):
+    """Answers of the six-question rater-documentation form (dropdowns only); None if the file is missing or incomplete."""
+    if not os.path.exists(path): return None
+    import warnings, rater_doc_sheet
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore"); d = rater_doc_sheet.read(path)
+    return None if d["unanswered"] else d
+
 def load_validation(items):
     """Round 1 (20% samples + R2 ambiguous census) and, if present, round 2 (the remaining E1, I1 and R2 items).
     Answers: 1 = Ya (oracle valid), 0 = Tidak (invalid), 2 = Ragu (cannot decide; round 2 only) -> status 'undecidable'."""
@@ -411,10 +419,17 @@ def main():
                     "pending": sum(r["status"] == "pending" for r in rs),
                     "any_rater_unsure": sum(1 for r in vrows if (m == "ALL" or r["mr"] == m) and 2 in (r["r1"], r["r2"])),
                     "final_undecidable": sum(1 for r in vrows if (m == "ALL" or r["mr"] == m) and r["status"] == "undecidable")}
-    stats["human_validation"] = {"raters": 2, "rater_identity_background": "not documented",
+    doc = rater_documentation()
+    nd = lambda v: "not documented" if v is None or v.startswith("Tidak diketahui") else v
+    stats["human_validation"] = {"raters": 2,
+                                 "rater_identity_background": (f"rater 1: {nd(doc['rater1_background'])}; rater 2: {nd(doc['rater2_background'])}" if doc else "not documented"),
                                  "procedure": "Ya/Tidak dropdown per item in human_validation.xlsx (hitl_sheet.py); a third 'Keputusan' column settles disagreements",
-                                 "independence": "not enforced: both raters' sheets are in the same workbook; whether raters saw each other's answers is not documented",
-                                 "adjudicator": "not documented", "agreement": agree,
+                                 "independence": (f"{nd(doc['independence'])} (study team report, dokumentasi_penilai.xlsx; not enforced by the workbook: both raters' sheets are in the same file)" if doc
+                                                  else "not enforced: both raters' sheets are in the same workbook; whether raters saw each other's answers is not documented"),
+                                 "adjudicator": (f"{nd(doc['adjudicator'])}; saw both raters' answers: {nd(doc['adjudicator_saw_raters'])}" if doc else "not documented"),
+                                 "preparation": nd(doc["preparation"]) if doc else "not documented",
+                                 "documentation_source": "dokumentasi_penilai.xlsx (rater_doc_sheet.py), completed by the study team" if doc else None,
+                                 "agreement": agree,
                                  "pending_items": [k for k, r in val.items() if r["status"] == "pending"]}
 
     # oracle validity per stratum + model sensitivity
