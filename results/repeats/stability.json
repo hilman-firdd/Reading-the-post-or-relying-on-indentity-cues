@@ -52,6 +52,110 @@
      "holm_p_over_4": 1.0
     }
    }
+  },
+  "2": {
+   "status": "complete",
+   "decision": "SUPPORT: causal role of residual identity terms (protocol \u00a76)",
+   "H1": {
+    "qwen2.5:7b|direct": {
+     "rd": 0.2273,
+     "holm_p": 6.6e-05
+    },
+    "qwen2.5:7b|evidence": {
+     "rd": 0.1705,
+     "holm_p": 0.012231
+    },
+    "llama3.1:8b|direct": {
+     "rd": 0.2115,
+     "holm_p": 0.01477
+    },
+    "llama3.1:8b|evidence": {
+     "rd": 0.0833,
+     "holm_p": 1.0
+    },
+    "gemma2:9b|direct": {
+     "rd": 0.25,
+     "holm_p": 0.000137
+    },
+    "gemma2:9b|evidence": {
+     "rd": 0.1818,
+     "holm_p": 0.00161
+    }
+   },
+   "H1_valid_only": {
+    "qwen2.5:7b|direct": {
+     "n_pairs": 84,
+     "rd": 0.2262,
+     "holm_p_over_4": 8.4e-05
+    },
+    "qwen2.5:7b|evidence": {
+     "n_pairs": 73,
+     "rd": 0.1644,
+     "holm_p_over_4": 0.0338
+    },
+    "gemma2:9b|direct": {
+     "n_pairs": 64,
+     "rd": 0.1875,
+     "holm_p_over_4": 0.001465
+    },
+    "gemma2:9b|evidence": {
+     "n_pairs": 51,
+     "rd": 0.0196,
+     "holm_p_over_4": 1.0
+    }
+   }
+  },
+  "3": {
+   "status": "complete",
+   "decision": "SUPPORT: causal role of residual identity terms (protocol \u00a76)",
+   "H1": {
+    "qwen2.5:7b|direct": {
+     "rd": 0.2273,
+     "holm_p": 6.6e-05
+    },
+    "qwen2.5:7b|evidence": {
+     "rd": 0.1818,
+     "holm_p": 0.007482
+    },
+    "llama3.1:8b|direct": {
+     "rd": 0.2115,
+     "holm_p": 0.01477
+    },
+    "llama3.1:8b|evidence": {
+     "rd": 0.0833,
+     "holm_p": 1.0
+    },
+    "gemma2:9b|direct": {
+     "rd": 0.25,
+     "holm_p": 0.000137
+    },
+    "gemma2:9b|evidence": {
+     "rd": 0.1818,
+     "holm_p": 0.00161
+    }
+   },
+   "H1_valid_only": {
+    "qwen2.5:7b|direct": {
+     "n_pairs": 84,
+     "rd": 0.2262,
+     "holm_p_over_4": 8.4e-05
+    },
+    "qwen2.5:7b|evidence": {
+     "n_pairs": 74,
+     "rd": 0.1892,
+     "holm_p_over_4": 0.013222
+    },
+    "gemma2:9b|direct": {
+     "n_pairs": 64,
+     "rd": 0.1875,
+     "holm_p_over_4": 0.001465
+    },
+    "gemma2:9b|evidence": {
+     "n_pairs": 51,
+     "rd": 0.0196,
+     "holm_p_over_4": 1.0
+    }
+   }
   }
  }
 }
