@@ -1,0 +1,14 @@
+{
+ "chain": [
+  "direct",
+  "abl_quote_first",
+  "abl_quote_only",
+  "evidence"
+ ],
+ "models": {},
+ "adjacent_step_tests": {
+  "ORIG_correct": {},
+  "E1_flagged": {},
+  "R1_abstained": {}
+ }
+}

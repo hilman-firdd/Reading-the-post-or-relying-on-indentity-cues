@@ -123,16 +123,22 @@ def load():
     for x in records: by[x["system"]][x["item_id"]] = x
     return items, run_items, orig, systems, records, by
 
+VALIDATION_SHEETS = [("human_validation_filled.xlsx", 1), ("human_validation_round2_filled.xlsx", 2)]
+
 def load_validation(items):
+    """Round 1 (20% samples + R2 ambiguous census) and, if present, round 2 (the remaining E1, I1 and R2 items).
+    Answers: 1 = Ya (oracle valid), 0 = Tidak (invalid), 2 = Ragu (cannot decide; round 2 only) -> status 'undecidable'."""
     import hitl_sheet
-    rows = hitl_sheet.read("human_validation_filled.xlsx")
     groups = json.load(open("human_validation_r2_groups.json"))
     out = {}
-    for r in rows:
-        fin = r["r1"] if (r["r1"] is not None and r["r1"] == r["r2"]) else r["adj"]
-        out[r["item_id"]] = {"mr": r["mr"], "r1": r["r1"], "r2": r["r2"], "adj": r["adj"], "final": fin,
-                             "status": "pending" if fin is None else ("valid" if fin == 1 else "invalid"),
-                             "r2_group": groups.get(r["item_id"]), "post_id": items[r["item_id"]]["post_id"]}
+    for path, rnd in VALIDATION_SHEETS:
+        if not os.path.exists(path): continue
+        for r in hitl_sheet.read(path):
+            if r["item_id"] in out: raise ValueError(f"{path}: item {r['item_id']} was already validated in round {out[r['item_id']]['round']}")
+            fin = r["r1"] if (r["r1"] is not None and r["r1"] == r["r2"]) else r["adj"]
+            st = "pending" if fin is None else {1: "valid", 0: "invalid", 2: "undecidable"}[fin]
+            out[r["item_id"]] = {"mr": r["mr"], "r1": r["r1"], "r2": r["r2"], "adj": r["adj"], "final": fin, "status": st, "round": rnd,
+                                 "r2_group": groups.get(r["item_id"]), "post_id": items[r["item_id"]]["post_id"]}
     return out
 
 def r2_strata(items):
@@ -388,7 +394,8 @@ def main():
     vrows = list(val.values())
     def kappa_ci(rs):
         bp = defaultdict(list)
-        for r in rs: bp[r["post_id"]].append((r["r1"], r["r2"]))
+        for r in rs:
+            if r["r1"] in (0, 1) and r["r2"] in (0, 1): bp[r["post_id"]].append((r["r1"], r["r2"]))
         keys = list(bp); rng = random.Random(SEED); est = []
         for _ in range(B_POOLED):
             sm = [pr for _ in keys for pr in bp[keys[rng.randrange(len(keys))]]]
@@ -397,11 +404,13 @@ def main():
         est.sort(); return [round(est[int(.025 * len(est))], 3), round(est[int(.975 * len(est)) - 1], 3)] if est else [None, None]
     agree = {}
     for m in ["ALL", *VALIDATED_MRS]:
-        rs = [r for r in vrows if m == "ALL" or r["mr"] == m]; pr = [(r["r1"], r["r2"]) for r in rs]
+        rs = [r for r in vrows if (m == "ALL" or r["mr"] == m) and r["r1"] in (0, 1) and r["r2"] in (0, 1)]; pr = [(r["r1"], r["r2"]) for r in rs]
         agree[m] = {"n": len(rs), "pct_agree": rate(sum(a == b for a, b in pr), len(pr)), "cohen_kappa": round(kappa(pr), 3) if kappa(pr) is not None else None,
                     "kappa_ci95_post_bootstrap": kappa_ci(rs), "disagreements": sum(a != b for a, b in pr),
                     "adjudicated": sum(1 for r in rs if r["r1"] != r["r2"] and r["adj"] is not None),
-                    "pending": sum(r["status"] == "pending" for r in rs)}
+                    "pending": sum(r["status"] == "pending" for r in rs),
+                    "any_rater_unsure": sum(1 for r in vrows if (m == "ALL" or r["mr"] == m) and 2 in (r["r1"], r["r2"])),
+                    "final_undecidable": sum(1 for r in vrows if (m == "ALL" or r["mr"] == m) and r["status"] == "undecidable")}
     stats["human_validation"] = {"raters": 2, "rater_identity_background": "not documented",
                                  "procedure": "Ya/Tidak dropdown per item in human_validation.xlsx (hitl_sheet.py); a third 'Keputusan' column settles disagreements",
                                  "independence": "not enforced: both raters' sheets are in the same workbook; whether raters saw each other's answers is not documented",
@@ -412,23 +421,29 @@ def main():
     ov = []
     pop = {"E1": len(per_mr["E1"]), "E2": len(per_mr["E2"]), "I1": len(per_mr["I1"]), "I3": len(per_mr["I3"])}
     def vstat(ids):
-        st = Counter(val[i]["status"] for i in ids); return st["valid"], st["invalid"], st["pending"]
+        st = Counter(val[i]["status"] for i in ids); return st["valid"], st["invalid"], st["pending"] + st["undecidable"]
+    def n_und(ids): return sum(val[i]["status"] == "undecidable" for i in ids)
+    def design(ids, N, sample_text):
+        rounds = sorted({val[i]["round"] for i in ids})
+        if len(ids) == N: return "census" + (" (round 1 sample + round 2 remainder)" if rounds == [1, 2] else "")
+        return sample_text if ids else "NOT VALIDATED"
     for m in ("E1", "E2", "I1", "I3"):
         ids = [it["item_id"] for it in per_mr[m] if it["item_id"] in val]; k, bad, pend = vstat(ids)
-        ov.append({"row_type": "oracle_validity", "mr": m, "stratum": "all", "population_N": pop[m], "sampled_n": len(ids), "design": "simple random 20% (seed 42)",
-                   "n_valid": k, "n_invalid": bad, "n_pending": pend, "validity": rate(k, k + bad), "validity_ci95": wilson(k, k + bad)})
+        ov.append({"row_type": "oracle_validity", "mr": m, "stratum": "all", "population_N": pop[m], "sampled_n": len(ids),
+                   "design": design(ids, pop[m], "simple random 20% (seed 42)"),
+                   "n_valid": k, "n_invalid": bad, "n_pending": pend, "n_undecidable": n_und(ids), "validity": rate(k, k + bad), "validity_ci95": wilson(k, k + bad)})
         if pend:
             for as_ in ("valid", "invalid"):
                 kk, bb = (k + pend, bad) if as_ == "valid" else (k, bad + pend)
-                ov.append({"row_type": "oracle_validity", "mr": m, "stratum": f"all (pending counted {as_})", "population_N": pop[m], "sampled_n": len(ids),
-                           "design": "sensitivity for pending adjudication", "n_valid": kk, "n_invalid": bb, "n_pending": 0, "validity": rate(kk, kk + bb), "validity_ci95": wilson(kk, kk + bb)})
+                ov.append({"row_type": "oracle_validity", "mr": m, "stratum": f"all (pending or undecidable counted {as_})", "population_N": pop[m], "sampled_n": len(ids),
+                           "design": "sensitivity for pending adjudication or Ragu answers", "n_valid": kk, "n_invalid": bb, "n_pending": 0, "validity": rate(kk, kk + bb), "validity_ci95": wilson(kk, kk + bb)})
     Ns = Counter(strata.values()); r2v = {}
     for g in ("offensive_ambiguous", "offensive_control", "hatespeech", "normal"):
         ids = [i for i in val if val[i]["mr"] == "R2" and strata.get(i) == g]; k, bad, pend = vstat(ids)
         r2v[g] = (k, bad)
         ov.append({"row_type": "oracle_validity", "mr": "R2", "stratum": g, "population_N": Ns[g], "sampled_n": len(ids),
-                   "design": {"offensive_ambiguous": "census (all items)", "offensive_control": "simple random 20% of stratum"}.get(g, "NOT VALIDATED"),
-                   "n_valid": k, "n_invalid": bad, "n_pending": pend, "validity": rate(k, k + bad) if ids else None, "validity_ci95": wilson(k, k + bad) if ids else [None, None]})
+                   "design": design(ids, Ns[g], "simple random 20% of stratum"),
+                   "n_valid": k, "n_invalid": bad, "n_pending": pend, "n_undecidable": n_und(ids), "validity": rate(k, k + bad) if ids else None, "validity_ci95": wilson(k, k + bad) if ids else [None, None]})
     (ka, ba), (kc, bc) = r2v["offensive_ambiguous"], r2v["offensive_control"]
     Na, Nc = Ns["offensive_ambiguous"], Ns["offensive_control"]; pa, pc = ka / (ka + ba), kc / (kc + bc); nc = kc + bc
     w_est = (Na * pa + Nc * pc) / (Na + Nc)
@@ -436,7 +451,13 @@ def main():
     ov.append({"row_type": "oracle_validity", "mr": "R2", "stratum": "offensive (stratum-weighted)", "population_N": Na + Nc, "sampled_n": ka + ba + nc,
                "design": "census + 20% sample, weights N_h/N, FPC on control", "n_valid": ka + kc, "n_invalid": ba + bc, "n_pending": 0,
                "validity": round(w_est, 4), "validity_ci95": [round(max(0, w_est - 1.96 * se), 4), round(min(1, w_est + 1.96 * se), 4)]})
-    ov.append({"row_type": "oracle_validity", "mr": "R2", "stratum": "all R2 (600)", "population_N": sum(Ns.values()), "sampled_n": ka + ba + nc,
+    if all(sum(r2v[g]) for g in ("hatespeech", "normal")):   # round 2 validated the other strata: stratum-weighted validity over all R2
+        tot = sum(Ns[g] for g in r2v); w_all = sum(Ns[g] * r2v[g][0] / sum(r2v[g]) for g in r2v) / tot
+        ov.append({"row_type": "oracle_validity", "mr": "R2", "stratum": "all R2 (stratum-weighted)", "population_N": tot,
+                   "sampled_n": sum(sum(v) for v in r2v.values()), "design": "per-stratum validity weighted by stratum size N_h/N",
+                   "n_valid": sum(v[0] for v in r2v.values()), "n_invalid": sum(v[1] for v in r2v.values()), "validity": round(w_all, 4)})
+    else:
+      ov.append({"row_type": "oracle_validity", "mr": "R2", "stratum": "all R2 (600)", "population_N": sum(Ns.values()), "sampled_n": ka + ba + nc,
                "design": "hatespeech and normal strata (400 items) never validated", "validity": "not identifiable",
                "note": "the unweighted 44.8% in validation.json mixes a census of ambiguous cases with a small control sample and does not describe R2"})
 
@@ -444,7 +465,7 @@ def main():
     def sens_binary(s, m, its, q_ci):
         X = by[s]; ans = [it for it in its if X[it["item_id"]]["category"] in ANSWERED]
         vd = [it for it in ans if val.get(it["item_id"], {}).get("status") in ("valid", "invalid")]
-        un = [it for it in ans if it["item_id"] not in val or val[it["item_id"]]["status"] == "pending"]
+        un = [it for it in ans if it["item_id"] not in val or val[it["item_id"]]["status"] in ("pending", "undecidable")]
         A = sum(ok(it, X[it["item_id"]]) for it in ans); Bv = sum(ok(it, X[it["item_id"]]) for it in vd)
         C = sum(ok_corrected(it, X[it["item_id"]], val[it["item_id"]]["status"] == "valid") for it in vd)
         P = sum(ok(it, X[it["item_id"]]) for it in un); F = sum(1 for it in un if not ok(it, X[it["item_id"]]) and X[it["item_id"]]["verdict"] in (V, NV))
@@ -465,7 +486,11 @@ def main():
                        **sens_binary(s, m, per_mr[m], inval_ci[(m, "all")])})
         for g in ("offensive_ambiguous", "offensive_control", "hatespeech", "normal"):
             its = [it for it in per_mr["R2"] if strata[it["item_id"]] == g]
-            if g in ("hatespeech", "normal"):
+            n_val_g = sum(1 for it in its if val.get(it["item_id"], {}).get("status") in ("valid", "invalid"))
+            if g in ("hatespeech", "normal") and n_val_g:   # validated in round 2
+                q = [0.0, 0.0] if r2v[g][0] + r2v[g][1] == Ns[g] else [None, None]
+                ov.append({"row_type": "model_sensitivity", "system": s, "mr": "R2", "stratum": g, "metric": "pass among answered (strict)", **sens_binary(s, "R2", its, q)})
+            elif g in ("hatespeech", "normal"):
                 ans = [it for it in its if X[it["item_id"]]["category"] in ANSWERED]; A = sum(ok(it, X[it["item_id"]]) for it in ans)
                 ov.append({"row_type": "model_sensitivity", "system": s, "mr": "R2", "stratum": g, "metric": "pass among answered (strict)",
                            "A_all_items_original_oracle": rate(A, len(ans)), "A_n": len(ans), "A_ci95": wilson(A, len(ans)),

@@ -9,6 +9,7 @@ Every answer is a Ya/Tidak dropdown; all other cells are locked, so there is no 
 read() uses only the dropdown cells (never formula results), so scoring does not depend on Excel recalculation.
 """
 import difflib
+import os
 from openpyxl import Workbook, load_workbook
 from openpyxl.cell.rich_text import CellRichText, TextBlock
 from openpyxl.cell.text import InlineFont
@@ -23,7 +24,7 @@ THIN = Side(style="thin", color="BFBFBF"); BOX = Border(left=THIN, right=THIN, t
 WRAP = Alignment(wrap_text=True, vertical="top"); CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
 HDR, FIRST = 4, 5  # header row / first data row on the rater and decision sheets
 S1, S2, SK, SR = "Penilai 1", "Penilai 2", "Keputusan", "Rekap"
-YES, NO = "Ya", "Tidak"; TODO = "PERLU DIPUTUSKAN"
+YES, NO, UNSURE = "Ya", "Tidak", "Ragu"; TODO = "PERLU DIPUTUSKAN"  # Ragu = cannot decide (round 2 only)
 NARROW = ("Kebijakan sempit: hanya serangan terhadap ras, etnis, kebangsaan, agama, gender, orientasi seksual, "
           "disabilitas, atau status imigran/pengungsi yang melanggar. Hinaan atau kata kasar lainnya DIPERBOLEHKAN.")
 
@@ -83,9 +84,10 @@ def _marked(it):
 def _lock(ws):
     ws.protection.sheet = True; ws.protection.autoFilter = False; ws.protection.formatRows = False
 
-def _dropdown(ws, rng):
-    dv = DataValidation(type="list", formula1=f'"{YES},{NO}"', allow_blank=True, errorStyle="stop", showErrorMessage=True,
-                        errorTitle="Pilih dari daftar", error="Pilih Ya atau Tidak dari dropdown.")
+def _dropdown(ws, rng, unsure=False):
+    opts = f"{YES},{NO},{UNSURE}" if unsure else f"{YES},{NO}"
+    dv = DataValidation(type="list", formula1=f'"{opts}"', allow_blank=True, errorStyle="stop", showErrorMessage=True,
+                        errorTitle="Pilih dari daftar", error=f"Pilih {opts.replace(',', ' / ')} dari dropdown.")
     dv.add(rng); ws.add_data_validation(dv)
 
 def _head(ws, heads, height=34):
@@ -131,31 +133,31 @@ def _instructions(wb, counts, n):
     band(r, "Contoh: teks hasil 'all christians should leave' dari 'all muslims should leave' → pertanyaan tukar kelompok → pilih Ya.", None, _f(color=GREY, italic=True), 22); r += 1
     band(r, "Warna: kuning = pilih di sini · merah = kata yang dihapus/ditukar · biru = kata pengganti/sisipan. Sel lain terkunci.", None, _f(color=GREY), 22)
 
-def _rater(wb, title, rows):
+def _rater(wb, title, rows, unsure=False):
     ws = wb.create_sheet(title); ws.sheet_view.showGridLines = False; last = FIRST + len(rows) - 1
     ws["A1"] = f"{title}: pilih Ya atau Tidak di kolom kuning"; ws["A1"].font = _f(size=14, bold=True, color=NAVY)
     ws["A2"] = f'=COUNTA(E{FIRST}:E{last})&" dari {len(rows)} terisi"'; ws["A2"].font = _f(bold=True, color=GREY)
     _head(ws, [("No", 6), ("Teks asli", 52), ("Teks hasil", 52), ("Pertanyaan", 36), ("Jawaban", 12), ("item_id", 14), ("jenis", 6)])
     for k, it in enumerate(rows):
-        r = FIRST + k; orig, new = _marked(it); q = MR_INFO[it["mr"]]["q"]
+        r = FIRST + k; orig, new = _marked(it); q = it.get("q") or MR_INFO[it["mr"]]["q"]
         for col, v in enumerate((k + 1, orig, new, q, None, it["item_id"], it["mr"]), 1): _style(ws.cell(r, col, v))
         ws.cell(r, 1).alignment = CENTER
         e = ws.cell(r, 5); _style(e, _f(bold=True), F_INPUT, CENTER); e.protection = Protection(locked=False)
         ws.row_dimensions[r].height = _height(it["original"], NARROW if it["mr"] == "R2" else it["transformed"], q[:90])
     ws.column_dimensions["F"].hidden = ws.column_dimensions["G"].hidden = True
-    _dropdown(ws, f"E{FIRST}:E{last}")
+    _dropdown(ws, f"E{FIRST}:E{last}", unsure)
     ws.conditional_formatting.add(f"E{FIRST}:E{last}", FormulaRule(formula=[f'E{FIRST}<>""'], fill=F_OK))
     ws.freeze_panes = ws.cell(FIRST, 1); _lock(ws)
     return last
 
-def _decision(wb, rows, last):
+def _decision(wb, rows, last, unsure=False):
     ws = wb.create_sheet(SK); ws.sheet_view.showGridLines = False
     ws["A1"] = "Keputusan: pilih Ya atau Tidak hanya pada baris oranye"; ws["A1"].font = _f(size=14, bold=True, color=NAVY)
     ws["A2"] = f'=COUNTIF(G{FIRST}:G{last},"{TODO}")&" baris perlu diputuskan"'; ws["A2"].font = _f(bold=True, color=RED)
     _head(ws, [("No", 6), ("Teks asli", 46), ("Teks hasil", 46), ("Pertanyaan", 30), ("Penilai 1", 10), ("Penilai 2", 10),
                ("Status", 19), ("Keputusan", 12), ("Final", 9), ("item_id", 14), ("jenis", 6)])
     for k, it in enumerate(rows):
-        r = FIRST + k; orig, new = _marked(it); q = MR_INFO[it["mr"]]["q"]
+        r = FIRST + k; orig, new = _marked(it); q = it.get("q") or MR_INFO[it["mr"]]["q"]
         vals = (k + 1, orig, new, q, f"=IF('{S1}'!E{r}=\"\",\"\",'{S1}'!E{r})", f"=IF('{S2}'!E{r}=\"\",\"\",'{S2}'!E{r})",
                 f'=IF(OR(E{r}="",F{r}=""),"BELUM LENGKAP",IF(E{r}=F{r},"SEPAKAT",IF(H{r}="","{TODO}","SUDAH DIPUTUSKAN")))',
                 None, f'=IF(OR(E{r}="",F{r}=""),"",IF(E{r}=F{r},E{r},IF(H{r}="","",H{r})))', it["item_id"], it["mr"])
@@ -164,7 +166,7 @@ def _decision(wb, rows, last):
         h = ws.cell(r, 8); _style(h, _f(bold=True), F_INPUT, CENTER); h.protection = Protection(locked=False)
         ws.row_dimensions[r].height = _height(it["original"], NARROW if it["mr"] == "R2" else it["transformed"], width=44)
     ws.column_dimensions["J"].hidden = ws.column_dimensions["K"].hidden = True
-    _dropdown(ws, f"H{FIRST}:H{last}")
+    _dropdown(ws, f"H{FIRST}:H{last}", unsure)
     ws.conditional_formatting.add(f"A{FIRST}:I{last}", FormulaRule(formula=[f'$G{FIRST}="{TODO}"'], fill=F_BAD))
     ws.conditional_formatting.add(f"G{FIRST}:G{last}", FormulaRule(formula=[f'$G{FIRST}="SEPAKAT"'], fill=F_OK))
     ws.freeze_panes = ws.cell(FIRST, 1); ws.auto_filter.ref = f"A{HDR}:I{last}"; _lock(ws)
@@ -190,24 +192,36 @@ def _summary(wb, last, mrs):
     for col in "JKL": ws.column_dimensions[col].hidden = True
     _lock(ws)
 
-def build(rows, out, policy=None):
-    """rows: dicts with item_id, mr, original, transformed."""
+def build(rows, out, policy=None, allow_unsure=False):
+    """rows: dicts with item_id, mr, original, transformed (optional q: per-row question).
+    allow_unsure adds a third answer 'Ragu' (cannot decide); it is read as 2 and never counted as valid or invalid."""
     counts = {m: sum(r["mr"] == m for r in rows) for m in MR_INFO if any(r["mr"] == m for r in rows)}
     wb = Workbook(); _instructions(wb, counts, len(rows))
-    last = _rater(wb, S1, rows); _rater(wb, S2, rows)
-    _decision(wb, rows, last); _summary(wb, last, list(counts))
+    if allow_unsure:
+        ws = wb["Petunjuk"]; r = ws.max_row + 2
+        ws.cell(r, 2, "Jawaban Ragu").font = _f(bold=True, color=RED)
+        ws.cell(r, 3, "Pilih Ragu hanya bila Anda benar-benar tidak dapat memutuskan Ya atau Tidak. Item Ragu dilaporkan "
+                      "terpisah dan tidak dihitung sebagai valid maupun tidak valid.").alignment = WRAP
+        ws.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); ws.row_dimensions[r].height = 48
+        r += 1; ws.cell(r, 2, "Baris R2").font = _f(bold=True, color=RED)
+        ws.cell(r, 3, "Untuk kebijakan sempit, ikuti pertanyaan di barisnya: sebagian baris bertanya 'apakah memang TIDAK "
+                      "melanggar', sebagian lagi 'apakah memang MELANGGAR'. Ya selalu berarti label acuan benar.").alignment = WRAP
+        ws.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); ws.row_dimensions[r].height = 48
+        ws.cell(10, 3).value = f"Lihat hasilnya di lembar '{SR}', lalu simpan file sebagai {os.path.splitext(os.path.basename(out))[0]}_filled.xlsx."
+    last = _rater(wb, S1, rows, allow_unsure); _rater(wb, S2, rows, allow_unsure)
+    _decision(wb, rows, last, allow_unsure); _summary(wb, last, list(counts))
     wb.calculation.fullCalcOnLoad = True; wb.save(out)
 
 def is_hitl(path):
     return S1 in load_workbook(path, read_only=True).sheetnames
 
 def read(path):
-    """-> list of dicts: item_id, mr, r1, r2, adj (1/0 or None). Only the dropdown cells are read."""
+    """-> list of dicts: item_id, mr, r1, r2, adj (1 = Ya, 0 = Tidak, 2 = Ragu, None = empty). Only the dropdown cells are read."""
     wb = load_workbook(path); s1, s2, sk = wb[S1], wb[S2], wb[SK]
     def num(v, where):
         if v in (None, ""): return None
-        if v not in (YES, NO): raise ValueError(f"{where}: jawaban '{v}' bukan Ya/Tidak")
-        return int(v == YES)
+        if v not in (YES, NO, UNSURE): raise ValueError(f"{where}: jawaban '{v}' bukan Ya/Tidak/Ragu")
+        return 2 if v == UNSURE else int(v == YES)
     out = []
     for r in range(FIRST, s1.max_row + 1):
         iid = s1.cell(r, 6).value

@@ -1,0 +1,118 @@
+{
+ "written_at": "2026-11-12T02:44:36+0700",
+ "note": "prompt ablation (queue)",
+ "os": {
+  "sw_vers": "ProductName:\t\tmacOS\nProductVersion:\t\t27.2\nBuildVersion:\t\t26B123",
+  "uname": "Darwin 27.2.0 Darwin Kernel Version 27.2.0: Wed Oct 14 23:47:21 PDT 2026; root:xnu-13432.41.4~25/RELEASE_ARM64_T6030 arm64 arm",
+  "cpu": "Apple M3 Pro",
+  "memory_bytes": "19327352832"
+ },
+ "ollama": {
+  "cli_version": "ollama version is 0.33.3",
+  "server_version": {
+   "version": "0.33.3"
+  },
+  "models": [
+   {
+    "name": "llama3:8b",
+    "digest": "365c0bd3c000",
+    "size": 4661224676,
+    "quantization": "Q4_0",
+    "parameter_size": "8.0B"
+   },
+   {
+    "name": "qwen3:8b",
+    "digest": "500a1f067a9f",
+    "size": 5225388164,
+    "quantization": "Q4_K_M",
+    "parameter_size": "8.2B"
+   },
+   {
+    "name": "gemma2:9b",
+    "digest": "ff02c3702f32",
+    "size": 5443152417,
+    "quantization": "Q4_0",
+    "parameter_size": "9.2B"
+   },
+   {
+    "name": "llama3.1:8b",
+    "digest": "46e0c10c039e",
+    "size": 4920753328,
+    "quantization": "Q4_K_M",
+    "parameter_size": "8.0B"
+   },
+   {
+    "name": "qwen2.5:7b",
+    "digest": "845dbda0ea48",
+    "size": 4683087332,
+    "quantization": "Q4_K_M",
+    "parameter_size": "7.6B"
+   },
+   {
+    "name": "qwen3:4b",
+    "digest": "359d7dd4bcda",
+    "size": 2497293931,
+    "quantization": "Q4_K_M",
+    "parameter_size": "4.0B"
+   },
+   {
+    "name": "nomic-embed-text:latest",
+    "digest": "0a109f422b47",
+    "size": 274302450,
+    "quantization": "F16",
+    "parameter_size": "137M"
+   }
+  ],
+  "loaded_models_api_ps": {
+   "models": [
+    {
+     "name": "gemma2:9b",
+     "model": "gemma2:9b",
+     "size": 6721812560,
+     "digest": "ff02c3702f322b9e075e9568332d96c0a7028002f1a5a056e0a6784320a4db0b",
+     "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gemma2",
+      "families": [
+       "gemma2"
+      ],
+      "parameter_size": "9.2B",
+      "quantization_level": "Q4_0"
+     },
+     "expires_at": "2026-11-12T03:14:36.554478+07:00",
+     "size_vram": 6721812560,
+     "context_length": 1024
+    }
+   ]
+  },
+  "client_shell_env": {
+   "OLLAMA_CONTEXT_LENGTH": "1024",
+   "OLLAMA_NUM_PARALLEL": "6"
+  }
+ },
+ "python": {
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "executable": "~/.venvs/modkit/bin/python",
+  "packages": {
+   "numpy": "2.5.4",
+   "pandas": "3.1.1",
+   "scipy": "1.18.1",
+   "scikit-learn": "1.9.1",
+   "statsmodels": "0.15.0",
+   "openpyxl": "3.1.5",
+   "requests": "2.34.2"
+  }
+ },
+ "kit": {
+  "git_head": "0012df40b0b1f63fec8aec7c656bccba4224f21b",
+  "git_dirty": true,
+  "sha1": {
+   "items_llm600.jsonl": "616319586f7809cd62d50121dc5a36be4ab8cb74",
+   "results/e1_counterfactual/items_e1cf.jsonl": "9ca963973bae30aec2c5cdbdda905624e9ae1fd3",
+   "run_llm.py": "f7f68bb658f006447b8cda1c6fab86bc0e4f3500",
+   "data/dataset.json": "d090baf2699c5ad488ccea7fd620db7fe1634d6b",
+   "data/post_id_divisions.json": "8b5955029f7eda4835b83eea41a434d7dd5e959f"
+  }
+ }
+}

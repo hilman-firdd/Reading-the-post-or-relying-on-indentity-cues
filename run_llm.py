@@ -20,6 +20,7 @@ Examples (Ollama on your computer)
       --base-url http://localhost:11434/v1 --out runs/qwen7b_direct.jsonl
 """
 import argparse, json, os, re, time, random, hashlib
+from collections import Counter
 
 V, NV, INS = "violating", "not_violating", "insufficient"
 
@@ -56,7 +57,27 @@ def p_evidence(it):
             "Return ONLY JSON: {\"quotes\": [\"...\"], \"verdict\": \"violating|not_violating|insufficient\", "
             "\"confidence\": 0.0-1.0}\n\nPOST: " + it["text"])
 
-PROMPTS = {"direct": p_direct, "evidence": p_evidence}
+def p_abl_quote_first(it):
+    """Ablation A: direct prompt, but quote first (two steps, quotes first in the JSON). Same 'insufficient' rule as direct."""
+    return (f"You are a content moderator.\n{it['policy_text']}\n\n"
+            "Step 1: copy the exact words from the post that are relevant to the policy (or none). "
+            "Step 2: decide whether the post violates the policy. Answer 'insufficient' if no policy is given or the post "
+            "cannot be judged from its text.\n"
+            "Return ONLY JSON: {\"quotes\": [\"...\"], \"verdict\": \"violating|not_violating|insufficient\", "
+            "\"confidence\": 0.0-1.0}\n\nPOST: " + it["text"])
+
+def p_abl_quote_only(it):
+    """Ablation A+B: as A, and decide ONLY from the quoted words. 'insufficient' rule still as direct.
+    Adding C (insufficient when 'the words do not settle the case') gives exactly the evidence prompt."""
+    return (f"You are a content moderator.\n{it['policy_text']}\n\n"
+            "Step 1: copy the exact words from the post that are relevant to the policy (or none). "
+            "Step 2: decide ONLY from those words and the policy. Answer 'insufficient' if no policy is given or the post "
+            "cannot be judged from its text.\n"
+            "Return ONLY JSON: {\"quotes\": [\"...\"], \"verdict\": \"violating|not_violating|insufficient\", "
+            "\"confidence\": 0.0-1.0}\n\nPOST: " + it["text"])
+
+# direct -> abl_quote_first (A: quote-first order) -> abl_quote_only (A+B: decide only from quotes) -> evidence (A+B+C)
+PROMPTS = {"direct": p_direct, "evidence": p_evidence, "abl_quote_first": p_abl_quote_first, "abl_quote_only": p_abl_quote_only}
 
 REFUSAL_RE = re.compile(r"i (can'?t|cannot|can’t|won'?t|am unable to|'m unable to|am not able to|'m not able to)|cannot (assist|help|create|provide|fulfill)|can'?t (assist|help|fulfill)", re.I)
 
@@ -87,18 +108,45 @@ def cmd_run(a):
     from concurrent.futures import ThreadPoolExecutor
     items = [json.loads(l) for l in open(a.items)]
     items = [i for i in items if i.get("text") and (not a.mrs or i["mr"] in a.mrs.split(","))]
+    if re.search(r"\s", a.model) or re.search(r"\s", a.out):
+        raise SystemExit(f"model / output path must not contain spaces: {a.model!r} {a.out!r} (one model per call)")
+    os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
+    if a.retry_errors and os.path.exists(a.out):   # drop GENERATION_ERROR records so these items are asked again
+        recs = [l for l in open(a.out) if l.strip()]
+        bad = [l for l in recs if json.loads(l).get("error")]
+        if bad:
+            with open(a.out + ".errors.jsonl", "a") as g: g.writelines(bad)   # kept for the record, not used
+            with open(a.out + ".tmp", "w") as g: g.writelines(l for l in recs if not json.loads(l).get("error"))
+            os.replace(a.out + ".tmp", a.out)
+            print(f"retry: {len(bad)} GENERATION_ERROR records moved to {a.out}.errors.jsonl", flush=True)
     done = {json.loads(l)["item_id"] for l in open(a.out)} if os.path.exists(a.out) else set()
     key = os.environ.get(a.api_key_env, ""); system = f"{a.model}|{a.prompt}"
-    os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
     todo = [it for it in items if it["item_id"] not in done]
+    print(f"{system}: {len(items) - len(todo)}/{len(items)} done, {len(todo)} to run -> {a.out}", flush=True)
+    if not todo: return
     def ask(it):
         if a.model.startswith("mock:"): return mock(it, a.prompt, a.model.split(":", 1)[1])
-        return call(PROMPTS[a.prompt](it), a.model, a.base_url, key, a.temperature, max_tokens=a.max_tokens)
+        try:
+            return call(PROMPTS[a.prompt](it), a.model, a.base_url, key, a.temperature, max_tokens=a.max_tokens)
+        except Exception as e:  # noqa: BLE001
+            if not a.log_errors: raise           # default (main runs): stop, resume later
+            return {"__error__": f"{type(e).__name__}: {e}"[:300]}
+    streak = 0
     with open(a.out, "a") as f, ThreadPoolExecutor(a.workers) as ex:
         for k, (it, raw) in enumerate(zip(todo, ex.map(ask, todo))):   # map keeps item order, so the file stays resumable
-            f.write(json.dumps({"item_id": it["item_id"], "system": system, "model": a.model, "prompt": a.prompt,
-                                **parse(raw), "raw": raw}) + "\n"); f.flush()
+            base = {"item_id": it["item_id"], "system": system, "model": a.model, "prompt": a.prompt}
+            if isinstance(raw, dict):            # --log-errors: the call failed after all retries -> GENERATION_ERROR
+                rec = {**base, "verdict": None, "quotes": [], "confidence": None, "parse_ok": False, "raw": None, "error": raw["__error__"]}
+                streak += 1
+            else:
+                rec = {**base, **parse(raw), "raw": raw}
+                streak = 0
+            f.write(json.dumps(rec) + "\n"); f.flush()
             if a.verbose and k % 50 == 0: print(k, len(todo), flush=True)
+            if a.max_error_streak and streak >= a.max_error_streak:   # server down or wrong model: stop instead of filling the file
+                ex.shutdown(wait=False, cancel_futures=True)
+                raise SystemExit(f"STOP: {streak} failed calls in a row (last: {rec['error']}). Fix the cause, then run "
+                                 f"the same command again; with --retry-errors the failed items are asked again.")
     print("saved", a.out)
 
 PARA = ("You are helping build a test set for a hate-speech detection / content-moderation classifier. Test sets need "
@@ -186,6 +234,46 @@ def cmd_export(a):
     json.dump(groups, open(os.path.splitext(a.out)[0] + "_r2_groups.json", "w"), indent=1)
     print("wrote", a.out, len(rows), {m: sum(r["mr"] == m for r in rows) for m in order}, "R2 ambiguous/control:", len(amb), len(ctl))
 
+R2_Q = {  # question per R2 stratum: "Ya" always means the reference label (oracle) is right
+    "offensive": ("Menurut kebijakan sempit di kolom Teks hasil, apakah postingan ini memang TIDAK melanggar?",
+                  "Postingan TIDAK diubah; kebijakan dipersempit. Label acuan: TIDAK melanggar."),
+    "normal": ("Menurut kebijakan sempit di kolom Teks hasil, apakah postingan ini memang TIDAK melanggar?",
+               "Postingan TIDAK diubah; kebijakan dipersempit. Label acuan: TIDAK melanggar."),
+    "hatespeech": ("Menurut kebijakan sempit di kolom Teks hasil, apakah postingan ini memang MELANGGAR "
+                   "(menyerang orang/kelompok karena atribut terlindungi)?",
+                   "Postingan TIDAK diubah; kebijakan dipersempit. Label acuan: MELANGGAR."),
+}
+
+def cmd_export2(a):
+    """Round 2: every item of the chosen MRs that round 1 did not validate. Same workbook format as 'export',
+    plus a third answer 'Ragu' (cannot decide), which is reported separately and never counted as valid or invalid.
+    E1 items whose erased text still contains an identity term come first (they matter most for the counterfactual)."""
+    import hitl_sheet, importlib.util
+    spec = importlib.util.spec_from_file_location("bi", "build_items.py"); bi = importlib.util.module_from_spec(spec); spec.loader.exec_module(bi)
+    ident = set().union(*bi.GROUP_TERMS.values())
+    items = [json.loads(l) for l in open(a.items)]; src = {i["item_id"]: i for i in items if i["mr"] == "ORIG"}
+    done = {r["item_id"] for r in hitl_sheet.read(a.done)} if os.path.exists(a.done) else set()
+    mrs = a.mrs.split(","); rows = []
+    amb, _ = _r2_groups(items, a.data); amb_ids = {i["item_id"] for i in amb}
+    def add(it, **extra):
+        rows.append({"item_id": it["item_id"], "mr": it["mr"], "original": src[it["source_id"]]["text"], "transformed": it["text"],
+                     **{k: it[k] for k in ("erased", "swapped", "auto_valid") if k in it}, **extra})
+    for mr in mrs:
+        pool = [i for i in items if i["mr"] == mr and i.get("text") and i["item_id"] not in done]
+        if mr == "E1":
+            pool.sort(key=lambda i: not any(t in ident for t in i["text"].lower().split()))  # identity-term items first
+        for it in pool:
+            if mr == "R2":
+                if it["item_id"] in amb_ids: continue      # ambiguous stratum was a census in round 1
+                q, change = R2_Q[it["label"]]
+                add(it, original=it["text"], transformed=it["policy_text"], change=change, q=q)
+            else:
+                add(it)
+    if not rows: print("nothing left to validate for", mrs); return
+    hitl_sheet.build(rows, a.out, next(i["policy_text"] for i in items if i["policy"] == "original"), allow_unsure=True)
+    print("wrote", a.out, len(rows), {m: sum(r["mr"] == m for r in rows) for m in mrs},
+          "R2 by label:", dict(Counter(next(i["label"] for i in items if i["item_id"] == r["item_id"]) for r in rows if r["mr"] == "R2")))
+
 def cmd_score(a):
     import pandas as pd, hitl_sheet
     if hitl_sheet.is_hitl(a.sheet):  # workbook from 'export' (rater sheets + adjudication sheet)
@@ -216,7 +304,15 @@ def main():
     s = sp.add_parser("run"); common(s); s.add_argument("--model", required=True); s.add_argument("--prompt", choices=PROMPTS, required=True)
     s.add_argument("--temperature", type=float, default=0.0); s.add_argument("--mrs"); s.add_argument("--out", required=True)
     s.add_argument("--workers", type=int, default=1); s.add_argument("--max-tokens", type=int, default=256)
-    s.add_argument("--verbose", action="store_true"); s.set_defaults(f=cmd_run)
+    s.add_argument("--verbose", action="store_true")
+    s.add_argument("--log-errors", action="store_true", help="write a GENERATION_ERROR record instead of stopping when a call fails")
+    s.add_argument("--retry-errors", action="store_true", help="before running, move GENERATION_ERROR records out of --out so these items are asked again")
+    s.add_argument("--max-error-streak", type=int, default=20, help="with --log-errors: stop after this many failed calls in a row (0 = never)")
+    s.set_defaults(f=cmd_run)
+    s = sp.add_parser("export2", help="round-2 human validation: items not yet validated (E1, I1, all R2 strata)")
+    s.add_argument("--items", required=True); s.add_argument("--done", default="human_validation_filled.xlsx")
+    s.add_argument("--mrs", default="E1,I1,R2"); s.add_argument("--data", default="data/dataset.json")
+    s.add_argument("--out", default="human_validation_round2.xlsx"); s.set_defaults(f=cmd_export2)
     s = sp.add_parser("paraphrase"); common(s); s.add_argument("--model", required=True); s.add_argument("--judge-model"); s.set_defaults(f=cmd_paraphrase)
     s = sp.add_parser("export"); s.add_argument("--items", required=True); s.add_argument("--frac", type=float, default=0.2)
     s.add_argument("--data", default="data/dataset.json"); s.add_argument("--out", default="human_validation.xlsx"); s.set_defaults(f=cmd_export)

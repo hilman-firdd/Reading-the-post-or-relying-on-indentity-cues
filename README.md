@@ -83,3 +83,41 @@ Hasil kanonis untuk naskah. Hanya membaca `runs/`, item, dan lembar validasi; ti
 - `audit_metrics.py`: coverage, akurasi bersyarat, tingkat refusal/abstensi, transisi E1/E2/R2/R3, uji I1 vs I2 dengan Holm, analisis I3, validitas oracle bertingkat, dan sensitivitas.
 - Laporan: `results/audited/audit_report.md`; konfigurasi dan log perubahan: `results/audited/reproducibility_notes.md`.
 - Lingkungan Python ada di `~/.venvs/modkit` (di luar folder iCloud). `.venv/` lama di folder ini sudah dihapus karena sebagian file-nya dipindahkan macOS ke iCloud; buat ulang lingkungan dengan perintah di `results/audited/reproducibility_notes.md` §1.
+
+## Revisi v10 — pekerjaan yang butuh data baru (11 Nov 2026)
+
+Semua skrip di bawah tidak mengubah `runs/`, `results/` utama, atau lembar validasi ronde 1.
+
+| Pekerjaan | Siapa | Perintah | Hasil |
+|---|---|---|---|
+| Validasi manusia ronde 2 (E1 sisa 318, I1 sisa 107, R2 sisa 513; ada jawaban **Ragu**) | 2 penilai + 1 pemutus | lembar sudah dibuat: `human_validation_round2.xlsx` (ulang: `python run_llm.py export2 --items items_llm600.jsonl`) → simpan terisi sebagai `human_validation_round2_filled.xlsx` → `python audit_metrics.py` | `results/audited/oracle_validity_analysis.csv` (sensus E1, I1, R2 semua strata) |
+| Penilaian manusia teks counterfactual (HE-E1CF) | 2 penilai + pemutus | bahan siap di `results/human_eval_e1cf/materials/`; prosedur di `human_evaluation_protocol.md` | `results/human_eval_e1cf/` |
+| Run ulang (stabilitas antar-run) | laptop + Ollama | `./run_repeats.sh cf` lalu `./run_repeats.sh main` → `python analysis_repeats.py` | `results/repeats/stability.md` |
+| Ablasi prompt | laptop + Ollama | `./run_ablation.sh` → `python analysis_systems.py ablation` | `results/ablation/summary.md` |
+| Model tambahan | laptop + Ollama | `MODELS="..." ./run_extra_models.sh` → `python analysis_systems.py extra` | `results/extra_models/summary.md` |
+
+Setiap run menulis `manifest_*.json` (versi macOS, versi Ollama, digest dan kuantisasi model, setelan OLLAMA_*, versi paket Python, SHA-1 item). Panggilan yang gagal dicatat sebagai GENERATION_ERROR (`--log-errors`), tetapi 20 kegagalan berturut-turut menghentikan run (misalnya Ollama mati atau nama model salah). Jalankan ulang perintah yang sama: item yang sudah berhasil dipakai lagi, item yang gagal ditanyakan ulang (`--retry-errors`), dan catatan gagalnya dipindah ke `<file>.errors.jsonl`.
+
+### Cara menjalankan (perbaikan 11 Nov 2026)
+
+Run pertama tanggal 11 Nov gagal karena bug skrip zsh (daftar model/prompt tidak terpecah, misalnya `--prompt 'direct evidence'`). Ketiga skrip sekarang memakai bash (`run_common.sh` berisi pemeriksaan bersama) dan sudah diuji dengan model tiruan. Log run yang gagal disimpan di `logs/failed_20261111/`; output gagalnya sudah dihapus.
+
+```
+# Terminal 1 (biarkan berjalan)
+OLLAMA_NUM_PARALLEL=6 OLLAMA_CONTEXT_LENGTH=1024 OLLAMA_KEEP_ALIVE=30m ollama serve
+
+# Terminal 2
+cd "<folder kit ini>"
+chmod +x run_*.sh
+export OLLAMA_NUM_PARALLEL=6 OLLAMA_CONTEXT_LENGTH=1024
+nohup caffeinate -is ./run_repeats.sh all > logs/repeats.log 2>&1 &      # cf dulu, lalu main
+tail -f logs/repeats.log                                                  # cek: harus ada baris 'qwen2.5:7b|direct: 0/440 done, 440 to run'
+# setelah 'REPEATS DONE (all)':
+nohup caffeinate -is ./run_ablation.sh > logs/ablation.log 2>&1 &
+# model tambahan (pull dulu):
+ollama pull mistral:7b
+MODELS="mistral:7b" nohup caffeinate -is ./run_extra_models.sh > logs/extra.log 2>&1 &
+```
+
+Jalankan satu skrip pada satu waktu; dua skrip bersamaan membagi 6 slot Ollama dan memperlambat keduanya. Skrip berhenti sebelum memanggil model kalau: Ollama belum jalan, model belum di-pull, nama prompt salah, atau REPS bukan angka ≥ 2. Folder yang benar: `runs_repeat/rep2/{e1cf,main}/`, `runs_repeat/rep3/{e1cf,main}/`, `runs_ablation/qwen2.5_7b_abl_quote_first.jsonl`, dst. Nama folder atau file yang mengandung spasi berarti ada yang salah.
+

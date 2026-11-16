@@ -33,15 +33,25 @@ def contrast(S, a, b, keep=lambda p: True):
     return paired(pr)
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser(description="E1-CF analysis (PROTOCOL.md). Defaults reproduce the main run.")
+    ap.add_argument("--runs-dir", default=f"{D}/runs", help="folder with <model>_<prompt>.jsonl of one E1-CF run (e.g. runs_repeat/rep2/e1cf)")
+    ap.add_argument("--out-dir", default=D, help="where analysis.json and summary.csv are written")
+    ap.add_argument("--systems", help='comma list "model|prompt" (default: the six pre-specified LLM conditions)')
+    ap.add_argument("--main-runs-dir", default="runs", help="main-run folder used for the REPLAY stability check S3")
+    a = ap.parse_args(); RD, OD = a.runs_dir, a.out_dir; os.makedirs(OD, exist_ok=True)
+    llm = [tuple(x.strip().split("|")) for x in a.systems.split(",")] if a.systems else LLM
     items = {}
     for l in open(f"{D}/items_e1cf.jsonl"):
         it = json.loads(l); items[it["item_id"]] = it
     all_items = {json.loads(l)["item_id"]: json.loads(l) for l in open("items_llm600.jsonl")}
     val = load_validation(all_items)
     n_posts = len({it["e1_item_id"] for it in items.values()})
-    systems = {f"{m}|{p}": f"{D}/runs/{m.replace(':', '_')}_{p}.jsonl" for m, p in LLM}
-    systems.update({"word-LR": f"{D}/runs/cf_word-LR.jsonl", "char-LR": f"{D}/runs/cf_char-LR.jsonl"})
-    main_runs = {f"{m}|{p}": f"runs/{m.replace(':', '_')}_{p}.jsonl" for m, p in LLM}
+    systems = {f"{m}|{p}": f"{RD}/{m.replace(':', '_')}_{p}.jsonl" for m, p in llm}
+    # the logistic baselines are deterministic: use the repeat folder's copy if present, else the main E1-CF run
+    systems.update({k: (f"{RD}/{f}" if os.path.exists(f"{RD}/{f}") else f"{D}/runs/{f}")
+                    for k, f in (("word-LR", "cf_word-LR.jsonl"), ("char-LR", "cf_char-LR.jsonl"))})
+    main_runs = {f"{m}|{p}": f"{a.main_runs_dir}/{m.replace(':', '_')}_{p}.jsonl" for m, p in llm}
     main_runs.update({"word-LR": "runs/llm600_word-LR.jsonl", "char-LR": "runs/llm600_char-LR.jsonl"})
 
     res = {"protocol": f"{D}/PROTOCOL.md", "n_posts": n_posts, "systems": {}}
@@ -52,9 +62,10 @@ def main():
         cov = {c: {"answered": sum(S[p][c][0] for p in S), "flag_rate_among_answered": rate(sum(S[p][c][1] for p in S if S[p][c][0]), sum(S[p][c][0] for p in S)),
                    "categories": dict(Counter(S[p][c][2] for p in S))} for c in CONDS}
         main = {}
-        for l in open(main_runs[s]):
-            r = json.loads(l); main[r["item_id"]] = classify_record(r)
-        rep = [(S[p]["REPLAY"], main[p]) for p in S if S[p]["REPLAY"][0] and main[p]["category"] in ANSWERED]
+        if os.path.exists(main_runs[s]):
+            for l in open(main_runs[s]):
+                r = json.loads(l); main[r["item_id"]] = classify_record(r)
+        rep = [(S[p]["REPLAY"], main[p]) for p in S if p in main and S[p]["REPLAY"][0] and main[p]["category"] in ANSWERED]
         stab = {"pairs_answered": len(rep),
                 "flag_agreement": rate(sum(a[1] == (b["category"] == "VALID_VERDICT" and b["verdict"] == "violating") for a, b in rep), len(rep))}
         invalid = lambda p: val.get(p, {}).get("status") == "invalid"
@@ -67,13 +78,15 @@ def main():
                              "S4_H1_excluding_human_invalid": contrast(S, "PLC", "NEU", keep=lambda p: not invalid(p)),
                              "n_posts_human_validated": sum(1 for p in S if val.get(p, {}).get("status") in ("valid", "invalid")),
                              "n_posts_human_invalid": sum(1 for p in S if invalid(p))}
-    done = [s for s, _ in [(f"{m}|{p}", 0) for m, p in LLM] if res["systems"].get(s, {}).get("status") == "complete"]
+    done = [s for s, _ in [(f"{m}|{p}", 0) for m, p in llm] if res["systems"].get(s, {}).get("status") == "complete"]
     for key, fam in (("H1_PLC_minus_NEU", "F_CF"), ("S1_PLCDEL_minus_DEL", "F_CF2"), ("S4_H1_excluding_human_invalid", "F_CF_S4")):
         h = holm({s: res["systems"][s][key]["mcnemar_exact_p"] for s in done})
         for s in done: res["systems"][s][key][f"holm_p_{fam}"] = h[s]
 
     # ---- decision rule (PROTOCOL.md §6), evaluated only when all four deciding systems are complete
-    if all(s in done for s in DECISION_SYSTEMS):
+    if a.systems and set(f"{m}|{p}" for m, p in llm) != set(f"{m}|{p}" for m, p in LLM):
+        res["decision"] = {"verdict": "not evaluated: the pre-specified rule covers only the original six conditions; report descriptively"}
+    elif all(s in done for s in DECISION_SYSTEMS):
         sig = [s for s in DECISION_SYSTEMS if (res["systems"][s]["H1_PLC_minus_NEU"]["risk_difference"] or 0) > 0
                and res["systems"][s]["H1_PLC_minus_NEU"]["holm_p_F_CF"] is not None and res["systems"][s]["H1_PLC_minus_NEU"]["holm_p_F_CF"] < 0.05]
         same_sign = [s for s in sig if (res["systems"][s]["S1_PLCDEL_minus_DEL"]["risk_difference"] or 0) > 0]
@@ -85,7 +98,8 @@ def main():
                            "holm_significant_positive": sig, "with_S1_same_sign": same_sign, "rd_positive": pos, "verdict": verdict}
     else:
         res["decision"] = {"verdict": "not evaluated: deciding systems incomplete"}
-    json.dump(res, open(f"{D}/analysis.json", "w"), indent=1)
+    if RD != f"{D}/runs": res["runs_dir"] = RD
+    json.dump(res, open(f"{OD}/analysis.json", "w"), indent=1)
 
     rows = []
     for s, v in res["systems"].items():
@@ -96,7 +110,7 @@ def main():
                          "risk_difference": c["risk_difference"], "rd_ci95": json.dumps(c["rd_ci95_post_bootstrap"]), "b": c["b_only_x"], "c": c["c_only_y"],
                          "mcnemar_p": c["mcnemar_exact_p"], "holm_p": next((c[k] for k in c if k.startswith("holm_p")), "")})
     cols = list(dict.fromkeys(k for r in rows for k in r))
-    with open(f"{D}/summary.csv", "w", newline="") as f:
+    with open(f"{OD}/summary.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols); w.writeheader(); w.writerows(rows)
     print(res["decision"]["verdict"])
 
