@@ -1,0 +1,26 @@
+word-LR done 440
+char-LR done 440
+[2026-11-10 05:18:30] run qwen2.5:7b direct
+saved results/e1_counterfactual/runs/qwen2.5_7b_direct.jsonl
+[2026-11-10 05:26:51] run qwen2.5:7b evidence
+saved results/e1_counterfactual/runs/qwen2.5_7b_evidence.jsonl
+[2026-11-10 05:37:20] run llama3.1:8b direct
+saved results/e1_counterfactual/runs/llama3.1_8b_direct.jsonl
+[2026-11-10 05:45:33] run llama3.1:8b evidence
+saved results/e1_counterfactual/runs/llama3.1_8b_evidence.jsonl
+[2026-11-10 05:52:19] run gemma2:9b direct
+saved results/e1_counterfactual/runs/gemma2_9b_direct.jsonl
+[2026-11-10 06:10:23] run gemma2:9b evidence
+[2026-11-10 07:42:54] run qwen2.5:7b direct
+saved results/e1_counterfactual/runs/qwen2.5_7b_direct.jsonl
+[2026-11-10 07:42:54] run qwen2.5:7b evidence
+saved results/e1_counterfactual/runs/qwen2.5_7b_evidence.jsonl
+[2026-11-10 07:42:55] run llama3.1:8b direct
+saved results/e1_counterfactual/runs/llama3.1_8b_direct.jsonl
+[2026-11-10 07:42:55] run llama3.1:8b evidence
+saved results/e1_counterfactual/runs/llama3.1_8b_evidence.jsonl
+[2026-11-10 07:42:55] run gemma2:9b direct
+saved results/e1_counterfactual/runs/gemma2_9b_direct.jsonl
+[2026-11-10 07:42:56] run gemma2:9b evidence
+saved results/e1_counterfactual/runs/gemma2_9b_evidence.jsonl
+[2026-11-10 07:45:21] E1CF DONE

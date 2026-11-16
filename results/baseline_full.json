@@ -1,0 +1,393 @@
+{
+ "oracle": "strict",
+ "systems": {
+  "word-LR": {
+   "n_posts": 1888,
+   "EV1_fail": 0.2272,
+   "EV2_fail": 0.5842,
+   "EV3_fail": 1.0,
+   "hidden_failure": [
+    0.7728,
+    [
+     0.7532,
+     0.7913
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 0.8734,
+   "hidden_failure_without_policy_axis": [
+    0.6462,
+    [
+     0.6234,
+     0.6679
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.48,
+     1098
+    ],
+    "E2": [
+     0.7123,
+     782
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->not_violating": 42,
+    "not_violating->violating": 23
+   },
+   "item_2x2": {
+    "correct|supported": 785,
+    "correct|unsupported": 674,
+    "wrong|supported": 230,
+    "wrong|unsupported": 199
+   },
+   "mr_pass": {
+    "E1": [
+     0.48,
+     1098
+    ],
+    "E2": [
+     0.3069,
+     782
+    ],
+    "I1": [
+     0.8411,
+     409
+    ],
+    "I2": [
+     0.9258,
+     1888
+    ],
+    "R1": [
+     0.0,
+     1888
+    ],
+    "R2": [
+     0.6811,
+     1888
+    ],
+    "R3": [
+     0.2272,
+     1888
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.408,
+     [
+      0.3851,
+      0.4303
+     ]
+    ],
+    "R": [
+     0.3028,
+     [
+      0.2948,
+      0.3102
+     ]
+    ],
+    "I": [
+     0.9108,
+     [
+      0.8985,
+      0.9233
+     ]
+    ]
+   },
+   "profiles": {
+    "Policy-blind": 775,
+    "Ungrounded": 1113
+   },
+   "evidence_token_f1_on_violating": 0.4201,
+   "identity_swap_flip_rate_by_direction": {
+    "jews->hindus": [
+     0.381,
+     63
+    ],
+    "muslim->christian": [
+     0.1224,
+     49
+    ],
+    "white->black": [
+     0.15,
+     40
+    ],
+    "women->men": [
+     0.2973,
+     37
+    ],
+    "immigrants->citizens": [
+     0.0556,
+     36
+    ],
+    "gay->straight": [
+     0.2143,
+     28
+    ],
+    "black->white": [
+     0.16,
+     25
+    ],
+    "jew->hindu": [
+     0.2609,
+     23
+    ],
+    "blacks->whites": [
+     0.0,
+     23
+    ],
+    "muslims->christians": [
+     0.0476,
+     21
+    ],
+    "arabs->hispanics": [
+     0.0,
+     20
+    ],
+    "islam->christianity": [
+     0.4211,
+     19
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.0971,
+    "offensive": 0.3333,
+    "normal": 0.2545
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      0,
+      0
+     ],
+     [
+      767,
+      1113
+     ]
+    ],
+    "phi": null,
+    "fisher_p": 1.0
+   },
+   "AURC": 0.1209
+  },
+  "char-LR": {
+   "n_posts": 1888,
+   "EV1_fail": 0.2219,
+   "EV2_fail": 0.6801,
+   "EV3_fail": 1.0,
+   "hidden_failure": [
+    0.7781,
+    [
+     0.7595,
+     0.7961
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 1.0,
+   "hidden_failure_without_policy_axis": [
+    0.7781,
+    [
+     0.7595,
+     0.7961
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.6658,
+     1098
+    ],
+    "E2": [
+     0.7749,
+     782
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->not_violating": 71,
+    "not_violating->violating": 3
+   },
+   "item_2x2": {
+    "correct|supported": 604,
+    "correct|unsupported": 865,
+    "wrong|supported": 241,
+    "wrong|unsupported": 178
+   },
+   "mr_pass": {
+    "E1": [
+     0.6658,
+     1098
+    ],
+    "E2": [
+     0.0,
+     782
+    ],
+    "I1": [
+     0.8191,
+     409
+    ],
+    "I2": [
+     0.9258,
+     1888
+    ],
+    "R1": [
+     0.0,
+     1888
+    ],
+    "R2": [
+     0.6992,
+     1888
+    ],
+    "R3": [
+     0.2219,
+     1888
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.3888,
+     [
+      0.367,
+      0.4117
+     ]
+    ],
+    "R": [
+     0.307,
+     [
+      0.2991,
+      0.3144
+     ]
+    ],
+    "I": [
+     0.9068,
+     [
+      0.8955,
+      0.9189
+     ]
+    ]
+   },
+   "profiles": {
+    "Policy-blind": 739,
+    "Ungrounded": 1149
+   },
+   "evidence_token_f1_on_violating": 0.0,
+   "identity_swap_flip_rate_by_direction": {
+    "jews->hindus": [
+     0.5397,
+     63
+    ],
+    "muslim->christian": [
+     0.1633,
+     49
+    ],
+    "white->black": [
+     0.025,
+     40
+    ],
+    "women->men": [
+     0.0541,
+     37
+    ],
+    "immigrants->citizens": [
+     0.1944,
+     36
+    ],
+    "gay->straight": [
+     0.1429,
+     28
+    ],
+    "black->white": [
+     0.12,
+     25
+    ],
+    "jew->hindu": [
+     0.3043,
+     23
+    ],
+    "blacks->whites": [
+     0.087,
+     23
+    ],
+    "muslims->christians": [
+     0.381,
+     21
+    ],
+    "arabs->hispanics": [
+     0.25,
+     20
+    ],
+    "islam->christianity": [
+     0.3158,
+     19
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.0954,
+    "offensive": 0.3565,
+    "normal": 0.2276
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      0,
+      0
+     ],
+     [
+      731,
+      1149
+     ]
+    ],
+    "phi": null,
+    "fisher_p": 1.0
+   },
+   "AURC": 0.1144
+  }
+ },
+ "cochran_EV1_pass": {
+  "Q": 0.397,
+  "df": 1,
+  "p": 0.529
+ },
+ "cochran_EV3_pass": {
+  "Q": 0.0,
+  "df": 1,
+  "p": 1.0
+ },
+ "mcnemar_holm": {
+  "ev1": [
+   {
+    "a": "char-LR",
+    "b": "word-LR",
+    "a_only": 131,
+    "b_only": 121,
+    "p": 0.570838,
+    "p_holm": 0.570838
+   }
+  ],
+  "ev3": [
+   {
+    "a": "char-LR",
+    "b": "word-LR",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   }
+  ]
+ },
+ "gee": {
+  "params": {
+   "Intercept": -0.452,
+   "C(system)[T.word-LR]": 0.08,
+   "C(axis)[T.I]": 2.729,
+   "C(axis)[T.R]": -0.362,
+   "C(system)[T.word-LR]:C(axis)[T.I]": -0.033,
+   "C(system)[T.word-LR]:C(axis)[T.R]": -0.1
+  },
+  "p": {
+   "Intercept": 1.22e-21,
+   "C(system)[T.word-LR]": 0.119,
+   "C(axis)[T.I]": 4.68e-224,
+   "C(axis)[T.R]": 3.12e-13,
+   "C(system)[T.word-LR]:C(axis)[T.I]": 0.768,
+   "C(system)[T.word-LR]:C(axis)[T.R]": 0.0492
+  }
+ }
+}

@@ -1,0 +1,1966 @@
+{
+ "oracle": "strict",
+ "systems": {
+  "qwen2.5:7b|direct": {
+   "n_posts": 600,
+   "EV1_fail": 0.2883,
+   "EV2_fail": 0.6833,
+   "EV3_fail": 0.9967,
+   "hidden_failure": [
+    0.7083,
+    [
+     0.67,
+     0.7467
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 0.88,
+   "hidden_failure_without_policy_axis": [
+    0.5917,
+    [
+     0.5517,
+     0.63
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.6348,
+     397
+    ],
+    "E2": [
+     0.915,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->not_violating": 13,
+    "not_violating->violating": 3
+   },
+   "item_2x2": {
+    "correct|supported": 190,
+    "correct|unsupported": 237,
+    "wrong|supported": 71,
+    "wrong|unsupported": 102
+   },
+   "mr_pass": {
+    "E1": [
+     0.6348,
+     397
+    ],
+    "E2": [
+     0.41,
+     200
+    ],
+    "I1": [
+     0.8806,
+     134
+    ],
+    "I2": [
+     0.9117,
+     600
+    ],
+    "I3": [
+     0.7948,
+     502
+    ],
+    "R1": [
+     0.3217,
+     600
+    ],
+    "R2": [
+     0.7083,
+     600
+    ],
+    "R3": [
+     0.2683,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.5595,
+     [
+      0.5176,
+      0.5997
+     ]
+    ],
+    "R": [
+     0.4328,
+     [
+      0.4106,
+      0.4539
+     ]
+    ],
+    "I": [
+     0.8608,
+     [
+      0.841,
+      0.8812
+     ]
+    ]
+   },
+   "profiles": {
+    "Policy-blind": 299,
+    "Ungrounded": 247,
+    "Evidence-blind": 16,
+    "Faithful": 19,
+    "Brittle": 19
+   },
+   "evidence_token_f1_on_violating": 0.4309,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.2105,
+     19
+    ],
+    "jews->hindus": [
+     0.1667,
+     18
+    ],
+    "muslim->christian": [
+     0.0,
+     16
+    ],
+    "white->black": [
+     0.1429,
+     14
+    ],
+    "gay->straight": [
+     0.4545,
+     11
+    ],
+    "immigrants->citizens": [
+     0.1,
+     10
+    ],
+    "asians->africans": [
+     0.1111,
+     9
+    ],
+    "blacks->whites": [
+     0.1429,
+     7
+    ],
+    "black->white": [
+     0.0,
+     7
+    ],
+    "muslims->christians": [
+     0.0,
+     7
+    ],
+    "jew->hindu": [
+     0.0,
+     7
+    ],
+    "islam->christianity": [
+     0.0,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.09,
+    "offensive": 0.31,
+    "normal": 0.465
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      38,
+      16
+     ],
+     [
+      296,
+      247
+     ]
+    ],
+    "phi": 0.0916,
+    "fisher_p": 0.0305
+   },
+   "AURC": 0.1252
+  },
+  "qwen2.5:7b|evidence": {
+   "n_posts": 600,
+   "EV1_fail": 0.2667,
+   "EV2_fail": 0.6833,
+   "EV3_fail": 1.0,
+   "hidden_failure": [
+    0.7333,
+    [
+     0.6983,
+     0.7683
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 0.8983,
+   "hidden_failure_without_policy_axis": [
+    0.6317,
+    [
+     0.5917,
+     0.6683
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.4332,
+     397
+    ],
+    "E2": [
+     0.95,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->not_violating": 18,
+    "insufficient->violating": 1,
+    "not_violating->violating": 1,
+    "violating->insufficient": 1
+   },
+   "item_2x2": {
+    "correct|supported": 190,
+    "correct|unsupported": 250,
+    "wrong|supported": 20,
+    "wrong|unsupported": 140
+   },
+   "mr_pass": {
+    "E1": [
+     0.4332,
+     397
+    ],
+    "E2": [
+     0.41,
+     200
+    ],
+    "I1": [
+     0.8433,
+     134
+    ],
+    "I2": [
+     0.8967,
+     600
+    ],
+    "I3": [
+     0.7649,
+     502
+    ],
+    "R1": [
+     0.295,
+     600
+    ],
+    "R2": [
+     0.65,
+     600
+    ],
+    "R3": [
+     0.2783,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.4255,
+     [
+      0.3853,
+      0.464
+     ]
+    ],
+    "R": [
+     0.4078,
+     [
+      0.3883,
+      0.4283
+     ]
+    ],
+    "I": [
+     0.8374,
+     [
+      0.8154,
+      0.8594
+     ]
+    ]
+   },
+   "profiles": {
+    "Policy-blind": 236,
+    "Ungrounded": 329,
+    "Faithful": 9,
+    "Brittle": 12,
+    "Evidence-blind": 14
+   },
+   "evidence_token_f1_on_violating": 0.4224,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.3684,
+     19
+    ],
+    "jews->hindus": [
+     0.0556,
+     18
+    ],
+    "muslim->christian": [
+     0.125,
+     16
+    ],
+    "white->black": [
+     0.1429,
+     14
+    ],
+    "gay->straight": [
+     0.3636,
+     11
+    ],
+    "immigrants->citizens": [
+     0.0,
+     10
+    ],
+    "asians->africans": [
+     0.1111,
+     9
+    ],
+    "blacks->whites": [
+     0.1429,
+     7
+    ],
+    "black->white": [
+     0.1429,
+     7
+    ],
+    "muslims->christians": [
+     0.0,
+     7
+    ],
+    "jew->hindu": [
+     0.0,
+     7
+    ],
+    "islam->christianity": [
+     0.0,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.07,
+    "offensive": 0.235,
+    "normal": 0.495
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      21,
+      14
+     ],
+     [
+      233,
+      329
+     ]
+    ],
+    "phi": 0.0881,
+    "fisher_p": 0.0351
+   },
+   "AURC": 0.1298
+  },
+  "llama3.1:8b|direct": {
+   "n_posts": 600,
+   "EV1_fail": 0.7383,
+   "EV2_fail": 0.815,
+   "EV3_fail": 1.0,
+   "hidden_failure": [
+    0.2617,
+    [
+     0.2283,
+     0.2967
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 0.9733,
+   "hidden_failure_without_policy_axis": [
+    0.235,
+    [
+     0.2017,
+     0.2683
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.4635,
+     397
+    ],
+    "E2": [
+     0.095,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "refused->violating": 10,
+    "violating->not_violating": 7,
+    "violating->refused": 6,
+    "refused->not_violating": 3,
+    "not_violating->violating": 1
+   },
+   "item_2x2": {
+    "correct|supported": 111,
+    "correct|unsupported": 46,
+    "wrong|supported": 359,
+    "wrong|unsupported": 84
+   },
+   "mr_pass": {
+    "E1": [
+     0.4635,
+     397
+    ],
+    "E2": [
+     0.045,
+     200
+    ],
+    "I1": [
+     0.2836,
+     134
+    ],
+    "I2": [
+     0.3233,
+     600
+    ],
+    "I3": [
+     0.2789,
+     502
+    ],
+    "R1": [
+     0.0117,
+     600
+    ],
+    "R2": [
+     0.295,
+     600
+    ],
+    "R3": [
+     0.1033,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.3233,
+     [
+      0.2864,
+      0.3601
+     ]
+    ],
+    "R": [
+     0.1367,
+     [
+      0.1194,
+      0.1539
+     ]
+    ],
+    "I": [
+     0.301,
+     [
+      0.2665,
+      0.3352
+     ]
+    ]
+   },
+   "profiles": {
+    "Policy-blind": 195,
+    "Ungrounded": 403,
+    "Brittle": 1,
+    "Evidence-blind": 1
+   },
+   "evidence_token_f1_on_violating": 0.5129,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.3158,
+     19
+    ],
+    "jews->hindus": [
+     0.2778,
+     18
+    ],
+    "muslim->christian": [
+     0.0625,
+     16
+    ],
+    "white->black": [
+     0.4286,
+     14
+    ],
+    "gay->straight": [
+     0.4545,
+     11
+    ],
+    "immigrants->citizens": [
+     0.1,
+     10
+    ],
+    "asians->africans": [
+     0.2222,
+     9
+    ],
+    "blacks->whites": [
+     0.4286,
+     7
+    ],
+    "black->white": [
+     0.1429,
+     7
+    ],
+    "muslims->christians": [
+     0.0,
+     7
+    ],
+    "jew->hindu": [
+     0.0,
+     7
+    ],
+    "islam->christianity": [
+     0.0,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.895,
+    "offensive": 0.655,
+    "normal": 0.665
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      1,
+      1
+     ],
+     [
+      192,
+      403
+     ]
+    ],
+    "phi": 0.0219,
+    "fisher_p": 0.542
+   },
+   "AURC": 0.2681
+  },
+  "llama3.1:8b|evidence": {
+   "n_posts": 600,
+   "EV1_fail": 0.92,
+   "EV2_fail": 0.935,
+   "EV3_fail": 1.0,
+   "hidden_failure": [
+    0.08,
+    [
+     0.0583,
+     0.1033
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 1.0,
+   "hidden_failure_without_policy_axis": [
+    0.08,
+    [
+     0.0583,
+     0.1033
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.3275,
+     397
+    ],
+    "E2": [
+     0.01,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "refused->violating": 7,
+    "violating->refused": 1,
+    "violating->not_violating": 1,
+    "refused->not_violating": 4,
+    "not_violating->refused": 1
+   },
+   "item_2x2": {
+    "correct|supported": 39,
+    "correct|unsupported": 9,
+    "wrong|supported": 527,
+    "wrong|unsupported": 25
+   },
+   "mr_pass": {
+    "E1": [
+     0.3275,
+     397
+    ],
+    "E2": [
+     0.01,
+     200
+    ],
+    "I1": [
+     0.0746,
+     134
+    ],
+    "I2": [
+     0.09,
+     600
+    ],
+    "I3": [
+     0.0876,
+     502
+    ],
+    "R1": [
+     0.0483,
+     600
+    ],
+    "R2": [
+     0.1783,
+     600
+    ],
+    "R3": [
+     0.025,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.2211,
+     [
+      0.1893,
+      0.2563
+     ]
+    ],
+    "R": [
+     0.0839,
+     [
+      0.0694,
+      0.0994
+     ]
+    ],
+    "I": [
+     0.0874,
+     [
+      0.0668,
+      0.1092
+     ]
+    ]
+   },
+   "profiles": {
+    "Policy-blind": 135,
+    "Ungrounded": 464,
+    "Evidence-blind": 1
+   },
+   "evidence_token_f1_on_violating": 0.5157,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.2105,
+     19
+    ],
+    "jews->hindus": [
+     0.0556,
+     18
+    ],
+    "muslim->christian": [
+     0.0625,
+     16
+    ],
+    "white->black": [
+     0.0,
+     14
+    ],
+    "gay->straight": [
+     0.3636,
+     11
+    ],
+    "immigrants->citizens": [
+     0.1,
+     10
+    ],
+    "asians->africans": [
+     0.1111,
+     9
+    ],
+    "blacks->whites": [
+     0.0,
+     7
+    ],
+    "black->white": [
+     0.0,
+     7
+    ],
+    "muslims->christians": [
+     0.0,
+     7
+    ],
+    "jew->hindu": [
+     0.0,
+     7
+    ],
+    "islam->christianity": [
+     0.0,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.99,
+    "offensive": 0.945,
+    "normal": 0.825
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      0,
+      1
+     ],
+     [
+      132,
+      464
+     ]
+    ],
+    "phi": -0.0218,
+    "fisher_p": 1.0
+   },
+   "AURC": 0.3737
+  },
+  "gemma2:9b|direct": {
+   "n_posts": 600,
+   "EV1_fail": 0.2617,
+   "EV2_fail": 0.62,
+   "EV3_fail": 0.9983,
+   "hidden_failure": [
+    0.7367,
+    [
+     0.7017,
+     0.77
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 0.8967,
+   "hidden_failure_without_policy_axis": [
+    0.635,
+    [
+     0.5967,
+     0.6717
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.2317,
+     397
+    ],
+    "E2": [
+     1.0,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->insufficient": 4,
+    "violating->not_violating": 12,
+    "not_violating->insufficient": 2
+   },
+   "item_2x2": {
+    "correct|supported": 228,
+    "correct|unsupported": 215,
+    "wrong|supported": 21,
+    "wrong|unsupported": 136
+   },
+   "mr_pass": {
+    "E1": [
+     0.2317,
+     397
+    ],
+    "E2": [
+     0.575,
+     200
+    ],
+    "I1": [
+     0.8657,
+     134
+    ],
+    "I2": [
+     0.95,
+     600
+    ],
+    "I3": [
+     0.8187,
+     502
+    ],
+    "R1": [
+     0.2067,
+     600
+    ],
+    "R2": [
+     0.5017,
+     600
+    ],
+    "R3": [
+     0.245,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.3467,
+     [
+      0.3082,
+      0.3836
+     ]
+    ],
+    "R": [
+     0.3178,
+     [
+      0.2989,
+      0.3378
+     ]
+    ],
+    "I": [
+     0.8875,
+     [
+      0.8678,
+      0.9071
+     ]
+    ]
+   },
+   "profiles": {
+    "Ungrounded": 384,
+    "Policy-blind": 201,
+    "Faithful": 7,
+    "Brittle": 2,
+    "Evidence-blind": 6
+   },
+   "evidence_token_f1_on_violating": 0.5397,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.2632,
+     19
+    ],
+    "jews->hindus": [
+     0.1111,
+     18
+    ],
+    "muslim->christian": [
+     0.0,
+     16
+    ],
+    "white->black": [
+     0.0714,
+     14
+    ],
+    "gay->straight": [
+     0.3636,
+     11
+    ],
+    "immigrants->citizens": [
+     0.2,
+     10
+    ],
+    "asians->africans": [
+     0.1111,
+     9
+    ],
+    "blacks->whites": [
+     0.0,
+     7
+    ],
+    "black->white": [
+     0.1429,
+     7
+    ],
+    "muslims->christians": [
+     0.1429,
+     7
+    ],
+    "jew->hindu": [
+     0.0,
+     7
+    ],
+    "islam->christianity": [
+     0.0,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.0,
+    "offensive": 0.065,
+    "normal": 0.72
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      9,
+      6
+     ],
+     [
+      198,
+      384
+     ]
+    ],
+    "phi": 0.0854,
+    "fisher_p": 0.052
+   },
+   "AURC": 0.091
+  },
+  "gemma2:9b|evidence": {
+   "n_posts": 600,
+   "EV1_fail": 0.3083,
+   "EV2_fail": 0.635,
+   "EV3_fail": 0.9983,
+   "hidden_failure": [
+    0.69,
+    [
+     0.6533,
+     0.7267
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 0.9567,
+   "hidden_failure_without_policy_axis": [
+    0.6483,
+    [
+     0.61,
+     0.6867
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.0982,
+     397
+    ],
+    "E2": [
+     1.0,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->not_violating": 3,
+    "violating->insufficient": 11,
+    "insufficient->not_violating": 1
+   },
+   "item_2x2": {
+    "correct|supported": 219,
+    "correct|unsupported": 196,
+    "wrong|supported": 37,
+    "wrong|unsupported": 148
+   },
+   "mr_pass": {
+    "E1": [
+     0.0982,
+     397
+    ],
+    "E2": [
+     0.555,
+     200
+    ],
+    "I1": [
+     0.8881,
+     134
+    ],
+    "I2": [
+     0.9717,
+     600
+    ],
+    "I3": [
+     0.8287,
+     502
+    ],
+    "R1": [
+     0.345,
+     600
+    ],
+    "R2": [
+     0.3817,
+     600
+    ],
+    "R3": [
+     0.2317,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.2513,
+     [
+      0.2161,
+      0.2848
+     ]
+    ],
+    "R": [
+     0.3194,
+     [
+      0.3033,
+      0.3372
+     ]
+    ],
+    "I": [
+     0.9045,
+     [
+      0.8871,
+      0.9222
+     ]
+    ]
+   },
+   "profiles": {
+    "Ungrounded": 445,
+    "Policy-blind": 150,
+    "Faithful": 2,
+    "Brittle": 1,
+    "Evidence-blind": 2
+   },
+   "evidence_token_f1_on_violating": 0.5667,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.2105,
+     19
+    ],
+    "jews->hindus": [
+     0.1111,
+     18
+    ],
+    "muslim->christian": [
+     0.0,
+     16
+    ],
+    "white->black": [
+     0.0714,
+     14
+    ],
+    "gay->straight": [
+     0.4545,
+     11
+    ],
+    "immigrants->citizens": [
+     0.2,
+     10
+    ],
+    "asians->africans": [
+     0.0,
+     9
+    ],
+    "blacks->whites": [
+     0.0,
+     7
+    ],
+    "black->white": [
+     0.1429,
+     7
+    ],
+    "muslims->christians": [
+     0.1429,
+     7
+    ],
+    "jew->hindu": [
+     0.0,
+     7
+    ],
+    "islam->christianity": [
+     0.0,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.0,
+    "offensive": 0.055,
+    "normal": 0.87
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      3,
+      2
+     ],
+     [
+      147,
+      445
+     ]
+    ],
+    "phi": 0.0739,
+    "fisher_p": 0.104
+   },
+   "AURC": 0.1071
+  },
+  "word-LR": {
+   "n_posts": 600,
+   "EV1_fail": 0.2367,
+   "EV2_fail": 0.6133,
+   "EV3_fail": 1.0,
+   "hidden_failure": [
+    0.7633,
+    [
+     0.7283,
+     0.7967
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 0.915,
+   "hidden_failure_without_policy_axis": [
+    0.6783,
+    [
+     0.64,
+     0.7167
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.5088,
+     397
+    ],
+    "E2": [
+     0.715,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->not_violating": 13,
+    "not_violating->violating": 11
+   },
+   "item_2x2": {
+    "correct|supported": 232,
+    "correct|unsupported": 226,
+    "wrong|supported": 94,
+    "wrong|unsupported": 48
+   },
+   "mr_pass": {
+    "E1": [
+     0.5088,
+     397
+    ],
+    "E2": [
+     0.335,
+     200
+    ],
+    "I1": [
+     0.8209,
+     134
+    ],
+    "I2": [
+     0.9283,
+     600
+    ],
+    "I3": [
+     0.6853,
+     502
+    ],
+    "R1": [
+     0.0,
+     600
+    ],
+    "R2": [
+     0.67,
+     600
+    ],
+    "R3": [
+     0.2367,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.4506,
+     [
+      0.4121,
+      0.4891
+     ]
+    ],
+    "R": [
+     0.3022,
+     [
+      0.2878,
+      0.3178
+     ]
+    ],
+    "I": [
+     0.818,
+     [
+      0.7968,
+      0.839
+     ]
+    ]
+   },
+   "profiles": {
+    "Policy-blind": 272,
+    "Ungrounded": 328
+   },
+   "evidence_token_f1_on_violating": 0.4172,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.4737,
+     19
+    ],
+    "jews->hindus": [
+     0.3889,
+     18
+    ],
+    "muslim->christian": [
+     0.1875,
+     16
+    ],
+    "white->black": [
+     0.2143,
+     14
+    ],
+    "gay->straight": [
+     0.1818,
+     11
+    ],
+    "immigrants->citizens": [
+     0.0,
+     10
+    ],
+    "asians->africans": [
+     0.1111,
+     9
+    ],
+    "blacks->whites": [
+     0.0,
+     7
+    ],
+    "black->white": [
+     0.1429,
+     7
+    ],
+    "muslims->christians": [
+     0.0,
+     7
+    ],
+    "jew->hindu": [
+     0.2857,
+     7
+    ],
+    "islam->christianity": [
+     0.3333,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.11,
+    "offensive": 0.36,
+    "normal": 0.24
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      0,
+      0
+     ],
+     [
+      269,
+      328
+     ]
+    ],
+    "phi": null,
+    "fisher_p": 1.0
+   },
+   "AURC": 0.1401
+  },
+  "char-LR": {
+   "n_posts": 600,
+   "EV1_fail": 0.2567,
+   "EV2_fail": 0.7567,
+   "EV3_fail": 1.0,
+   "hidden_failure": [
+    0.7433,
+    [
+     0.7083,
+     0.7767
+    ]
+   ],
+   "EV3_without_policy_axis_fail": 1.0,
+   "hidden_failure_without_policy_axis": [
+    0.7433,
+    [
+     0.7083,
+     0.7767
+    ]
+   ],
+   "decision_only_pass": {
+    "E1": [
+     0.6977,
+     397
+    ],
+    "E2": [
+     0.815,
+     200
+    ]
+   },
+   "identity_swap_flip_direction": {
+    "violating->not_violating": 19,
+    "not_violating->violating": 1
+   },
+   "item_2x2": {
+    "correct|supported": 146,
+    "correct|unsupported": 300,
+    "wrong|supported": 100,
+    "wrong|unsupported": 54
+   },
+   "mr_pass": {
+    "E1": [
+     0.6977,
+     397
+    ],
+    "E2": [
+     0.0,
+     200
+    ],
+    "I1": [
+     0.8507,
+     134
+    ],
+    "I2": [
+     0.9383,
+     600
+    ],
+    "I3": [
+     0.6773,
+     502
+    ],
+    "R1": [
+     0.0,
+     600
+    ],
+    "R2": [
+     0.68,
+     600
+    ],
+    "R3": [
+     0.2567,
+     600
+    ]
+   },
+   "axis_pass": {
+    "E": [
+     0.464,
+     [
+      0.4238,
+      0.5042
+     ]
+    ],
+    "R": [
+     0.3122,
+     [
+      0.2978,
+      0.3283
+     ]
+    ],
+    "I": [
+     0.8228,
+     [
+      0.8018,
+      0.8436
+     ]
+    ]
+   },
+   "profiles": {
+    "Ungrounded": 320,
+    "Policy-blind": 280
+   },
+   "evidence_token_f1_on_violating": 0.0,
+   "identity_swap_flip_rate_by_direction": {
+    "women->men": [
+     0.0,
+     19
+    ],
+    "jews->hindus": [
+     0.3889,
+     18
+    ],
+    "muslim->christian": [
+     0.125,
+     16
+    ],
+    "white->black": [
+     0.0714,
+     14
+    ],
+    "gay->straight": [
+     0.0909,
+     11
+    ],
+    "immigrants->citizens": [
+     0.3,
+     10
+    ],
+    "asians->africans": [
+     0.0,
+     9
+    ],
+    "blacks->whites": [
+     0.1429,
+     7
+    ],
+    "black->white": [
+     0.1429,
+     7
+    ],
+    "muslims->christians": [
+     0.2857,
+     7
+    ],
+    "jew->hindu": [
+     0.2857,
+     7
+    ],
+    "islam->christianity": [
+     0.3333,
+     6
+    ]
+   },
+   "ev1_by_label": {
+    "hatespeech": 0.095,
+    "offensive": 0.405,
+    "normal": 0.27
+   },
+   "axis_interaction": {
+    "table": [
+     [
+      0,
+      0
+     ],
+     [
+      277,
+      320
+     ]
+    ],
+    "phi": null,
+    "fisher_p": 1.0
+   },
+   "AURC": 0.1398
+  }
+ },
+ "cochran_EV1_pass": {
+  "Q": 1381.884,
+  "df": 7,
+  "p": 3.21e-294
+ },
+ "cochran_EV3_pass": {
+  "Q": 8.0,
+  "df": 7,
+  "p": 0.333
+ },
+ "mcnemar_holm": {
+  "ev1": [
+   {
+    "a": "char-LR",
+    "b": "gemma2:9b|direct",
+    "a_only": 104,
+    "b_only": 101,
+    "p": 0.888952,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "gemma2:9b|evidence",
+    "a_only": 124,
+    "b_only": 93,
+    "p": 0.041449,
+    "p_holm": 0.461664
+   },
+   {
+    "a": "char-LR",
+    "b": "llama3.1:8b|direct",
+    "a_only": 341,
+    "b_only": 52,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "char-LR",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 409,
+    "b_only": 11,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "char-LR",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 107,
+    "b_only": 88,
+    "p": 0.19727,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 102,
+    "b_only": 96,
+    "p": 0.722438,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "word-LR",
+    "a_only": 34,
+    "b_only": 46,
+    "p": 0.218518,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "gemma2:9b|evidence",
+    "a_only": 35,
+    "b_only": 7,
+    "p": 1.5e-05,
+    "p_holm": 0.000225
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "llama3.1:8b|direct",
+    "a_only": 314,
+    "b_only": 28,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 406,
+    "b_only": 11,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 76,
+    "b_only": 60,
+    "p": 0.198181,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 60,
+    "b_only": 57,
+    "p": 0.853408,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "word-LR",
+    "a_only": 94,
+    "b_only": 109,
+    "p": 0.325809,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "llama3.1:8b|direct",
+    "a_only": 305,
+    "b_only": 47,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 385,
+    "b_only": 18,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 70,
+    "b_only": 82,
+    "p": 0.372332,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 55,
+    "b_only": 80,
+    "p": 0.038472,
+    "p_holm": 0.461664
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "word-LR",
+    "a_only": 87,
+    "b_only": 130,
+    "p": 0.004249,
+    "p_holm": 0.059486
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 112,
+    "b_only": 3,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 39,
+    "b_only": 309,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 35,
+    "b_only": 318,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "word-LR",
+    "a_only": 48,
+    "b_only": 349,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "llama3.1:8b|evidence",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 10,
+    "b_only": 389,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "llama3.1:8b|evidence",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 10,
+    "b_only": 402,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "llama3.1:8b|evidence",
+    "b": "word-LR",
+    "a_only": 7,
+    "b_only": 417,
+    "p": 0.0,
+    "p_holm": 0
+   },
+   {
+    "a": "qwen2.5:7b|direct",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 28,
+    "b_only": 41,
+    "p": 0.148032,
+    "p_holm": 1.0
+   },
+   {
+    "a": "qwen2.5:7b|direct",
+    "b": "word-LR",
+    "a_only": 84,
+    "b_only": 115,
+    "p": 0.033188,
+    "p_holm": 0.431444
+   },
+   {
+    "a": "qwen2.5:7b|evidence",
+    "b": "word-LR",
+    "a_only": 89,
+    "b_only": 107,
+    "p": 0.224546,
+    "p_holm": 1.0
+   }
+  ],
+  "ev3": [
+   {
+    "a": "char-LR",
+    "b": "gemma2:9b|direct",
+    "a_only": 0,
+    "b_only": 1,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "gemma2:9b|evidence",
+    "a_only": 0,
+    "b_only": 1,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "llama3.1:8b|direct",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 0,
+    "b_only": 2,
+    "p": 0.5,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "char-LR",
+    "b": "word-LR",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "gemma2:9b|evidence",
+    "a_only": 1,
+    "b_only": 1,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "llama3.1:8b|direct",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 1,
+    "b_only": 2,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|direct",
+    "b": "word-LR",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "llama3.1:8b|direct",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 1,
+    "b_only": 2,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "gemma2:9b|evidence",
+    "b": "word-LR",
+    "a_only": 1,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "llama3.1:8b|evidence",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 0,
+    "b_only": 2,
+    "p": 0.5,
+    "p_holm": 1.0
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "llama3.1:8b|direct",
+    "b": "word-LR",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "llama3.1:8b|evidence",
+    "b": "qwen2.5:7b|direct",
+    "a_only": 0,
+    "b_only": 2,
+    "p": 0.5,
+    "p_holm": 1.0
+   },
+   {
+    "a": "llama3.1:8b|evidence",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "llama3.1:8b|evidence",
+    "b": "word-LR",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   {
+    "a": "qwen2.5:7b|direct",
+    "b": "qwen2.5:7b|evidence",
+    "a_only": 2,
+    "b_only": 0,
+    "p": 0.5,
+    "p_holm": 1.0
+   },
+   {
+    "a": "qwen2.5:7b|direct",
+    "b": "word-LR",
+    "a_only": 2,
+    "b_only": 0,
+    "p": 0.5,
+    "p_holm": 1.0
+   },
+   {
+    "a": "qwen2.5:7b|evidence",
+    "b": "word-LR",
+    "a_only": 0,
+    "b_only": 0,
+    "p": 1.0,
+    "p_holm": 1.0
+   }
+  ]
+ },
+ "ranking": {
+  "systems": [
+   "char-LR",
+   "gemma2:9b|direct",
+   "gemma2:9b|evidence",
+   "llama3.1:8b|direct",
+   "llama3.1:8b|evidence",
+   "qwen2.5:7b|direct",
+   "qwen2.5:7b|evidence",
+   "word-LR"
+  ],
+  "EV1_pass": [
+   0.7433000000000001,
+   0.7383,
+   0.6917,
+   0.26170000000000004,
+   0.07999999999999996,
+   0.7117,
+   0.7333000000000001,
+   0.7633
+  ],
+  "EV3_pass": [
+   0.0,
+   0.0017000000000000348,
+   0.0017000000000000348,
+   0.0,
+   0.0,
+   0.0032999999999999696,
+   0.0,
+   0.0
+  ],
+  "tau": -0.046,
+  "p": 0.885
+ },
+ "gee": {
+  "params": {
+   "Intercept": -0.145,
+   "C(system)[T.gemma2:9b|direct]": -0.489,
+   "C(system)[T.gemma2:9b|evidence]": -0.948,
+   "C(system)[T.llama3.1:8b|direct]": -0.594,
+   "C(system)[T.llama3.1:8b|evidence]": -1.115,
+   "C(system)[T.qwen2.5:7b|direct]": 0.383,
+   "C(system)[T.qwen2.5:7b|evidence]": -0.156,
+   "C(system)[T.word-LR]": -0.054,
+   "C(axis)[T.I]": 1.68,
+   "C(axis)[T.R]": -0.645,
+   "C(system)[T.gemma2:9b|direct]:C(axis)[T.I]": 1.019,
+   "C(system)[T.gemma2:9b|evidence]:C(axis)[T.I]": 1.661,
+   "C(system)[T.llama3.1:8b|direct]:C(axis)[T.I]": -1.784,
+   "C(system)[T.llama3.1:8b|evidence]:C(axis)[T.I]": -2.767,
+   "C(system)[T.qwen2.5:7b|direct]:C(axis)[T.I]": -0.097,
+   "C(system)[T.qwen2.5:7b|evidence]:C(axis)[T.I]": 0.259,
+   "C(system)[T.word-LR]:C(axis)[T.I]": 0.021,
+   "C(system)[T.gemma2:9b|direct]:C(axis)[T.R]": 0.515,
+   "C(system)[T.gemma2:9b|evidence]:C(axis)[T.R]": 0.981,
+   "C(system)[T.llama3.1:8b|direct]:C(axis)[T.R]": -0.459,
+   "C(system)[T.llama3.1:8b|evidence]:C(axis)[T.R]": -0.486,
+   "C(system)[T.qwen2.5:7b|direct]:C(axis)[T.R]": 0.136,
+   "C(system)[T.qwen2.5:7b|evidence]:C(axis)[T.R]": 0.573,
+   "C(system)[T.word-LR]:C(axis)[T.R]": 0.007
+  },
+  "p": {
+   "Intercept": 0.0776,
+   "C(system)[T.gemma2:9b|direct]": 0.000136,
+   "C(system)[T.gemma2:9b|evidence]": 2.15e-11,
+   "C(system)[T.llama3.1:8b|direct]": 3.52e-11,
+   "C(system)[T.llama3.1:8b|evidence]": 5.14e-29,
+   "C(system)[T.qwen2.5:7b|direct]": 9.82e-05,
+   "C(system)[T.qwen2.5:7b|evidence]": 0.177,
+   "C(system)[T.word-LR]": 0.535,
+   "C(axis)[T.I]": 2.61e-48,
+   "C(axis)[T.R]": 3.9e-14,
+   "C(system)[T.gemma2:9b|direct]:C(axis)[T.I]": 3.82e-07,
+   "C(system)[T.gemma2:9b|evidence]:C(axis)[T.I]": 1.6e-15,
+   "C(system)[T.llama3.1:8b|direct]:C(axis)[T.I]": 3.29e-40,
+   "C(system)[T.llama3.1:8b|evidence]:C(axis)[T.I]": 1.03e-57,
+   "C(system)[T.qwen2.5:7b|direct]:C(axis)[T.I]": 0.536,
+   "C(system)[T.qwen2.5:7b|evidence]:C(axis)[T.I]": 0.11,
+   "C(system)[T.word-LR]:C(axis)[T.I]": 0.872,
+   "C(system)[T.gemma2:9b|direct]:C(axis)[T.R]": 8.35e-06,
+   "C(system)[T.gemma2:9b|evidence]:C(axis)[T.R]": 2.22e-13,
+   "C(system)[T.llama3.1:8b|direct]:C(axis)[T.R]": 1.6e-05,
+   "C(system)[T.llama3.1:8b|evidence]:C(axis)[T.R]": 0.000174,
+   "C(system)[T.qwen2.5:7b|direct]:C(axis)[T.R]": 0.172,
+   "C(system)[T.qwen2.5:7b|evidence]:C(axis)[T.R]": 4.73e-07,
+   "C(system)[T.word-LR]:C(axis)[T.R]": 0.935
+  }
+ }
+}

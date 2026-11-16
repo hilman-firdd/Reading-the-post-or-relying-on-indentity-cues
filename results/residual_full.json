@@ -1,0 +1,77 @@
+{
+ "word-LR": {
+  "E1_items": 1098,
+  "still_flagged_with_identity_term": [
+   0.5112,
+   268
+  ],
+  "still_flagged_without_identity_term": [
+   0.5229,
+   830
+  ],
+  "fisher_odds_ratio": 0.954,
+  "fisher_p": 0.779,
+  "share_of_cited_tokens_that_are_identity_terms": 0.0275,
+  "top_identity_tokens_cited": [
+   [
+    "jews",
+    20
+   ],
+   [
+    "jew",
+    13
+   ],
+   [
+    "whites",
+    13
+   ],
+   [
+    "blacks",
+    7
+   ],
+   [
+    "islam",
+    6
+   ],
+   [
+    "muslims",
+    4
+   ],
+   [
+    "man",
+    3
+   ]
+  ],
+  "I1_vs_I2_paired": {
+   "n_posts": 409,
+   "flip_I1": 0.1589,
+   "flip_I2": 0.0733,
+   "only_I1_flips": 53,
+   "only_I2_flips": 18,
+   "mcnemar_p": 3.88e-05
+  }
+ },
+ "char-LR": {
+  "E1_items": 1098,
+  "still_flagged_with_identity_term": [
+   0.3806,
+   268
+  ],
+  "still_flagged_without_identity_term": [
+   0.3193,
+   830
+  ],
+  "fisher_odds_ratio": 1.31,
+  "fisher_p": 0.0738,
+  "share_of_cited_tokens_that_are_identity_terms": null,
+  "top_identity_tokens_cited": [],
+  "I1_vs_I2_paired": {
+   "n_posts": 409,
+   "flip_I1": 0.1809,
+   "flip_I2": 0.0782,
+   "only_I1_flips": 71,
+   "only_I2_flips": 29,
+   "mcnemar_p": 3.22e-05
+  }
+ }
+}

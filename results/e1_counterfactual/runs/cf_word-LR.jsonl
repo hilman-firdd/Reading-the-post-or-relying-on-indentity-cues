@@ -1,0 +1,440 @@
+{"item_id": "937dd997579e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7329}
+{"item_id": "4397f93fffc6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6439}
+{"item_id": "44f7c56511e5", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5815}
+{"item_id": "c8d3c5d04f9a", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8224}
+{"item_id": "c3d6a04d7ce8", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7418}
+{"item_id": "7bfd2745f13c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8934}
+{"item_id": "7ab73336ed31", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9172}
+{"item_id": "c58a7f30be8a", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8089}
+{"item_id": "db4d607fb179", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9689}
+{"item_id": "44a1cee43a46", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9558}
+{"item_id": "000f773c59d1", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "queen", "daughter", "crown", "your"], "confidence": 0.7809}
+{"item_id": "3d0439b46327", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "queen", "daughter", "crown", "your"], "confidence": 0.7201}
+{"item_id": "d9be50b5706e", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "queen", "daughter", "crown", "your"], "confidence": 0.8399}
+{"item_id": "345d0eac7d53", "system": "word-LR", "verdict": "violating", "quotes": ["queen", "daughter", "your", "grown", "what"], "confidence": 0.5593}
+{"item_id": "11ec7e01d328", "system": "word-LR", "verdict": "violating", "quotes": ["queen", "daughter", "your", "grown", "what"], "confidence": 0.6646}
+{"item_id": "01fdfb9176e6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8709}
+{"item_id": "f1c6cb473ab0", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8353}
+{"item_id": "e346c8dd7bef", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8318}
+{"item_id": "5415edcfb420", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8932}
+{"item_id": "a0aadb6605cc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8867}
+{"item_id": "fe7938508ca2", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "cunt", "idiot", "you", "a"], "confidence": 0.9186}
+{"item_id": "96eea36fcffe", "system": "word-LR", "verdict": "violating", "quotes": ["cunt", "idiot", "you", "a", "are"], "confidence": 0.6633}
+{"item_id": "0bf939620ac6", "system": "word-LR", "verdict": "violating", "quotes": ["cunt", "idiot", "you", "a", "are"], "confidence": 0.8103}
+{"item_id": "1002a1b2cd68", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "cunt", "idiot", "you", "a"], "confidence": 0.8652}
+{"item_id": "92a2d2b76544", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "cunt", "idiot", "you", "a"], "confidence": 0.9203}
+{"item_id": "c28fb72385f3", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "mistake", "worst", "gene", "your"], "confidence": 0.8071}
+{"item_id": "4170f76909bb", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "mistake", "worst", "gene", "your"], "confidence": 0.8604}
+{"item_id": "81b822c6984c", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "mistake", "worst", "gene", "your"], "confidence": 0.8862}
+{"item_id": "dabd16d94a28", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "mistake", "worst", "gene", "your"], "confidence": 0.7296}
+{"item_id": "ed3129dc04fe", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "mistake", "worst", "gene", "your"], "confidence": 0.8185}
+{"item_id": "d1ac26f89d95", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "alt", "right", "milo", "the"], "confidence": 0.882}
+{"item_id": "eef9f716f504", "system": "word-LR", "verdict": "violating", "quotes": ["alt", "right", "milo", "the", "great"], "confidence": 0.6946}
+{"item_id": "76c75fef2632", "system": "word-LR", "verdict": "violating", "quotes": ["alt", "right", "milo", "the", "great"], "confidence": 0.7388}
+{"item_id": "cf81442b9c2b", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "right", "milo", "the", "alt"], "confidence": 0.831}
+{"item_id": "9c1fdd26687a", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "right", "milo", "the", "alt"], "confidence": 0.8001}
+{"item_id": "142a33b552db", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "this", "trumps", "nazi", "makes"], "confidence": 0.5269}
+{"item_id": "1058e081f9fe", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6485}
+{"item_id": "ca9dcccef98e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.585}
+{"item_id": "0c8e49f7cc3f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5226}
+{"item_id": "5fcd704d2a6f", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "this", "trumps", "nazi", "makes"], "confidence": 0.5519}
+{"item_id": "7180bf6debe2", "system": "word-LR", "verdict": "violating", "quotes": ["whites", "america", "millions", "genes", "are"], "confidence": 0.7071}
+{"item_id": "5fec7b03124d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5209}
+{"item_id": "ca11ad6a0379", "system": "word-LR", "verdict": "violating", "quotes": ["america", "millions", "genes", "are", "you"], "confidence": 0.617}
+{"item_id": "c518ac2b4728", "system": "word-LR", "verdict": "violating", "quotes": ["whites", "america", "millions", "genes", "are"], "confidence": 0.6917}
+{"item_id": "3f116525606f", "system": "word-LR", "verdict": "violating", "quotes": ["whites", "america", "millions", "genes", "are"], "confidence": 0.7368}
+{"item_id": "d711118024d5", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7226}
+{"item_id": "67853196e3c4", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8482}
+{"item_id": "cef5c014d961", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6655}
+{"item_id": "b9ac753aa38f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7702}
+{"item_id": "fd812a4fd165", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6693}
+{"item_id": "1f78163f16c4", "system": "word-LR", "verdict": "violating", "quotes": ["their", "favourite", "lol", "over", "the"], "confidence": 0.5213}
+{"item_id": "ff0d60ecb975", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5314}
+{"item_id": "dfaa8deca11d", "system": "word-LR", "verdict": "violating", "quotes": ["their", "favourite", "lol", "over", "the"], "confidence": 0.5232}
+{"item_id": "2aa1198378e5", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5016}
+{"item_id": "735176ccb09d", "system": "word-LR", "verdict": "violating", "quotes": ["their", "favourite", "lol", "over", "the"], "confidence": 0.5544}
+{"item_id": "0a92a9a3ff7c", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "jews", "the", "dumb", "study"], "confidence": 0.6684}
+{"item_id": "ecbac6ae177d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7456}
+{"item_id": "0dc5c814cdfc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6622}
+{"item_id": "e5a296436085", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "jews", "the", "dumb", "study"], "confidence": 0.6741}
+{"item_id": "23e0534aabc6", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "jews", "the", "dumb", "study"], "confidence": 0.7388}
+{"item_id": "42c4ad36060b", "system": "word-LR", "verdict": "violating", "quotes": ["scum", "trash", "inbred", "alabama", "hillbilly"], "confidence": 0.788}
+{"item_id": "53842d20273f", "system": "word-LR", "verdict": "violating", "quotes": ["scum", "trash", "inbred", "alabama", "hillbilly"], "confidence": 0.789}
+{"item_id": "42e9194e866f", "system": "word-LR", "verdict": "violating", "quotes": ["scum", "trash", "inbred", "alabama", "hillbilly"], "confidence": 0.8156}
+{"item_id": "f29b383fc0fd", "system": "word-LR", "verdict": "violating", "quotes": ["scum", "trash", "inbred", "alabama", "hillbilly"], "confidence": 0.7879}
+{"item_id": "d1b5136f6b86", "system": "word-LR", "verdict": "violating", "quotes": ["scum", "trash", "inbred", "alabama", "hillbilly"], "confidence": 0.7359}
+{"item_id": "b7347a3fa72d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5582}
+{"item_id": "0291299991e7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5776}
+{"item_id": "4f72417db32a", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5083}
+{"item_id": "97bc396bffc5", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.64}
+{"item_id": "1111458c7c51", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5747}
+{"item_id": "54ee7a512a7c", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "dat", "blacks", "whites", "vote"], "confidence": 0.7709}
+{"item_id": "604d206f18da", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5496}
+{"item_id": "6867f7240450", "system": "word-LR", "verdict": "violating", "quotes": ["dat", "vote", "ricky", "the", "gibs"], "confidence": 0.5307}
+{"item_id": "c8e5c245c447", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "dat", "blacks", "whites", "vote"], "confidence": 0.6381}
+{"item_id": "62651fc48e26", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "dat", "blacks", "whites", "vote"], "confidence": 0.7367}
+{"item_id": "e399b44a8661", "system": "word-LR", "verdict": "violating", "quotes": ["america", "almost", "no", "die", "the"], "confidence": 0.5801}
+{"item_id": "099cdd71715e", "system": "word-LR", "verdict": "violating", "quotes": ["america", "almost", "no", "die", "the"], "confidence": 0.72}
+{"item_id": "29f69ea6ce4b", "system": "word-LR", "verdict": "violating", "quotes": ["america", "almost", "no", "die", "the"], "confidence": 0.7465}
+{"item_id": "217598663573", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5587}
+{"item_id": "9592bf11d956", "system": "word-LR", "verdict": "violating", "quotes": ["america", "almost", "no", "die", "the"], "confidence": 0.5071}
+{"item_id": "3d7fe82bbb11", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "their", "are", "even", "you"], "confidence": 0.6697}
+{"item_id": "2cf6cfa360c6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5483}
+{"item_id": "dd0a394f4547", "system": "word-LR", "verdict": "violating", "quotes": ["their", "are", "even", "you", "this"], "confidence": 0.5312}
+{"item_id": "afc92712d5f1", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "their", "are", "even", "you"], "confidence": 0.6372}
+{"item_id": "1009b2258fa1", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "their", "are", "even", "you"], "confidence": 0.6644}
+{"item_id": "0820a5b342be", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "race", "adopt", "nationalism", "make"], "confidence": 0.6478}
+{"item_id": "a01285d3a1fa", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "race", "adopt", "nationalism", "make"], "confidence": 0.6984}
+{"item_id": "001fdea37199", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "race", "adopt", "nationalism", "make"], "confidence": 0.7262}
+{"item_id": "b65885728e61", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "race", "adopt", "nationalism", "make"], "confidence": 0.6112}
+{"item_id": "d19fb50c1684", "system": "word-LR", "verdict": "violating", "quotes": ["fuck", "race", "adopt", "nationalism", "make"], "confidence": 0.6508}
+{"item_id": "4609ccb7e2fd", "system": "word-LR", "verdict": "violating", "quotes": ["are", "this", "regime", "like", "the"], "confidence": 0.5436}
+{"item_id": "981ccb727fb4", "system": "word-LR", "verdict": "violating", "quotes": ["are", "this", "regime", "like", "the"], "confidence": 0.5193}
+{"item_id": "ee6bc785ee08", "system": "word-LR", "verdict": "violating", "quotes": ["are", "this", "regime", "like", "the"], "confidence": 0.6327}
+{"item_id": "11e93667ae37", "system": "word-LR", "verdict": "violating", "quotes": ["are", "this", "regime", "like", "the"], "confidence": 0.5149}
+{"item_id": "74e255b6f291", "system": "word-LR", "verdict": "violating", "quotes": ["are", "this", "regime", "like", "the"], "confidence": 0.6046}
+{"item_id": "8d46d6a76bb7", "system": "word-LR", "verdict": "violating", "quotes": ["their", "even", "wants"], "confidence": 0.6426}
+{"item_id": "d29f6edde8a8", "system": "word-LR", "verdict": "violating", "quotes": ["their", "even", "wants"], "confidence": 0.5929}
+{"item_id": "f2890873b249", "system": "word-LR", "verdict": "violating", "quotes": ["their", "even", "wants"], "confidence": 0.6616}
+{"item_id": "d32b6eb21388", "system": "word-LR", "verdict": "violating", "quotes": ["their", "even", "wants"], "confidence": 0.5747}
+{"item_id": "c5f840aba540", "system": "word-LR", "verdict": "violating", "quotes": ["their", "even", "wants"], "confidence": 0.6104}
+{"item_id": "e3acd9e62902", "system": "word-LR", "verdict": "violating", "quotes": ["sucks", "thinks", "a", "keep", "he"], "confidence": 0.6969}
+{"item_id": "0a905203560b", "system": "word-LR", "verdict": "violating", "quotes": ["sucks", "thinks", "a", "keep", "he"], "confidence": 0.6231}
+{"item_id": "dd174b789f17", "system": "word-LR", "verdict": "violating", "quotes": ["sucks", "thinks", "a", "keep", "he"], "confidence": 0.7116}
+{"item_id": "175aaab59b8a", "system": "word-LR", "verdict": "violating", "quotes": ["sucks", "thinks", "a", "he", "has"], "confidence": 0.6955}
+{"item_id": "8b23b3a86036", "system": "word-LR", "verdict": "violating", "quotes": ["sucks", "thinks", "a", "he", "has"], "confidence": 0.7579}
+{"item_id": "2bbd5830080f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5148}
+{"item_id": "dcd5e2cff3d9", "system": "word-LR", "verdict": "violating", "quotes": ["the", "damned", "them", "that", "good"], "confidence": 0.5231}
+{"item_id": "f8464a29e586", "system": "word-LR", "verdict": "violating", "quotes": ["the", "damned", "them", "that", "good"], "confidence": 0.5821}
+{"item_id": "8c77eb378c6d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5764}
+{"item_id": "1cce6683a5f6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5027}
+{"item_id": "21a281cc3640", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "libtards", "are", "allowing"], "confidence": 0.7818}
+{"item_id": "4e43b575e090", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5508}
+{"item_id": "1fb36766bad9", "system": "word-LR", "verdict": "violating", "quotes": ["libtards", "are", "allowing"], "confidence": 0.5689}
+{"item_id": "c8f198e09d64", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "libtards", "are", "allowing"], "confidence": 0.7425}
+{"item_id": "67b524f59a55", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "libtards", "are", "allowing"], "confidence": 0.8244}
+{"item_id": "110b4d101f12", "system": "word-LR", "verdict": "violating", "quotes": ["are", "the", "would", "only", "themselves"], "confidence": 0.6393}
+{"item_id": "bdcd23e91580", "system": "word-LR", "verdict": "violating", "quotes": ["are", "the", "would", "only", "themselves"], "confidence": 0.6819}
+{"item_id": "b69e1d04ed64", "system": "word-LR", "verdict": "violating", "quotes": ["are", "the", "would", "only", "themselves"], "confidence": 0.7213}
+{"item_id": "01313afedefd", "system": "word-LR", "verdict": "violating", "quotes": ["are", "the", "would", "only", "themselves"], "confidence": 0.6015}
+{"item_id": "ae23fe556cc6", "system": "word-LR", "verdict": "violating", "quotes": ["are", "the", "would", "only", "themselves"], "confidence": 0.622}
+{"item_id": "0add0a38cb66", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9096}
+{"item_id": "00d51915a85c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.881}
+{"item_id": "7f8d8a66d330", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8424}
+{"item_id": "3ff84b236d86", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9207}
+{"item_id": "d4a9a50c8dac", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8953}
+{"item_id": "17f849a3ce4f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6008}
+{"item_id": "c0bd43b51338", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5843}
+{"item_id": "69ff06c4eee8", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5095}
+{"item_id": "325dcb7b7e34", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.733}
+{"item_id": "14abab450243", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6682}
+{"item_id": "cf3e5c25eda8", "system": "word-LR", "verdict": "violating", "quotes": ["you", "beat", "rape", "your", "are"], "confidence": 0.556}
+{"item_id": "b7e5c8ab3fd5", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5477}
+{"item_id": "57d06df12bc2", "system": "word-LR", "verdict": "violating", "quotes": ["you", "beat", "rape", "your", "are"], "confidence": 0.5362}
+{"item_id": "d0438bdfd9cc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5426}
+{"item_id": "47a78d3e4524", "system": "word-LR", "verdict": "violating", "quotes": ["you", "beat", "rape", "your", "are"], "confidence": 0.5145}
+{"item_id": "b94e851c7bc7", "system": "word-LR", "verdict": "violating", "quotes": ["wife", "few", "sweden", "our", "fucking"], "confidence": 0.6048}
+{"item_id": "f1f9774b0b8d", "system": "word-LR", "verdict": "violating", "quotes": ["wife", "few", "sweden", "our", "fucking"], "confidence": 0.6182}
+{"item_id": "cd10ea34fd15", "system": "word-LR", "verdict": "violating", "quotes": ["wife", "few", "sweden", "our", "fucking"], "confidence": 0.6441}
+{"item_id": "0de41219a403", "system": "word-LR", "verdict": "violating", "quotes": ["wife", "few", "sweden", "our", "fucking"], "confidence": 0.5786}
+{"item_id": "5f019cf4dc25", "system": "word-LR", "verdict": "violating", "quotes": ["wife", "few", "sweden", "our", "fucking"], "confidence": 0.6048}
+{"item_id": "2321fb8de057", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5539}
+{"item_id": "0ed971c5ea8d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5862}
+{"item_id": "7d97ebf2fc22", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5335}
+{"item_id": "e5a00ca926cc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6234}
+{"item_id": "7316d38dc495", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.545}
+{"item_id": "c576bba1d857", "system": "word-LR", "verdict": "violating", "quotes": ["hang", "feels", "a", "let", "drop"], "confidence": 0.6598}
+{"item_id": "ac5e71edeb21", "system": "word-LR", "verdict": "violating", "quotes": ["hang", "feels", "a", "let", "drop"], "confidence": 0.6739}
+{"item_id": "26004e79479c", "system": "word-LR", "verdict": "violating", "quotes": ["hang", "feels", "a", "let", "drop"], "confidence": 0.7338}
+{"item_id": "c22c7961085c", "system": "word-LR", "verdict": "violating", "quotes": ["hang", "feels", "a", "let", "drop"], "confidence": 0.5573}
+{"item_id": "4b276250a6d3", "system": "word-LR", "verdict": "violating", "quotes": ["hang", "feels", "a", "let", "drop"], "confidence": 0.6363}
+{"item_id": "91c46b5fca3c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5578}
+{"item_id": "7b5fbdab2ba6", "system": "word-LR", "verdict": "violating", "quotes": ["msm", "attack", "this", "like", "a"], "confidence": 0.5371}
+{"item_id": "5f3d3e98f9e2", "system": "word-LR", "verdict": "violating", "quotes": ["msm", "attack", "this", "like", "a"], "confidence": 0.6423}
+{"item_id": "0855961232d7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5856}
+{"item_id": "70cc7dac4ae3", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5167}
+{"item_id": "a610504809a1", "system": "word-LR", "verdict": "violating", "quotes": ["importing", "moslem", "the", "from"], "confidence": 0.6474}
+{"item_id": "aceacfb8a643", "system": "word-LR", "verdict": "violating", "quotes": ["importing", "moslem", "the", "from"], "confidence": 0.5938}
+{"item_id": "202bdd7c8712", "system": "word-LR", "verdict": "violating", "quotes": ["importing", "moslem", "the", "from"], "confidence": 0.722}
+{"item_id": "7a8422ef30b3", "system": "word-LR", "verdict": "violating", "quotes": ["importing", "moslem", "the", "from"], "confidence": 0.5404}
+{"item_id": "a13db222af34", "system": "word-LR", "verdict": "violating", "quotes": ["importing", "moslem", "the", "from"], "confidence": 0.7031}
+{"item_id": "79ae340aff5f", "system": "word-LR", "verdict": "violating", "quotes": ["america", "raping", "their", "fantasy", "the"], "confidence": 0.7852}
+{"item_id": "46e1afe476da", "system": "word-LR", "verdict": "violating", "quotes": ["america", "raping", "their", "fantasy", "the"], "confidence": 0.7545}
+{"item_id": "713205c415c1", "system": "word-LR", "verdict": "violating", "quotes": ["america", "raping", "their", "fantasy", "the"], "confidence": 0.8285}
+{"item_id": "1c2ac139e0cc", "system": "word-LR", "verdict": "violating", "quotes": ["america", "raping", "their", "the", "even"], "confidence": 0.6515}
+{"item_id": "02745e81ac98", "system": "word-LR", "verdict": "violating", "quotes": ["america", "raping", "their", "the", "even"], "confidence": 0.7629}
+{"item_id": "5113ad224146", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "revenge", "the", "mentality", "our"], "confidence": 0.7726}
+{"item_id": "e69032d01192", "system": "word-LR", "verdict": "violating", "quotes": ["revenge", "the", "mentality", "our", "live"], "confidence": 0.5953}
+{"item_id": "60d6b06040ab", "system": "word-LR", "verdict": "violating", "quotes": ["revenge", "the", "mentality", "our", "live"], "confidence": 0.6494}
+{"item_id": "460bf95a1644", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "revenge", "the", "mentality", "our"], "confidence": 0.7601}
+{"item_id": "2023f142e3a1", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "revenge", "the", "mentality", "our"], "confidence": 0.7955}
+{"item_id": "5fd14fbb7788", "system": "word-LR", "verdict": "violating", "quotes": ["islam", "their", "hell", "doubt", "the"], "confidence": 0.7403}
+{"item_id": "3ace5ab3896b", "system": "word-LR", "verdict": "violating", "quotes": ["their", "hell", "doubt", "the", "our"], "confidence": 0.6302}
+{"item_id": "95ee328fdbc2", "system": "word-LR", "verdict": "violating", "quotes": ["their", "hell", "doubt", "the", "our"], "confidence": 0.6819}
+{"item_id": "7e9cc0c28eb6", "system": "word-LR", "verdict": "violating", "quotes": ["islam", "their", "hell", "the", "our"], "confidence": 0.5588}
+{"item_id": "94e94d2f07bf", "system": "word-LR", "verdict": "violating", "quotes": ["islam", "their", "hell", "the", "our"], "confidence": 0.6176}
+{"item_id": "9918fc9193ca", "system": "word-LR", "verdict": "violating", "quotes": ["america", "stupid", "make", "a", "less"], "confidence": 0.5092}
+{"item_id": "80c02d47ea14", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5049}
+{"item_id": "45ae9b1a3d76", "system": "word-LR", "verdict": "violating", "quotes": ["america", "stupid", "make", "a", "less"], "confidence": 0.5912}
+{"item_id": "b7cea94a342e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6065}
+{"item_id": "1fff36c06611", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5186}
+{"item_id": "0997189544cb", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "the", "head", "are", "voted"], "confidence": 0.6331}
+{"item_id": "c9debe2ce81b", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5352}
+{"item_id": "5a5f783fed11", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5069}
+{"item_id": "55b99450ac66", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "the", "head", "are", "voted"], "confidence": 0.5849}
+{"item_id": "c152dc19805d", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "the", "head", "are", "voted"], "confidence": 0.626}
+{"item_id": "7c63eb0efd2c", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "are", "zionist", "ur", "believes"], "confidence": 0.9072}
+{"item_id": "eb77884e22a2", "system": "word-LR", "verdict": "violating", "quotes": ["are", "zionist", "ur", "believes", "u"], "confidence": 0.763}
+{"item_id": "6bf0a05ce48e", "system": "word-LR", "verdict": "violating", "quotes": ["are", "zionist", "ur", "believes", "u"], "confidence": 0.7987}
+{"item_id": "3f8dee16f351", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "are", "zionist", "ur", "believes"], "confidence": 0.8933}
+{"item_id": "f4f0028c8668", "system": "word-LR", "verdict": "violating", "quotes": ["jew", "are", "zionist", "ur", "believes"], "confidence": 0.9125}
+{"item_id": "e6742f2cd069", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6358}
+{"item_id": "fd348521ee92", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5973}
+{"item_id": "3b174977d010", "system": "word-LR", "verdict": "violating", "quotes": ["do", "your", "the", "son", "a"], "confidence": 0.5506}
+{"item_id": "81f4e6881f13", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7381}
+{"item_id": "92fcc67fdb79", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6088}
+{"item_id": "a1db53913bed", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6336}
+{"item_id": "9982380d51c0", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6263}
+{"item_id": "33da7b0d3330", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6276}
+{"item_id": "edcf897415b8", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6648}
+{"item_id": "b5394e5fb46d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6283}
+{"item_id": "28768edb099a", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5872}
+{"item_id": "9e25f0bdbbbd", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5284}
+{"item_id": "d65f04f861ba", "system": "word-LR", "verdict": "violating", "quotes": ["american", "hell", "are", "our", "what"], "confidence": 0.5209}
+{"item_id": "e20b6573865d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5392}
+{"item_id": "935e3a0e49f6", "system": "word-LR", "verdict": "violating", "quotes": ["american", "hell", "are", "our", "what"], "confidence": 0.569}
+{"item_id": "040e69108fa5", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7711}
+{"item_id": "de7b6365395c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7769}
+{"item_id": "34fa904144e4", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.718}
+{"item_id": "47f22c4e9c29", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8281}
+{"item_id": "4c29f56d540d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7786}
+{"item_id": "d0cb9a3dc3ac", "system": "word-LR", "verdict": "violating", "quotes": ["pos", "radical", "waiting", "road", "this"], "confidence": 0.557}
+{"item_id": "cd05807f0865", "system": "word-LR", "verdict": "violating", "quotes": ["pos", "radical", "waiting", "road", "this"], "confidence": 0.6192}
+{"item_id": "6c1f78a1e7e8", "system": "word-LR", "verdict": "violating", "quotes": ["pos", "radical", "waiting", "road", "this"], "confidence": 0.6622}
+{"item_id": "2dfa2a40fcde", "system": "word-LR", "verdict": "violating", "quotes": ["pos", "radical", "waiting", "road", "this"], "confidence": 0.5071}
+{"item_id": "bae619ce5be3", "system": "word-LR", "verdict": "violating", "quotes": ["pos", "radical", "waiting", "road", "this"], "confidence": 0.5535}
+{"item_id": "e13e56694b68", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9736}
+{"item_id": "98e2eeb85335", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9426}
+{"item_id": "e3b10c38569e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9241}
+{"item_id": "beed771db253", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9767}
+{"item_id": "e0e8a7af4aa3", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9733}
+{"item_id": "09ed452e1b0f", "system": "word-LR", "verdict": "violating", "quotes": ["grown", "like", "men"], "confidence": 0.7045}
+{"item_id": "d8ae87ef4e2f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5113}
+{"item_id": "4a0f4e8ee362", "system": "word-LR", "verdict": "violating", "quotes": ["grown", "like"], "confidence": 0.7112}
+{"item_id": "bb41b8235a87", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5327}
+{"item_id": "7be438d8fc05", "system": "word-LR", "verdict": "violating", "quotes": ["grown", "like", "men"], "confidence": 0.6911}
+{"item_id": "ff80be27e9a0", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9345}
+{"item_id": "6b9cba44a66e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9304}
+{"item_id": "976a110ba5ab", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9089}
+{"item_id": "efef806c8e12", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9521}
+{"item_id": "b58e9dda06ed", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9381}
+{"item_id": "222937034617", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.917}
+{"item_id": "d410b8623246", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8639}
+{"item_id": "6d7e138f14eb", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8071}
+{"item_id": "6221601e2f97", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9481}
+{"item_id": "28a0f8624707", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9551}
+{"item_id": "a95313a533d8", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7052}
+{"item_id": "d5d45b57fea6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7493}
+{"item_id": "38672289417d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5783}
+{"item_id": "c97b40e3c94b", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7771}
+{"item_id": "0218241255f7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6682}
+{"item_id": "a116f5316561", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7241}
+{"item_id": "6e3fadf47a0f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.857}
+{"item_id": "9c8f66196eb7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8259}
+{"item_id": "7999ab5575a1", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8378}
+{"item_id": "b55b8806143f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7624}
+{"item_id": "e916f13cd6bf", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.792}
+{"item_id": "038a39246887", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.715}
+{"item_id": "09c01355d08a", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.711}
+{"item_id": "49d910c6dcc3", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9002}
+{"item_id": "bb061ef70d16", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8864}
+{"item_id": "876c58de1b3e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7527}
+{"item_id": "7adf52249430", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.715}
+{"item_id": "1d3a4eb603ea", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6746}
+{"item_id": "982b837d1ddf", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7507}
+{"item_id": "d84446f42c17", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7527}
+{"item_id": "d0328411b673", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7548}
+{"item_id": "7b33112ca644", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8877}
+{"item_id": "123bc784af39", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.861}
+{"item_id": "89519d3269ac", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7956}
+{"item_id": "8c0ae356b9e2", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7338}
+{"item_id": "7a9dda3b5840", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6222}
+{"item_id": "4a9322c372de", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5722}
+{"item_id": "d931fefabef1", "system": "word-LR", "verdict": "violating", "quotes": ["fat", "liberals", "whine", "nk", "trump"], "confidence": 0.5014}
+{"item_id": "30e0973132ea", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8365}
+{"item_id": "cf5e9f2dad48", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7994}
+{"item_id": "6d6615aab60e", "system": "word-LR", "verdict": "violating", "quotes": ["you", "are", "europe", "yankee", "a"], "confidence": 0.5975}
+{"item_id": "37c3df71e055", "system": "word-LR", "verdict": "violating", "quotes": ["you", "are", "europe", "yankee", "a"], "confidence": 0.5618}
+{"item_id": "15a13961cfc1", "system": "word-LR", "verdict": "violating", "quotes": ["you", "are", "europe", "yankee", "a"], "confidence": 0.6486}
+{"item_id": "c61d755db635", "system": "word-LR", "verdict": "violating", "quotes": ["you", "are", "europe", "yankee", "a"], "confidence": 0.606}
+{"item_id": "2f77d5699135", "system": "word-LR", "verdict": "violating", "quotes": ["you", "are", "europe", "yankee", "a"], "confidence": 0.6391}
+{"item_id": "3c1c9d244811", "system": "word-LR", "verdict": "violating", "quotes": ["politics", "games", "them", "attack", "into"], "confidence": 0.5895}
+{"item_id": "3382c49c0349", "system": "word-LR", "verdict": "violating", "quotes": ["politics", "games", "them", "attack", "into"], "confidence": 0.5947}
+{"item_id": "05bd623b9431", "system": "word-LR", "verdict": "violating", "quotes": ["politics", "games", "them", "attack", "into"], "confidence": 0.6877}
+{"item_id": "384504df3ace", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5486}
+{"item_id": "48035d97a9fc", "system": "word-LR", "verdict": "violating", "quotes": ["politics", "them", "attack", "into", "keep"], "confidence": 0.5646}
+{"item_id": "b46409469691", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8947}
+{"item_id": "42a16a019c11", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7836}
+{"item_id": "57217303d036", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7789}
+{"item_id": "a00a2539ec2f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.936}
+{"item_id": "e2ccccc0e579", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.9326}
+{"item_id": "5030a513ded9", "system": "word-LR", "verdict": "violating", "quotes": ["their", "blacks", "made", "are", "the"], "confidence": 0.538}
+{"item_id": "f8284a6ee3fc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5941}
+{"item_id": "8d3c03b70c6c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5381}
+{"item_id": "0f5b2e8c91a1", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5634}
+{"item_id": "4bc7811bc4db", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5082}
+{"item_id": "591458456bf1", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6854}
+{"item_id": "0c086f60834b", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6658}
+{"item_id": "eac264916ca6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6737}
+{"item_id": "52255506bef8", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7133}
+{"item_id": "5c698a09228f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6544}
+{"item_id": "8367885ff255", "system": "word-LR", "verdict": "violating", "quotes": ["america", "china", "a", "man", "chinaman"], "confidence": 0.6229}
+{"item_id": "9ccb03cc66de", "system": "word-LR", "verdict": "violating", "quotes": ["america", "china", "a", "chinaman", "genetic"], "confidence": 0.5907}
+{"item_id": "750a8eed30b9", "system": "word-LR", "verdict": "violating", "quotes": ["america", "china", "a", "chinaman", "genetic"], "confidence": 0.6986}
+{"item_id": "2591967a689a", "system": "word-LR", "verdict": "violating", "quotes": ["america", "china", "a", "man", "chinaman"], "confidence": 0.5309}
+{"item_id": "5615da20ee40", "system": "word-LR", "verdict": "violating", "quotes": ["america", "china", "a", "man", "chinaman"], "confidence": 0.5876}
+{"item_id": "1c5c7cd614cc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.679}
+{"item_id": "66cb1a59b585", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.695}
+{"item_id": "20250e6f2cdf", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6784}
+{"item_id": "2f3cda325a58", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5644}
+{"item_id": "dcead673a391", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5268}
+{"item_id": "d32d5a1eb248", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6242}
+{"item_id": "03df2d5262d6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6366}
+{"item_id": "91cc7b13e7b3", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5622}
+{"item_id": "ec9d6ee6024f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6932}
+{"item_id": "7c0eb7ee5c0f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6561}
+{"item_id": "7e583dcfd851", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7796}
+{"item_id": "13148e18bef5", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8659}
+{"item_id": "bfaa3705a92d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.85}
+{"item_id": "d84ff57e9a3d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7831}
+{"item_id": "11c2454b8f73", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7623}
+{"item_id": "43bfe7ff9cd4", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5353}
+{"item_id": "32d921b16080", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5553}
+{"item_id": "38c0234a2149", "system": "word-LR", "verdict": "violating", "quotes": ["you", "marxist", "your", "are", "do"], "confidence": 0.5023}
+{"item_id": "c20c55fecc5c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5557}
+{"item_id": "3861b7cc2af6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5434}
+{"item_id": "ff95f4173b73", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "germans", "the", "a", "in"], "confidence": 0.5304}
+{"item_id": "713c9f1e5359", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8336}
+{"item_id": "ada33407a58d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.698}
+{"item_id": "b679cc856ed1", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "germans", "the", "a", "in"], "confidence": 0.5547}
+{"item_id": "dc503c0e4a0b", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "germans", "the", "a", "in"], "confidence": 0.6727}
+{"item_id": "083910b5acb1", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6162}
+{"item_id": "17d20ff2ad32", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8099}
+{"item_id": "4bd8b4676e99", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6969}
+{"item_id": "1f818b616bbd", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6314}
+{"item_id": "a79d905e4abc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5928}
+{"item_id": "54d67ab0a0c7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7051}
+{"item_id": "0e0fcc7fcacc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6438}
+{"item_id": "2b0855dd4bfe", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6037}
+{"item_id": "e9c04d8c9654", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7103}
+{"item_id": "6ce09c92e1f2", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6837}
+{"item_id": "9c930b6bab36", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5486}
+{"item_id": "c0c1090bbe5a", "system": "word-LR", "verdict": "violating", "quotes": ["area", "a", "the", "how", "does"], "confidence": 0.6131}
+{"item_id": "6f9b38df7acc", "system": "word-LR", "verdict": "violating", "quotes": ["area", "a", "the", "how", "does"], "confidence": 0.5966}
+{"item_id": "3ed2860420e0", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6137}
+{"item_id": "06826cba4c2e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5032}
+{"item_id": "48795db877e9", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6446}
+{"item_id": "482c41f2928e", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5412}
+{"item_id": "87707ff84342", "system": "word-LR", "verdict": "violating", "quotes": ["the", "basketball", "better", "despite", "tonight"], "confidence": 0.5519}
+{"item_id": "25dd2fca4eda", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7155}
+{"item_id": "50acc1e2ccf6", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6446}
+{"item_id": "31da692e7860", "system": "word-LR", "verdict": "violating", "quotes": ["the", "prefer", "perhaps", "in", "men"], "confidence": 0.5495}
+{"item_id": "abb55b22f620", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6772}
+{"item_id": "00d9ff177cd2", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5052}
+{"item_id": "579b6e9f4732", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5762}
+{"item_id": "febc9a8d7e56", "system": "word-LR", "verdict": "violating", "quotes": ["the", "perhaps", "in", "men"], "confidence": 0.5196}
+{"item_id": "c7a5f7fa9fde", "system": "word-LR", "verdict": "violating", "quotes": ["feed", "affirmative", "mexican", "the", "with"], "confidence": 0.531}
+{"item_id": "7ee9fefda5c1", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5037}
+{"item_id": "ad07cd1d9d8a", "system": "word-LR", "verdict": "violating", "quotes": ["feed", "affirmative", "the", "with", "token"], "confidence": 0.5756}
+{"item_id": "21d97dccb0eb", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.664}
+{"item_id": "489403109c37", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5884}
+{"item_id": "9dc1d404f1f6", "system": "word-LR", "verdict": "violating", "quotes": ["are", "muslims", "their", "benefits", "the"], "confidence": 0.7695}
+{"item_id": "2ffdf67d4077", "system": "word-LR", "verdict": "violating", "quotes": ["are", "their", "benefits", "the", "oil"], "confidence": 0.6338}
+{"item_id": "0567ec6b0678", "system": "word-LR", "verdict": "violating", "quotes": ["are", "their", "benefits", "the", "oil"], "confidence": 0.6905}
+{"item_id": "d126097a475f", "system": "word-LR", "verdict": "violating", "quotes": ["are", "muslims", "their", "benefits", "the"], "confidence": 0.7561}
+{"item_id": "80b34e3229e1", "system": "word-LR", "verdict": "violating", "quotes": ["are", "muslims", "their", "benefits", "the"], "confidence": 0.7724}
+{"item_id": "980abacea90f", "system": "word-LR", "verdict": "violating", "quotes": ["are", "mediocre", "irish", "a", "the"], "confidence": 0.5314}
+{"item_id": "01671cdbc7ab", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.572}
+{"item_id": "36de9d244a8a", "system": "word-LR", "verdict": "violating", "quotes": ["are", "mediocre", "irish", "a", "the"], "confidence": 0.6883}
+{"item_id": "9ab8dacb211c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6148}
+{"item_id": "c3010fd49e04", "system": "word-LR", "verdict": "violating", "quotes": ["are", "mediocre", "a", "the", "only"], "confidence": 0.5308}
+{"item_id": "e317b25dd27d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5608}
+{"item_id": "90b758d47aab", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6348}
+{"item_id": "dbff32f5d6dc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5704}
+{"item_id": "bd7f009cbd70", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6166}
+{"item_id": "6f0f8208cbb9", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5127}
+{"item_id": "9f061952f2c7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6554}
+{"item_id": "b1e36919c818", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5867}
+{"item_id": "73bf84142bca", "system": "word-LR", "verdict": "violating", "quotes": ["are", "you", "the", "them", "education"], "confidence": 0.576}
+{"item_id": "3ffdcfb7f012", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7412}
+{"item_id": "305847f99148", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6672}
+{"item_id": "bc050482aa9f", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "blacks", "whites", "fact", "ago"], "confidence": 0.8569}
+{"item_id": "3440e034ccd1", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7252}
+{"item_id": "f81fe1496a97", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5146}
+{"item_id": "0acdb2e0214d", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "blacks", "whites", "the", "yr"], "confidence": 0.5927}
+{"item_id": "bebfce9c282c", "system": "word-LR", "verdict": "violating", "quotes": ["jews", "blacks", "whites", "the", "yr"], "confidence": 0.8219}
+{"item_id": "52d569ffbc70", "system": "word-LR", "verdict": "violating", "quotes": ["maga", "would", "their", "contempt", "liberals"], "confidence": 0.7893}
+{"item_id": "fb175bd7ca03", "system": "word-LR", "verdict": "violating", "quotes": ["maga", "would", "their", "contempt", "liberals"], "confidence": 0.7254}
+{"item_id": "82e898a78942", "system": "word-LR", "verdict": "violating", "quotes": ["maga", "would", "their", "contempt", "liberals"], "confidence": 0.763}
+{"item_id": "fdf79d91e0d2", "system": "word-LR", "verdict": "violating", "quotes": ["would", "their", "contempt", "liberals", "actually"], "confidence": 0.7112}
+{"item_id": "b4e243d10b3e", "system": "word-LR", "verdict": "violating", "quotes": ["would", "their", "contempt", "liberals", "actually"], "confidence": 0.737}
+{"item_id": "70782fa820fc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5628}
+{"item_id": "a57e80863370", "system": "word-LR", "verdict": "violating", "quotes": ["lazy", "brighton", "you", "0", "chase"], "confidence": 0.527}
+{"item_id": "09432327341c", "system": "word-LR", "verdict": "violating", "quotes": ["lazy", "brighton", "you", "0", "chase"], "confidence": 0.5563}
+{"item_id": "24882c34ce92", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7121}
+{"item_id": "f5eb0c9c5993", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6263}
+{"item_id": "52b3960dc974", "system": "word-LR", "verdict": "violating", "quotes": ["race", "around", "the", "their", "pathetic"], "confidence": 0.8287}
+{"item_id": "3aefa70ca03f", "system": "word-LR", "verdict": "violating", "quotes": ["race", "around", "the", "their", "pathetic"], "confidence": 0.8345}
+{"item_id": "afdad34cbb91", "system": "word-LR", "verdict": "violating", "quotes": ["race", "around", "the", "their", "pathetic"], "confidence": 0.8489}
+{"item_id": "c882c3bd891d", "system": "word-LR", "verdict": "violating", "quotes": ["race", "around", "the", "their", "pathetic"], "confidence": 0.762}
+{"item_id": "7bf6147b0bd5", "system": "word-LR", "verdict": "violating", "quotes": ["race", "around", "the", "their", "pathetic"], "confidence": 0.7884}
+{"item_id": "f903d59baae3", "system": "word-LR", "verdict": "violating", "quotes": ["retarded", "chong", "ching", "chinese", "american"], "confidence": 0.8728}
+{"item_id": "b17e50d46a07", "system": "word-LR", "verdict": "violating", "quotes": ["retarded", "chong", "ching", "american", "you"], "confidence": 0.8117}
+{"item_id": "ed76bf29a8dc", "system": "word-LR", "verdict": "violating", "quotes": ["retarded", "chong", "ching", "american", "you"], "confidence": 0.8331}
+{"item_id": "b5bf23f81a09", "system": "word-LR", "verdict": "violating", "quotes": ["retarded", "chong", "ching", "chinese", "american"], "confidence": 0.8857}
+{"item_id": "cbfa57a0c5ed", "system": "word-LR", "verdict": "violating", "quotes": ["retarded", "chong", "ching", "chinese", "american"], "confidence": 0.9002}
+{"item_id": "6cb287dc749d", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7796}
+{"item_id": "696b793fccb8", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7575}
+{"item_id": "929e5316abb4", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7316}
+{"item_id": "2c97a8cfb8ac", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7835}
+{"item_id": "849590ec90c4", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7706}
+{"item_id": "7b2b8f297e5b", "system": "word-LR", "verdict": "violating", "quotes": ["do", "are", "fact", "most", "the"], "confidence": 0.5152}
+{"item_id": "0a2739745e60", "system": "word-LR", "verdict": "violating", "quotes": ["do", "are", "fact", "most", "the"], "confidence": 0.6171}
+{"item_id": "1ebed1842e09", "system": "word-LR", "verdict": "violating", "quotes": ["do", "are", "fact", "most", "the"], "confidence": 0.6712}
+{"item_id": "09207c6c2c52", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.65}
+{"item_id": "617a684b5105", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5297}
+{"item_id": "619b9a0691e8", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7319}
+{"item_id": "2f97257bd32f", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.8239}
+{"item_id": "1b9233c59641", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7697}
+{"item_id": "4d8c4d22bc87", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7822}
+{"item_id": "07d192f90230", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7459}
+{"item_id": "897f4d2f83a2", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5918}
+{"item_id": "073f6f89d457", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5748}
+{"item_id": "c1aeeacbe559", "system": "word-LR", "verdict": "violating", "quotes": ["gets", "his", "traded", "prison", "into"], "confidence": 0.5046}
+{"item_id": "2e3d4c2db505", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6471}
+{"item_id": "6d726b138cd7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5918}
+{"item_id": "369947cc60fa", "system": "word-LR", "verdict": "violating", "quotes": ["transgenderism", "wanting", "a", "the", "protected"], "confidence": 0.6946}
+{"item_id": "cd8f2ef7290a", "system": "word-LR", "verdict": "violating", "quotes": ["transgenderism", "wanting", "a", "the", "protected"], "confidence": 0.6202}
+{"item_id": "bcc9d3a2b59f", "system": "word-LR", "verdict": "violating", "quotes": ["transgenderism", "wanting", "a", "the", "protected"], "confidence": 0.7192}
+{"item_id": "1bfa4fbba90a", "system": "word-LR", "verdict": "violating", "quotes": ["wanting", "a", "the", "protected", "into"], "confidence": 0.5852}
+{"item_id": "e746ff13742b", "system": "word-LR", "verdict": "violating", "quotes": ["wanting", "a", "the", "protected", "into"], "confidence": 0.6374}
+{"item_id": "3000de7b64db", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7085}
+{"item_id": "3b76d13ab167", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.659}
+{"item_id": "daa47a86329c", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6288}
+{"item_id": "5f0dd34994d9", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7305}
+{"item_id": "8e56d09d91bf", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.7044}
+{"item_id": "0c1da8526dcc", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6123}
+{"item_id": "32f4ab2a3ee9", "system": "word-LR", "verdict": "violating", "quotes": ["are", "these", "coming", "you", "ones"], "confidence": 0.5145}
+{"item_id": "91227fc55617", "system": "word-LR", "verdict": "violating", "quotes": ["are", "these", "coming", "you", "ones"], "confidence": 0.5478}
+{"item_id": "d09a684221c0", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6843}
+{"item_id": "5e2c362a2888", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.656}
+{"item_id": "3b4e057ea354", "system": "word-LR", "verdict": "violating", "quotes": ["america", "fuck", "quit", "ill", "instead"], "confidence": 0.6461}
+{"item_id": "2b4453721955", "system": "word-LR", "verdict": "violating", "quotes": ["america", "fuck", "quit", "ill", "instead"], "confidence": 0.5674}
+{"item_id": "e91e045a9a84", "system": "word-LR", "verdict": "violating", "quotes": ["america", "fuck", "quit", "ill", "instead"], "confidence": 0.6022}
+{"item_id": "1ccb1decd731", "system": "word-LR", "verdict": "violating", "quotes": ["america", "fuck", "quit", "ill", "instead"], "confidence": 0.6679}
+{"item_id": "f2bb38b2139c", "system": "word-LR", "verdict": "violating", "quotes": ["america", "fuck", "quit", "ill", "instead"], "confidence": 0.6984}
+{"item_id": "2979eed6f8c7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6683}
+{"item_id": "4e6ba2cb23e7", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6639}
+{"item_id": "bd72345fc5c3", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5864}
+{"item_id": "e40ed0b2c198", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.6828}
+{"item_id": "5414dbb3c083", "system": "word-LR", "verdict": "not_violating", "quotes": [], "confidence": 0.5652}

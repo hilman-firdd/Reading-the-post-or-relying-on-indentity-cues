@@ -1,0 +1,33 @@
+# environments and caches
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# server and debug logs (the large ones exceed GitHub's 100 MB limit; run_all.log is small and kept)
+logs/ollama*.log
+
+# scratch
+*.tmp
+
+# ---- human-evaluation blinding guard (HE-E1CF). These files must NEVER be published: ----
+# the key maps blind ids to conditions; the rater files are what raters receive (phase 2 is held back);
+# build_human_eval_materials.py carries the random seeds in its source, so publishing it lets anyone rebuild the key.
+# Keep the secret seeds and private/ OUTSIDE the repository when the materials are rebuilt, then reconsider these lines.
+results/human_eval_e1cf/private/
+results/human_eval_e1cf/materials/
+results/human_eval_e1cf/annotation_template.csv
+results/human_eval_e1cf/build_human_eval_materials.py
+results/human_eval_e1cf/**/annotation_key*.csv
+results/human_eval_e1cf/**/materials_verification*.json
+
+# ---- other things that must not be published ----
+# manuscript sources and kits, archives, any secrets
+*.zip
+*.docx
+*.pdf
+*.tex
+.env
+.env.*
+*.pem
+*.key
