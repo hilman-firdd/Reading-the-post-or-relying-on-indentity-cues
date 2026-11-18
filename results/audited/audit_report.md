@@ -268,6 +268,20 @@ Keluarga F_I terdiri dari 8 uji (satu per sistem), dengan McNemar eksak berpasan
 | R3, semua | 600 | 150 | stratified, strata sama besar | 0,793 [0,722; 0,850] (119/150) |
 
 Ronde 3 (R1 dan R3, 300 baris): 298 baris dijawab Ya atau Tidak oleh kedua penilai, kesepakatan 100% (κ R3 = 1,0; κ R1 tidak terdefinisi karena semua Ya), dan 2 baris dijawab Ragu oleh Penilai 2 (diputuskan Ya oleh pemutus). Kesepakatan ini jauh di atas ronde 1 (92,2%, κ = 0,823) dan dilaporkan terpisah dari gabungan ronde 1 dan 2. Independensi Penilai 2 adalah laporan tim studi dan tidak dapat diverifikasi dari file. Oracle R3 untuk postingan normal lemah (56%), jadi hasil R3 sebaiknya hanya dianalisis pada item yang valid menurut manusia.
+R3 pada item yang label acuannya dikonfirmasi manusia (119 dari 150 item ronde 3; `oracle_validity_analysis.csv`, baris `model_r3_human_valid`). Lulus = verdict sesuai label acuan di bawah kebijakan terbalik. Bukan estimasi populasi.
+
+| Sistem | Dijawab | Lulus di antara yang dijawab [CI95] | Lulus (non-jawaban dianggap salah) | Verdict berubah vs ORIG |
+|---|---|---|---|---|
+| qwen2.5:7b / direct | 119/119 | 11,8% [7,1%; 18,8%] | 11,8% | 12,6% (15/119) |
+| qwen2.5:7b / evidence | 119/119 | 11,8% [7,1%; 18,8%] | 11,8% | 7,6% (9/118) |
+| llama3.1:8b / direct | 28/119 | 21,4% [10,2%; 39,5%] | 5,0% | 14,3% (4/28) |
+| llama3.1:8b / evidence | 10/119 | 0,0% [0,0%; 27,8%] | 0,0% | 0,0% (0/10) |
+| gemma2:9b / direct | 119/119 | 15,1% [9,8%; 22,7%] | 15,1% | 4,2% (5/119) |
+| gemma2:9b / evidence | 119/119 | 8,4% [4,6%; 14,8%] | 8,4% | 5,9% (7/119) |
+| word-LR | 119/119 | 19,3% [13,2%; 27,3%] | 19,3% | 0,0% (0/119) |
+| char-LR | 119/119 | 19,3% [13,2%; 27,3%] | 19,3% | 0,0% (0/119) |
+
+Di antara item yang dijawab, semua LLM hanya lulus 0 sampai 21%, jadi model umumnya tidak mengikuti kebijakan terbalik. Llama3.1 menjawab sangat sedikit (28 dan 10 dari 119) karena refusal, sehingga angkanya tidak stabil. Kelompok `normal` hanya 28 item valid, jadi rincian per label (di CSV) kasar.
 
 Angka 44,8% di `validation.json` adalah rata-rata tanpa bobot dari sensus kasus ambigu dan sampel kontrol yang kecil. Angka itu tidak menggambarkan R2 secara keseluruhan dan tidak boleh dilaporkan sebagai validitas R2.
 

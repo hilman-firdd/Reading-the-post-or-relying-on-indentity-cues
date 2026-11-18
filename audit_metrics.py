@@ -546,6 +546,20 @@ def main():
                        "A_all_items_original_oracle": a_, "A_n": an, "C_validated_corrected_oracle": vv, "B_n": vn,
                        "D_population_estimate_corrected": vv, "excluding_known_invalid": nb, "excluding_known_invalid_n": nbn,
                        "note": "corrected = only human-valid items (invalid items are not invariance tests); pending item excluded"})
+    # R3 (negated policy) on items whose reference label the human raters confirmed (round 3 sample, 119 of 150): pass rate and verdict change
+    # versus the system's own ORIG verdict. Strata are equal (200 per post label), so "all" is the plain pooled rate over the sample.
+    for s in names:
+        X = by[s]
+        for g in ("all", "hatespeech", "offensive", "normal"):
+            its = [it for it in per_mr["R3"] if val.get(it["item_id"], {}).get("status") == "valid" and (g == "all" or it["label"] == g)]
+            ans = [it for it in its if X[it["item_id"]]["category"] in ANSWERED]; k = sum(ok(it, X[it["item_id"]]) for it in ans)
+            pairs = [it for it in ans if X[orig[it["post_id"]]["item_id"]]["category"] in ANSWERED]
+            ch = sum(X[it["item_id"]]["verdict"] != X[orig[it["post_id"]]["item_id"]]["verdict"] for it in pairs)
+            ov.append({"row_type": "model_r3_human_valid", "system": s, "mr": "R3", "stratum": g, "n_valid_items": len(its), "n_answered": len(ans),
+                       "pass_among_answered": rate(k, len(ans)), "pass_k": k, "pass_ci95": wilson(k, len(ans)),
+                       "pass_nonanswer_wrong": rate(k, len(its)), "n_pairs": len(pairs), "verdict_changed_vs_orig": rate(ch, len(pairs)),
+                       "verdict_changed_k": ch, "verdict_changed_ci95": wilson(ch, len(pairs)),
+                       "note": "only items whose R3 reference label was confirmed by the human raters (round 3 sample); not a population estimate"})
     cols = list(dict.fromkeys(k for r in ov for k in r))
     with open(f"{OUT}/oracle_validity_analysis.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols); w.writeheader()
