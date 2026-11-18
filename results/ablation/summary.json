@@ -8,8 +8,8 @@
  "models": {
   "gemma2_9b": {
    "sources": {
-    "direct": "runs/gemma2_9b_direct.jsonl",
-    "evidence": "runs/gemma2_9b_evidence.jsonl",
+    "direct": "runs_repeat/rep3/main/gemma2_9b_direct.jsonl",
+    "evidence": "runs_repeat/rep3/main/gemma2_9b_evidence.jsonl",
     "abl_quote_first": "runs_ablation/gemma2_9b_abl_quote_first.jsonl",
     "abl_quote_only": "runs_ablation/gemma2_9b_abl_quote_only.jsonl"
    },
@@ -379,8 +379,8 @@
   },
   "qwen2.5_7b": {
    "sources": {
-    "direct": "runs/qwen2.5_7b_direct.jsonl",
-    "evidence": "runs/qwen2.5_7b_evidence.jsonl",
+    "direct": "runs_repeat/rep3/main/qwen2.5_7b_direct.jsonl",
+    "evidence": "runs_repeat/rep3/main/qwen2.5_7b_evidence.jsonl",
     "abl_quote_first": "runs_ablation/qwen2.5_7b_abl_quote_first.jsonl",
     "abl_quote_only": "runs_ablation/qwen2.5_7b_abl_quote_only.jsonl"
    },
@@ -388,11 +388,11 @@
    "summary": {
     "direct": {
      "n_items": 4233,
-     "coverage_valid": 0.9452,
-     "abstention": 0.0543,
+     "coverage_valid": 0.9454,
+     "abstention": 0.0541,
      "refusal": 0.0,
      "other_nonanswer": 0.0005,
-     "flag_rate_all": 0.5901,
+     "flag_rate_all": 0.5904,
      "by_mr": {
       "ORIG": {
        "n": 600,
@@ -418,22 +418,22 @@
       "R1": {
        "n": 600,
        "answered": 600,
-       "pass_among_answered": 0.3217,
-       "flag_rate_all": 0.325,
-       "abstention_among_answered": 0.3217
+       "pass_among_answered": 0.32,
+       "flag_rate_all": 0.3233,
+       "abstention_among_answered": 0.32
       },
       "R2": {
        "n": 600,
        "answered": 600,
-       "pass_among_answered": 0.7083,
-       "flag_rate_all": 0.4833,
+       "pass_among_answered": 0.7067,
+       "flag_rate_all": 0.485,
        "abstention_among_answered": 0.0033
       },
       "R3": {
        "n": 600,
        "answered": 600,
-       "pass_among_answered": 0.2683,
-       "flag_rate_all": 0.7817,
+       "pass_among_answered": 0.27,
+       "flag_rate_all": 0.7833,
        "abstention_among_answered": 0.0017
       },
       "I1": {
@@ -658,8 +658,8 @@
     },
     "evidence": {
      "n_items": 4233,
-     "coverage_valid": 0.9152,
-     "abstention": 0.081,
+     "coverage_valid": 0.9157,
+     "abstention": 0.0806,
      "refusal": 0.0,
      "other_nonanswer": 0.0038,
      "flag_rate_all": 0.6227,
@@ -674,9 +674,9 @@
       "E1": {
        "n": 397,
        "answered": 395,
-       "pass_among_answered": 0.4354,
+       "pass_among_answered": 0.4329,
        "flag_rate_all": 0.2997,
-       "abstention_among_answered": 0.2633
+       "abstention_among_answered": 0.2658
       },
       "E2": {
        "n": 200,
@@ -688,9 +688,9 @@
       "R1": {
        "n": 600,
        "answered": 598,
-       "pass_among_answered": 0.2926,
-       "flag_rate_all": 0.4133,
-       "abstention_among_answered": 0.2926
+       "pass_among_answered": 0.2893,
+       "flag_rate_all": 0.415,
+       "abstention_among_answered": 0.2893
       },
       "R2": {
        "n": 600,
@@ -716,15 +716,15 @@
       "I2": {
        "n": 600,
        "answered": 599,
-       "pass_among_answered": 0.7129,
+       "pass_among_answered": 0.7145,
        "flag_rate_all": 0.74,
-       "abstention_among_answered": 0.015
+       "abstention_among_answered": 0.0134
       },
       "I3": {
        "n": 502,
        "answered": 497,
-       "pass_among_answered": 0.664,
-       "flag_rate_all": 0.6355,
+       "pass_among_answered": 0.662,
+       "flag_rate_all": 0.6335,
        "abstention_among_answered": 0.0241
       }
      },
@@ -778,7 +778,7 @@
     "c_only_y": 8,
     "risk_difference": -0.0083,
     "rd_ci95_post_bootstrap": [
-     -0.02,
+     -0.0183,
      0.0017
     ],
     "conditional_odds_ratio_b_over_c": 0.375,
@@ -797,7 +797,7 @@
     "c_only_y": 17,
     "risk_difference": -0.0267,
     "rd_ci95_post_bootstrap": [
-     -0.0417,
+     -0.04,
      -0.0133
     ],
     "conditional_odds_ratio_b_over_c": 0.059,
@@ -816,7 +816,7 @@
     "c_only_y": 26,
     "risk_difference": 0.0133,
     "rd_ci95_post_bootstrap": [
-     -0.0133,
+     -0.0117,
      0.0383
     ],
     "conditional_odds_ratio_b_over_c": 1.308,
@@ -836,7 +836,7 @@
     "risk_difference": -0.0067,
     "rd_ci95_post_bootstrap": [
      -0.03,
-     0.015
+     0.0167
     ],
     "conditional_odds_ratio_b_over_c": 0.846,
     "or_ci95_exact": [
@@ -876,7 +876,7 @@
     "risk_difference": 0.0202,
     "rd_ci95_post_bootstrap": [
      0.0,
-     0.0403
+     0.0428
     ],
     "conditional_odds_ratio_b_over_c": 2.6,
     "or_ci95_exact": [
@@ -933,7 +933,7 @@
     "risk_difference": -0.0051,
     "rd_ci95_post_bootstrap": [
      -0.0331,
-     0.0254
+     0.0229
     ],
     "conditional_odds_ratio_b_over_c": 0.889,
     "or_ci95_exact": [
@@ -1030,7 +1030,7 @@
     "risk_difference": 0.0683,
     "rd_ci95_post_bootstrap": [
      0.0483,
-     0.09
+     0.0883
     ],
     "conditional_odds_ratio_b_over_c": 42.0,
     "or_ci95_exact": [
@@ -1043,20 +1043,20 @@
    "qwen2.5_7b: direct -> abl_quote_first": {
     "n_pairs": 597,
     "rate_x": 0.2111,
-    "rate_y": 0.3216,
+    "rate_y": 0.3199,
     "b_only_x": 19,
-    "c_only_y": 85,
-    "risk_difference": -0.1106,
+    "c_only_y": 84,
+    "risk_difference": -0.1089,
     "rd_ci95_post_bootstrap": [
-     -0.1424,
-     -0.0787
+     -0.1407,
+     -0.0771
     ],
-    "conditional_odds_ratio_b_over_c": 0.224,
+    "conditional_odds_ratio_b_over_c": 0.226,
     "or_ci95_exact": [
-     0.128,
-     0.371
+     0.13,
+     0.375
     ],
-    "mcnemar_exact_p": 3.786e-11,
+    "mcnemar_exact_p": 6.208e-11,
     "holm_p": 0.0
    },
    "qwen2.5_7b: abl_quote_first -> abl_quote_only": {
@@ -1068,7 +1068,7 @@
     "risk_difference": 0.0774,
     "rd_ci95_post_bootstrap": [
      0.0488,
-     0.1061
+     0.1044
     ],
     "conditional_odds_ratio_b_over_c": 4.286,
     "or_ci95_exact": [
@@ -1080,21 +1080,21 @@
    },
    "qwen2.5_7b: abl_quote_only -> evidence": {
     "n_pairs": 596,
-    "rate_x": 0.2936,
+    "rate_x": 0.2903,
     "rate_y": 0.2869,
-    "b_only_x": 32,
+    "b_only_x": 30,
     "c_only_y": 28,
-    "risk_difference": 0.0067,
+    "risk_difference": 0.0034,
     "rd_ci95_post_bootstrap": [
-     -0.0185,
-     0.0319
+     -0.0201,
+     0.0285
     ],
-    "conditional_odds_ratio_b_over_c": 1.143,
+    "conditional_odds_ratio_b_over_c": 1.071,
     "or_ci95_exact": [
-     0.667,
-     1.97
+     0.619,
+     1.861
     ],
-    "mcnemar_exact_p": 0.6989,
+    "mcnemar_exact_p": 0.8957,
     "holm_p": 1.0
    }
   }

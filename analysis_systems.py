@@ -145,7 +145,7 @@ def ablation():
         if not os.path.exists(src["abl_quote_only"]):
             continue
         X = {p: load_run(src[p], items) for p in out["chain"]}
-        common = set.intersection(*(set(x) for x in X.values()))   # same items for every step (MRS subset allowed)
+        common = sorted(set.intersection(*(set(x) for x in X.values())))   # same items for every step; sorted so the bootstrap order (and the CI) is reproducible
         X = {p: {i: x[i] for i in common} for p, x in X.items()}
         out["models"][tag] = {"sources": src, "n_common_items": len(common), "summary": {p: summary(X[p], items, ident) for p in out["chain"]}}
         for a, b in zip(out["chain"], out["chain"][1:]):
@@ -166,6 +166,7 @@ def md_ablation(out):
          "Chain: direct → +A quote first → +B decide only from quotes → +C insufficient when quotes do not settle the case (= evidence).\n"]
     for tag, d in out["models"].items():
         L += [f"## {tag} ({d['n_common_items']} items in every step)\n",
+              "Sources: " + "; ".join(f"{p} = `{d['sources'][p]}`" for p in out["chain"]) + "\n",
               "| Prompt | Coverage | Abstention | Refusal | ORIG acc. | E1 flag (all) | R1 abst. (answered) | E1 OR |", "|---|---|---|---|---|---|---|---|"]
         for p, s in d["summary"].items():
             L.append(f"| {p} | {fmt(s['coverage_valid'])} | {fmt(s['abstention'])} | {fmt(s['refusal'])} | {fmt(s.get('ORIG_overall_accuracy'))} | "
