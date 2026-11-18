@@ -6,6 +6,38 @@ Ringkasan (ID): eksperimen ini menjawab temuan kritis audit v20/v21 (C1/C2): apa
 
 ---
 
+## 0. Decisions on the [DECIDE] items (recorded 2026-11-18, before any SWAP item is generated)
+
+Taken as the recommendations written in this draft; the authors can still overrule them, but any change after item generation is a logged deviation (section 8).
+
+- **D1 (partner for Homosexual and Refugee):** option (ii). Posts with these groups use a cross-type B from all other groups, form stratum `cross_type`, are reported separately and are excluded from H1.
+- **D2 (form table):** `FORMS` and `TOKEN_CLASS` in `build_e1cf_v2.py`, reproduced below. Every form is a member of `build_items.GROUP_TERMS`.
+- **D3 (H1 equivalence margin):** +/-10 points (TOST, 90% CI), unchanged from section 5.
+
+**Token classes (the class decides the form of B):** ADJ = african, black, white, islamic, jewish, asian, chinese, mexican, hispanic, gay, homosexual (tokens that are both noun and adjective are treated as ADJ); SG = muslim, jew, christian, hindu, arab, woman, man, lesbian, refugee, immigrant; PL = the plural nouns (africans, blacks, whites, muslims, jews, christians, hindus, arabs, hispanics, mexicans, asians, women, men, gays, homosexuals, lesbians, immigrants, refugees); REL = islam, christianity.
+
+**Forms of B per class** (a group without a form for a class cannot replace a token of that class):
+
+| B | SG | PL | ADJ | REL |
+|---|---|---|---|---|
+| African | african | africans | black | |
+| Caucasian | white | whites | white | |
+| Asian | asian | asians | asian | |
+| Arab | arab | arabs | arab | |
+| Hispanic | hispanic | hispanics | hispanic | |
+| Islam | muslim | muslims | islamic | islam |
+| Jewish | jew | jews | jewish | |
+| Christian | christian | christians | christian | christianity |
+| Hindu | hindu | hindus | hindu | |
+| Women | woman | women | | |
+| Men | man | men | | |
+| Homosexual | homosexual | homosexuals | gay | |
+| Refugee | refugee | refugees | immigrant | |
+
+**Selection rule.** Same-type pools: race {African, Caucasian, Asian, Arab, Hispanic}, religion {Islam, Jewish, Christian, Hindu}, gender {Women, Men}; Homosexual and Refugee use all other groups. For each group A of the post (sorted by name) the eligible B are the pool members that are not an A of the post, are not already used for another A, and have a form for every token class of A in that post; B is drawn with `random.Random(int(sha1(e1_item_id + "swap"), 16))` from the sorted eligible list. SWAP2 repeats this with the tag `swap2` and must also differ from the SWAP choice. Capitalisation of the original token is kept. Posts with groups of more than one type or with several groups get stratum `multi_group`; if no B is eligible the post has no SWAP item and is reported.
+
+**Runs set.** `items_e1cf_v2.jsonl` holds REPLAY, NEU and PLC (v1 texts unchanged), SWAP and SWAP2; DEL and PLCDEL are not re-run (human validation reuses the v1 texts).
+
 ## 1. Question
 
 The v1 result (decision SUPPORT) shows that replacing residual identity terms with *people/person* (NEU) lowers the flag rate more than a placebo (PLC). Two readings remain:
