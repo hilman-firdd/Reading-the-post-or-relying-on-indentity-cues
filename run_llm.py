@@ -274,6 +274,32 @@ def cmd_export2(a):
     print("wrote", a.out, len(rows), {m: sum(r["mr"] == m for r in rows) for m in mrs},
           "R2 by label:", dict(Counter(next(i["label"] for i in items if i["item_id"] == r["item_id"]) for r in rows if r["mr"] == "R2")))
 
+R3_Q = {  # question per R3 stratum: "Ya" always means the reference label (oracle) is right
+    "hatespeech": "Menurut kebijakan terbalik di kolom Teks hasil: apakah postingan ini memang mengandung ujaran kebencian atau bahasa kasar, sehingga TIDAK melanggar?",
+    "offensive": "Menurut kebijakan terbalik di kolom Teks hasil: apakah postingan ini memang mengandung ujaran kebencian atau bahasa kasar, sehingga TIDAK melanggar?",
+    "normal": "Menurut kebijakan terbalik di kolom Teks hasil: apakah postingan ini memang TIDAK mengandung ujaran kebencian maupun bahasa kasar, sehingga MELANGGAR?",
+}
+R1_Q = "Teks kebijakan di kolom Teks hasil kosong. Apakah memang tidak mungkin memutuskan melanggar atau tidak (informasi tidak cukup)?"
+
+def cmd_export3(a):
+    """Round 3: oracle validity of R1 (policy deleted) and R3 (policy negated). The post is not changed; only the policy is.
+    A stratified random sample per post label (--per-stratum, seed --seed; 0 = every item). Same workbook format as round 2
+    (Ya / Tidak / Ragu dropdowns only). Rows are grouped by MR, shuffled within it so strata are mixed."""
+    import hitl_sheet
+    items = [json.loads(l) for l in open(a.items)]; rng = random.Random(a.seed); rows = []
+    for mr in ("R1", "R3"):
+        for label in ("hatespeech", "offensive", "normal"):
+            pool = sorted((i for i in items if i["mr"] == mr and i.get("text") and i["label"] == label), key=lambda i: i["item_id"])
+            pick = pool if a.per_stratum <= 0 else rng.sample(pool, min(a.per_stratum, len(pool)))
+            for it in pick:
+                rows.append({"item_id": it["item_id"], "mr": mr, "original": it["text"], "transformed": it["policy_text"],
+                             "q": R1_Q if mr == "R1" else R3_Q[label], "_k": rng.random()})
+    rows.sort(key=lambda r: (r["mr"], r["_k"]))
+    for r in rows: del r["_k"]
+    hitl_sheet.build(rows, a.out, next(i["policy_text"] for i in items if i["policy"] == "original"), allow_unsure=True)
+    print("wrote", a.out, len(rows), {m: sum(r["mr"] == m for r in rows) for m in ("R1", "R3")},
+          "per label:", dict(Counter((r["mr"], next(i["label"] for i in items if i["item_id"] == r["item_id"])) for r in rows)))
+
 def cmd_score(a):
     import pandas as pd, hitl_sheet
     if hitl_sheet.is_hitl(a.sheet):  # workbook from 'export' (rater sheets + adjudication sheet)
@@ -313,6 +339,9 @@ def main():
     s.add_argument("--items", required=True); s.add_argument("--done", default="human_validation_filled.xlsx")
     s.add_argument("--mrs", default="E1,I1,R2"); s.add_argument("--data", default="data/dataset.json")
     s.add_argument("--out", default="human_validation_round2.xlsx"); s.set_defaults(f=cmd_export2)
+    s = sp.add_parser("export3", help="round-3 human validation: oracle validity of R1 (policy deleted) and R3 (policy negated)")
+    s.add_argument("--items", required=True); s.add_argument("--per-stratum", type=int, default=50, help="items per post label and MR (0 = all)")
+    s.add_argument("--seed", type=int, default=42); s.add_argument("--out", default="human_validation_round3.xlsx"); s.set_defaults(f=cmd_export3)
     s = sp.add_parser("paraphrase"); common(s); s.add_argument("--model", required=True); s.add_argument("--judge-model"); s.set_defaults(f=cmd_paraphrase)
     s = sp.add_parser("export"); s.add_argument("--items", required=True); s.add_argument("--frac", type=float, default=0.2)
     s.add_argument("--data", default="data/dataset.json"); s.add_argument("--out", default="human_validation.xlsx"); s.set_defaults(f=cmd_export)

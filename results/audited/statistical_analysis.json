@@ -3168,6 +3168,48 @@
     "pending": 0,
     "any_rater_unsure": 0,
     "final_undecidable": 0
+   },
+   "R1": {
+    "n": 149,
+    "pct_agree": 1.0,
+    "cohen_kappa": null,
+    "kappa_ci95_post_bootstrap": [
+     null,
+     null
+    ],
+    "disagreements": 0,
+    "adjudicated": 0,
+    "pending": 0,
+    "any_rater_unsure": 1,
+    "final_undecidable": 0
+   },
+   "R3": {
+    "n": 149,
+    "pct_agree": 1.0,
+    "cohen_kappa": 1.0,
+    "kappa_ci95_post_bootstrap": [
+     1.0,
+     1.0
+    ],
+    "disagreements": 0,
+    "adjudicated": 0,
+    "pending": 0,
+    "any_rater_unsure": 1,
+    "final_undecidable": 0
+   },
+   "ROUND3": {
+    "n": 298,
+    "pct_agree": 1.0,
+    "cohen_kappa": 1.0,
+    "kappa_ci95_post_bootstrap": [
+     1.0,
+     1.0
+    ],
+    "disagreements": 0,
+    "adjudicated": 0,
+    "pending": 0,
+    "any_rater_unsure": 2,
+    "final_undecidable": 0
    }
   },
   "pending_items": []
@@ -3334,6 +3376,142 @@
    "design": "hatespeech and normal strata (400 items) never validated",
    "validity": "not identifiable",
    "note": "the unweighted 44.8% in validation.json mixes a census of ambiguous cases with a small control sample and does not describe R2"
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R1",
+   "stratum": "post label hatespeech",
+   "population_N": 200,
+   "sampled_n": 50,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 50,
+   "n_invalid": 0,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 1.0,
+   "validity_ci95": [
+    0.9286,
+    1
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R1",
+   "stratum": "post label offensive",
+   "population_N": 200,
+   "sampled_n": 50,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 50,
+   "n_invalid": 0,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 1.0,
+   "validity_ci95": [
+    0.9286,
+    1
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R1",
+   "stratum": "post label normal",
+   "population_N": 200,
+   "sampled_n": 50,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 50,
+   "n_invalid": 0,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 1.0,
+   "validity_ci95": [
+    0.9286,
+    1
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R1",
+   "stratum": "all",
+   "population_N": 600,
+   "sampled_n": 150,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 150,
+   "n_invalid": 0,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 1.0,
+   "validity_ci95": [
+    0.975,
+    1
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R3",
+   "stratum": "post label hatespeech",
+   "population_N": 200,
+   "sampled_n": 50,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 50,
+   "n_invalid": 0,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 1.0,
+   "validity_ci95": [
+    0.9286,
+    1
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R3",
+   "stratum": "post label offensive",
+   "population_N": 200,
+   "sampled_n": 50,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 41,
+   "n_invalid": 9,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 0.82,
+   "validity_ci95": [
+    0.692,
+    0.9023
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R3",
+   "stratum": "post label normal",
+   "population_N": 200,
+   "sampled_n": 50,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 28,
+   "n_invalid": 22,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 0.56,
+   "validity_ci95": [
+    0.4231,
+    0.6884
+   ]
+  },
+  {
+   "row_type": "oracle_validity",
+   "mr": "R3",
+   "stratum": "all",
+   "population_N": 600,
+   "sampled_n": 150,
+   "design": "stratified random sample, 50 per post label (seed 42), round 3",
+   "n_valid": 119,
+   "n_invalid": 31,
+   "n_pending": 0,
+   "n_undecidable": 0,
+   "validity": 0.7933,
+   "validity_ci95": [
+    0.7216,
+    0.8504
+   ]
   }
  ],
  "pending_item_sensitivity": {

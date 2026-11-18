@@ -123,7 +123,7 @@ def load():
     for x in records: by[x["system"]][x["item_id"]] = x
     return items, run_items, orig, systems, records, by
 
-VALIDATION_SHEETS = [("human_validation_filled.xlsx", 1), ("human_validation_round2_filled.xlsx", 2)]
+VALIDATION_SHEETS = [("human_validation_filled.xlsx", 1), ("human_validation_round2_filled.xlsx", 2), ("human_validation_round3_filled.xlsx", 3)]
 
 def rater_documentation(path="dokumentasi_penilai.xlsx"):
     """Answers of the six-question rater-documentation form (dropdowns only); None if the file is missing or incomplete."""
@@ -411,14 +411,17 @@ def main():
             if k_ is not None: est.append(k_)
         est.sort(); return [round(est[int(.025 * len(est))], 3), round(est[int(.975 * len(est)) - 1], 3)] if est else [None, None]
     agree = {}
-    for m in ["ALL", *VALIDATED_MRS]:
-        rs = [r for r in vrows if (m == "ALL" or r["mr"] == m) and r["r1"] in (0, 1) and r["r2"] in (0, 1)]; pr = [(r["r1"], r["r2"]) for r in rs]
+    # "ALL" and the per-MR entries cover rounds 1-2 only; round 3 (R1, R3) is reported under R1, R3 and ROUND3, because pooling it
+    # would change the earlier agreement figures (kappa of rounds 1-2 is a different measurement from that of round 3).
+    inm = lambda r, m: (r["round"] == 3 and (m == "ROUND3" or r["mr"] == m)) if m in ("R1", "R3", "ROUND3") else (r["round"] < 3 and (m == "ALL" or r["mr"] == m))
+    for m in ["ALL", *VALIDATED_MRS, "R1", "R3", "ROUND3"]:
+        rs = [r for r in vrows if inm(r, m) and r["r1"] in (0, 1) and r["r2"] in (0, 1)]; pr = [(r["r1"], r["r2"]) for r in rs]
         agree[m] = {"n": len(rs), "pct_agree": rate(sum(a == b for a, b in pr), len(pr)), "cohen_kappa": round(kappa(pr), 3) if kappa(pr) is not None else None,
                     "kappa_ci95_post_bootstrap": kappa_ci(rs), "disagreements": sum(a != b for a, b in pr),
                     "adjudicated": sum(1 for r in rs if r["r1"] != r["r2"] and r["adj"] is not None),
                     "pending": sum(r["status"] == "pending" for r in rs),
-                    "any_rater_unsure": sum(1 for r in vrows if (m == "ALL" or r["mr"] == m) and 2 in (r["r1"], r["r2"])),
-                    "final_undecidable": sum(1 for r in vrows if (m == "ALL" or r["mr"] == m) and r["status"] == "undecidable")}
+                    "any_rater_unsure": sum(1 for r in vrows if inm(r, m) and 2 in (r["r1"], r["r2"])),
+                    "final_undecidable": sum(1 for r in vrows if inm(r, m) and r["status"] == "undecidable")}
     doc = rater_documentation()
     nd = lambda v: "not documented" if v is None or v.startswith("Tidak diketahui") else v
     stats["human_validation"] = {"raters": 2,
@@ -475,6 +478,17 @@ def main():
       ov.append({"row_type": "oracle_validity", "mr": "R2", "stratum": "all R2 (600)", "population_N": sum(Ns.values()), "sampled_n": ka + ba + nc,
                "design": "hatespeech and normal strata (400 items) never validated", "validity": "not identifiable",
                "note": "the unweighted 44.8% in validation.json mixes a census of ambiguous cases with a small control sample and does not describe R2"})
+
+    # round 3: oracle validity of R1 (policy deleted) and R3 (policy negated), by post label. A stratified sample of 50 per label
+    # (seed 42); equal strata (200 each), so the all-label estimate is the plain pooled rate. Ragu (undecidable) is reported separately.
+    for m in ("R1", "R3"):
+        for g in ("hatespeech", "offensive", "normal", "all"):
+            its = [it for it in per_mr[m] if g == "all" or it["label"] == g]; ids = [it["item_id"] for it in its if it["item_id"] in val]
+            if not ids: continue
+            k, bad, pend = vstat(ids)
+            ov.append({"row_type": "oracle_validity", "mr": m, "stratum": "all" if g == "all" else f"post label {g}", "population_N": len(its), "sampled_n": len(ids),
+                       "design": "stratified random sample, 50 per post label (seed 42), round 3", "n_valid": k, "n_invalid": bad, "n_pending": pend,
+                       "n_undecidable": n_und(ids), "validity": rate(k, k + bad), "validity_ci95": wilson(k, k + bad)})
 
     # model sensitivity: A original/all, B original/validated, C corrected/validated, D population estimate, E contamination bounds
     def sens_binary(s, m, its, q_ci):

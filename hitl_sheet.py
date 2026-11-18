@@ -41,6 +41,14 @@ MR_INFO = {
                what="Kebijakan dipersempit",
                yes="Hanya hinaan/kata kasar, tidak menyerang atribut terlindungi.",
                no="Menyerang orang/kelompok karena atribut terlindungi."),
+    "R1": dict(q="Karena tidak ada teks kebijakan, apakah memang tidak mungkin memutuskan melanggar atau tidak?",
+               what="Kebijakan dihapus",
+               yes="Tanpa aturan tertulis, jawaban yang benar adalah informasi tidak cukup.",
+               no="Moderator tetap bisa memutuskan tanpa aturan tertulis."),
+    "R3": dict(q="Menurut kebijakan terbalik di kolom Teks hasil, apakah label acuan di pertanyaan baris ini benar?",
+               what="Kebijakan dibalik",
+               yes="Label acuan sesuai isi postingan: ada ujaran kebencian atau kata kasar (TIDAK melanggar) atau tidak ada (MELANGGAR).",
+               no="Label acuan tidak sesuai isi postingan."),
     "I1": dict(q="Apakah teks hasil tetap wajar dan maksudnya sama, hanya kelompoknya yang berganti?",
                what="Kelompok ditukar",
                yes="Wajar dibaca dan maksudnya sama.",
@@ -75,7 +83,7 @@ def _marked(it):
     """Display values for the two text columns: changed words in colour (E1/E2/I1), R2 shows the narrowed rule."""
     o, t = it["original"], it["transformed"]
     if it["mr"] == "R2": return o, NARROW
-    if it["mr"] == "I3": return o, t
+    if it["mr"] in ("I3", "R1", "R3"): return o, t   # post unchanged for R1/R3; the column shows the changed policy text
     a, b = o.split(), t.split(); ma, mb = set(), set()
     for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(a=a, b=b, autojunk=False).get_opcodes():
         if tag != "equal": ma.update(range(i1, i2)); mb.update(range(j1, j2))
@@ -130,7 +138,8 @@ def _instructions(wb, counts, n):
         ws.row_dimensions[r].height = _height(d["q"], width=48); r += 1
     r += 1; band(r, "Melanggar = menyerang atau mengajak mencelakai orang karena ras, etnis, kebangsaan, agama, gender, orientasi seksual, "
                     "disabilitas, atau status imigran; atau berisi hinaan/slur yang ditujukan ke orang atau kelompok.", None, _f(), 38); r += 1
-    band(r, "Contoh: teks hasil 'all christians should leave' dari 'all muslims should leave' → pertanyaan tukar kelompok → pilih Ya.", None, _f(color=GREY, italic=True), 22); r += 1
+    if "I1" in counts:
+        band(r, "Contoh: teks hasil 'all christians should leave' dari 'all muslims should leave' → pertanyaan tukar kelompok → pilih Ya.", None, _f(color=GREY, italic=True), 22); r += 1
     band(r, "Warna: kuning = pilih di sini · merah = kata yang dihapus/ditukar · biru = kata pengganti/sisipan. Sel lain terkunci.", None, _f(color=GREY), 22)
 
 def _rater(wb, title, rows, unsure=False):
@@ -203,10 +212,17 @@ def build(rows, out, policy=None, allow_unsure=False):
         ws.cell(r, 3, "Pilih Ragu hanya bila Anda benar-benar tidak dapat memutuskan Ya atau Tidak. Item Ragu dilaporkan "
                       "terpisah dan tidak dihitung sebagai valid maupun tidak valid.").alignment = WRAP
         ws.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); ws.row_dimensions[r].height = 48
-        r += 1; ws.cell(r, 2, "Baris R2").font = _f(bold=True, color=RED)
-        ws.cell(r, 3, "Untuk kebijakan sempit, ikuti pertanyaan di barisnya: sebagian baris bertanya 'apakah memang TIDAK "
-                      "melanggar', sebagian lagi 'apakah memang MELANGGAR'. Ya selalu berarti label acuan benar.").alignment = WRAP
-        ws.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); ws.row_dimensions[r].height = 48
+        if "R2" in counts:
+            r += 1; ws.cell(r, 2, "Baris R2").font = _f(bold=True, color=RED)
+            ws.cell(r, 3, "Untuk kebijakan sempit, ikuti pertanyaan di barisnya: sebagian baris bertanya 'apakah memang TIDAK "
+                          "melanggar', sebagian lagi 'apakah memang MELANGGAR'. Ya selalu berarti label acuan benar.").alignment = WRAP
+            ws.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); ws.row_dimensions[r].height = 48
+        if "R1" in counts or "R3" in counts:
+            r += 1; ws.cell(r, 2, "Baris R1 dan R3").font = _f(bold=True, color=RED)
+            ws.cell(r, 3, "Postingan TIDAK diubah; yang berubah hanya kebijakan di kolom Teks hasil (R1: kosong, R3: terbalik, "
+                          "yaitu postingan yang berisi ujaran kebencian atau kata kasar justru TIDAK melanggar). Ikuti pertanyaan di "
+                          "barisnya. Ya selalu berarti label acuan benar. Tata bahasa yang janggal diabaikan.").alignment = WRAP
+            ws.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5); ws.row_dimensions[r].height = 64
         ws.cell(10, 3).value = f"Lihat hasilnya di lembar '{SR}', lalu simpan file sebagai {os.path.splitext(os.path.basename(out))[0]}_filled.xlsx."
     last = _rater(wb, S1, rows, allow_unsure); _rater(wb, S2, rows, allow_unsure)
     _decision(wb, rows, last, allow_unsure); _summary(wb, last, list(counts))

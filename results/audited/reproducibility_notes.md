@@ -186,3 +186,4 @@ Files in `results/e1_counterfactual/`:
 | `analysis.json`, `summary.csv`, `RESULTS.md` | `analyze_e1_counterfactual.py` output |
 
 Re-run the analysis: `~/.venvs/modkit/bin/python analyze_e1_counterfactual.py`. One server restart occurred during the last run (documented in `PROTOCOL.md §8`).
+- Round 3 (`human_validation_round3_filled.xlsx`): oracle validity of R1 (policy deleted) and R3 (policy negated), 50 items per post label, seed 42 (`run_llm.py export3`). R1 150/150 valid; R3 119/150 (0.793), R3 normal 28/50 (0.560). Raters agreed on 298/298 Ya/Tidak rows; 2 rows were Ragu (rater 2) and were adjudicated Ya. Agreement is reported under `agreement.R1/R3/ROUND3` and is not pooled into `ALL`.

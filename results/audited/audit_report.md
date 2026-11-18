@@ -261,6 +261,13 @@ Keluarga F_I terdiri dari 8 uji (satu per sistem), dengan McNemar eksak berpasan
 | R2 offensive kontrol | 141 | 28 | acak 20% | 0,714 [0,529; 0,848] |
 | R2 offensive (tertimbang) | 200 | 87 | bobot N_h/N, dengan FPC | 0,599 [0,493; 0,704] |
 | R2 hatespeech / normal | 200 / 200 | 0 | tidak divalidasi | **tidak teridentifikasi** |
+| R1 (kebijakan dihapus), semua | 600 | 150 | stratified 50 per label (ronde 3) | 1,000 [0,975; 1,0] (150/150; tiap label 50/50) |
+| R3 (kebijakan dibalik) hatespeech | 200 | 50 | stratified (ronde 3) | 1,000 [0,929; 1,0] |
+| R3 offensive | 200 | 50 | stratified (ronde 3) | 0,820 [0,692; 0,902] |
+| R3 normal | 200 | 50 | stratified (ronde 3) | **0,560 [0,423; 0,688]** (22 dari 50 tidak valid) |
+| R3, semua | 600 | 150 | stratified, strata sama besar | 0,793 [0,722; 0,850] (119/150) |
+
+Ronde 3 (R1 dan R3, 300 baris): 298 baris dijawab Ya atau Tidak oleh kedua penilai, kesepakatan 100% (κ R3 = 1,0; κ R1 tidak terdefinisi karena semua Ya), dan 2 baris dijawab Ragu oleh Penilai 2 (diputuskan Ya oleh pemutus). Kesepakatan ini jauh di atas ronde 1 (92,2%, κ = 0,823) dan dilaporkan terpisah dari gabungan ronde 1 dan 2. Independensi Penilai 2 adalah laporan tim studi dan tidak dapat diverifikasi dari file. Oracle R3 untuk postingan normal lemah (56%), jadi hasil R3 sebaiknya hanya dianalisis pada item yang valid menurut manusia.
 
 Angka 44,8% di `validation.json` adalah rata-rata tanpa bobot dari sensus kasus ambigu dan sampel kontrol yang kecil. Angka itu tidak menggambarkan R2 secara keseluruhan dan tidak boleh dilaporkan sebagai validitas R2.
 
