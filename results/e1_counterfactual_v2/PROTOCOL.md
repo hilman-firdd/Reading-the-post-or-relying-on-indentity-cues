@@ -45,6 +45,13 @@ Taken as the recommendations written in this draft; the authors can still overru
 - Human-validated pairs per rater: REPLAY vs NEU, PLC, DEL, PLCDEL for 88 posts plus SWAP for 80 posts = 432 pairs (instead of 440).
 - Run size: (88 + 88 + 88 + 80) x 6 conditions x 3 repetitions = 6,192 calls, plus SWAP2 47 x 6 = 282 calls.
 
+## 0b. Reduction of the human validation (recorded 2026-11-18, before any rater sheet is built; supersedes section 3 where they differ)
+
+- **R1 (pairs):** raters judge only the pairs that the hypotheses use: REPLAY vs **NEU, SWAP, PLC** (88 + 80 + 88 = 256 pairs per rater). DEL and PLCDEL pairs are not judged because no H1, H2 or H3 test uses them. In addition each post has one **base row** for its unchanged REPLAY text (Q5 only), needed for the SWAP-valid rule "Q5 equals Q5 for REPLAY" (88 rows). Per rater: 344 rows.
+- **R2 (naturalness):** the 3 SWAP items with a/an or adjective-as-noun issues (posts 19f1514e542a, 223a9b7695e8, f6cccdc59369) are left unchanged; Q6 decides.
+- **R3 (blinding):** raters see "original text" and "changed text" only, never condition names; Q4 is asked on every pair row with the extra answer "not relevant" (so the row type is not revealed); Q7 reads "is the difference only a replacement of words (no other change in order, added words or punctuation)?". Row order is randomised per rater with a secret seed kept outside the repository; the key (row to post and condition) is kept in a git-ignored private folder and is not shown to raters.
+- The 10-pair calibration set (section 3) is not part of this build.
+
 ## 1. Question
 
 The v1 result (decision SUPPORT) shows that replacing residual identity terms with *people/person* (NEU) lowers the flag rate more than a placebo (PLC). Two readings remain:

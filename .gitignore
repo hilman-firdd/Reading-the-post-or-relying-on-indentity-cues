@@ -31,3 +31,7 @@ results/human_eval_e1cf/**/materials_verification*.json
 .env.*
 *.pem
 *.key
+
+# E1-CF v2 human validation: key and rater workbooks stay out of the repository
+results/e1_counterfactual_v2/private/
+results/e1_counterfactual_v2/materials/
