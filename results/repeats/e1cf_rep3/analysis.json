@@ -627,7 +627,7 @@
    },
    "S3_stability_REPLAY_vs_main_run": {
     "pairs_answered": 16,
-    "flag_agreement": 1.0
+    "flag_agreement": 0.9375
    },
    "S4_H1_excluding_human_invalid": {
     "n_pairs": 12,

@@ -47,6 +47,17 @@ for r in 2 3; do mkdir -p "runs_repeat/rep$r/e1cf" "runs_repeat/rep$r/main"
   "$P" env_manifest.py --out "runs_repeat/rep$r/manifest_queue_$(date +%Y%m%d_%H%M%S).json" --note "repetition $r (queue)"; done
 "$P" env_manifest.py --out "runs_ablation/manifest_queue_$(date +%Y%m%d_%H%M%S).json" --note "prompt ablation (queue)"
 
+# ---- ./run_queue.sh main : main-run repetitions (4,233 items), one repetition at a time, one model at a time.
+# Same items, prompts and uniform setting as run_repeats.sh main; resumable; same battery guard and timing log.
+if [ "${1:-}" = main ]; then
+  REPS_=(${REPS:-2 3}); MODELS_=(${MODELS:-qwen2.5:7b llama3.1:8b gemma2:9b}); PROMPTS_=(${PROMPTS:-direct evidence})
+  log "MAIN REPEATS START reps=${REPS_[*]} models=${MODELS_[*]} prompts=${PROMPTS_[*]}"
+  for r in "${REPS_[@]}"; do for m in "${MODELS_[@]}"; do for p in "${PROMPTS_[@]}"; do
+    cond $MAIN "$m" "$p" "runs_repeat/rep$r/main/${m//:/_}_$p.jsonl"
+  done; done; done
+  log "QUEUE DONE (main repeats)"; exit 0
+fi
+
 log "QUEUE START (one model at a time)"
 # ---- Qwen2.5 ----
 cond $MAIN qwen2.5:7b abl_quote_first runs_ablation/qwen2.5_7b_abl_quote_first.jsonl

@@ -6,6 +6,12 @@ Repetition 1 = original runs (Qwen2.5 direct: first 822 items from the uniform r
 
 | Condition | Reps | Identical in all | Agreement with rep 1 | Fleiss κ | Coverage mean [min–max] | ORIG acc. mean [min–max] | E1 OR [min–max] |
 |---|---|---|---|---|---|---|---|
+| qwen2.5_7b_direct | 1,2,3 | 99.9% | rep2: 99.9%, rep3: 99.9% | 0.9982 | 94.5 [94.5–94.5] | 71.2 [71.2–71.2] | 3.09 [3.09–3.09] |
+| qwen2.5_7b_evidence | 1,2,3 | 99.7% | rep2: 99.8%, rep3: 99.9% | 0.9964 | 91.5 [91.5–91.6] | 73.3 [73.3–73.3] | 5.17 [5.17–5.17] |
+| llama3.1_8b_direct | 1,2,3 | 99.7% | rep2: 99.8%, rep3: 99.9% | 0.9971 | 43.4 [43.4–43.5] | 26.1 [26.0–26.2] | 4.90 [4.90–4.90] |
+| llama3.1_8b_evidence | 1,2,3 | 99.8% | rep2: 99.8%, rep3: 99.9% | 0.9956 | 18.0 [18.0–18.1] | 7.9 [7.8–8.0] | 3.34 [2.84–3.65] |
+| gemma2_9b_direct | 1,2,3 | 100.0% | rep2: 100.0%, rep3: 100.0% | 1.0 | 91.9 [91.9–91.9] | 73.8 [73.8–73.8] | 8.79 [8.79–8.79] |
+| gemma2_9b_evidence | 1,2,3 | 100.0% | rep2: 100.0%, rep3: 100.0% | 1.0 | 84.1 [84.1–84.1] | 69.2 [69.2–69.2] | 4.69 [4.69–4.69] |
 
 ## E1-CF per repetition
 

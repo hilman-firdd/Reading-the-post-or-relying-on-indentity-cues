@@ -1,5 +1,1050 @@
 {
- "main": {},
+ "main": {
+  "qwen2.5_7b_direct": {
+   "repetitions": [
+    1,
+    2,
+    3
+   ],
+   "identical_in_all": 0.9986,
+   "agreement_with_rep1": {
+    "2": 0.9993,
+    "3": 0.9988
+   },
+   "fleiss_kappa": 0.9982,
+   "per_rep": {
+    "1": {
+     "coverage_valid": 0.9452,
+     "abstention": 0.0543,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7117,
+     "flag_rate_by_mr": {
+      "ORIG": 0.6867,
+      "E1": 0.2922,
+      "E2": 0.915,
+      "R1": 0.325,
+      "R2": 0.4817,
+      "R3": 0.7817,
+      "I1": 0.6791,
+      "I2": 0.68,
+      "I3": 0.6653
+     },
+     "E1_OR": 3.09
+    },
+    "2": {
+     "coverage_valid": 0.945,
+     "abstention": 0.0546,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7117,
+     "flag_rate_by_mr": {
+      "ORIG": 0.6867,
+      "E1": 0.2922,
+      "E2": 0.915,
+      "R1": 0.325,
+      "R2": 0.485,
+      "R3": 0.7817,
+      "I1": 0.6791,
+      "I2": 0.68,
+      "I3": 0.6653
+     },
+     "E1_OR": 3.09
+    },
+    "3": {
+     "coverage_valid": 0.9454,
+     "abstention": 0.0541,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7117,
+     "flag_rate_by_mr": {
+      "ORIG": 0.6867,
+      "E1": 0.2922,
+      "E2": 0.915,
+      "R1": 0.3233,
+      "R2": 0.485,
+      "R3": 0.7833,
+      "I1": 0.6791,
+      "I2": 0.68,
+      "I3": 0.6653
+     },
+     "E1_OR": 3.09
+    }
+   },
+   "spread": {
+    "coverage_valid": {
+     "mean": 0.9452,
+     "sd": 0.0002,
+     "min": 0.945,
+     "max": 0.9454,
+     "n_reps": 3
+    },
+    "abstention": {
+     "mean": 0.0543,
+     "sd": 0.0003,
+     "min": 0.0541,
+     "max": 0.0546,
+     "n_reps": 3
+    },
+    "refusal": {
+     "mean": 0.0,
+     "sd": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n_reps": 3
+    },
+    "ORIG_overall_accuracy": {
+     "mean": 0.7117,
+     "sd": 0.0,
+     "min": 0.7117,
+     "max": 0.7117,
+     "n_reps": 3
+    },
+    "E1_OR": {
+     "mean": 3.09,
+     "sd": 0.0,
+     "min": 3.09,
+     "max": 3.09,
+     "n_reps": 3
+    },
+    "flag_rate_by_mr": {
+     "ORIG": {
+      "mean": 0.6867,
+      "sd": 0.0,
+      "min": 0.6867,
+      "max": 0.6867,
+      "n_reps": 3
+     },
+     "E1": {
+      "mean": 0.2922,
+      "sd": 0.0,
+      "min": 0.2922,
+      "max": 0.2922,
+      "n_reps": 3
+     },
+     "E2": {
+      "mean": 0.915,
+      "sd": 0.0,
+      "min": 0.915,
+      "max": 0.915,
+      "n_reps": 3
+     },
+     "R1": {
+      "mean": 0.3244,
+      "sd": 0.001,
+      "min": 0.3233,
+      "max": 0.325,
+      "n_reps": 3
+     },
+     "R2": {
+      "mean": 0.4839,
+      "sd": 0.0019,
+      "min": 0.4817,
+      "max": 0.485,
+      "n_reps": 3
+     },
+     "R3": {
+      "mean": 0.7822,
+      "sd": 0.0009,
+      "min": 0.7817,
+      "max": 0.7833,
+      "n_reps": 3
+     },
+     "I1": {
+      "mean": 0.6791,
+      "sd": 0.0,
+      "min": 0.6791,
+      "max": 0.6791,
+      "n_reps": 3
+     },
+     "I2": {
+      "mean": 0.68,
+      "sd": 0.0,
+      "min": 0.68,
+      "max": 0.68,
+      "n_reps": 3
+     },
+     "I3": {
+      "mean": 0.6653,
+      "sd": 0.0,
+      "min": 0.6653,
+      "max": 0.6653,
+      "n_reps": 3
+     }
+    }
+   }
+  },
+  "qwen2.5_7b_evidence": {
+   "repetitions": [
+    1,
+    2,
+    3
+   ],
+   "identical_in_all": 0.9972,
+   "agreement_with_rep1": {
+    "2": 0.9976,
+    "3": 0.9986
+   },
+   "fleiss_kappa": 0.9964,
+   "per_rep": {
+    "1": {
+     "coverage_valid": 0.9152,
+     "abstention": 0.081,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7333,
+     "flag_rate_by_mr": {
+      "ORIG": 0.7183,
+      "E1": 0.2997,
+      "E2": 0.95,
+      "R1": 0.4133,
+      "R2": 0.55,
+      "R3": 0.7767,
+      "I1": 0.6642,
+      "I2": 0.74,
+      "I3": 0.6355
+     },
+     "E1_OR": 5.17
+    },
+    "2": {
+     "coverage_valid": 0.9147,
+     "abstention": 0.0813,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7333,
+     "flag_rate_by_mr": {
+      "ORIG": 0.7183,
+      "E1": 0.2997,
+      "E2": 0.95,
+      "R1": 0.415,
+      "R2": 0.55,
+      "R3": 0.7767,
+      "I1": 0.6642,
+      "I2": 0.74,
+      "I3": 0.6355
+     },
+     "E1_OR": 5.17
+    },
+    "3": {
+     "coverage_valid": 0.9157,
+     "abstention": 0.0806,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7333,
+     "flag_rate_by_mr": {
+      "ORIG": 0.7183,
+      "E1": 0.2997,
+      "E2": 0.95,
+      "R1": 0.415,
+      "R2": 0.55,
+      "R3": 0.7767,
+      "I1": 0.6642,
+      "I2": 0.74,
+      "I3": 0.6335
+     },
+     "E1_OR": 5.17
+    }
+   },
+   "spread": {
+    "coverage_valid": {
+     "mean": 0.9152,
+     "sd": 0.0005,
+     "min": 0.9147,
+     "max": 0.9157,
+     "n_reps": 3
+    },
+    "abstention": {
+     "mean": 0.081,
+     "sd": 0.0004,
+     "min": 0.0806,
+     "max": 0.0813,
+     "n_reps": 3
+    },
+    "refusal": {
+     "mean": 0.0,
+     "sd": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n_reps": 3
+    },
+    "ORIG_overall_accuracy": {
+     "mean": 0.7333,
+     "sd": 0.0,
+     "min": 0.7333,
+     "max": 0.7333,
+     "n_reps": 3
+    },
+    "E1_OR": {
+     "mean": 5.17,
+     "sd": 0.0,
+     "min": 5.17,
+     "max": 5.17,
+     "n_reps": 3
+    },
+    "flag_rate_by_mr": {
+     "ORIG": {
+      "mean": 0.7183,
+      "sd": 0.0,
+      "min": 0.7183,
+      "max": 0.7183,
+      "n_reps": 3
+     },
+     "E1": {
+      "mean": 0.2997,
+      "sd": 0.0,
+      "min": 0.2997,
+      "max": 0.2997,
+      "n_reps": 3
+     },
+     "E2": {
+      "mean": 0.95,
+      "sd": 0.0,
+      "min": 0.95,
+      "max": 0.95,
+      "n_reps": 3
+     },
+     "R1": {
+      "mean": 0.4144,
+      "sd": 0.001,
+      "min": 0.4133,
+      "max": 0.415,
+      "n_reps": 3
+     },
+     "R2": {
+      "mean": 0.55,
+      "sd": 0.0,
+      "min": 0.55,
+      "max": 0.55,
+      "n_reps": 3
+     },
+     "R3": {
+      "mean": 0.7767,
+      "sd": 0.0,
+      "min": 0.7767,
+      "max": 0.7767,
+      "n_reps": 3
+     },
+     "I1": {
+      "mean": 0.6642,
+      "sd": 0.0,
+      "min": 0.6642,
+      "max": 0.6642,
+      "n_reps": 3
+     },
+     "I2": {
+      "mean": 0.74,
+      "sd": 0.0,
+      "min": 0.74,
+      "max": 0.74,
+      "n_reps": 3
+     },
+     "I3": {
+      "mean": 0.6348,
+      "sd": 0.0012,
+      "min": 0.6335,
+      "max": 0.6355,
+      "n_reps": 3
+     }
+    }
+   }
+  },
+  "llama3.1_8b_direct": {
+   "repetitions": [
+    1,
+    2,
+    3
+   ],
+   "identical_in_all": 0.9974,
+   "agreement_with_rep1": {
+    "2": 0.9983,
+    "3": 0.9986
+   },
+   "fleiss_kappa": 0.9971,
+   "per_rep": {
+    "1": {
+     "coverage_valid": 0.4337,
+     "abstention": 0.004,
+     "refusal": 0.5622,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.2617,
+     "flag_rate_by_mr": {
+      "ORIG": 0.2683,
+      "E1": 0.3249,
+      "E2": 0.095,
+      "R1": 0.24,
+      "R2": 0.1267,
+      "R3": 0.1617,
+      "I1": 0.291,
+      "I2": 0.2933,
+      "I3": 0.4402
+     },
+     "E1_OR": 4.9
+    },
+    "2": {
+     "coverage_valid": 0.434,
+     "abstention": 0.004,
+     "refusal": 0.562,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.26,
+     "flag_rate_by_mr": {
+      "ORIG": 0.2667,
+      "E1": 0.3249,
+      "E2": 0.095,
+      "R1": 0.2433,
+      "R2": 0.125,
+      "R3": 0.16,
+      "I1": 0.291,
+      "I2": 0.2967,
+      "I3": 0.4402
+     },
+     "E1_OR": 4.9
+    },
+    "3": {
+     "coverage_valid": 0.4347,
+     "abstention": 0.004,
+     "refusal": 0.5613,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.2617,
+     "flag_rate_by_mr": {
+      "ORIG": 0.2683,
+      "E1": 0.3249,
+      "E2": 0.095,
+      "R1": 0.2417,
+      "R2": 0.1267,
+      "R3": 0.1617,
+      "I1": 0.291,
+      "I2": 0.3,
+      "I3": 0.4382
+     },
+     "E1_OR": 4.9
+    }
+   },
+   "spread": {
+    "coverage_valid": {
+     "mean": 0.4341,
+     "sd": 0.0005,
+     "min": 0.4337,
+     "max": 0.4347,
+     "n_reps": 3
+    },
+    "abstention": {
+     "mean": 0.004,
+     "sd": 0.0,
+     "min": 0.004,
+     "max": 0.004,
+     "n_reps": 3
+    },
+    "refusal": {
+     "mean": 0.5618,
+     "sd": 0.0005,
+     "min": 0.5613,
+     "max": 0.5622,
+     "n_reps": 3
+    },
+    "ORIG_overall_accuracy": {
+     "mean": 0.2611,
+     "sd": 0.001,
+     "min": 0.26,
+     "max": 0.2617,
+     "n_reps": 3
+    },
+    "E1_OR": {
+     "mean": 4.9,
+     "sd": 0.0,
+     "min": 4.9,
+     "max": 4.9,
+     "n_reps": 3
+    },
+    "flag_rate_by_mr": {
+     "ORIG": {
+      "mean": 0.2678,
+      "sd": 0.0009,
+      "min": 0.2667,
+      "max": 0.2683,
+      "n_reps": 3
+     },
+     "E1": {
+      "mean": 0.3249,
+      "sd": 0.0,
+      "min": 0.3249,
+      "max": 0.3249,
+      "n_reps": 3
+     },
+     "E2": {
+      "mean": 0.095,
+      "sd": 0.0,
+      "min": 0.095,
+      "max": 0.095,
+      "n_reps": 3
+     },
+     "R1": {
+      "mean": 0.2417,
+      "sd": 0.0017,
+      "min": 0.24,
+      "max": 0.2433,
+      "n_reps": 3
+     },
+     "R2": {
+      "mean": 0.1261,
+      "sd": 0.001,
+      "min": 0.125,
+      "max": 0.1267,
+      "n_reps": 3
+     },
+     "R3": {
+      "mean": 0.1611,
+      "sd": 0.001,
+      "min": 0.16,
+      "max": 0.1617,
+      "n_reps": 3
+     },
+     "I1": {
+      "mean": 0.291,
+      "sd": 0.0,
+      "min": 0.291,
+      "max": 0.291,
+      "n_reps": 3
+     },
+     "I2": {
+      "mean": 0.2967,
+      "sd": 0.0034,
+      "min": 0.2933,
+      "max": 0.3,
+      "n_reps": 3
+     },
+     "I3": {
+      "mean": 0.4395,
+      "sd": 0.0012,
+      "min": 0.4382,
+      "max": 0.4402,
+      "n_reps": 3
+     }
+    }
+   }
+  },
+  "llama3.1_8b_evidence": {
+   "repetitions": [
+    1,
+    2,
+    3
+   ],
+   "identical_in_all": 0.9979,
+   "agreement_with_rep1": {
+    "2": 0.9983,
+    "3": 0.9988
+   },
+   "fleiss_kappa": 0.9956,
+   "per_rep": {
+    "1": {
+     "coverage_valid": 0.1807,
+     "abstention": 0.0076,
+     "refusal": 0.8117,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.08,
+     "flag_rate_by_mr": {
+      "ORIG": 0.0567,
+      "E1": 0.1083,
+      "E2": 0.01,
+      "R1": 0.0383,
+      "R2": 0.0717,
+      "R3": 0.0267,
+      "I1": 0.0821,
+      "I2": 0.0917,
+      "I3": 0.1932
+     },
+     "E1_OR": 3.54
+    },
+    "2": {
+     "coverage_valid": 0.18,
+     "abstention": 0.0076,
+     "refusal": 0.8124,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.0783,
+     "flag_rate_by_mr": {
+      "ORIG": 0.055,
+      "E1": 0.1058,
+      "E2": 0.01,
+      "R1": 0.0383,
+      "R2": 0.07,
+      "R3": 0.0267,
+      "I1": 0.0821,
+      "I2": 0.0917,
+      "I3": 0.1892
+     },
+     "E1_OR": 3.65
+    },
+    "3": {
+     "coverage_valid": 0.1803,
+     "abstention": 0.0073,
+     "refusal": 0.8124,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.0783,
+     "flag_rate_by_mr": {
+      "ORIG": 0.055,
+      "E1": 0.1033,
+      "E2": 0.01,
+      "R1": 0.0383,
+      "R2": 0.07,
+      "R3": 0.0267,
+      "I1": 0.0821,
+      "I2": 0.0917,
+      "I3": 0.1932
+     },
+     "E1_OR": 2.84
+    }
+   },
+   "spread": {
+    "coverage_valid": {
+     "mean": 0.1803,
+     "sd": 0.0004,
+     "min": 0.18,
+     "max": 0.1807,
+     "n_reps": 3
+    },
+    "abstention": {
+     "mean": 0.0075,
+     "sd": 0.0002,
+     "min": 0.0073,
+     "max": 0.0076,
+     "n_reps": 3
+    },
+    "refusal": {
+     "mean": 0.8122,
+     "sd": 0.0004,
+     "min": 0.8117,
+     "max": 0.8124,
+     "n_reps": 3
+    },
+    "ORIG_overall_accuracy": {
+     "mean": 0.0789,
+     "sd": 0.001,
+     "min": 0.0783,
+     "max": 0.08,
+     "n_reps": 3
+    },
+    "E1_OR": {
+     "mean": 3.3433,
+     "sd": 0.4394,
+     "min": 2.84,
+     "max": 3.65,
+     "n_reps": 3
+    },
+    "flag_rate_by_mr": {
+     "ORIG": {
+      "mean": 0.0556,
+      "sd": 0.001,
+      "min": 0.055,
+      "max": 0.0567,
+      "n_reps": 3
+     },
+     "E1": {
+      "mean": 0.1058,
+      "sd": 0.0025,
+      "min": 0.1033,
+      "max": 0.1083,
+      "n_reps": 3
+     },
+     "E2": {
+      "mean": 0.01,
+      "sd": 0.0,
+      "min": 0.01,
+      "max": 0.01,
+      "n_reps": 3
+     },
+     "R1": {
+      "mean": 0.0383,
+      "sd": 0.0,
+      "min": 0.0383,
+      "max": 0.0383,
+      "n_reps": 3
+     },
+     "R2": {
+      "mean": 0.0706,
+      "sd": 0.001,
+      "min": 0.07,
+      "max": 0.0717,
+      "n_reps": 3
+     },
+     "R3": {
+      "mean": 0.0267,
+      "sd": 0.0,
+      "min": 0.0267,
+      "max": 0.0267,
+      "n_reps": 3
+     },
+     "I1": {
+      "mean": 0.0821,
+      "sd": 0.0,
+      "min": 0.0821,
+      "max": 0.0821,
+      "n_reps": 3
+     },
+     "I2": {
+      "mean": 0.0917,
+      "sd": 0.0,
+      "min": 0.0917,
+      "max": 0.0917,
+      "n_reps": 3
+     },
+     "I3": {
+      "mean": 0.1919,
+      "sd": 0.0023,
+      "min": 0.1892,
+      "max": 0.1932,
+      "n_reps": 3
+     }
+    }
+   }
+  },
+  "gemma2_9b_direct": {
+   "repetitions": [
+    1,
+    2,
+    3
+   ],
+   "identical_in_all": 1.0,
+   "agreement_with_rep1": {
+    "2": 1.0,
+    "3": 1.0
+   },
+   "fleiss_kappa": 1.0,
+   "per_rep": {
+    "1": {
+     "coverage_valid": 0.9192,
+     "abstention": 0.0803,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7383,
+     "flag_rate_by_mr": {
+      "ORIG": 0.8667,
+      "E1": 0.4786,
+      "E2": 1.0,
+      "R1": 0.7783,
+      "R2": 0.7817,
+      "R3": 0.8817,
+      "I1": 0.8134,
+      "I2": 0.8517,
+      "I3": 0.7789
+     },
+     "E1_OR": 8.79
+    },
+    "2": {
+     "coverage_valid": 0.9192,
+     "abstention": 0.0803,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7383,
+     "flag_rate_by_mr": {
+      "ORIG": 0.8667,
+      "E1": 0.4786,
+      "E2": 1.0,
+      "R1": 0.7783,
+      "R2": 0.7817,
+      "R3": 0.8817,
+      "I1": 0.8134,
+      "I2": 0.8517,
+      "I3": 0.7789
+     },
+     "E1_OR": 8.79
+    },
+    "3": {
+     "coverage_valid": 0.9192,
+     "abstention": 0.0803,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.7383,
+     "flag_rate_by_mr": {
+      "ORIG": 0.8667,
+      "E1": 0.4786,
+      "E2": 1.0,
+      "R1": 0.7783,
+      "R2": 0.7817,
+      "R3": 0.8817,
+      "I1": 0.8134,
+      "I2": 0.8517,
+      "I3": 0.7789
+     },
+     "E1_OR": 8.79
+    }
+   },
+   "spread": {
+    "coverage_valid": {
+     "mean": 0.9192,
+     "sd": 0.0,
+     "min": 0.9192,
+     "max": 0.9192,
+     "n_reps": 3
+    },
+    "abstention": {
+     "mean": 0.0803,
+     "sd": 0.0,
+     "min": 0.0803,
+     "max": 0.0803,
+     "n_reps": 3
+    },
+    "refusal": {
+     "mean": 0.0,
+     "sd": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n_reps": 3
+    },
+    "ORIG_overall_accuracy": {
+     "mean": 0.7383,
+     "sd": 0.0,
+     "min": 0.7383,
+     "max": 0.7383,
+     "n_reps": 3
+    },
+    "E1_OR": {
+     "mean": 8.79,
+     "sd": 0.0,
+     "min": 8.79,
+     "max": 8.79,
+     "n_reps": 3
+    },
+    "flag_rate_by_mr": {
+     "ORIG": {
+      "mean": 0.8667,
+      "sd": 0.0,
+      "min": 0.8667,
+      "max": 0.8667,
+      "n_reps": 3
+     },
+     "E1": {
+      "mean": 0.4786,
+      "sd": 0.0,
+      "min": 0.4786,
+      "max": 0.4786,
+      "n_reps": 3
+     },
+     "E2": {
+      "mean": 1.0,
+      "sd": 0.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n_reps": 3
+     },
+     "R1": {
+      "mean": 0.7783,
+      "sd": 0.0,
+      "min": 0.7783,
+      "max": 0.7783,
+      "n_reps": 3
+     },
+     "R2": {
+      "mean": 0.7817,
+      "sd": 0.0,
+      "min": 0.7817,
+      "max": 0.7817,
+      "n_reps": 3
+     },
+     "R3": {
+      "mean": 0.8817,
+      "sd": 0.0,
+      "min": 0.8817,
+      "max": 0.8817,
+      "n_reps": 3
+     },
+     "I1": {
+      "mean": 0.8134,
+      "sd": 0.0,
+      "min": 0.8134,
+      "max": 0.8134,
+      "n_reps": 3
+     },
+     "I2": {
+      "mean": 0.8517,
+      "sd": 0.0,
+      "min": 0.8517,
+      "max": 0.8517,
+      "n_reps": 3
+     },
+     "I3": {
+      "mean": 0.7789,
+      "sd": 0.0,
+      "min": 0.7789,
+      "max": 0.7789,
+      "n_reps": 3
+     }
+    }
+   }
+  },
+  "gemma2_9b_evidence": {
+   "repetitions": [
+    1,
+    2,
+    3
+   ],
+   "identical_in_all": 1.0,
+   "agreement_with_rep1": {
+    "2": 1.0,
+    "3": 1.0
+   },
+   "fleiss_kappa": 1.0,
+   "per_rep": {
+    "1": {
+     "coverage_valid": 0.841,
+     "abstention": 0.159,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.6917,
+     "flag_rate_by_mr": {
+      "ORIG": 0.8917,
+      "E1": 0.4433,
+      "E2": 1.0,
+      "R1": 0.655,
+      "R2": 0.8117,
+      "R3": 0.8783,
+      "I1": 0.8209,
+      "I2": 0.8917,
+      "I3": 0.8068
+     },
+     "E1_OR": 4.69
+    },
+    "2": {
+     "coverage_valid": 0.841,
+     "abstention": 0.159,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.6917,
+     "flag_rate_by_mr": {
+      "ORIG": 0.8917,
+      "E1": 0.4433,
+      "E2": 1.0,
+      "R1": 0.655,
+      "R2": 0.8117,
+      "R3": 0.8783,
+      "I1": 0.8209,
+      "I2": 0.8917,
+      "I3": 0.8068
+     },
+     "E1_OR": 4.69
+    },
+    "3": {
+     "coverage_valid": 0.841,
+     "abstention": 0.159,
+     "refusal": 0.0,
+     "generation_errors": 0,
+     "ORIG_overall_accuracy": 0.6917,
+     "flag_rate_by_mr": {
+      "ORIG": 0.8917,
+      "E1": 0.4433,
+      "E2": 1.0,
+      "R1": 0.655,
+      "R2": 0.8117,
+      "R3": 0.8783,
+      "I1": 0.8209,
+      "I2": 0.8917,
+      "I3": 0.8068
+     },
+     "E1_OR": 4.69
+    }
+   },
+   "spread": {
+    "coverage_valid": {
+     "mean": 0.841,
+     "sd": 0.0,
+     "min": 0.841,
+     "max": 0.841,
+     "n_reps": 3
+    },
+    "abstention": {
+     "mean": 0.159,
+     "sd": 0.0,
+     "min": 0.159,
+     "max": 0.159,
+     "n_reps": 3
+    },
+    "refusal": {
+     "mean": 0.0,
+     "sd": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "n_reps": 3
+    },
+    "ORIG_overall_accuracy": {
+     "mean": 0.6917,
+     "sd": 0.0,
+     "min": 0.6917,
+     "max": 0.6917,
+     "n_reps": 3
+    },
+    "E1_OR": {
+     "mean": 4.69,
+     "sd": 0.0,
+     "min": 4.69,
+     "max": 4.69,
+     "n_reps": 3
+    },
+    "flag_rate_by_mr": {
+     "ORIG": {
+      "mean": 0.8917,
+      "sd": 0.0,
+      "min": 0.8917,
+      "max": 0.8917,
+      "n_reps": 3
+     },
+     "E1": {
+      "mean": 0.4433,
+      "sd": 0.0,
+      "min": 0.4433,
+      "max": 0.4433,
+      "n_reps": 3
+     },
+     "E2": {
+      "mean": 1.0,
+      "sd": 0.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n_reps": 3
+     },
+     "R1": {
+      "mean": 0.655,
+      "sd": 0.0,
+      "min": 0.655,
+      "max": 0.655,
+      "n_reps": 3
+     },
+     "R2": {
+      "mean": 0.8117,
+      "sd": 0.0,
+      "min": 0.8117,
+      "max": 0.8117,
+      "n_reps": 3
+     },
+     "R3": {
+      "mean": 0.8783,
+      "sd": 0.0,
+      "min": 0.8783,
+      "max": 0.8783,
+      "n_reps": 3
+     },
+     "I1": {
+      "mean": 0.8209,
+      "sd": 0.0,
+      "min": 0.8209,
+      "max": 0.8209,
+      "n_reps": 3
+     },
+     "I2": {
+      "mean": 0.8917,
+      "sd": 0.0,
+      "min": 0.8917,
+      "max": 0.8917,
+      "n_reps": 3
+     },
+     "I3": {
+      "mean": 0.8068,
+      "sd": 0.0,
+      "min": 0.8068,
+      "max": 0.8068,
+      "n_reps": 3
+     }
+    }
+   }
+  }
+ },
  "e1cf": {
   "1": {
    "status": "complete",
