@@ -1,0 +1,27 @@
+{
+ "posts": 88,
+ "items": 391,
+ "by_condition": {
+  "REPLAY": 88,
+  "NEU": 88,
+  "PLC": 88,
+  "SWAP": 80,
+  "SWAP2": 47
+ },
+ "strata": {
+  "cross_type": 11,
+  "same_type": 56,
+  "multi_group": 21
+ },
+ "posts_without_eligible_B_for_SWAP": [
+  "2af254cdc044",
+  "316e7c138fac",
+  "44df105c4d9d",
+  "6a7107f20a47",
+  "6dbb16787154",
+  "87a82178bdfa",
+  "8e9c00bdd1c9",
+  "d9490f740056"
+ ],
+ "items_sha1": "7f02f0cf358cdad4060e0a9af028b741376cd905"
+}

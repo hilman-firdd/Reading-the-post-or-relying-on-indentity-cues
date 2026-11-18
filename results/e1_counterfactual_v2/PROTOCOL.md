@@ -38,6 +38,13 @@ Taken as the recommendations written in this draft; the authors can still overru
 
 **Runs set.** `items_e1cf_v2.jsonl` holds REPLAY, NEU and PLC (v1 texts unchanged), SWAP and SWAP2; DEL and PLCDEL are not re-run (human validation reuses the v1 texts).
 
+**Generated items (2026-11-18, `build_e1cf_v2.py`; no model called; items SHA-1 in `build_summary.json`).** 88 posts, 391 items: REPLAY 88, NEU 88, PLC 88, SWAP 80, SWAP2 47. Consequences of the rules above, stated before any analysis:
+- SWAP exists for **80 of 88 posts**. The 8 without SWAP either contain both Women and Men (6 posts, no same-type partner left; 1 of them also has Homosexual) or exhaust the race pool (2 posts with 4 to 5 race or religion groups). They are listed in `build_summary.json` and reported in the sample flow.
+- SWAP strata: same_type 56, multi_group 14 (same-type swaps, several groups), cross_type 10. H1 uses same_type and multi_group (70 posts before human validity filtering); cross_type is reported separately (D1). With 56 same_type posts alone, fewer than 40 valid pairs after validation is plausible, in which case H1 is descriptive (section 7).
+- **SWAP2 exists for only 47 posts.** Gender-only posts (17) have a single same-type partner, so a second different B does not exist; Islam-only posts can only swap to Christian for the REL token. SWAP2 is therefore descriptive on those 47 posts, and "run for all posts" in section 2 is read as "wherever a second eligible B exists".
+- Human-validated pairs per rater: REPLAY vs NEU, PLC, DEL, PLCDEL for 88 posts plus SWAP for 80 posts = 432 pairs (instead of 440).
+- Run size: (88 + 88 + 88 + 80) x 6 conditions x 3 repetitions = 6,192 calls, plus SWAP2 47 x 6 = 282 calls.
+
 ## 1. Question
 
 The v1 result (decision SUPPORT) shows that replacing residual identity terms with *people/person* (NEU) lowers the flag rate more than a placebo (PLC). Two readings remain:
