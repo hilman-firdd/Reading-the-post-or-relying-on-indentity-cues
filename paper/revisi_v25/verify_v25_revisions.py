@@ -85,7 +85,7 @@ g = res["gemma2:9b|direct"]["all_answered"]
 check("Gemma 2 direct OR population 74/88 vs 116/309", (g["flagged_with_identity"][1:3], g["flagged_without_identity"][1:3]) == ([74, 88], [116, 309]))
 check("Llama 3.1 evidence OR population = 175 answered E1 posts",
       res["llama3.1:8b|evidence"]["all_answered"]["flagged_with_identity"][2] + res["llama3.1:8b|evidence"]["all_answered"]["flagged_without_identity"][2] == 175)
-rt_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "posthoc_e1_retention.json")
+rt_path = os.path.join(repo, "results", "posthoc_e1_retention.json")
 if os.path.exists(rt_path):
     rt = json.load(open(rt_path))["by_system"]
     for s in rt:
@@ -125,14 +125,26 @@ check("run.log first LLM call 2026-11-10 05:18:30", "[2026-11-10 05:18:30] run q
 if body is not None:
     flat = re.sub(r"\s+", " ", body)
     must = ["52.7", "40.1", "74.4", "73.6", "42.9", "28.6", "17.0 to 25.0", "CF2", "246 and 76", "50.2", "68.3",
-            "6.1--10.6", "PROTOCOL.md", "c60d6c4", "posts entering each contrast", "Acknowledgment"]
+            "6.1--10.6", "PROTOCOL.md", "c60d6c4", "posts entering each contrast", "Acknowledgment",
+            # v26 (audit #10)
+            "protocol-defined", "non-ambiguous", "did not test the difference between systems", "41 hate speech policies",
+            "masking them in the input", "502 posts with a paraphrase", "kept / $n$", "interaction", "descriptively",
+            # v27 (audit #11)
+            "F_{\\mathrm{RET}}", "machine local time", "edit-count-matched", "identity-related edits",
+            "do not establish that the protocol text existed before the first call", "different estimand"]
     for m in must:
         check(f"body contains '{m}'", m in flat)
     retired = ["stay violating far more often", "stratum-weighted estimates: Table", "so the decision rule still holds",
                "Llama 3.1 is not compared on accuracy", "17.1 to 25.0", "keeps the flag for 84.1", "fixed before data collection",
                "All columns use the 600 original posts as denominator", "including I1 and I3, are exploratory",
                "retention of violating verdicts after erasure to", "the retention of a violating verdict is the main",
-               "a cue it should not need", "by a rule fixed in advance", "(Fig. 3, Table 5)"]
+               "a cue it should not need", "by a rule fixed in advance", "(Fig. 3, Table 5)",
+               # v26 (audit #10)
+               "pre-specified", "(confirmatory)", "far more strongly", "not missing at random", "offensive posts without a protected-attribute attack",
+               "other offensive", "remains with an edit-count placebo", "judges from the explanation text", "Evidence Grounding", "141 other",
+               # v27 (audit #11)
+               "identity-cue sensitivity", "Their interaction", "separating the identity term", "the next section tests it",
+               "precedence over the model calls", "is dated 10 November 2026, before", "Term versus changed meaning"]
     for r in retired:
         check(f"body no longer contains '{r}'", r not in flat)
     check("author placeholders resolved (ethics, acknowledgment, commit hash)", "to be stated by the authors" not in flat and "PENULIS" not in flat and "HASH RILIS" not in flat)

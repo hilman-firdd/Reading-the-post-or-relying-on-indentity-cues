@@ -7,7 +7,7 @@ Separates the two E1 populations that Table 5 mixes:
 Identity detection, answered-set definition and the 'flag' definition are those of the audit (verify_numbers.py).
 Sample OR, exact conditional 95% CI, Fisher exact p, Holm over the same 8 systems as family F_R.
 
-Usage: python3 paper/posthoc_e1_retention.py <repo> <out_dir>      (read-only on the repo; writes <out_dir>/posthoc_e1_retention.json)
+Usage: python3 paper/posthoc_e1_retention.py <repo> <repo>/results   (writes results/posthoc_e1_retention.json, read by paper/gen_tables.py)
 """
 import json, os, sys
 from collections import defaultdict

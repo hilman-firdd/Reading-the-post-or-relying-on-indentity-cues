@@ -183,7 +183,7 @@ def _e1_or_cells(tabs):
     out = {}
     for s, line in zip(E1_ROWS, rows):
         cells = [c.strip().rstrip("\\").strip() for c in line.split("&")]
-        cell = cells[7]          # v25: columns 6-7 now hold the 2x2 counts (flagged/answered with and without identity term)
+        cell = cells[11]         # v27: cols 5-8 retention 2x2 + post hoc OR + Holm (F_RET), cols 9-10 association 2x2, col 11 association OR
         m = OR_CELL.match(cell)
         assert m, (s, cell)
         out[s] = tuple(float(x) for x in m.groups())
@@ -222,8 +222,32 @@ def test_e1_table_prints_the_2x2_counts_behind_each_odds_ratio(v5_tables):
     for s, line in zip(E1_ROWS, rows):
         cells = [c.strip().rstrip("\\").strip() for c in line.split("&")]
         a = audit[s]["all_answered"]
-        assert cells[5] == f"{a['flagged_with_identity'][1]}/{a['flagged_with_identity'][2]}", s
-        assert cells[6] == f"{a['flagged_without_identity'][1]}/{a['flagged_without_identity'][2]}", s
+        assert cells[9] == f"{a['flagged_with_identity'][1]}/{a['flagged_with_identity'][2]}", s
+        assert cells[10] == f"{a['flagged_without_identity'][1]}/{a['flagged_without_identity'][2]}", s
+
+
+def test_e1_table_prints_the_retention_2x2_and_its_post_hoc_or(v5_tables):
+    """v26 (audit #10): the retention block shows kept/n with and without an identity term; n adds up to the transition n."""
+    ret = json.load(open(ROOT / "results" / "posthoc_e1_retention.json"))["by_system"]
+    rows = [l for l in open(v5_tables / "tab_e1_body.tex").read().splitlines() if l.strip() and not l.startswith("\\midrule")]
+    for s, line in zip(E1_ROWS, rows):
+        cells = [c.strip().rstrip("\\").strip() for c in line.split("&")]
+        a1, m1 = ret[s]["kept_with_identity"]; a0, m0 = ret[s]["kept_without_identity"]
+        assert cells[5] == f"{a1}/{m1}" and cells[6] == f"{a0}/{m0}", s
+        assert int(cells[1]) == m1 + m0, s
+        assert cells[7].startswith(f"{ret[s]['odds_ratio_sample']:.1f} ["), s
+        hp = ret[s]["holm_p_posthoc_8"]                       # v27: Holm over the 8 retention tests (family F_RET)
+        assert cells[8] == ("$<$0.001" if hp < 0.001 else f"{hp:.3f}"), s
+
+
+def test_retention_holm_is_a_separate_family_of_eight_fisher_tests():
+    """v27 (audit #11): recompute Holm over the 8 retention Fisher p values and compare with the stored values."""
+    ret = json.load(open(ROOT / "results" / "posthoc_e1_retention.json"))["by_system"]
+    assert len(ret) == 8
+    order = sorted(ret, key=lambda k: ret[k]["fisher_p"]); run = 0.0
+    for i, k in enumerate(order):
+        run = max(run, min(1.0, (8 - i) * ret[k]["fisher_p"]))
+        assert abs(run - ret[k]["holm_p_posthoc_8"]) < 1e-12, k
 
 
 def test_cf_table_reports_separate_h1_and_s1_denominators(v5_tables):

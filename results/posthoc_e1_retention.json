@@ -1,0 +1,149 @@
+{
+ "label": "POST HOC retention analysis (v25); population = ORIG violating and E1 answered; Holm over 8 systems",
+ "by_system": {
+  "qwen2.5:7b|direct": {
+   "kept_with_identity": [
+    43,
+    61
+   ],
+   "kept_without_identity": [
+    72,
+    256
+   ],
+   "n": 317,
+   "odds_ratio_sample": 6.105,
+   "or_ci95_exact_conditional": [
+    3.184,
+    11.961
+   ],
+   "fisher_p": 1.837367647730018e-09,
+   "holm_p_posthoc_8": 9.18683823865009e-09
+  },
+  "qwen2.5:7b|evidence": {
+   "kept_with_identity": [
+    52,
+    71
+   ],
+   "kept_without_identity": [
+    67,
+    263
+   ],
+   "n": 334,
+   "odds_ratio_sample": 8.006,
+   "or_ci95_exact_conditional": [
+    4.271,
+    15.317
+   ],
+   "fisher_p": 2.8440820666909494e-13,
+   "holm_p_posthoc_8": 1.9908574466836645e-12
+  },
+  "llama3.1:8b|direct": {
+   "kept_with_identity": [
+    14,
+    18
+   ],
+   "kept_without_identity": [
+    22,
+    67
+   ],
+   "n": 85,
+   "odds_ratio_sample": 7.159,
+   "or_ci95_exact_conditional": [
+    1.905,
+    32.606
+   ],
+   "fisher_p": 0.0009627172204234829,
+   "holm_p_posthoc_8": 0.0038508688816939318
+  },
+  "llama3.1:8b|evidence": {
+   "kept_with_identity": [
+    3,
+    5
+   ],
+   "kept_without_identity": [
+    2,
+    6
+   ],
+   "n": 11,
+   "odds_ratio_sample": 3.0,
+   "or_ci95_exact_conditional": [
+    0.155,
+    63.728
+   ],
+   "fisher_p": 0.567099567099567,
+   "holm_p_posthoc_8": 0.567099567099567
+  },
+  "gemma2:9b|direct": {
+   "kept_with_identity": [
+    74,
+    85
+   ],
+   "kept_without_identity": [
+    116,
+    299
+   ],
+   "n": 384,
+   "odds_ratio_sample": 10.613,
+   "or_ci95_exact_conditional": [
+    5.287,
+    23.0
+   ],
+   "fisher_p": 5.697417675942654e-16,
+   "holm_p_posthoc_8": 4.557934140754123e-15
+  },
+  "gemma2:9b|evidence": {
+   "kept_with_identity": [
+    64,
+    81
+   ],
+   "kept_without_identity": [
+    112,
+    305
+   ],
+   "n": 386,
+   "odds_ratio_sample": 6.487,
+   "or_ci95_exact_conditional": [
+    3.528,
+    12.368
+   ],
+   "fisher_p": 7.415507542403458e-12,
+   "holm_p_posthoc_8": 4.449304525442075e-11
+  },
+  "word-LR": {
+   "kept_with_identity": [
+    44,
+    59
+   ],
+   "kept_without_identity": [
+    143,
+    244
+   ],
+   "n": 303,
+   "odds_ratio_sample": 2.072,
+   "or_ci95_exact_conditional": [
+    1.059,
+    4.227
+   ],
+   "fisher_p": 0.0254300180424966,
+   "holm_p_posthoc_8": 0.07629005412748979
+  },
+  "char-LR": {
+   "kept_with_identity": [
+    29,
+    56
+   ],
+   "kept_without_identity": [
+    90,
+    242
+   ],
+   "n": 298,
+   "odds_ratio_sample": 1.814,
+   "or_ci95_exact_conditional": [
+    0.967,
+    3.401
+   ],
+   "fisher_p": 0.04984892903055961,
+   "holm_p_posthoc_8": 0.09969785806111922
+  }
+ }
+}

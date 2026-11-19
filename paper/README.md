@@ -39,6 +39,17 @@ The check "llama direct refusal CI [53.4, 59.0]" used to compute a Wilson interv
 - `JSC_v25/` (git-ignored: manuscript sources): JSC template source, `build.sh` (regenerates tables and figures, writes the cited commit, compiles, runs the checks), cover letter.
 - `tests/test_jsc_v3_reproducibility.py`: E1-table column index updated; new tests for the 2x2 counts and the H1/S1 denominators.
 
+## v26 changes (19 Nov 2026, audit #10)
+
+- `posthoc_e1_retention.py` now writes `results/posthoc_e1_retention.json` (run `python3 paper/posthoc_e1_retention.py . results` before `gen_tables.py`).
+- `gen_tables.py`: the E1 table's retention block prints kept/n with and without a residual identity term and the post hoc retention OR (exact conditional CI); the R2 control stratum is labelled "non-ambiguous".
+- Manuscript source: `JSC_v25/JSC_Manuscript_Firdaus_v26.tex`; `JSC_v25/build.sh` builds v26. Response to the audit: `revisi_v25/RESPON_AUDIT_10_v26.md`.
+
+## v27 changes (19 Nov 2026, audit #11)
+
+- `gen_tables.py`: the E1 table prints the Holm p of the post hoc retention tests (family F_RET, 8 systems, corrected separately from F_R).
+- Manuscript source `JSC_v25/JSC_Manuscript_Firdaus_v27.tex` (built by `JSC_v25/build.sh`); response: `revisi_v25/RESPON_AUDIT_11_v27.md`.
+
 ## Related, not in this folder
 
 - `results/e1_counterfactual/posthoc_abstention_e1cf.py` and `posthoc_ambiguous_tokens.py`: the two post hoc analyses (valid-verdict-only; ambiguous identity tokens), see `results/e1_counterfactual/PROTOCOL.md` §8.

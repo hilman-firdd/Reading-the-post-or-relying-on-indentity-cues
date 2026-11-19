@@ -11,6 +11,8 @@ sa = json.load(open(f"{A}/statistical_analysis.json"))
 cf = json.load(open(f"{repo}/results/e1_counterfactual/analysis.json"))
 mc = {r["system"]: r for r in csv.DictReader(open(f"{A}/model_comparison.csv"))}
 ov = list(csv.DictReader(open(f"{A}/oracle_validity_analysis.csv")))
+# v26: post hoc retention analysis (written by paper/posthoc_e1_retention.py <repo> <repo>/results)
+RET = json.load(open(f"{repo}/results/posthoc_e1_retention.json"))["by_system"]
 
 SYS = ["qwen2.5:7b|direct", "qwen2.5:7b|evidence", "gemma2:9b|direct", "gemma2:9b|evidence",
        "llama3.1:8b|direct", "llama3.1:8b|evidence", "word-LR", "char-LR"]
@@ -90,7 +92,15 @@ for s in SYS:
     assert abs((k1 * (n2 - k2)) / ((n1 - k1) * k2) - r["odds_ratio"]) < 0.005   # the audit OR is the sample odds ratio
     # v25: the left block (n, Kept, To not, To ins.) is the retention population (ORIG violating and E1 answered); the right block is the
     # OR population (all answered E1 posts) and now prints its 2x2 counts (flagged/answered with and without a residual identity term)
-    rows.append(f"{LAB[s]} & {n} & {pct(keep)} & {pct(nv)} & {ins_s} & {k1}/{n1} & {k2}/{n2} & {r['odds_ratio']:.1f} [{ci_or.low:.1f}, {ci_or.high:.1f}] & {pv(r['holm_p_family_F_R'])} \\\\")
+    # v26: the retention block also prints its own 2x2 counts (kept/n with and without identity term) and the POST HOC retention OR,
+    # read from results/posthoc_e1_retention.json (paper/posthoc_e1_retention.py); its n must equal the transition n above.
+    rt = RET[s]
+    a1, m1 = rt["kept_with_identity"]; a0, m0 = rt["kept_without_identity"]
+    assert m1 + m0 == n, (s, m1 + m0, n)
+    lo_r, hi_r = rt["or_ci95_exact_conditional"]
+    # v27: the retention tests form their own Holm family over the 8 systems (F_RET), separate from F_R; print its Holm p
+    rows.append(f"{LAB[s]} & {n} & {pct(keep)} & {pct(nv)} & {ins_s} & {a1}/{m1} & {a0}/{m0} & {rt['odds_ratio_sample']:.1f} [{lo_r:.1f}, {hi_r:.1f}] & {pv(rt['holm_p_posthoc_8'])} & "
+                f"{k1}/{n1} & {k2}/{n2} & {r['odds_ratio']:.1f} [{ci_or.low:.1f}, {ci_or.high:.1f}] & {pv(r['holm_p_family_F_R'])} \\\\")
     if s == "llama3.1:8b|evidence":
         rows.append("\\midrule")
 write("tab_e1_body", rows)
@@ -126,7 +136,7 @@ def kap(k):
 rows = []
 lab = {("E1", "all"): ("E1 erase rationale", "E1"), ("E2", "all"): ("E2 insert rationale", "E2"),
        ("R2", "offensive_ambiguous"): ("R2 offensive, ambiguous", "R2"),
-       ("R2", "offensive_control"): ("R2 offensive, control", "R2"),
+       ("R2", "offensive_control"): ("R2 offensive, non-ambiguous", "R2"),
        ("R2", "offensive (stratum-weighted)"): ("R2 offensive, weighted", "R2"),
        ("I1", "all"): ("I1 identity swap", "I1"), ("I3", "all"): ("I3 paraphrase", "I3")}
 design = {("R2", "offensive_ambiguous"): "census", ("R2", "offensive_control"): "20\\%", ("R2", "offensive (stratum-weighted)"): "weighted"}
