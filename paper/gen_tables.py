@@ -142,6 +142,15 @@ for r in ov:
     rows.append(f"{name} & {r['population_N']} & {r['sampled_n']} & {pct(r['validity'])} {ci(lo, hi)} & {kk} \\\\")
 rows.append(f"R2 offensive, pooled agreement & 200 & {ag['R2']['n']} & -- & {ag['R2']['cohen_kappa']:.2f} [{ag['R2']['kappa_ci95_post_bootstrap'][0]:.2f}, {ag['R2']['kappa_ci95_post_bootstrap'][1]:.2f}] \\\\")
 rows.append("R2 hate speech, normal & 400 & 0 & not validated & -- \\\\")
+# v25: round-3 rows (R1, R3), read from the same files as the other rows; kappa is undefined for R1 (all Yes)
+ovr = {(r["mr"], r["stratum"]): r for r in ov if r["row_type"] == "oracle_validity"}
+for mr, name in (("R1", "R1 policy deleted (round 3)"), ("R3", "R3 policy negated, all")):
+    r = ovr[(mr, "all")]
+    lo, hi = parse_ci(r["validity_ci95"].replace("1]", "1.0]"))
+    kk = "undefined" if ag[mr]["cohen_kappa"] is None else f"{ag[mr]['cohen_kappa']:.2f} [{ag[mr]['kappa_ci95_post_bootstrap'][0]:.2f}, {ag[mr]['kappa_ci95_post_bootstrap'][1]:.2f}]"
+    v = float(r["validity"])
+    vs = "100" if v == 1.0 else pct(v)
+    rows.append(f"{name} & {r['population_N']} & {r['sampled_n']} & {vs} {ci(lo, hi).replace('100.0]', '100]')} & {kk} \\\\")
 write("tab_oracle_body", rows)
 
 # ---- Table: policy axis and invariance ----

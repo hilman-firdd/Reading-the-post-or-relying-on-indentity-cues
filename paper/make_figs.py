@@ -134,24 +134,30 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 fig, ax = plt.subplots(figsize=(6.3, 2.55))
 ax.set_xlim(0, 100); ax.set_ylim(0, 43); ax.axis("off")
 
-def box(x, y, w, h, title, lines, fc="#f3f2ee", ec="#8a8984"):
+def box(x, y, w, h, title, lines, fc="#f3f2ee", ec="#8a8984", tsize=8.5):
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.02,rounding_size=1.2", fc=fc, ec=ec, lw=0.8))
-    ax.text(x + w / 2, y + h - 3.0, title, ha="center", va="center", fontsize=8.5, fontweight="bold", color=INK)
+    ax.text(x + w / 2, y + h - 3.0, title, ha="center", va="center", fontsize=tsize, fontweight="bold", color=INK)
     for i, t in enumerate(lines):
         ax.text(x + w / 2, y + h - 7.0 - i * 3.6, t, ha="center", va="center", fontsize=7, color=INK)
 
 def arrow(p, q):
     ax.add_patch(FancyArrowPatch(p, q, arrowstyle="-|>", mutation_scale=8, lw=0.9, color=MUTED, shrinkA=0, shrinkB=0))
 
-box(1, 21, 24, 17, "Policy", ["what counts as", "a violation"])
-box(1, 1, 24, 17, "Post (evidence)", ["the words in the post;", "gold = annotator", "rationale"])
-box(36, 31, 24, 8, "Learned prior", ["learned associations"], fc="#fbeee9")
-box(36, 8, 24, 20, "LLM moderator", ["verdict: violating /", "not violating /", "insufficient", "+ quoted words"], fc="#e8f0fb")
-box(71, 27, 28, 12, "Policy axis (R)", ["delete / narrow / negate;", "verdict follows policy"])
-box(71, 13.5, 28, 12, "Evidence axis (E)", ["erase / insert rationale;", "identity-term replacement"])
-box(71, 0.5, 28, 12, "Invariance (I)", ["swap group / add sentence /", "paraphrase: no change"])
-arrow((25, 29.5), (36, 21)); arrow((25, 9.5), (36, 15)); arrow((48, 31), (48, 28))
+# v25: same design as the manuscript (v24/v25): two axes, reliability controls (I2, I3), and identity (I1, E1-CF) as a
+# cross-cutting diagnostic, not a third axis. The earlier "Invariance (I)" box grouped I1 with the controls and contradicted the text.
+box(1, 21, 21, 17, "Policy", ["what counts as", "a violation"])
+box(1, 1, 21, 17, "Post (evidence)", ["the words in the post;", "gold = annotator", "rationale"])
+box(31, 31, 21, 8, "Learned prior", ["learned associations"], fc="#fbeee9")
+box(31, 8, 21, 20, "LLM moderator", ["verdict: violating /", "not violating /", "insufficient", "+ quoted words"], fc="#e8f0fb")
+box(61, 27, 25, 12, "Axis 1: policy (R1\u2013R3)", ["delete / narrow / negate;", "verdict follows policy"], tsize=7.8)
+box(61, 13.5, 25, 12, "Axis 2: evidence (E1, E2)", ["erase / insert annotated", "rationale; verdict follows"], tsize=7.8)
+box(61, 0.5, 25, 12, "Reliability controls", ["neutral sentence (I2) /", "paraphrase (I3): no change"], tsize=7.8)
+ax.add_patch(FancyBboxPatch((88, 13.5), 11, 25.5, boxstyle="round,pad=0.02,rounding_size=1.2", fc="#fdf6e3", ec="#b08a2e", lw=0.8, ls="--"))
+ax.text(93.5, 36, "Identity", ha="center", va="center", fontsize=8.5, fontweight="bold", color=INK)
+for i, t in enumerate(["cross-", "cutting", "diagnostic:", "I1 group", "swap;", "E1-CF term", "replacement"]):
+    ax.text(93.5, 32.2 - i * 2.6, t, ha="center", va="center", fontsize=6.5, color=INK)
+arrow((22, 29.5), (31, 21)); arrow((22, 9.5), (31, 15)); arrow((41.5, 31), (41.5, 28))
 for ty in (33, 19.5, 6.5):
-    arrow((60, 18), (71, ty))
-ax.text(85, 41.2, "Metamorphic tests", fontsize=8, color=MUTED, ha="center", style="italic")
+    arrow((52, 18), (61, ty))
+ax.text(73.5, 41.2, "Metamorphic tests", fontsize=8, color=MUTED, ha="center", style="italic")
 save(fig, "fig1_framework_v2")

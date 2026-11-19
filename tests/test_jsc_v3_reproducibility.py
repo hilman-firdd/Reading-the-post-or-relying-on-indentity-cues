@@ -182,7 +182,8 @@ def _e1_or_cells(tabs):
     assert len(rows) == 8
     out = {}
     for s, line in zip(E1_ROWS, rows):
-        cell = [c.strip().rstrip("\\").strip() for c in line.split("&")][5]
+        cells = [c.strip().rstrip("\\").strip() for c in line.split("&")]
+        cell = cells[7]          # v25: columns 6-7 now hold the 2x2 counts (flagged/answered with and without identity term)
         m = OR_CELL.match(cell)
         assert m, (s, cell)
         out[s] = tuple(float(x) for x in m.groups())
@@ -212,6 +213,26 @@ def test_e1_table_contains_the_expected_cells(v5_tables):
     text = open(v5_tables / "tab_e1_body.tex").read()
     for expected in ("3.1 [1.8, 5.2]", "8.8 [4.6, 17.6]", "3.5 [1.1, 11.6]", "1.2 [0.7, 1.9]"):
         assert expected in text, expected
+
+
+def test_e1_table_prints_the_2x2_counts_behind_each_odds_ratio(v5_tables):
+    """v25 (audit #9): the OR population (all answered E1 posts) must show its 2x2 counts, separate from the retention block."""
+    rows = [l for l in open(v5_tables / "tab_e1_body.tex").read().splitlines() if l.strip() and not l.startswith("\\midrule")]
+    audit = json.load(open(AUD / "statistical_analysis.json"))["E1_residual_identity_terms"]["by_system"]
+    for s, line in zip(E1_ROWS, rows):
+        cells = [c.strip().rstrip("\\").strip() for c in line.split("&")]
+        a = audit[s]["all_answered"]
+        assert cells[5] == f"{a['flagged_with_identity'][1]}/{a['flagged_with_identity'][2]}", s
+        assert cells[6] == f"{a['flagged_without_identity'][1]}/{a['flagged_without_identity'][2]}", s
+
+
+def test_cf_table_reports_separate_h1_and_s1_denominators(v5_tables):
+    """v25 (audit #9): Llama 3.1 direct has 52 H1 pairs but 47 S1 pairs; RD is (b - c) / n from raw counts."""
+    rows = [l for l in open(v5_tables / "tab_cf_body.tex").read().splitlines() if l.strip() and not l.startswith("\\midrule")]
+    cells = {r.split("&")[0].strip(): [c.strip() for c in r.split("&")] for r in rows}
+    assert cells["Llama 3.1 / direct"][1:3] == ["52", "47"]
+    assert cells["Llama 3.1 / direct"][5].startswith("+21.2")
+    assert cells["Qwen2.5 / evidence"][5].startswith("+17.0")
 
 
 def test_e1_table_or_matches_the_audit_for_all_eight_systems(v5_tables):

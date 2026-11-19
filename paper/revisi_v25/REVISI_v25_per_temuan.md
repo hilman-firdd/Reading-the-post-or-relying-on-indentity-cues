@@ -1,6 +1,10 @@
 # JSC v24 → v25: perbaikan per temuan audit #9, konsistensi aim, dan kelayakan
 
+> **Status 19 Nov (sore): DIGANTIKAN oleh naskah lengkap `paper/JSC_v25/JSC_Manuscript_Firdaus_v25.tex` (dan PDF-nya).** Semua penggantian di bawah sudah diterapkan di sana, dengan judul baru, Gambar 2 dan 3 dihapus demi batas 12 halaman, dan teks dipadatkan. Dokumen ini disimpan sebagai jejak alasan perubahan.
+
 Disusun 19 Nov 2026 dari: PDF v24 (12 halaman), repositori `Moderation_Study_Kit` (HEAD `654c666`), template LaTeX JSC, dan halaman *Aims and Scope* serta *Submission Guidelines* JSC di SciOpen.
+
+> **Pembaruan 19 Nov:** teks akhir untuk etik, konfirmasi penilai, Acknowledgment, dan *Data and code availability* (commit `4f5bc37`) ada di **`TINGGAL_TEMPEL_v25.md`**. Pakai file itu, bukan versi ber-placeholder di bagian 3-5 di bawah. Untuk ketidakcocokan dokumentasi pemutus, pakai kalimat naskah v24 ("the decision sheet showed both answers").
 
 **Batas pekerjaan ini.** Sumber `.tex` v24 tidak ada di repositori (di-*gitignore*) dan folder induknya tidak dapat saya akses. Karena itu dokumen ini memberi **teks pengganti LaTeX per lokasi** (cari → ganti), sedangkan **badan tabel diregenerasi dari data** (`tab_*_body.tex` di folder ini). Semua angka baru diperiksa ulang oleh `verify_v25_revisions.py` (41 cek, `FAILS: []`). Saya tidak mengisi apa pun yang tidak ada di repo/dokumen: etik, persetujuan penilai, pendanaan, dan nama penilai tetap berupa placeholder untuk penulis.
 
@@ -12,9 +16,9 @@ Disusun 19 Nov 2026 dari: PDF v24 (12 halaman), repositori `Moderation_Study_Kit
 |---|---|---|
 | Konsistensi angka & denominator | **Siap**, bila semua penggantian di bawah diterapkan | Semua angka baru dihitung ulang dari `results/`; tidak ada angka yang dikarang. |
 | Konsistensi aim ↔ klaim | **Siap**, setelah pertanyaan riset di Intro diubah (§2) | Versi v24 bertanya soal cue yang “*should not need*”, padahal kesimpulan menyatakan tidak bisa menunjukkan *unjustified*. |
-| Pedoman JSC (format) | **Hampir**: halaman 12 (batas 10–12), abstrak 150 kata, 6 kata kunci, ≥10 referensi, ada Intro/Methods/Results/Discussion/Conclusions | Kurang: **Acknowledgment** (wajib menurut pedoman bila ada pihak non-penulis yang berkontribusi, yaitu penilai, dan untuk pendanaan); **Tabel 5 vs Gambar 3 berduplikasi** setelah 2×2 ditambahkan (dilarang pedoman) → hapus Gambar 3; **judul berbentuk pertanyaan** (pedoman: “descriptive, not full sentences”); singkatan **word-LR** tak terdefinisi di abstrak. |
+| Pedoman JSC (format) | **Hampir**: halaman 12 (batas 10–12), abstrak 150 kata, 6 kata kunci, ≥10 referensi, ada Intro/Methods/Results/Discussion/Conclusions | Kurang: **Acknowledgment** (pedoman JSC: pihak non-penulis yang berpartisipasi substantif disebut di sana; pendanaan wajib diungkap); **Tabel 5 vs Gambar 3 berduplikasi** setelah 2×2 ditambahkan (dilarang pedoman) → hapus Gambar 3; **judul berbentuk pertanyaan** (pedoman: “descriptive, not full sentences”); singkatan **word-LR** tak terdefinisi di abstrak. |
 | Kesesuaian *Aims and Scope* | **Cukup, belum kuat** | JSC mencari riset di antarmuka interaksi sosial dan komputasi (computational social science, complex social systems, HCI). Naskah ini terutama metodologi pengujian. Bingkai sosial (siapa yang dilindungi kebijakan moderasi) hanya ada di satu paragraf §5; perlu dinaikkan ke Intro (§2.3). |
-| **Gerbang yang tidak bisa saya selesaikan** | **Belum siap submit** | (1) pernyataan etik dan bentuk persetujuan penilai, (2) Acknowledgment: nama penilai (dengan izin mereka) dan pendanaan, (3) hash commit rilis akhir. Tanpa (1), naskah **tidak layak dikirim**. |
+| **Gerbang yang tidak bisa saya selesaikan** | **Belum siap submit** | (1) pernyataan etik dan bentuk persetujuan penilai, (2) Acknowledgment: nama penilai (dengan izin mereka) dan pendanaan, (3) hash commit rilis akhir. Etik tidak diwajibkan oleh halaman JSC yang saya baca (koreksi: lihat `TINGGAL_TEMPEL_v25.md`, bagian 0); pengungkapan jujur tetap dianjurkan. |
 
 **Kesimpulan:** secara ilmiah naskah layak diajukan ke JSC **sebagai studi kasus diagnostik dengan klaim sempit**, setelah revisi ini dan setelah etik diisi berdasarkan dokumen resmi. Risiko utama di review: kecocokan scope (mitigasi §2.3) dan permintaan reviewer untuk E1-CF v2 (rating makna/relevansi kebijakan pada 88 pasangan), yang memang sudah dinyatakan sebagai keterbatasan.
 
@@ -213,7 +217,7 @@ The link between a residual identity term and a violating verdict after erasure 
 A pre-specified counterfactual shows that replacing the tested identity terms lowers the flag rate more than an edit-count placebo for Qwen2.5 and Gemma~2, for Gemma~2 with the evidence prompt mostly through abstention; it does not show that the dependence is unjustified or that groups are treated unequally. On the policy axis, human correction of the oracles changed how R2 reads, which is why those tests stay exploratory.
 ```
 
-**Acknowledgment (baru; wajib menurut pedoman JSC; letakkan tepat sebelum References):**
+**Acknowledgment (baru; sesuai pedoman JSC; letakkan tepat sebelum References):**
 ```latex
 \section*{Acknowledgment}
 \textcolor{red}{[PENULIS: We thank [nama penilai, hanya dengan izin mereka] for rating the validation items. This work was supported by [sumber dana dan nomor hibah] / received no external funding.]}

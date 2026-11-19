@@ -30,6 +30,15 @@ $PY paper/verify_numbers.py . /path/to/body.tex      # assemble.py must sit in t
 
 The check "llama direct refusal CI [53.4, 59.0]" used to compute a Wilson interval over the 4,233 items as if they were independent ([54.7, 57.7]), which failed against the manuscript. It now compares the manuscript interval with the audited **post-cluster bootstrap** CI (`ALL_refusal_ci95`, row `llama3.1:8b|direct` of `results/audited/model_comparison.csv`) and also requires the string to be present in `body.tex`. With this change all 12 checks pass against the kit's `body.tex` (10 Nov 2026). This is the only difference from the kit's copy of the script.
 
+## v25 changes (19 Nov 2026, audit #9)
+
+- `gen_tables.py`: E1 table adds the 2x2 counts of the odds-ratio population (Id., No id.: flagged/answered), next to the retention block; E1-CF table reports separate `n H1` and `n S1` and the S1 discordant pairs, and prints RD as (b - c)/n from raw counts (fixes 17.1 -> 17.0 and 21.1 -> 21.2 caused by rounding the stored 4-decimal RD); oracle table adds the round-3 rows (R1, R3); policy table keeps Llama 3.1 evidence in the Holm family F_I (Holm p = 1).
+- `make_figs.py`: Fig. 1 now matches the manuscript (two axes, reliability controls I2/I3, identity I1/E1-CF as a cross-cutting diagnostic); the old box grouped I1 with the invariance controls.
+- `posthoc_e1_retention.py` (new, post hoc): retention odds ratio among posts flagged at ORIG, Holm over 8 systems; output in `revisi_v25/posthoc_e1_retention.json`.
+- `revisi_v25/verify_v25_revisions.py`: recomputes every number added in v25 from `results/` and checks the manuscript text (`python3 paper/revisi_v25/verify_v25_revisions.py . paper/JSC_v25/JSC_Manuscript_Firdaus_v25.tex`).
+- `JSC_v25/` (git-ignored: manuscript sources): JSC template source, `build.sh` (regenerates tables and figures, writes the cited commit, compiles, runs the checks), cover letter.
+- `tests/test_jsc_v3_reproducibility.py`: E1-table column index updated; new tests for the 2x2 counts and the H1/S1 denominators.
+
 ## Related, not in this folder
 
 - `results/e1_counterfactual/posthoc_abstention_e1cf.py` and `posthoc_ambiguous_tokens.py`: the two post hoc analyses (valid-verdict-only; ambiguous identity tokens), see `results/e1_counterfactual/PROTOCOL.md` §8.
