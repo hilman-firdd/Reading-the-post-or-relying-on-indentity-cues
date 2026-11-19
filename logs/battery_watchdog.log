@@ -1,2 +1,11 @@
 [2026-11-12 02:44:35] watchdog on, limit 9%
 [2026-11-12 07:17:49] queue no longer running; watchdog exits
+[2026-11-17 04:29:46] watchdog on, limit 9%
+[2026-11-17 07:12:07] battery 9% on battery power -> stopping the queue
+[2026-11-17 07:12:09] stopped. Plug in the charger and run ./run_queue.sh again (resumes).
+[2026-11-17 07:53:16] watchdog on, limit 9%
+[2026-11-17 08:41:43] battery 9% on battery power -> stopping the queue
+[2026-11-17 08:41:45] stopped. Plug in the charger and run ./run_queue.sh again (resumes).
+[2026-11-17 11:46:40] watchdog on, limit 9%
+[2026-11-18 09:43:17] watchdog on, limit 9%
+[2026-11-18 11:41:38] queue no longer running; watchdog exits

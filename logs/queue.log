@@ -37,3 +37,94 @@ saved runs_ablation/gemma2_9b_abl_quote_first.jsonl
 gemma2:9b|abl_quote_only: 0/4233 done, 4233 to run -> runs_ablation/gemma2_9b_abl_quote_only.jsonl
 saved runs_ablation/gemma2_9b_abl_quote_only.jsonl
 [2026-11-12 07:17:30] QUEUE DONE
+manifest: runs_repeat/rep2/manifest_queue_20261117_042945.json
+manifest: runs_repeat/rep3/manifest_queue_20261117_042945.json
+manifest: runs_ablation/manifest_queue_20261117_042946.json
+[2026-11-17 04:29:46] MAIN REPEATS START reps=2 3 models=qwen2.5:7b llama3.1:8b gemma2:9b prompts=direct evidence
+[2026-11-17 04:29:46] qwen2.5:7b direct -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 0/4233 done, 4233 to run -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+saved runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+[2026-11-17 05:58:29] qwen2.5:7b evidence -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 0/4233 done, 4233 to run -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+manifest: runs_repeat/rep2/manifest_queue_20261117_075314.json
+manifest: runs_repeat/rep3/manifest_queue_20261117_075315.json
+manifest: runs_ablation/manifest_queue_20261117_075315.json
+[2026-11-17 07:53:15] MAIN REPEATS START reps=2 3 models=qwen2.5:7b llama3.1:8b gemma2:9b prompts=direct evidence
+[2026-11-17 07:53:15] qwen2.5:7b direct -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+[2026-11-17 07:53:15] qwen2.5:7b evidence -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 3185/4233 done, 1048 to run -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+saved runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+[2026-11-17 08:20:19] llama3.1:8b direct -> runs_repeat/rep2/main/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 0/4233 done, 4233 to run -> runs_repeat/rep2/main/llama3.1_8b_direct.jsonl
+[2026-11-17 11:46:38] manual resume: battery charging -> starting main-repeats queue
+manifest: runs_repeat/rep2/manifest_queue_20261117_114639.json
+manifest: runs_repeat/rep3/manifest_queue_20261117_114639.json
+manifest: runs_ablation/manifest_queue_20261117_114639.json
+[2026-11-17 11:46:39] MAIN REPEATS START reps=2 3 models=qwen2.5:7b llama3.1:8b gemma2:9b prompts=direct evidence
+[2026-11-17 11:46:39] qwen2.5:7b direct -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+[2026-11-17 11:46:40] qwen2.5:7b evidence -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+[2026-11-17 11:46:40] llama3.1:8b direct -> runs_repeat/rep2/main/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 1448/4233 done, 2785 to run -> runs_repeat/rep2/main/llama3.1_8b_direct.jsonl
+saved runs_repeat/rep2/main/llama3.1_8b_direct.jsonl
+[2026-11-17 12:35:16] llama3.1:8b evidence -> runs_repeat/rep2/main/llama3.1_8b_evidence.jsonl
+llama3.1:8b|evidence: 0/4233 done, 4233 to run -> runs_repeat/rep2/main/llama3.1_8b_evidence.jsonl
+saved runs_repeat/rep2/main/llama3.1_8b_evidence.jsonl
+[2026-11-17 13:41:02] gemma2:9b direct -> runs_repeat/rep2/main/gemma2_9b_direct.jsonl
+gemma2:9b|direct: 0/4233 done, 4233 to run -> runs_repeat/rep2/main/gemma2_9b_direct.jsonl
+saved runs_repeat/rep2/main/gemma2_9b_direct.jsonl
+[2026-11-17 16:53:38] gemma2:9b evidence -> runs_repeat/rep2/main/gemma2_9b_evidence.jsonl
+gemma2:9b|evidence: 0/4233 done, 4233 to run -> runs_repeat/rep2/main/gemma2_9b_evidence.jsonl
+saved runs_repeat/rep2/main/gemma2_9b_evidence.jsonl
+[2026-11-17 20:13:56] qwen2.5:7b direct -> runs_repeat/rep3/main/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 0/4233 done, 4233 to run -> runs_repeat/rep3/main/qwen2.5_7b_direct.jsonl
+saved runs_repeat/rep3/main/qwen2.5_7b_direct.jsonl
+[2026-11-17 21:47:11] qwen2.5:7b evidence -> runs_repeat/rep3/main/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 0/4233 done, 4233 to run -> runs_repeat/rep3/main/qwen2.5_7b_evidence.jsonl
+saved runs_repeat/rep3/main/qwen2.5_7b_evidence.jsonl
+[2026-11-17 23:29:22] llama3.1:8b direct -> runs_repeat/rep3/main/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 0/4233 done, 4233 to run -> runs_repeat/rep3/main/llama3.1_8b_direct.jsonl
+saved runs_repeat/rep3/main/llama3.1_8b_direct.jsonl
+[2026-11-18 00:40:04] llama3.1:8b evidence -> runs_repeat/rep3/main/llama3.1_8b_evidence.jsonl
+llama3.1:8b|evidence: 0/4233 done, 4233 to run -> runs_repeat/rep3/main/llama3.1_8b_evidence.jsonl
+saved runs_repeat/rep3/main/llama3.1_8b_evidence.jsonl
+[2026-11-18 01:44:14] gemma2:9b direct -> runs_repeat/rep3/main/gemma2_9b_direct.jsonl
+gemma2:9b|direct: 0/4233 done, 4233 to run -> runs_repeat/rep3/main/gemma2_9b_direct.jsonl
+saved runs_repeat/rep3/main/gemma2_9b_direct.jsonl
+[2026-11-18 04:47:28] gemma2:9b evidence -> runs_repeat/rep3/main/gemma2_9b_evidence.jsonl
+gemma2:9b|evidence: 0/4233 done, 4233 to run -> runs_repeat/rep3/main/gemma2_9b_evidence.jsonl
+[2026-11-18 06:00:13] scheduled stop (06:00): stopping the queue
+[2026-11-18 06:00:18] stopped by schedule. Resume: ./run_queue.sh main
+[2026-11-18 09:43:15] resume after scheduled stop: starting main-repeats queue
+manifest: runs_repeat/rep2/manifest_queue_20261118_094315.json
+manifest: runs_repeat/rep3/manifest_queue_20261118_094316.json
+manifest: runs_ablation/manifest_queue_20261118_094316.json
+[2026-11-18 09:43:16] MAIN REPEATS START reps=2 3 models=qwen2.5:7b llama3.1:8b gemma2:9b prompts=direct evidence
+[2026-11-18 09:43:16] qwen2.5:7b direct -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/qwen2.5_7b_direct.jsonl
+[2026-11-18 09:43:16] qwen2.5:7b evidence -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/qwen2.5_7b_evidence.jsonl
+[2026-11-18 09:43:16] llama3.1:8b direct -> runs_repeat/rep2/main/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/llama3.1_8b_direct.jsonl
+[2026-11-18 09:43:16] llama3.1:8b evidence -> runs_repeat/rep2/main/llama3.1_8b_evidence.jsonl
+llama3.1:8b|evidence: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/llama3.1_8b_evidence.jsonl
+[2026-11-18 09:43:17] gemma2:9b direct -> runs_repeat/rep2/main/gemma2_9b_direct.jsonl
+gemma2:9b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/gemma2_9b_direct.jsonl
+[2026-11-18 09:43:17] gemma2:9b evidence -> runs_repeat/rep2/main/gemma2_9b_evidence.jsonl
+gemma2:9b|evidence: 4233/4233 done, 0 to run -> runs_repeat/rep2/main/gemma2_9b_evidence.jsonl
+[2026-11-18 09:43:17] qwen2.5:7b direct -> runs_repeat/rep3/main/qwen2.5_7b_direct.jsonl
+qwen2.5:7b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep3/main/qwen2.5_7b_direct.jsonl
+[2026-11-18 09:43:17] qwen2.5:7b evidence -> runs_repeat/rep3/main/qwen2.5_7b_evidence.jsonl
+qwen2.5:7b|evidence: 4233/4233 done, 0 to run -> runs_repeat/rep3/main/qwen2.5_7b_evidence.jsonl
+[2026-11-18 09:43:17] llama3.1:8b direct -> runs_repeat/rep3/main/llama3.1_8b_direct.jsonl
+llama3.1:8b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep3/main/llama3.1_8b_direct.jsonl
+[2026-11-18 09:43:17] llama3.1:8b evidence -> runs_repeat/rep3/main/llama3.1_8b_evidence.jsonl
+llama3.1:8b|evidence: 4233/4233 done, 0 to run -> runs_repeat/rep3/main/llama3.1_8b_evidence.jsonl
+[2026-11-18 09:43:18] gemma2:9b direct -> runs_repeat/rep3/main/gemma2_9b_direct.jsonl
+gemma2:9b|direct: 4233/4233 done, 0 to run -> runs_repeat/rep3/main/gemma2_9b_direct.jsonl
+[2026-11-18 09:43:18] gemma2:9b evidence -> runs_repeat/rep3/main/gemma2_9b_evidence.jsonl
+gemma2:9b|evidence: 1639/4233 done, 2594 to run -> runs_repeat/rep3/main/gemma2_9b_evidence.jsonl
+saved runs_repeat/rep3/main/gemma2_9b_evidence.jsonl
+[2026-11-18 11:41:24] QUEUE DONE (main repeats)

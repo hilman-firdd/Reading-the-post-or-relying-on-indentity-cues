@@ -88,7 +88,9 @@ for s in SYS:
     k1, n1 = r["flagged_with_identity"][1:3]; k2, n2 = r["flagged_without_identity"][1:3]
     ci_or = _scipy_or([[k1, n1 - k1], [k2, n2 - k2]], kind="conditional").confidence_interval(0.95)
     assert abs((k1 * (n2 - k2)) / ((n1 - k1) * k2) - r["odds_ratio"]) < 0.005   # the audit OR is the sample odds ratio
-    rows.append(f"{LAB[s]} & {n} & {pct(keep)} & {pct(nv)} & {ins_s} & {r['odds_ratio']:.1f} [{ci_or.low:.1f}, {ci_or.high:.1f}] & {pv(r['holm_p_family_F_R'])} \\\\")
+    # v25: the left block (n, Kept, To not, To ins.) is the retention population (ORIG violating and E1 answered); the right block is the
+    # OR population (all answered E1 posts) and now prints its 2x2 counts (flagged/answered with and without a residual identity term)
+    rows.append(f"{LAB[s]} & {n} & {pct(keep)} & {pct(nv)} & {ins_s} & {k1}/{n1} & {k2}/{n2} & {r['odds_ratio']:.1f} [{ci_or.low:.1f}, {ci_or.high:.1f}] & {pv(r['holm_p_family_F_R'])} \\\\")
     if s == "llama3.1:8b|evidence":
         rows.append("\\midrule")
 write("tab_e1_body", rows)
@@ -104,8 +106,14 @@ for s in SYS:
     sps = pv(sp) if not s.endswith("LR") else "--"
     lo, hi = h["rd_ci95_post_bootstrap"]
     lo2, hi2 = s1["rd_ci95_post_bootstrap"]
-    rows.append(f"{LAB[s]} & {h['n_pairs']} & {pct(h['rate_x'])} & {pct(h['rate_y'])} & {sgn(h['risk_difference'])} {ci(lo, hi, signed=True)} & "
-                f"{h['b_only_x']}/{h['c_only_y']} & {hps} & {sgn(s1['risk_difference'])} {ci(lo2, hi2, signed=True)} & {sps} \\\\")
+    # v25: H1 and S1 have their own denominators (posts with both texts answered); they differ only where a model refused.
+    # The RD is printed from the raw discordant counts, (b - c) / n, not from the 4-decimal stored value, to avoid double rounding
+    # (e.g. Qwen2.5 evidence 15/88 = 17.05 -> 17.0, not 0.1705 -> 17.1).
+    rd_h = (h["b_only_x"] - h["c_only_y"]) / h["n_pairs"]
+    rd_s = (s1["b_only_x"] - s1["c_only_y"]) / s1["n_pairs"]
+    assert abs(rd_h - h["risk_difference"]) < 1e-4 and abs(rd_s - s1["risk_difference"]) < 1e-4
+    rows.append(f"{LAB[s]} & {h['n_pairs']} & {s1['n_pairs']} & {pct(h['rate_x'])} & {pct(h['rate_y'])} & {sgn(rd_h)} {ci(lo, hi, signed=True)} & "
+                f"{h['b_only_x']}/{h['c_only_y']} & {hps} & {sgn(rd_s)} {ci(lo2, hi2, signed=True)}; {s1['b_only_x']}/{s1['c_only_y']} & {sps} \\\\")
     if s in ("gemma2:9b|evidence", "llama3.1:8b|evidence"):
         rows.append("\\midrule")
 write("tab_cf_body", rows)
@@ -154,7 +162,8 @@ for s in SYS:
     dd = f"{sgn(r['I1_minus_I2'])} {ci(lo, hi, signed=True)}"
     hp = pv(r["I1_vs_I2_p_holm"])
     if s == "llama3.1:8b|evidence":
-        dd, hp = "n/a", "n/a"
+        # v25: the condition stays in the Holm family F_I (6 complete triples, no discordant pair, McNemar p = 1); only its RD is not shown
+        dd = "n/a"
         i1, i2 = "--", "--"
     else:
         i1, i2 = pct(r["I1_flip"]), pct(r["I2_flip"])
