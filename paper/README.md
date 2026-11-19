@@ -50,6 +50,20 @@ The check "llama direct refusal CI [53.4, 59.0]" used to compute a Wilson interv
 - `gen_tables.py`: the E1 table prints the Holm p of the post hoc retention tests (family F_RET, 8 systems, corrected separately from F_R).
 - Manuscript source `JSC_v25/JSC_Manuscript_Firdaus_v27.tex` (built by `JSC_v25/build.sh`); response: `revisi_v25/RESPON_AUDIT_11_v27.md`.
 
+## v28 (19 Nov 2026, audit #12)
+
+Text-only revision of the manuscript (`JSC_v25/JSC_Manuscript_Firdaus_v28.tex`, built by `JSC_v25/build.sh`); no change to the analysis code. Response: `revisi_v25/RESPON_AUDIT_12_v28.md`.
+
+## v29 (19 Nov 2026, audit #13)
+
+- `supp_e1cf_transitions.py` (new): Supplementary Table S1, PLC -> NEU response transitions per LLM condition, from the raw E1-CF responses; asserts n, b, c against `results/e1_counterfactual/analysis.json`; writes `results/e1cf_transitions.json` and `JSC_v25/tables/tab_s1_body.tex`.
+- `gen_tables.py`: the R3 cell of the policy table is verdict changed / pairs with ORIG and R3 both answered (%).
+- Manuscript `JSC_v25/JSC_Manuscript_Firdaus_v29.tex`, supplement `JSC_v25/JSC_Supplement_v29.tex` (both built by `JSC_v25/build.sh`); response `revisi_v25/RESPON_AUDIT_13_v29.md`.
+
+## v30 (19 Nov 2026, audit #14)
+
+Text-only: §3.7 opening wording, Supplementary Table S1 label and reconciliation sentence, cover letter mentions the supplement. `JSC_v25/build.sh` builds v30, the supplement, and (with `pdfunite`) a merged review copy. Response: `revisi_v25/RESPON_AUDIT_14_v30.md`.
+
 ## Related, not in this folder
 
 - `results/e1_counterfactual/posthoc_abstention_e1cf.py` and `posthoc_ambiguous_tokens.py`: the two post hoc analyses (valid-verdict-only; ambiguous identity tokens), see `results/e1_counterfactual/PROTOCOL.md` §8.

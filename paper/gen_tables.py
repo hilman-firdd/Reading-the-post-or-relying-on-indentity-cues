@@ -176,7 +176,10 @@ for s in SYS:
     r2o = pct(r["R2_pass_label_changes_ambiguous"], 0)
     r2c = pct(ovs[(s, "offensive_ambiguous")]["C_validated_corrected_oracle"], 0)
     r2w = pct(ovs[(s, "offensive (stratum-weighted)")]["D_population_estimate_corrected"], 0)
-    r3 = pct(r["R3_verdict_changed"], 0)
+    # v29: R3 as verdict changed / pairs with ORIG and R3 both answered (valid verdict or abstention), with the % in brackets
+    r3d = sa["behaviour_E_R"][s]["R3"]; r3k, r3n = r3d["verdict_changed_vs_orig"][1], r3d["n_pairs_answered"]
+    assert abs(r3k / r3n - float(r["R3_verdict_changed"])) < 6e-5
+    r3 = f"{r3k}/{r3n} ({100 * r3k / r3n:.0f})"
     lo, hi = parse_ci(r["I1_minus_I2_ci95"])
     dd = f"{sgn(r['I1_minus_I2'])} {ci(lo, hi, signed=True)}"
     hp = pv(r["I1_vs_I2_p_holm"])

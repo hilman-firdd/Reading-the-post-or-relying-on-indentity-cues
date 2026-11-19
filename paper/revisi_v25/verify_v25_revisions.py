@@ -121,6 +121,25 @@ check("PROTOCOL.md first committed in c60d6c4 on 2026-11-16", first[:2] == ["c60
 check("PROTOCOL.md self-dates 2026-11-10", "fixed before any model call** (2026-11-10)" in open("results/e1_counterfactual/PROTOCOL.md").read())
 check("run.log first LLM call 2026-11-10 05:18:30", "[2026-11-10 05:18:30] run qwen2.5:7b direct" in open("results/e1_counterfactual/run.log").read())
 
+# ---------- A8 (v29, audit #12): Holm maxima, R3 denominators, transition matrix ----------
+hmax = max(cf["systems"][x]["H1_PLC_minus_NEU"]["holm_p_F_CF"] for x in LLM4)
+smax = max(cf["systems"][x]["S1_PLCDEL_minus_DEL"]["holm_p_F_CF2"] for x in LLM4)
+check("H1 Holm max = 0.0122, S1 Holm max = 0.0112", (round(hmax, 4), round(smax, 4)) == (0.0122, 0.0112), f"{hmax}, {smax}")
+r3 = {x: (sa["behaviour_E_R"][x]["R3"]["verdict_changed_vs_orig"][1], sa["behaviour_E_R"][x]["R3"]["n_pairs_answered"]) for x in sa["behaviour_E_R"]}
+check("R3 answered pairs 598-600 (Qwen/Gemma), 166/45 (Llama)",
+      sorted(r3[x][1] for x in LLM4) == [598, 599, 600, 600] and (r3["llama3.1:8b|direct"][1], r3["llama3.1:8b|evidence"][1]) == (166, 45), str(r3))
+check("R3 change rates round to 11/11/5/5/13/13 %",
+      [round(100 * r3[x][0] / r3[x][1]) for x in ("qwen2.5:7b|direct", "qwen2.5:7b|evidence", "gemma2:9b|direct", "gemma2:9b|evidence", "llama3.1:8b|direct", "llama3.1:8b|evidence")] == [11, 11, 5, 5, 13, 13])
+tp = os.path.join(repo, "results", "e1cf_transitions.json")
+if os.path.exists(tp):
+    tr = json.load(open(tp))["by_system"]
+    check("transitions: Gemma 2 evidence b/c = 18/2, 17 lost to insufficient",
+          (tr["gemma2:9b|evidence"]["b_flag_lost"], tr["gemma2:9b|evidence"]["c_flag_gained"], tr["gemma2:9b|evidence"]["flag_lost_to_insufficient"]) == (18, 2, 17))
+    check("transitions: b/c/n equal Table 6 for all six LLM conditions",
+          all((tr[x]["n_pairs_answered"], tr[x]["b_flag_lost"], tr[x]["c_flag_gained"]) == (cf["systems"][x]["H1_PLC_minus_NEU"]["n_pairs"], cf["systems"][x]["H1_PLC_minus_NEU"]["b_only_x"], cf["systems"][x]["H1_PLC_minus_NEU"]["c_only_y"]) for x in tr))
+else:
+    check("results/e1cf_transitions.json present (run paper/supp_e1cf_transitions.py)", False)
+
 # ---------- Part B: manuscript strings ----------
 if body is not None:
     flat = re.sub(r"\s+", " ", body)
@@ -131,7 +150,15 @@ if body is not None:
             "masking them in the input", "502 posts with a paraphrase", "kept / $n$", "interaction", "descriptively",
             # v27 (audit #11)
             "F_{\\mathrm{RET}}", "machine local time", "edit-count-matched", "identity-related edits",
-            "do not establish that the protocol text existed before the first call", "different estimand"]
+            "do not establish that the protocol text existed before the first call", "different estimand",
+            # v28 (audit #12)
+            "In five of six LLM conditions", "descriptive asymmetry", "identity-edit versus placebo-edit contrast", "concerns the tested edits",
+            # v29 (audit #12)
+            "answered posts keeping an identity term", "two-sided exact McNemar", "0.0122", "0.0112", "Supplementary Table S1",
+            "one-way counts", "eligible posts",
+            # v30 (audit #14)
+            "To compare flag rates after residual identity-term replacement and after an edit-count-matched placebo",
+            "Supplementary Table S1, supplementary file", "results/e1cf\\_transitions.json"]
     for m in must:
         check(f"body contains '{m}'", m in flat)
     retired = ["stay violating far more often", "stratum-weighted estimates: Table", "so the decision rule still holds",
@@ -144,7 +171,12 @@ if body is not None:
                "other offensive", "remains with an edit-count placebo", "judges from the explanation text", "Evidence Grounding", "141 other",
                # v27 (audit #11)
                "identity-cue sensitivity", "Their interaction", "separating the identity term", "the next section tests it",
-               "precedence over the model calls", "is dated 10 November 2026, before", "Term versus changed meaning"]
+               "precedence over the model calls", "is dated 10 November 2026, before", "Term versus changed meaning",
+               # v28 (audit #12)
+               "The asymmetry is the main finding", "supports a dependence of the verdict on the identity terms",
+               "the verdict depends on the tested replacement", "The result shows dependence on the identity term",
+               # v29 (audit #12)
+               "Holm $p\\le0.012$", "Over all 600 posts", "whether a residual identity term itself contributes"]
     for r in retired:
         check(f"body no longer contains '{r}'", r not in flat)
     check("author placeholders resolved (ethics, acknowledgment, commit hash)", "to be stated by the authors" not in flat and "PENULIS" not in flat and "HASH RILIS" not in flat)

@@ -277,3 +277,27 @@ def test_oracle_table_kappa_ci_comes_from_the_audit_bootstrap(v5_tables):
         cell = f"{ag[mr]['cohen_kappa']:.2f} [{lo:.2f}, {hi:.2f}]"
         line = next(l for l in text.splitlines() if l.startswith(label))
         assert line.split("&")[-1].strip().rstrip("\\").strip() == cell, (mr, cell)
+
+
+# ------------------------------------------------------------------ v29 (audit #12): R3 denominators and E1-CF transitions
+def test_policy_table_r3_cell_shows_changed_over_answered_pairs(v5_tables):
+    sa = json.load(open(AUD / "statistical_analysis.json"))["behaviour_E_R"]
+    text = open(v5_tables / "tab_pol_body.tex").read()
+    for s, lab in (("qwen2.5:7b|direct", "Qwen2.5 / direct"), ("llama3.1:8b|evidence", "Llama 3.1 / evidence")):
+        r3 = sa[s]["R3"]
+        line = next(l for l in text.splitlines() if l.startswith(lab))
+        assert f"{r3['verdict_changed_vs_orig'][1]}/{r3['n_pairs_answered']} (" in line, s
+
+
+def test_e1cf_transition_matrix_reproduces_table6_counts(tmp_path):
+    env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
+    out = subprocess.run([sys.executable, str(ROOT / "paper" / "supp_e1cf_transitions.py"), str(ROOT), str(tmp_path)],
+                         check=True, env=env, capture_output=True, text=True)   # the script asserts n, b, c against analysis.json
+    tr = json.load(open(ROOT / "results" / "e1cf_transitions.json"))["by_system"]
+    g = tr["gemma2:9b|evidence"]
+    assert (g["b_flag_lost"], g["c_flag_gained"], g["flag_lost_to_insufficient"]) == (18, 2, 17)
+    for s, v in tr.items():
+        assert sum(v["matrix_PLC_to_NEU"].values()) == 88, s
+    # v30b (audit #15): net decomposition and the valid-verdicts-only subset sizes
+    assert (g["net_via_insufficient"], g["net_via_not_violating"]) == (15, 1)
+    assert [tr[k]["valid_only_pairs"] for k in ("qwen2.5:7b|direct", "qwen2.5:7b|evidence", "gemma2:9b|direct", "gemma2:9b|evidence")] == [84, 73, 64, 51]
