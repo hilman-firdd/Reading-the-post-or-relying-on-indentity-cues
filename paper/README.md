@@ -64,6 +64,10 @@ Text-only revision of the manuscript (`JSC_v25/JSC_Manuscript_Firdaus_v28.tex`, 
 
 Text-only: §3.7 opening wording, Supplementary Table S1 label and reconciliation sentence, cover letter mentions the supplement. `JSC_v25/build.sh` builds v30, the supplement, and (with `pdfunite`) a merged review copy. Response: `revisi_v25/RESPON_AUDIT_14_v30.md`.
 
+## v31 (19 Nov 2026, audit #16)
+
+Text-only revision (`JSC_v25/JSC_Manuscript_Firdaus_v31.tex`): REPLAY−PLC values reported, 84-post analysis labelled as a sensitivity analysis, comparison claims limited to the works examined, E1-CF effect size in the abstract. `JSC_v25/build.sh` builds v31; the upload set (manuscript, supplement, cover letter, Figure 1 as TIFF/EPS/JPEG) is in `JSC_v25/submission_v31/`. Response: `revisi_v25/RESPON_AUDIT_16_v31.md`.
+
 ## Related, not in this folder
 
 - `results/e1_counterfactual/posthoc_abstention_e1cf.py` and `posthoc_ambiguous_tokens.py`: the two post hoc analyses (valid-verdict-only; ambiguous identity tokens), see `results/e1_counterfactual/PROTOCOL.md` §8.

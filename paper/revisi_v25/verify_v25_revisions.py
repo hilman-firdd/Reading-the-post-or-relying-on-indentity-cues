@@ -140,6 +140,15 @@ if os.path.exists(tp):
 else:
     check("results/e1cf_transitions.json present (run paper/supp_e1cf_transitions.py)", False)
 
+# ---------- A9 (v31, audit #16): REPLAY-PLC values reported in Section 4.4 ----------
+rp = [round(100 * (cf["systems"][x]["S2_REPLAY_minus_PLC"]["b_only_x"] - cf["systems"][x]["S2_REPLAY_minus_PLC"]["c_only_y"]) / cf["systems"][x]["S2_REPLAY_minus_PLC"]["n_pairs"], 1) for x in LLM4]
+check("REPLAY-PLC = +3.4, +8.0, 0.0, -4.5 (Qwen d/e, Gemma d/e)", rp == [3.4, 8.0, 0.0, -4.5], str(rp))
+check("REPLAY-PLC uncorrected p >= 0.14", min(cf["systems"][x]["S2_REPLAY_minus_PLC"]["mcnemar_exact_p"] for x in LLM4) >= 0.14)
+rn = [round(100 * (cf["systems"][x]["S2_REPLAY_minus_NEU"]["b_only_x"] - cf["systems"][x]["S2_REPLAY_minus_NEU"]["c_only_y"]) / 88, 1) for x in LLM4]
+check("REPLAY-NEU range 13.6-26.1", (min(rn), max(rn)) == (13.6, 26.1), str(rn))
+rc = [round(100 * (cf["systems"][x]["S2_REPLAY_minus_PLC"]["b_only_x"] - cf["systems"][x]["S2_REPLAY_minus_PLC"]["c_only_y"]) / 88, 1) for x in ("word-LR", "char-LR")]
+check("classifier REPLAY-PLC = 13.6, 12.5", rc == [13.6, 12.5], str(rc))
+
 # ---------- Part B: manuscript strings ----------
 if body is not None:
     flat = re.sub(r"\s+", " ", body)
@@ -158,7 +167,10 @@ if body is not None:
             "one-way counts", "eligible posts",
             # v30 (audit #14)
             "To compare flag rates after residual identity-term replacement and after an edit-count-matched placebo",
-            "Supplementary Table S1, supplementary file", "results/e1cf\\_transitions.json"]
+            "Supplementary Table S1, supplementary file", "results/e1cf\\_transitions.json",
+            # v31 (audit #16)
+            "not a test of equivalence", "four posts known to still contain an attack", "closest work examined",
+            "17.0--25.0 points more than an edit-count placebo", "none of the works we examined", "NEU and PLC were not rated for policy status"]
     for m in must:
         check(f"body contains '{m}'", m in flat)
     retired = ["stay violating far more often", "stratum-weighted estimates: Table", "so the decision rule still holds",
@@ -176,7 +188,9 @@ if body is not None:
                "The asymmetry is the main finding", "supports a dependence of the verdict on the identity terms",
                "the verdict depends on the tested replacement", "The result shows dependence on the identity term",
                # v29 (audit #12)
-               "Holm $p\\le0.012$", "Over all 600 posts", "whether a residual identity term itself contributes"]
+               "Holm $p\\le0.012$", "Over all 600 posts", "whether a residual identity term itself contributes",
+               # v31 (audit #16)
+               "near zero for the LLMs", "none of these abstracts reports"]
     for r in retired:
         check(f"body no longer contains '{r}'", r not in flat)
     check("author placeholders resolved (ethics, acknowledgment, commit hash)", "to be stated by the authors" not in flat and "PENULIS" not in flat and "HASH RILIS" not in flat)
