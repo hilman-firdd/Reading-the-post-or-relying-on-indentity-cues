@@ -170,7 +170,7 @@ if body is not None:
             "Supplementary Table S1, supplementary file", "results/e1cf\\_transitions.json",
             # v31 (audit #16)
             "not a test of equivalence", "four posts known to still contain an attack", "closest work examined",
-            "17.0--25.0 points more than an edit-count placebo", "none of the works we examined", "NEU and PLC were not rated for policy status"]
+            "17.0--25.0 percentage points lower under identity-term replacement than under an edit-count placebo", "none of the works we examined", "NEU and PLC were not rated for policy status"]
     for m in must:
         check(f"body contains '{m}'", m in flat)
     retired = ["stay violating far more often", "stratum-weighted estimates: Table", "so the decision rule still holds",
